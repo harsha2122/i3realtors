@@ -7,21 +7,20 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     {{-- Dynamic SEO --}}
-    <meta name="description" content="@yield('meta_description', \App\Models\Setting::get('meta_description', ''))" />
-    <meta name="keywords" content="@yield('meta_keywords', \App\Models\Setting::get('meta_keywords', ''))" />
+    <meta name="description" content="@yield('meta_description', $site['meta_description'] ?? '')" />
+    <meta name="keywords" content="@yield('meta_keywords', $site['meta_keywords'] ?? '')" />
 
     {{-- Open Graph --}}
-    <meta property="og:title" content="@yield('title', \App\Models\Setting::get('site_name', config('app.name')))" />
-    <meta property="og:description" content="@yield('meta_description', \App\Models\Setting::get('meta_description', ''))" />
+    <meta property="og:title" content="@yield('title', $site['site_name'] ?? config('app.name'))" />
+    <meta property="og:description" content="@yield('meta_description', $site['meta_description'] ?? '')" />
     <meta property="og:type" content="website" />
 
     {{-- Page Title --}}
-    <title>@yield('title', \App\Models\Setting::get('site_name', config('app.name')))</title>
+    <title>@yield('title', $site['site_name'] ?? config('app.name'))</title>
 
     {{-- Favicon --}}
-    @php $favicon = \App\Models\Setting::get('favicon'); @endphp
-    @if($favicon)
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/' . $favicon) }}" />
+    @if(!empty($site['favicon']))
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/' . $site['favicon']) }}" />
     @else
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}" />
     @endif
@@ -36,38 +35,36 @@
     <link href="{{ asset('css/magnific-popup.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/mousecursor.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" media="screen" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
           crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     {{-- Dynamic Primary Color CSS Variable --}}
     <style>
         :root {
-            --primary-color: {{ \App\Models\Setting::get('primary_color', '#b8962b') }};
+            --primary-color: {{ $site['primary_color'] ?? '#b8962b' }};
         }
     </style>
 
     {{-- Google Analytics --}}
-    @php $ga = \App\Models\Setting::get('google_analytics'); @endphp
-    @if($ga)
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ $ga }}"></script>
+    @if(!empty($site['google_analytics']))
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ $site['google_analytics'] }}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', '{{ $ga }}');
+        gtag('config', '{{ $site['google_analytics'] }}');
     </script>
     @endif
 
     {{-- Meta Pixel --}}
-    @php $pixel = \App\Models\Setting::get('meta_pixel'); @endphp
-    @if($pixel)
+    @if(!empty($site['meta_pixel']))
     <script>
         !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
         n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
         n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
         t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
         document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '{{ $pixel }}');
+        fbq('init', '{{ $site['meta_pixel'] }}');
         fbq('track', 'PageView');
     </script>
     @endif

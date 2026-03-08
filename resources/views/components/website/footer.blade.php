@@ -1,24 +1,24 @@
 @php
-    $logoWhite   = \App\Models\Setting::get('logo_white');
-    $siteName    = \App\Models\Setting::get('site_name', config('app.name'));
-    $footerAbout = \App\Models\Setting::get('footer_about', '');
-    $footerCta   = \App\Models\Setting::get('footer_cta_title', 'Begin your construction journey with trusted experts');
-    $copyright   = \App\Models\Setting::get('footer_copyright', 'Copyright &copy; ' . date('Y') . ' All Rights Reserved.');
+    $logoWhite   = $site['logo_white'] ?? null;
+    $siteName    = $site['site_name'] ?? config('app.name');
+    $footerAbout = $site['footer_about'] ?? '';
+    $footerCta   = $site['footer_cta_title'] ?? 'Begin your construction journey with trusted experts';
+    $copyright   = $site['footer_copyright'] ?? ('Copyright &copy; ' . date('Y') . ' All Rights Reserved.');
 
     // Contact
-    $phone1  = \App\Models\Setting::get('phone_primary', '');
-    $phone2  = \App\Models\Setting::get('phone_secondary', '');
-    $email   = \App\Models\Setting::get('email_primary', '');
-    $address = \App\Models\Setting::get('address', '');
+    $phone1  = $site['phone_primary'] ?? '';
+    $phone2  = $site['phone_secondary'] ?? '';
+    $email   = $site['email_primary'] ?? '';
+    $address = $site['address'] ?? '';
 
     // Social
     $socials = [
-        'facebook'  => ['url' => \App\Models\Setting::get('social_facebook'),  'icon' => 'fa-brands fa-facebook-f'],
-        'twitter'   => ['url' => \App\Models\Setting::get('social_twitter'),   'icon' => 'fa-brands fa-x-twitter'],
-        'instagram' => ['url' => \App\Models\Setting::get('social_instagram'), 'icon' => 'fa-brands fa-instagram'],
-        'linkedin'  => ['url' => \App\Models\Setting::get('social_linkedin'),  'icon' => 'fa-brands fa-linkedin-in'],
-        'youtube'   => ['url' => \App\Models\Setting::get('social_youtube'),   'icon' => 'fa-brands fa-youtube'],
-        'pinterest' => ['url' => \App\Models\Setting::get('social_pinterest'), 'icon' => 'fa-brands fa-pinterest-p'],
+        'facebook'  => ['url' => $site['social_facebook']  ?? null, 'icon' => 'fa-brands fa-facebook-f'],
+        'twitter'   => ['url' => $site['social_twitter']   ?? null, 'icon' => 'fa-brands fa-x-twitter'],
+        'instagram' => ['url' => $site['social_instagram'] ?? null, 'icon' => 'fa-brands fa-instagram'],
+        'linkedin'  => ['url' => $site['social_linkedin']  ?? null, 'icon' => 'fa-brands fa-linkedin-in'],
+        'youtube'   => ['url' => $site['social_youtube']   ?? null, 'icon' => 'fa-brands fa-youtube'],
+        'pinterest' => ['url' => $site['social_pinterest'] ?? null, 'icon' => 'fa-brands fa-pinterest-p'],
     ];
 @endphp
 

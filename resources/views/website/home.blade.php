@@ -1,7 +1,7 @@
 @extends('layouts.website')
 
-@section('title', \App\Models\Setting::get('meta_title', 'i3Realtors - Smart Real Estate & Reliable Construction'))
-@section('meta_description', \App\Models\Setting::get('meta_description', ''))
+@section('title', $site['meta_title'] ?? 'i3Realtors - Smart Real Estate & Reliable Construction')
+@section('meta_description', $site['meta_description'] ?? '')
 
 @section('content')
 
@@ -18,7 +18,7 @@
           <div class="col-xl-6">
             <div class="hero-content-box">
               <div class="section-title">
-                <span class="section-sub-title wow fadeInUp">{{ \App\Models\Setting::get('site_tagline', 'Building Trust. Creating Value.') }}</span>
+                <span class="section-sub-title wow fadeInUp">{{ $site['site_tagline'] ?? 'Building Trust. Creating Value.' }}</span>
                 <h1 class="text-anime-style-2" data-cursor="-opaque">
                   Smart real estate <span>reliable construction</span>
                 </h1>
@@ -318,7 +318,7 @@
                 <div class="who-we-btn">
                   <a href="{{ route('contact') }}" class="btn-default">Contact Us</a>
                 </div>
-                @php $phoneMain = \App\Models\Setting::get('phone_primary', '+91 (123) 456-789'); @endphp
+                @php $phoneMain = $site['phone_primary'] ?? '+91 (123) 456-789'; @endphp
                 <div class="about-us-contact-box">
                   <div class="icon-box">
                     <img src="{{ asset('images/icon-headphone-primary.svg') }}" alt="" />
@@ -509,7 +509,7 @@
                   <img src="{{ asset('images/icon-phone-primary.svg') }}" alt="" />
                 </div>
               </div>
-              @php $phone = \App\Models\Setting::get('phone_primary', '+123456789'); @endphp
+              @php $phone = $site['phone_primary'] ?? '+123456789'; @endphp
               <p>Let's make something great work together. <a href="tel:{{ $phone }}">Get Free Quote</a></p>
             </div>
           </div>

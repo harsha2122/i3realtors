@@ -47,5 +47,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/settings', [Admin\SettingController::class, 'index'])->name('settings.index');
         Route::post('/settings', [Admin\SettingController::class, 'update'])->name('settings.update');
         Route::get('/settings/{group}', [Admin\SettingController::class, 'group'])->name('settings.group');
+
+        // Media management (delete logo, favicon, etc.)
+        Route::delete('/media', [Admin\MediaController::class, 'destroy'])->name('media.destroy');
     });
 });

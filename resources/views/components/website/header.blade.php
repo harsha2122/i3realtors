@@ -1,7 +1,7 @@
 @php
-    $logo        = \App\Models\Setting::get('logo');
-    $siteName    = \App\Models\Setting::get('site_name', config('app.name'));
-    $phoneMain   = \App\Models\Setting::get('phone_primary', '');
+    $logo      = $site['logo'] ?? null;
+    $siteName  = $site['site_name'] ?? config('app.name');
+    $phoneMain = $site['phone_primary'] ?? '';
 @endphp
 
 <!-- Header Start -->
