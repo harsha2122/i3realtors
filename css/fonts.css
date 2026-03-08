@@ -3,7 +3,7 @@
   src: url("../fonts/GeneralSans-Regular.eot");
   src: url("../fonts/GeneralSans-Regular.eot?#iefix")
       format("embedded-opentype"),
-    url("../fonts/../fonts/GeneralSans-Regular.woff2") format("woff2"),
+    url("../fonts/GeneralSans-Regular.woff2") format("woff2"),
     url("../fonts/GeneralSans-Regular.woff") format("woff"),
     url("../fonts/GeneralSans-Regular.ttf") format("truetype"),
     url("../fonts/GeneralSans-Regular.svg#GeneralSans-Regular") format("svg");
