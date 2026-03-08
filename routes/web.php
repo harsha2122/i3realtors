@@ -43,6 +43,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // User Management
         Route::resource('users', Admin\UserController::class);
 
+        // Properties
+        Route::delete('/properties/images/{imageId}', [Admin\PropertyController::class, 'destroyImage'])->name('properties.image.destroy');
+        Route::resource('properties', Admin\PropertyController::class);
+
         // Settings
         Route::get('/settings', [Admin\SettingController::class, 'index'])->name('settings.index');
         Route::post('/settings', [Admin\SettingController::class, 'update'])->name('settings.update');

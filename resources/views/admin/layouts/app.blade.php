@@ -126,7 +126,7 @@
             </a>
 
             <div class="nav-section-label">Content</div>
-            <a href="#" class="nav-link">
+            <a href="{{ route('admin.properties.index') }}" class="nav-link {{ request()->routeIs('admin.properties.*') ? 'active' : '' }}">
                 <i class="fas fa-building"></i> Properties
             </a>
             <a href="#" class="nav-link">
