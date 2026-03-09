@@ -148,6 +148,9 @@
             <a href="{{ route('admin.users.index') }}" class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
                 <i class="fas fa-user-shield"></i> Users
             </a>
+            <a href="{{ route('admin.navigation.index') }}" class="nav-link {{ request()->routeIs('admin.navigation.*') ? 'active' : '' }}">
+                <i class="fas fa-bars"></i> Navigation
+            </a>
             <a href="{{ route('admin.settings.index') }}" class="nav-link {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
                 <i class="fas fa-sliders-h"></i> Settings
             </a>

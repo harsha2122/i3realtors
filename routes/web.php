@@ -108,6 +108,17 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Testimonial Management
         Route::resource('testimonials', Admin\TestimonialController::class);
 
+        // Navigation Management
+        Route::resource('navigation', Admin\NavigationController::class);
+        Route::post('/navigation/{menu}/items', [Admin\NavigationController::class, 'addItem'])->name('navigation.addItem');
+        Route::put('/navigation-items/{item}', [Admin\NavigationController::class, 'updateItem'])->name('navigation.updateItem');
+        Route::delete('/navigation-items/{item}', [Admin\NavigationController::class, 'deleteItem'])->name('navigation.deleteItem');
+        Route::post('/navigation/{menu}/reorder', [Admin\NavigationController::class, 'reorder'])->name('navigation.reorder');
+        Route::get('/navigation/{menu}/preview', [Admin\NavigationController::class, 'preview'])->name('navigation.preview');
+        Route::post('/navigation/{menu}/duplicate', [Admin\NavigationController::class, 'duplicate'])->name('navigation.duplicate');
+        Route::get('/navigation/{menu}/export', [Admin\NavigationController::class, 'export'])->name('navigation.export');
+        Route::post('/navigation/import', [Admin\NavigationController::class, 'import'])->name('navigation.import');
+
         // Analytics
         Route::get('/analytics/dashboard', [Admin\AnalyticsController::class, 'dashboard'])->name('analytics.dashboard');
         Route::get('/analytics/traffic', [Admin\AnalyticsController::class, 'traffic'])->name('analytics.traffic');

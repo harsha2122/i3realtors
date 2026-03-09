@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Setting;
+use App\Services\NavigationService;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,6 +25,11 @@ class ViewServiceProvider extends ServiceProvider
             }
 
             $view->with('site', $site);
+        });
+
+        // Share NavigationService with all views
+        View::composer('*', function ($view) {
+            $view->with('navigationService', app(NavigationService::class));
         });
     }
 }
