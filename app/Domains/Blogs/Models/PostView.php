@@ -12,6 +12,7 @@ class PostView extends Model
         'ip_address',
         'user_agent',
         'referer',
+        'created_at',
     ];
 
     public $timestamps = false;

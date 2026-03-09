@@ -13,6 +13,7 @@ class EventLog extends Model
         'user_id',
         'changes',
         'ip_address',
+        'created_at',
     ];
 
     public $timestamps = false;

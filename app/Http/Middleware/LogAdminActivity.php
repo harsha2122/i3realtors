@@ -17,11 +17,15 @@ class LogAdminActivity
         $response = $next($request);
 
         if ($request->isMethod('post') || $request->isMethod('put') || $request->isMethod('delete')) {
-            $this->analyticsService->logEvent(
-                event_type: $request->getMethod(),
-                entity_type: $this->getEntityType($request),
-                changes: $request->all()
-            );
+            try {
+                $this->analyticsService->logEvent(
+                    event_type: $request->getMethod(),
+                    entity_type: $this->getEntityType($request),
+                    changes: $request->all()
+                );
+            } catch (\Throwable $e) {
+                \Illuminate\Support\Facades\Log::warning('Admin activity logging failed: ' . $e->getMessage());
+            }
         }
 
         return $response;
