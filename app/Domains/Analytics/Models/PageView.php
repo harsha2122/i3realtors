@@ -14,6 +14,7 @@ class PageView extends Model
         'device_type',
         'country',
         'city',
+        'created_at',
     ];
 
     public $timestamps = false;

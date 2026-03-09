@@ -17,7 +17,11 @@ class TrackPageView
         $response = $next($request);
 
         if ($request->isMethod('get') && $response->status() === 200) {
-            $this->analyticsService->trackPageView($request->path());
+            try {
+                $this->analyticsService->trackPageView($request->path());
+            } catch (\Throwable $e) {
+                \Illuminate\Support\Facades\Log::warning('Page view tracking failed: ' . $e->getMessage());
+            }
         }
 
         return $response;
