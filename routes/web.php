@@ -98,5 +98,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/forms/{form}/reorder', [Admin\FormController::class, 'reorder'])->name('forms.reorder');
         Route::get('/forms/{form}/submissions', [Admin\FormController::class, 'submissions'])->name('forms.submissions');
         Route::get('/forms/{form}/submissions/export', [Admin\FormController::class, 'exportSubmissions'])->name('forms.exportSubmissions');
+
+        // Service Management
+        Route::resource('services', Admin\ServiceController::class);
+
+        // Team Management
+        Route::resource('team', Admin\TeamMemberController::class);
+
+        // Testimonial Management
+        Route::resource('testimonials', Admin\TestimonialController::class);
     });
 });

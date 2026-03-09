@@ -52,4 +52,20 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
     Route::post('/forms/{form}/submit', [\App\Http\Controllers\Api\V1\LeadController::class, 'submitForm'])->name('forms.submit');
     Route::post('/newsletter/subscribe', [\App\Http\Controllers\Api\V1\LeadController::class, 'newsletterSubscribe'])->name('newsletter.subscribe');
 
+    // Service Routes
+    Route::get('/services', [\App\Http\Controllers\Api\V1\ServiceController::class, 'index'])->name('services.index');
+    Route::get('/services/{service}', [\App\Http\Controllers\Api\V1\ServiceController::class, 'show'])->name('services.show');
+    Route::get('/services/category/{category}', [\App\Http\Controllers\Api\V1\ServiceController::class, 'byCategory'])->name('services.byCategory');
+    Route::get('/services/slug/{slug}', [\App\Http\Controllers\Api\V1\ServiceController::class, 'bySlug'])->name('services.bySlug');
+
+    // Team Routes
+    Route::get('/team-members', [\App\Http\Controllers\Api\V1\TeamMemberController::class, 'index'])->name('team.index');
+    Route::get('/team-members/{member}', [\App\Http\Controllers\Api\V1\TeamMemberController::class, 'show'])->name('team.show');
+    Route::get('/team-members/department/{department}', [\App\Http\Controllers\Api\V1\TeamMemberController::class, 'byDepartment'])->name('team.byDepartment');
+
+    // Testimonial Routes
+    Route::get('/testimonials', [\App\Http\Controllers\Api\V1\TestimonialController::class, 'index'])->name('testimonials.index');
+    Route::get('/testimonials/featured', [\App\Http\Controllers\Api\V1\TestimonialController::class, 'featured'])->name('testimonials.featured');
+    Route::get('/testimonials/rating/{rating}', [\App\Http\Controllers\Api\V1\TestimonialController::class, 'byRating'])->name('testimonials.byRating');
+
 });
