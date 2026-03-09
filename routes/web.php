@@ -54,5 +54,23 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // Media management (delete logo, favicon, etc.)
         Route::delete('/media', [Admin\MediaController::class, 'destroy'])->name('media.destroy');
+
+        // Blog Management
+        Route::resource('blog', Admin\BlogController::class);
+        Route::post('/blog/{post}/publish', [Admin\BlogController::class, 'publish'])->name('blog.publish');
+        Route::post('/blog/{post}/archive', [Admin\BlogController::class, 'archive'])->name('blog.archive');
+        Route::post('/blog/bulk-action', [Admin\BlogController::class, 'bulkAction'])->name('blog.bulkAction');
+
+        // Category Management
+        Route::resource('categories', Admin\CategoryController::class);
+
+        // Comment Moderation
+        Route::get('/comments', [Admin\CommentController::class, 'index'])->name('comments.index');
+        Route::get('/comments/spam', [Admin\CommentController::class, 'spam'])->name('comments.spam');
+        Route::post('/comments/{comment}/approve', [Admin\CommentController::class, 'approve'])->name('comments.approve');
+        Route::post('/comments/{comment}/reject', [Admin\CommentController::class, 'reject'])->name('comments.reject');
+        Route::post('/comments/{comment}/spam', [Admin\CommentController::class, 'markSpam'])->name('comments.spam');
+        Route::delete('/comments/{comment}', [Admin\CommentController::class, 'destroy'])->name('comments.destroy');
+        Route::post('/comments/bulk-action', [Admin\CommentController::class, 'bulkAction'])->name('comments.bulkAction');
     });
 });

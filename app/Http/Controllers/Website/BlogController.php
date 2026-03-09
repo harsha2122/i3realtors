@@ -1,8 +1,35 @@
 <?php
+
 namespace App\Http\Controllers\Website;
+
+use App\Domains\Blogs\Models\Post;
+use App\Domains\Blogs\Repositories\PostRepository;
+use App\Domains\Blogs\Services\PostService;
+use App\Domains\Blogs\Models\Category;
 use App\Http\Controllers\Controller;
+
 class BlogController extends Controller
 {
-    public function index() { return view('website.blog'); }
-    public function show(string $slug) { return view('website.blog-details', compact('slug')); }
+    public function __construct(
+        private PostRepository $repository,
+        private PostService $service,
+    ) {}
+
+    public function index()
+    {
+        $posts = $this->repository->published(10);
+        $categories = Category::where('is_active', true)->get();
+        $recentPosts = Post::published()->latest('published_at')->limit(5)->get();
+
+        return view('website.blog', compact('posts', 'categories', 'recentPosts'));
+    }
+
+    public function show(string $slug)
+    {
+        $post = $this->repository->bySlug($slug);
+        $this->service->trackView($post);
+        $relatedPosts = $this->service->getRelatedPosts($post);
+
+        return view('website.blog-details', compact('post', 'relatedPosts'));
+    }
 }
