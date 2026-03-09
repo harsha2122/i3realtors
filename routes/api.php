@@ -46,4 +46,10 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
     Route::get('/posts/{post}/comments', [\App\Http\Controllers\Api\V1\CommentController::class, 'index'])->name('comments.index');
     Route::post('/posts/{post}/comments', [\App\Http\Controllers\Api\V1\CommentController::class, 'store'])->name('comments.store');
 
+    // Lead Routes
+    Route::post('/leads/contact-form', [\App\Http\Controllers\Api\V1\LeadController::class, 'submitContactForm'])->name('leads.contact');
+    Route::post('/leads/property-inquiry', [\App\Http\Controllers\Api\V1\LeadController::class, 'submitPropertyInquiry'])->name('leads.property_inquiry');
+    Route::post('/forms/{form}/submit', [\App\Http\Controllers\Api\V1\LeadController::class, 'submitForm'])->name('forms.submit');
+    Route::post('/newsletter/subscribe', [\App\Http\Controllers\Api\V1\LeadController::class, 'newsletterSubscribe'])->name('newsletter.subscribe');
+
 });

@@ -72,5 +72,31 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/comments/{comment}/spam', [Admin\CommentController::class, 'markSpam'])->name('comments.spam');
         Route::delete('/comments/{comment}', [Admin\CommentController::class, 'destroy'])->name('comments.destroy');
         Route::post('/comments/bulk-action', [Admin\CommentController::class, 'bulkAction'])->name('comments.bulkAction');
+
+        // Lead Management
+        Route::get('/leads', [Admin\LeadController::class, 'index'])->name('leads.index');
+        Route::post('/leads', [Admin\LeadController::class, 'store'])->name('leads.store');
+        Route::get('/leads/{lead}', [Admin\LeadController::class, 'show'])->name('leads.show');
+        Route::put('/leads/{lead}', [Admin\LeadController::class, 'update'])->name('leads.update');
+        Route::delete('/leads/{lead}', [Admin\LeadController::class, 'destroy'])->name('leads.destroy');
+        Route::post('/leads/{lead}/note', [Admin\LeadController::class, 'addNote'])->name('leads.note');
+        Route::post('/leads/{lead}/status', [Admin\LeadController::class, 'updateStatus'])->name('leads.status');
+        Route::post('/leads/{lead}/assign', [Admin\LeadController::class, 'assign'])->name('leads.assign');
+        Route::post('/leads/bulk-action', [Admin\LeadController::class, 'bulkAction'])->name('leads.bulkAction');
+        Route::get('/leads/export', [Admin\LeadController::class, 'export'])->name('leads.export');
+
+        // Form Builder
+        Route::get('/forms', [Admin\FormController::class, 'index'])->name('forms.index');
+        Route::get('/forms/create', [Admin\FormController::class, 'create'])->name('forms.create');
+        Route::post('/forms', [Admin\FormController::class, 'store'])->name('forms.store');
+        Route::get('/forms/{form}/edit', [Admin\FormController::class, 'edit'])->name('forms.edit');
+        Route::put('/forms/{form}', [Admin\FormController::class, 'update'])->name('forms.update');
+        Route::delete('/forms/{form}', [Admin\FormController::class, 'destroy'])->name('forms.destroy');
+        Route::post('/forms/{form}/fields', [Admin\FormController::class, 'addField'])->name('forms.addField');
+        Route::put('/form-fields/{field}', [Admin\FormController::class, 'updateField'])->name('forms.updateField');
+        Route::delete('/form-fields/{field}', [Admin\FormController::class, 'deleteField'])->name('forms.deleteField');
+        Route::post('/forms/{form}/reorder', [Admin\FormController::class, 'reorder'])->name('forms.reorder');
+        Route::get('/forms/{form}/submissions', [Admin\FormController::class, 'submissions'])->name('forms.submissions');
+        Route::get('/forms/{form}/submissions/export', [Admin\FormController::class, 'exportSubmissions'])->name('forms.exportSubmissions');
     });
 });
