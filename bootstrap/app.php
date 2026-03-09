@@ -15,6 +15,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->append([
             \App\Http\Middleware\SecurityHeaders::class,
             \App\Http\Middleware\TrackLastLogin::class,
+            \App\Http\Middleware\TrackPageView::class,
+        ]);
+
+        $middleware->appendToGroup('admin', [
+            \App\Http\Middleware\LogAdminActivity::class,
         ]);
 
         $middleware->alias([

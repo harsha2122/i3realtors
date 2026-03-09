@@ -107,5 +107,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // Testimonial Management
         Route::resource('testimonials', Admin\TestimonialController::class);
+
+        // Analytics
+        Route::get('/analytics/dashboard', [Admin\AnalyticsController::class, 'dashboard'])->name('analytics.dashboard');
+        Route::get('/analytics/traffic', [Admin\AnalyticsController::class, 'traffic'])->name('analytics.traffic');
+        Route::get('/analytics/conversions', [Admin\AnalyticsController::class, 'conversions'])->name('analytics.conversions');
+        Route::get('/analytics/export', [Admin\AnalyticsController::class, 'export'])->name('analytics.export');
     });
 });

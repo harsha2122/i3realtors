@@ -68,4 +68,10 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
     Route::get('/testimonials/featured', [\App\Http\Controllers\Api\V1\TestimonialController::class, 'featured'])->name('testimonials.featured');
     Route::get('/testimonials/rating/{rating}', [\App\Http\Controllers\Api\V1\TestimonialController::class, 'byRating'])->name('testimonials.byRating');
 
+    // Analytics Routes
+    Route::get('/analytics/dashboard', [\App\Http\Controllers\Api\V1\AnalyticsController::class, 'dashboard'])->name('analytics.dashboard');
+    Route::get('/analytics/traffic', [\App\Http\Controllers\Api\V1\AnalyticsController::class, 'traffic'])->name('analytics.traffic');
+    Route::get('/analytics/pages', [\App\Http\Controllers\Api\V1\AnalyticsController::class, 'topPages'])->name('analytics.pages');
+    Route::get('/analytics/geographic', [\App\Http\Controllers\Api\V1\AnalyticsController::class, 'geographic'])->name('analytics.geographic');
+
 });
