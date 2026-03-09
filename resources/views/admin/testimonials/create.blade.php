@@ -1,0 +1,77 @@
+@extends('admin.layouts.app')
+
+@section('title', 'Add Testimonial')
+@section('page-title', 'Add Testimonial')
+@section('breadcrumb')
+    <li class="breadcrumb-item"><a href="{{ route('admin.testimonials.index') }}">Testimonials</a></li>
+    <li class="breadcrumb-item active">Create</li>
+@endsection
+
+@section('content')
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card border-0 shadow-sm rounded-3">
+            <div class="card-header bg-white border-0 pt-4 pb-3">
+                <h6 class="fw-bold mb-0"><i class="fas fa-plus me-2" style="color:var(--primary)"></i>New Testimonial</h6>
+            </div>
+            <div class="card-body">
+                <form action="{{ route('admin.testimonials.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="author_name" class="form-label">Author Name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control @error('author_name') is-invalid @enderror" id="author_name" name="author_name" value="{{ old('author_name') }}" required>
+                            @error('author_name')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="author_title" class="form-label">Title / Position</label>
+                            <input type="text" class="form-control" id="author_title" name="author_title" value="{{ old('author_title') }}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="company" class="form-label">Company</label>
+                        <input type="text" class="form-control" id="company" name="company" value="{{ old('company') }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Testimonial Content <span class="text-danger">*</span></label>
+                        <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" rows="4" required>{{ old('content') }}</textarea>
+                        @error('content')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="rating" class="form-label">Rating <span class="text-danger">*</span></label>
+                            <select class="form-select @error('rating') is-invalid @enderror" id="rating" name="rating" required>
+                                @for($i = 5; $i >= 1; $i--)
+                                    <option value="{{ $i }}" {{ old('rating') == $i ? 'selected' : '' }}>{{ $i }} Star{{ $i > 1 ? 's' : '' }}</option>
+                                @endfor
+                            </select>
+                            @error('rating')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label d-block">Featured</label>
+                            <div class="form-check mt-2">
+                                <input type="checkbox" class="form-check-input" id="is_featured" name="is_featured" value="1" {{ old('is_featured') ? 'checked' : '' }}>
+                                <label class="form-check-label" for="is_featured">Mark as featured</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="author_image" class="form-label">Author Photo</label>
+                            <input type="file" class="form-control" id="author_image" name="author_image" accept="image/*">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="company_logo" class="form-label">Company Logo</label>
+                            <input type="file" class="form-control" id="company_logo" name="company_logo" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-admin-primary"><i class="fas fa-save me-1"></i>Create</button>
+                        <a href="{{ route('admin.testimonials.index') }}" class="btn btn-outline-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

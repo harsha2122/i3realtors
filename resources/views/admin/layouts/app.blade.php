@@ -129,19 +129,36 @@
             <a href="{{ route('admin.properties.index') }}" class="nav-link {{ request()->routeIs('admin.properties.*') ? 'active' : '' }}">
                 <i class="fas fa-building"></i> Properties
             </a>
-            <a href="#" class="nav-link">
+            <a href="{{ route('admin.blog.index') }}" class="nav-link {{ request()->routeIs('admin.blog.*') ? 'active' : '' }}">
                 <i class="fas fa-blog"></i> Blog Posts
             </a>
-            <a href="#" class="nav-link">
+            <a href="{{ route('admin.categories.index') }}" class="nav-link {{ request()->routeIs('admin.categories.*') ? 'active' : '' }}">
+                <i class="fas fa-tags"></i> Categories
+            </a>
+            <a href="{{ route('admin.comments.index') }}" class="nav-link {{ request()->routeIs('admin.comments.*') ? 'active' : '' }}">
+                <i class="fas fa-comments"></i> Comments
+            </a>
+            <a href="{{ route('admin.team.index') }}" class="nav-link {{ request()->routeIs('admin.team.*') ? 'active' : '' }}">
                 <i class="fas fa-users"></i> Team Members
             </a>
-            <a href="#" class="nav-link">
+            <a href="{{ route('admin.services.index') }}" class="nav-link {{ request()->routeIs('admin.services.*') ? 'active' : '' }}">
                 <i class="fas fa-cogs"></i> Services
             </a>
+            <a href="{{ route('admin.testimonials.index') }}" class="nav-link {{ request()->routeIs('admin.testimonials.*') ? 'active' : '' }}">
+                <i class="fas fa-quote-left"></i> Testimonials
+            </a>
 
-            <div class="nav-section-label">Leads</div>
-            <a href="#" class="nav-link">
+            <div class="nav-section-label">Leads & Forms</div>
+            <a href="{{ route('admin.leads.index') }}" class="nav-link {{ request()->routeIs('admin.leads.*') ? 'active' : '' }}">
                 <i class="fas fa-envelope"></i> Leads / Inquiries
+            </a>
+            <a href="{{ route('admin.forms.index') }}" class="nav-link {{ request()->routeIs('admin.forms.*') ? 'active' : '' }}">
+                <i class="fas fa-wpforms"></i> Form Builder
+            </a>
+
+            <div class="nav-section-label">Analytics</div>
+            <a href="{{ route('admin.analytics.dashboard') }}" class="nav-link {{ request()->routeIs('admin.analytics.*') ? 'active' : '' }}">
+                <i class="fas fa-chart-bar"></i> Analytics
             </a>
 
             <div class="nav-section-label">Administration</div>
