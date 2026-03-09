@@ -22,38 +22,38 @@
                 <!-- Main Menu Start -->
                 <div class="collapse navbar-collapse main-menu">
                     <div class="nav-menu-wrapper">
+                        @php
+                            $headerMenu = $navigationService->getMenu('header-menu');
+                        @endphp
                         <ul class="navbar-nav mr-auto" id="menu">
-                            <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('home') }}">Home</a>
-                            </li>
-                            <li class="nav-item {{ request()->routeIs('about') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('about') }}">About Us</a>
-                            </li>
-                            <li class="nav-item {{ request()->routeIs('services') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('services') }}">Services</a>
-                            </li>
-                            <li class="nav-item submenu {{ request()->routeIs('projects.*') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('projects.index') }}">Projects</a>
-                                <ul>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('projects.index') }}">All Projects</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item submenu {{ request()->routeIs('blog.*') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
-                                <ul>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('blog.index') }}">All Posts</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item {{ request()->routeIs('team') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('team') }}">Our Team</a>
-                            </li>
-                            <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
-                            </li>
+                            @if($headerMenu)
+                                @foreach($headerMenu['items'] as $item)
+                                    @include('components.website.header-menu-item', ['item' => $item])
+                                @endforeach
+                            @else
+                                <!-- Fallback: hardcoded menu items if database menu not available -->
+                                <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('home') }}">Home</a>
+                                </li>
+                                <li class="nav-item {{ request()->routeIs('about') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('about') }}">About Us</a>
+                                </li>
+                                <li class="nav-item {{ request()->routeIs('services') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('services') }}">Services</a>
+                                </li>
+                                <li class="nav-item submenu {{ request()->routeIs('projects.*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('projects.index') }}">Projects</a>
+                                </li>
+                                <li class="nav-item submenu {{ request()->routeIs('blog.*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
+                                </li>
+                                <li class="nav-item {{ request()->routeIs('team') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('team') }}">Our Team</a>
+                                </li>
+                                <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
 
