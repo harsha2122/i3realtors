@@ -22,7 +22,7 @@ class ViewServiceProvider extends ServiceProvider
                     $fileKeys = ['logo', 'logo_white', 'favicon'];
                     foreach ($fileKeys as $key) {
                         if (!empty($site[$key])) {
-                            $site[$key] = asset('uploads/' . $site[$key]);
+                            $site[$key] = '/uploads/' . $site[$key];
                         }
                     }
                 } catch (\Throwable $e) {

@@ -125,6 +125,6 @@ class Setting extends Model
             return null;
         }
 
-        return asset('uploads/' . $this->value);
+        return '/uploads/' . $this->value;
     }
 }
