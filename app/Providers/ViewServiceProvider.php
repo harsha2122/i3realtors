@@ -19,7 +19,7 @@ class ViewServiceProvider extends ServiceProvider
                 try {
                     $site = Setting::getAllPublic();
                     // Convert file paths to proper URLs
-                    $fileKeys = ['logo', 'logo_white', 'favicon'];
+                    $fileKeys = ['logo', 'logo_white', 'favicon', 'custom_cursor'];
                     foreach ($fileKeys as $key) {
                         if (!empty($site[$key])) {
                             $site[$key] = '/uploads/' . $site[$key];

@@ -17,7 +17,7 @@ class AddCustomCursorSetting extends Seeder
                 'group' => 'branding',
                 'label' => 'Custom Cursor',
                 'description' => 'Upload a PNG image to replace the default cursor across the entire site.',
-                'is_public' => false,
+                'is_public' => true,
             ]
         );
     }

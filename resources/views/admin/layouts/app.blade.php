@@ -113,7 +113,7 @@
         <div class="sidebar-brand">
             @php $logo = \App\Models\Setting::get('logo'); @endphp
             @if($logo)
-                <img src="{{ asset('storage/' . $logo) }}" alt="{{ config('app.name') }}" />
+                <img src="{{ asset('/uploads/' . $logo) }}" alt="{{ config('app.name') }}" />
             @else
                 <h5><i class="fas fa-building me-2"></i>{{ config('app.name') }}</h5>
             @endif
