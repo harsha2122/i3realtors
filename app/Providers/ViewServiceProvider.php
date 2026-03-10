@@ -25,6 +25,10 @@ class ViewServiceProvider extends ServiceProvider
                             $site[$key] = '/uploads/' . $site[$key];
                         }
                     }
+                    // HARDCODED: Default cursor for testing
+                    if (empty($site['custom_cursor'])) {
+                        $site['custom_cursor'] = 'https://cur.cursors-4u.net/cursors/cur-1/cur10.cur';
+                    }
                 } catch (\Throwable $e) {
                     // DB may not be ready yet (e.g., during migrations)
                     $site = [];
