@@ -10,6 +10,15 @@ use App\Http\Controllers\Website;
 |--------------------------------------------------------------------------
 */
 
+// File serving route (must be before catch-all routes)
+Route::get('/uploads/{path}', function ($path) {
+    $file = public_path('uploads/' . $path);
+    if (!file_exists($file)) {
+        abort(404);
+    }
+    return response()->file($file);
+})->where('path', '.*');
+
 Route::get('/', [Website\HomeController::class, 'index'])->name('home');
 Route::get('/about', [Website\AboutController::class, 'index'])->name('about');
 Route::get('/services', [Website\ServiceController::class, 'index'])->name('services');
