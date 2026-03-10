@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use App\Domains\Analytics\Services\AnalyticsService;
 
 class TrackPageView
@@ -16,7 +17,8 @@ class TrackPageView
     {
         $response = $next($request);
 
-        if ($request->isMethod('get') && $response->status() === 200) {
+        // Skip tracking for file downloads and responses without status method
+        if (!($response instanceof BinaryFileResponse) && $request->isMethod('get') && method_exists($response, 'status') && $response->status() === 200) {
             try {
                 $this->analyticsService->trackPageView($request->path());
             } catch (\Throwable $e) {
