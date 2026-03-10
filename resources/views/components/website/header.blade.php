@@ -36,22 +36,16 @@
                                     <a class="nav-link" href="{{ route('home') }}">Home</a>
                                 </li>
                                 <li class="nav-item {{ request()->routeIs('about') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('about') }}">About Us</a>
+                                    <a class="nav-link" href="{{ route('about') }}">About</a>
                                 </li>
-                                <li class="nav-item {{ request()->routeIs('services') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('services') }}">Services</a>
+                                <li class="nav-item {{ request()->routeIs('projects.*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('projects.index') }}">Properties</a>
                                 </li>
-                                <li class="nav-item submenu {{ request()->routeIs('projects.*') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('projects.index') }}">Projects</a>
-                                </li>
-                                <li class="nav-item submenu {{ request()->routeIs('blog.*') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
-                                </li>
-                                <li class="nav-item {{ request()->routeIs('team') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('team') }}">Our Team</a>
+                                <li class="nav-item {{ request()->routeIs('blog.*') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('blog.index') }}">Blogs</a>
                                 </li>
                                 <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
+                                    <a class="nav-link" href="{{ route('contact') }}">Contact</a>
                                 </li>
                             @endif
                         </ul>
