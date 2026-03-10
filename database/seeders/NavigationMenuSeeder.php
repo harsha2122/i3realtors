@@ -25,40 +25,28 @@ class NavigationMenuSeeder extends Seeder
             'order' => 0,
         ]);
 
-        // Header menu items
+        // Header menu items - 5 main links without icons
         NavigationItem::create([
             'menu_id' => $headerMenu->id,
             'label' => 'Home',
             'route_name' => 'home',
-            'icon' => 'fa-home',
             'order' => 0,
             'is_visible' => true,
         ]);
 
         NavigationItem::create([
             'menu_id' => $headerMenu->id,
-            'label' => 'About Us',
+            'label' => 'About',
             'route_name' => 'about',
-            'icon' => 'fa-info-circle',
             'order' => 1,
             'is_visible' => true,
         ]);
 
         NavigationItem::create([
             'menu_id' => $headerMenu->id,
-            'label' => 'Services',
-            'route_name' => 'services',
-            'icon' => 'fa-briefcase',
-            'order' => 2,
-            'is_visible' => true,
-        ]);
-
-        $projectsItem = NavigationItem::create([
-            'menu_id' => $headerMenu->id,
-            'label' => 'Projects',
+            'label' => 'Properties',
             'route_name' => 'projects.index',
-            'icon' => 'fa-building',
-            'order' => 3,
+            'order' => 2,
             'is_visible' => true,
         ]);
 
@@ -66,17 +54,7 @@ class NavigationMenuSeeder extends Seeder
             'menu_id' => $headerMenu->id,
             'label' => 'Blog',
             'route_name' => 'blog.index',
-            'icon' => 'fa-newspaper',
-            'order' => 4,
-            'is_visible' => true,
-        ]);
-
-        NavigationItem::create([
-            'menu_id' => $headerMenu->id,
-            'label' => 'Our Team',
-            'route_name' => 'team',
-            'icon' => 'fa-users',
-            'order' => 5,
+            'order' => 3,
             'is_visible' => true,
         ]);
 
@@ -84,8 +62,7 @@ class NavigationMenuSeeder extends Seeder
             'menu_id' => $headerMenu->id,
             'label' => 'Contact',
             'route_name' => 'contact',
-            'icon' => 'fa-envelope',
-            'order' => 6,
+            'order' => 4,
             'is_visible' => true,
         ]);
 
