@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::table('settings', function (Blueprint $table) {
             if (!Schema::hasColumn('settings', 'custom_cursor')) {
-                $table->string('custom_cursor')->nullable()->after('favicon');
+                $table->string('custom_cursor')->nullable();
             }
         });
     }
