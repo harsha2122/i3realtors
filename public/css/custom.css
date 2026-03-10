@@ -10975,15 +10975,15 @@ header.main-header .header-sticky.bg-section.active {
 }
 
 .header-sticky.bg-section .header-btn .btn-default {
-  background: var(--primary-color);
-  color: #ffffff;
-  border: 2px solid var(--primary-color);
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 2px solid #ffffff;
 }
 
 .header-sticky.bg-section .header-btn .btn-default:hover {
   background: transparent;
-  color: var(--primary-color);
-  border-color: var(--primary-color);
+  color: #ffffff;
+  border-color: #ffffff;
 }
 
 .header-sticky.bg-section .navbar-brand img {
