@@ -51,7 +51,7 @@
                         @php
                             $label       = $setting->label ?? ucwords(str_replace('_', ' ', $setting->key));
                             $isColorField  = str_contains($setting->key, 'color');
-                            $isMediaField  = in_array($setting->key, ['logo', 'logo_white', 'favicon']);
+                            $isMediaField  = in_array($setting->key, ['logo', 'logo_white', 'favicon', 'custom_cursor']);
                             $isLongText    = in_array($setting->key, ['google_analytics', 'meta_pixel', 'footer_about', 'site_description', 'footer_cta_title', 'footer_copyright', 'address', 'meta_description', 'meta_keywords']);
                             $isSocialField = str_starts_with($setting->key, 'social_');
                             $socialIcons   = [
@@ -119,13 +119,15 @@
                                 <input type="file" name="{{ $setting->key }}"
                                        id="file_{{ $setting->key }}"
                                        class="form-control"
-                                       accept="image/*"
+                                       accept="{{ $setting->key === 'custom_cursor' ? 'image/png' : 'image/*' }}"
                                        onchange="previewImage(this, '{{ $setting->key }}')" />
                                 <div class="form-text">
                                     @if($setting->key === 'favicon')
                                         Recommended: 32×32 or 64×64 px, ICO or PNG format.
                                     @elseif($setting->key === 'logo_white')
                                         White/light version of your logo for dark backgrounds.
+                                    @elseif($setting->key === 'custom_cursor')
+                                        PNG format recommended. This will replace the default cursor site-wide.
                                     @else
                                         Recommended: PNG or SVG with transparent background.
                                     @endif

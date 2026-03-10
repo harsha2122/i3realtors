@@ -121,7 +121,7 @@ class Setting extends Model
      */
     public function getFileUrl(): ?string
     {
-        if (!$this->value || !in_array($this->key, ['logo', 'logo_white', 'favicon'])) {
+        if (!$this->value || !in_array($this->key, ['logo', 'logo_white', 'favicon', 'custom_cursor'])) {
             return null;
         }
 

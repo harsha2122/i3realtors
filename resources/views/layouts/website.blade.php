@@ -43,6 +43,11 @@
         :root {
             --primary-color: {{ $site['primary_color'] ?? '#b8962b' }};
         }
+        @if(!empty($site['custom_cursor']))
+            * {
+                cursor: url('{{ $site['custom_cursor'] }}') auto, auto;
+            }
+        @endif
     </style>
 
     {{-- Google Analytics --}}

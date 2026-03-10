@@ -25,6 +25,8 @@ Route::get('/services', [Website\ServiceController::class, 'index'])->name('serv
 Route::get('/team', [Website\TeamController::class, 'index'])->name('team');
 Route::get('/contact', [Website\ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [Website\ContactController::class, 'submit'])->name('contact.submit');
+Route::get('/careers', [Website\CareersController::class, 'index'])->name('careers');
+Route::post('/careers', [Website\CareersController::class, 'submit'])->name('careers.submit');
 Route::get('/projects', [Website\PropertyController::class, 'index'])->name('projects.index');
 Route::get('/projects/{slug}', [Website\PropertyController::class, 'show'])->name('projects.show');
 Route::get('/blog', [Website\BlogController::class, 'index'])->name('blog.index');
