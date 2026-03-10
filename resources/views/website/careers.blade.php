@@ -26,7 +26,7 @@
 <!-- Page Header End -->
 
 <!-- Why Join Section Start -->
-<div class="why-join-section py-5">
+<div class="why-join-section py-5" style="background-color: #ffffff;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
@@ -256,7 +256,7 @@
 .benefits-list h5 {
     margin: 0 0 8px 0;
     font-weight: 600;
-    color: #222;
+    color: var(--primary-color, #b8962b);
 }
 
 .benefits-list p {
@@ -288,14 +288,14 @@
     font-size: 12px;
     font-weight: 600;
     margin-bottom: 15px;
-    background: #1a1a1a;
+    background: var(--primary-color, #b8962b);
     color: white;
 }
 
 .position-title {
     font-size: 20px;
     font-weight: 700;
-    color: #1a1a1a;
+    color: var(--primary-color, #b8962b);
     margin-bottom: 10px;
 }
 
@@ -319,7 +319,7 @@
 
 .btn-apply {
     display: inline-block;
-    background: #1a1a1a;
+    background: var(--primary-color, #b8962b);
     color: white;
     padding: 12px 24px;
     border-radius: 6px;
@@ -330,7 +330,7 @@
 }
 
 .btn-apply:hover {
-    background: var(--primary-color);
+    background: rgba(184, 150, 43, 0.8);
     color: white;
     transform: translateX(5px);
 }
@@ -364,7 +364,7 @@
 
 .btn-submit {
     width: 100%;
-    background: linear-gradient(135deg, #1a1a1a, #333);
+    background: linear-gradient(135deg, var(--primary-color, #b8962b), rgba(184, 150, 43, 0.8));
     color: white;
     padding: 15px 40px;
     border: none;
@@ -380,9 +380,9 @@
 }
 
 .btn-submit:hover {
-    background: linear-gradient(135deg, var(--primary-color), rgba(184, 150, 43, 0.8));
+    background: linear-gradient(135deg, rgba(184, 150, 43, 0.8), var(--primary-color, #b8962b));
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(184, 150, 43, 0.3);
 }
 
 .btn-submit:active {
@@ -396,7 +396,7 @@
 .form-header h2 {
     font-size: 32px;
     font-weight: 700;
-    color: #1a1a1a;
+    color: var(--primary-color, #b8962b);
 }
 
 .bg-light {
