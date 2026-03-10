@@ -6,8 +6,31 @@
 
 <!-- Header Start -->
 <header class="main-header">
-    <div class="header-sticky bg-section">
-        <nav class="navbar navbar-expand-lg">
+    <div class="header-sticky bg-section dark-section" style="background-color: #1a1a1a !important;">
+        <nav class="navbar navbar-expand-lg" style="background-color: #1a1a1a !important;">
+            <style>
+                .navbar .nav-link {
+                    color: #ffffff !important;
+                }
+                .navbar .nav-link:hover {
+                    color: var(--primary-color) !important;
+                }
+                .navbar .nav-link.active {
+                    color: var(--primary-color) !important;
+                }
+                .header-btn .btn-default {
+                    background-color: #ffffff !important;
+                    color: #000000 !important;
+                    border: 1px solid #ffffff !important;
+                }
+                .header-btn .btn-default:hover {
+                    background-color: transparent !important;
+                    color: #ffffff !important;
+                }
+                .navbar-toggle {
+                    filter: brightness(0) invert(1);
+                }
+            </style>
             <div class="container">
                 <!-- Logo Start -->
                 <a class="navbar-brand" href="{{ route('home') }}">
