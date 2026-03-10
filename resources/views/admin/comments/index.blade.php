@@ -53,7 +53,7 @@
                                     @csrf
                                     <button type="submit" class="btn btn-sm btn-outline-warning" title="Reject"><i class="fas fa-times"></i></button>
                                 </form>
-                                <form method="POST" action="{{ route('admin.comments.spam', $comment) }}">
+                                <form method="POST" action="{{ route('admin.comments.markSpam', $comment) }}">
                                     @csrf
                                     <button type="submit" class="btn btn-sm btn-outline-secondary" title="Mark Spam"><i class="fas fa-shield-alt"></i></button>
                                 </form>
