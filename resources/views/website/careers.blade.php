@@ -126,7 +126,7 @@
 <!-- Career Opportunities Section End -->
 
 <!-- Open Positions Section Start -->
-<div class="our-approach bg-section">
+<div class="open-positions bg-section">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
@@ -137,69 +137,210 @@
                     <p class="wow fadeInUp" data-wow-delay="0.2s">We're hiring talented professionals to join our growing team. Explore our open opportunities below.</p>
                 </div>
                 <!-- Section Title End -->
+
+                <!-- Filter Controls Start -->
+                <div class="filter-controls text-center mb-5 wow fadeInUp" data-wow-delay="0.3s">
+                    <button class="filter-btn active" data-filter="all">All Positions</button>
+                    <button class="filter-btn" data-filter="on-site">On-Site</button>
+                    <button class="filter-btn" data-filter="office">Office</button>
+                    <button class="filter-btn" data-filter="full-time">Full-Time</button>
+                </div>
+                <!-- Filter Controls End -->
             </div>
         </div>
 
-        <div class="row">
-            <!-- Position Start -->
-            <div class="col-xl-6">
-                <div class="approach-item wow fadeInUp">
-                    <div class="icon-box">
-                        <i class="fas fa-hardhat"></i>
+        <div class="row" id="positions-container">
+            <!-- Position Card Start -->
+            <div class="col-lg-6 position-card-wrapper mb-4" data-category="on-site full-time">
+                <div class="position-card wow fadeInUp">
+                    <div class="position-header">
+                        <div class="position-badge">Full-Time</div>
+                        <div class="position-location">
+                            <i class="fas fa-map-marker-alt"></i> On-Site
+                        </div>
                     </div>
-                    <div class="approach-item-content">
-                        <h3>Site Engineer</h3>
-                        <p>Oversee construction projects, ensure quality standards, and lead site teams. Requires 3-5 years experience in on-site project management.</p>
-                        <a href="#apply-form" class="btn-apply-small">Apply Now</a>
+                    <h3 class="position-title">Site Engineer</h3>
+                    <div class="position-meta">
+                        <span class="meta-item"><i class="fas fa-briefcase"></i> 3-5 Years</span>
+                        <span class="meta-item"><i class="fas fa-money-bill"></i> Competitive</span>
                     </div>
-                </div>
-            </div>
-            <!-- Position End -->
+                    <p class="position-description">Oversee construction projects, ensure quality standards, and lead site teams with precision and excellence.</p>
 
-            <!-- Position Start -->
-            <div class="col-xl-6">
-                <div class="approach-item wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="icon-box">
-                        <i class="fas fa-chart-line"></i>
+                    <div class="position-details">
+                        <div class="detail-item">
+                            <strong>Responsibilities:</strong>
+                            <ul>
+                                <li>Manage daily site operations</li>
+                                <li>Ensure safety compliance</li>
+                                <li>Quality assurance oversight</li>
+                            </ul>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Requirements:</strong>
+                            <ul>
+                                <li>3-5 years experience</li>
+                                <li>Civil engineering degree</li>
+                                <li>Strong leadership skills</li>
+                            </ul>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Benefits:</strong>
+                            <ul>
+                                <li>Health insurance</li>
+                                <li>Professional development</li>
+                                <li>Competitive salary</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="approach-item-content">
-                        <h3>Project Manager</h3>
-                        <p>Lead construction projects from conception to completion. Manage budgets, timelines, and teams with excellence. 5+ years required.</p>
-                        <a href="#apply-form" class="btn-apply-small">Apply Now</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Position End -->
 
-            <!-- Position Start -->
-            <div class="col-xl-6">
-                <div class="approach-item wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="icon-box">
-                        <i class="fas fa-pencil-ruler"></i>
-                    </div>
-                    <div class="approach-item-content">
-                        <h3>CAD Draftsman</h3>
-                        <p>Create detailed architectural and construction drawings using AutoCAD and design software. Support our design team. 2-3 years experience.</p>
-                        <a href="#apply-form" class="btn-apply-small">Apply Now</a>
-                    </div>
+                    <a href="#apply-form" class="btn-default btn-sm">Apply Now</a>
                 </div>
             </div>
-            <!-- Position End -->
+            <!-- Position Card End -->
 
-            <!-- Position Start -->
-            <div class="col-xl-6">
-                <div class="approach-item wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="icon-box">
-                        <i class="fas fa-shield-alt"></i>
+            <!-- Position Card Start -->
+            <div class="col-lg-6 position-card-wrapper mb-4" data-category="office full-time">
+                <div class="position-card wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="position-header">
+                        <div class="position-badge">Full-Time</div>
+                        <div class="position-location">
+                            <i class="fas fa-map-marker-alt"></i> Office
+                        </div>
                     </div>
-                    <div class="approach-item-content">
-                        <h3>Safety Officer</h3>
-                        <p>Ensure workplace safety compliance and conduct regular audits. Maintain high safety standards across all sites. 3-5 years required.</p>
-                        <a href="#apply-form" class="btn-apply-small">Apply Now</a>
+                    <h3 class="position-title">Project Manager</h3>
+                    <div class="position-meta">
+                        <span class="meta-item"><i class="fas fa-briefcase"></i> 5+ Years</span>
+                        <span class="meta-item"><i class="fas fa-money-bill"></i> Competitive</span>
                     </div>
+                    <p class="position-description">Lead construction projects from conception to completion, managing budgets, timelines, and teams with excellence.</p>
+
+                    <div class="position-details">
+                        <div class="detail-item">
+                            <strong>Responsibilities:</strong>
+                            <ul>
+                                <li>Project planning & execution</li>
+                                <li>Budget management</li>
+                                <li>Team coordination</li>
+                            </ul>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Requirements:</strong>
+                            <ul>
+                                <li>5+ years experience</li>
+                                <li>Project management cert.</li>
+                                <li>Excellent communication</li>
+                            </ul>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Benefits:</strong>
+                            <ul>
+                                <li>Health & dental insurance</li>
+                                <li>Career growth path</li>
+                                <li>Flexible hours</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <a href="#apply-form" class="btn-default btn-sm">Apply Now</a>
                 </div>
             </div>
-            <!-- Position End -->
+            <!-- Position Card End -->
+
+            <!-- Position Card Start -->
+            <div class="col-lg-6 position-card-wrapper mb-4" data-category="office full-time">
+                <div class="position-card wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="position-header">
+                        <div class="position-badge">Full-Time</div>
+                        <div class="position-location">
+                            <i class="fas fa-map-marker-alt"></i> Office
+                        </div>
+                    </div>
+                    <h3 class="position-title">CAD Draftsman</h3>
+                    <div class="position-meta">
+                        <span class="meta-item"><i class="fas fa-briefcase"></i> 2-3 Years</span>
+                        <span class="meta-item"><i class="fas fa-money-bill"></i> Competitive</span>
+                    </div>
+                    <p class="position-description">Create detailed architectural and construction drawings using AutoCAD and design software to support our design team.</p>
+
+                    <div class="position-details">
+                        <div class="detail-item">
+                            <strong>Responsibilities:</strong>
+                            <ul>
+                                <li>CAD drawings & models</li>
+                                <li>Design documentation</li>
+                                <li>Technical support</li>
+                            </ul>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Requirements:</strong>
+                            <ul>
+                                <li>2-3 years CAD experience</li>
+                                <li>AutoCAD proficiency</li>
+                                <li>Technical drawing knowledge</li>
+                            </ul>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Benefits:</strong>
+                            <ul>
+                                <li>Health insurance</li>
+                                <li>Skill development programs</li>
+                                <li>Competitive compensation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <a href="#apply-form" class="btn-default btn-sm">Apply Now</a>
+                </div>
+            </div>
+            <!-- Position Card End -->
+
+            <!-- Position Card Start -->
+            <div class="col-lg-6 position-card-wrapper mb-4" data-category="on-site full-time">
+                <div class="position-card wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="position-header">
+                        <div class="position-badge">Full-Time</div>
+                        <div class="position-location">
+                            <i class="fas fa-map-marker-alt"></i> On-Site
+                        </div>
+                    </div>
+                    <h3 class="position-title">Safety Officer</h3>
+                    <div class="position-meta">
+                        <span class="meta-item"><i class="fas fa-briefcase"></i> 3-5 Years</span>
+                        <span class="meta-item"><i class="fas fa-money-bill"></i> Competitive</span>
+                    </div>
+                    <p class="position-description">Ensure workplace safety compliance and conduct regular audits to maintain high safety standards across all sites.</p>
+
+                    <div class="position-details">
+                        <div class="detail-item">
+                            <strong>Responsibilities:</strong>
+                            <ul>
+                                <li>Safety audits & inspections</li>
+                                <li>Compliance monitoring</li>
+                                <li>Training & education</li>
+                            </ul>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Requirements:</strong>
+                            <ul>
+                                <li>3-5 years experience</li>
+                                <li>Safety certifications</li>
+                                <li>Knowledge of OSHA standards</li>
+                            </ul>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Benefits:</strong>
+                            <ul>
+                                <li>Comprehensive insurance</li>
+                                <li>Certification support</li>
+                                <li>Competitive salary</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <a href="#apply-form" class="btn-default btn-sm">Apply Now</a>
+                </div>
+            </div>
+            <!-- Position Card End -->
         </div>
     </div>
 </div>
@@ -295,20 +436,168 @@
 <!-- Application Form End -->
 
 <style>
-.btn-apply-small {
-    display: inline-block;
-    margin-top: 15px;
+/* Filter Controls */
+.filter-controls {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 10px 24px;
+    border: 2px solid var(--primary-color);
+    background: transparent;
     color: var(--primary-color);
+    border-radius: 50px;
     font-weight: 600;
-    text-decoration: none;
+    cursor: pointer;
     transition: all 0.3s ease;
     font-size: 14px;
 }
 
-.btn-apply-small:hover {
-    color: rgba(184, 150, 43, 0.7);
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
 }
 
+/* Position Cards */
+.position-card {
+    background: white;
+    border: 1px solid #e8e8e8;
+    border-radius: 12px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.position-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(184, 150, 43, 0.15);
+    transform: translateY(-5px);
+}
+
+.position-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.position-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.position-location {
+    font-size: 13px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.position-location i {
+    color: var(--primary-color);
+}
+
+.position-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 15px 0 10px 0;
+}
+
+.position-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    font-size: 13px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.meta-item i {
+    color: var(--primary-color);
+}
+
+.position-description {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.position-details {
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    margin-bottom: 18px;
+}
+
+.detail-item strong {
+    display: block;
+    font-size: 14px;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.detail-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detail-item li {
+    font-size: 13px;
+    color: #666;
+    padding-left: 20px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.detail-item li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.position-card-wrapper {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.position-card-wrapper.hidden {
+    opacity: 0;
+    display: none;
+}
+
+.btn-sm {
+    padding: 12px 24px !important;
+    font-size: 14px !important;
+}
+
+/* Form Styles */
 .form-control-lg {
     height: 48px;
     border: 1px solid #e0e0e0;
@@ -342,7 +631,52 @@
         height: 44px;
         font-size: 14px;
     }
+
+    .filter-controls {
+        gap: 10px;
+    }
+
+    .filter-btn {
+        padding: 8px 18px;
+        font-size: 12px;
+    }
+
+    .position-details {
+        display: none;
+    }
+
+    .position-card {
+        padding: 20px;
+    }
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const positionCards = document.querySelectorAll('.position-card-wrapper');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            // Filter cards
+            positionCards.forEach(card => {
+                const categories = card.getAttribute('data-category').split(' ');
+
+                if (filter === 'all' || categories.includes(filter)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    });
+});
+</script>
 
 @endsection
