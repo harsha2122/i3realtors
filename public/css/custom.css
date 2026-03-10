@@ -528,7 +528,7 @@ header.main-header .header-sticky {
   position: relative;
   max-width: 1500px;
   top: 0;
-  background: var(--white-color);
+  background: #1a1a1a;
   border-radius: 100px;
   z-index: 100;
 }
@@ -544,8 +544,8 @@ header.main-header .header-sticky.active {
   left: 0;
   right: 0;
   transform: translateY(0);
-  background: var(--white-color);
-  border-bottom: 1px solid var(--divider-color);
+  background: #1a1a1a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0 0 20px 20px;
 }
 
@@ -580,7 +580,7 @@ header.main-header .header-sticky.active {
   font-weight: 500;
   line-height: 1.2em;
   padding: 12px 10px !important;
-  color: var(--text-color);
+  color: #ffffff;
   background: transparent;
   border-radius: 0px;
   text-transform: capitalize;
@@ -593,11 +593,24 @@ header.main-header .header-sticky.active {
   font-weight: 900;
   font-size: 14px;
   margin-left: 8px;
+  color: #ffffff;
 }
 
 .main-menu ul li a:hover,
 .main-menu ul li a:focus {
-  color: var(--accent-color);
+  color: var(--primary-color);
+}
+
+.header-btn .btn-default {
+  background: #ffffff !important;
+  color: #1a1a1a !important;
+  border: 2px solid #ffffff !important;
+}
+
+.header-btn .btn-default:hover {
+  background: transparent !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
 }
 
 .main-menu ul ul {
