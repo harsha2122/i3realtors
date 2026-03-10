@@ -3,18 +3,17 @@
 @section('content')
 
 <!-- Page Header Start -->
-<div class="page-header bg-dark parallaxie" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url({{ asset('images/page-header-bg.jpg') }}); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center 9px; padding: 120px 0 60px;">
+<div class="page-header bg-section parallaxie" style="background-image: url({{ asset('images/page-header-bg.jpg') }}); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center 9px;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <!-- Page Header Box Start -->
                 <div class="page-header-box">
-                    <h1 class="text-white text-anime-style-2" data-cursor="-opaque">Build Your Career With Us</h1>
-                    <p class="text-white-50 mt-3">Join our team and grow with industry leaders in construction</p>
-                    <nav class="wow fadeInUp mt-4">
-                        <ol class="breadcrumb breadcrumb-light">
+                    <h1 class="text-anime-style-2" data-cursor="-opaque">Careers</h1>
+                    <nav class="wow fadeInUp">
+                        <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                            <li class="breadcrumb-item active text-white">Careers</li>
+                            <li class="breadcrumb-item"><a href="{{ route('careers') }}">Careers</a></li>
                         </ol>
                     </nav>
                 </div>
@@ -25,130 +24,205 @@
 </div>
 <!-- Page Header End -->
 
-<!-- Why Join Section Start -->
-<div class="why-join-section py-5" style="background-color: #ffffff;">
+<!-- Career Opportunities Section Start -->
+<div class="about-us">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <div class="wow fadeInLeft">
-                    <h2 class="mb-4">Why Join i3 Realtors?</h2>
-                    <p class="text-muted mb-4">We believe in building more than just projects—we build careers and futures.</p>
-                    <ul class="benefits-list">
-                        <li>
-                            <div class="benefit-icon">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <div>
-                                <h5>Competitive Compensation</h5>
-                                <p>Attractive salary packages and comprehensive benefits</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="benefit-icon">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div>
-                                <h5>Professional Development</h5>
-                                <p>Training and growth opportunities for all team members</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="benefit-icon">
-                                <i class="fas fa-people-group"></i>
-                            </div>
-                            <div>
-                                <h5>Collaborative Culture</h5>
-                                <p>Work with experienced professionals and industry experts</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="benefit-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div>
-                                <h5>Career Growth</h5>
-                                <p>Clear advancement paths and leadership opportunities</p>
-                            </div>
-                        </li>
-                    </ul>
+        <div class="row section-row align-items-center">
+            <div class="col-xl-7">
+                <!-- Section Title Start -->
+                <div class="section-title">
+                    <span class="section-sub-title wow fadeInUp">Build Your Future</span>
+                    <h2 class="text-anime-style-2" data-cursor="-opaque">Join our team and grow with industry leaders in construction</h2>
                 </div>
+                <!-- Section Title End -->
             </div>
-            <div class="col-lg-6">
-                <div class="wow fadeInRight" data-wow-delay="0.2s">
-                    <img src="{{ asset('images/careers-image.jpg') }}" alt="Careers" class="img-fluid rounded-lg shadow-lg">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Why Join Section End -->
 
-<!-- Open Positions Start -->
-<div class="open-positions py-5 bg-light">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-lg-12 text-center">
-                <h2 class="mb-3">Current Open Positions</h2>
-                <p class="text-muted">We're hiring talented professionals. Browse our open opportunities below.</p>
+            <div class="col-xl-5">
+                <!-- Section Content Button Start -->
+                <div class="section-content-btn">
+                    <!-- Section Title Content Start -->
+                    <div class="section-title-content wow fadeInUp" data-wow-delay="0.2s">
+                        <p>We believe in building more than just projects—we build careers, develop talent, and create opportunities for professionals who are passionate about excellence.</p>
+                    </div>
+                    <!-- Section Title Content End -->
+
+                    <!-- Section Button Start -->
+                    <div class="section-btn wow fadeInUp" data-wow-delay="0.4s">
+                        <a href="#apply-form" class="btn-default">Apply Now</a>
+                    </div>
+                    <!-- Section Button End -->
+                </div>
+                <!-- Section Content Button End -->
             </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-6 mb-4">
-                <div class="position-card wow fadeInUp">
-                    <div class="position-badge badge-dark">Full-Time</div>
-                    <h4 class="position-title">Site Engineer</h4>
-                    <p class="position-meta"><i class="fas fa-map-marker-alt"></i> On-Site | <i class="fas fa-briefcase"></i> 3-5 Years Experience</p>
-                    <p class="position-desc">Oversee construction projects and ensure quality standards are met. Lead teams and manage day-to-day site operations.</p>
-                    <a href="#apply-form" class="btn-apply">Apply Now <i class="fas fa-arrow-right"></i></a>
+            <div class="col-xl-6">
+                <!-- Career Image Box Start -->
+                <div class="about-us-image-box wow fadeInUp">
+                    <!-- Career Image Start -->
+                    <div class="about-us-image">
+                        <figure class="image-anime">
+                            <img src="{{ asset('images/careers-image.jpg') }}" alt="Careers">
+                        </figure>
+                    </div>
+                    <!-- Career Image End -->
                 </div>
+                <!-- Career Image Box End -->
             </div>
 
-            <div class="col-lg-6 mb-4">
-                <div class="position-card wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="position-badge badge-dark">Full-Time</div>
-                    <h4 class="position-title">Project Manager</h4>
-                    <p class="position-meta"><i class="fas fa-map-marker-alt"></i> Office/On-Site | <i class="fas fa-briefcase"></i> 5+ Years Experience</p>
-                    <p class="position-desc">Lead construction projects from conception to completion. Manage budgets, timelines, and teams with excellence.</p>
-                    <a href="#apply-form" class="btn-apply">Apply Now <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+            <div class="col-xl-6">
+                <!-- Career Content Box Start -->
+                <div class="about-us-content-box wow fadeInUp" data-wow-delay="0.2s">
+                    <!-- Why Join List Start -->
+                    <div class="about-us-item-list">
+                        <!-- Why Join Item Start -->
+                        <div class="about-us-item box-1">
+                            <!-- Why Join Item Content Start -->
+                            <div class="about-us-item-content">
+                                <h3>Competitive Compensation</h3>
+                                <p>Attractive salary packages and comprehensive benefits for all team members</p>
+                            </div>
+                            <!-- Why Join Item Content End -->
+                        </div>
+                        <!-- Why Join Item End -->
 
-            <div class="col-lg-6 mb-4">
-                <div class="position-card wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="position-badge badge-dark">Full-Time</div>
-                    <h4 class="position-title">CAD Draftsman</h4>
-                    <p class="position-meta"><i class="fas fa-map-marker-alt"></i> Office | <i class="fas fa-briefcase"></i> 2-3 Years Experience</p>
-                    <p class="position-desc">Create detailed architectural and construction drawings using AutoCAD and design software. Support our design team.</p>
-                    <a href="#apply-form" class="btn-apply">Apply Now <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+                        <!-- Why Join Item Start -->
+                        <div class="about-us-item box-2">
+                            <!-- Why Join Item Content Start -->
+                            <div class="about-us-item-content">
+                                <h3>Professional Growth</h3>
+                                <p>Training, mentorship, and advancement opportunities to develop your career</p>
+                            </div>
+                            <!-- Why Join Item Content End -->
+                        </div>
+                        <!-- Why Join Item End -->
+                    </div>
+                    <!-- Why Join List End -->
 
-            <div class="col-lg-6 mb-4">
-                <div class="position-card wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="position-badge badge-dark">Full-Time</div>
-                    <h4 class="position-title">Safety Officer</h4>
-                    <p class="position-meta"><i class="fas fa-map-marker-alt"></i> On-Site | <i class="fas fa-briefcase"></i> 3-5 Years Experience</p>
-                    <p class="position-desc">Ensure workplace safety compliance and conduct regular safety audits. Maintain high safety standards across all sites.</p>
-                    <a href="#apply-form" class="btn-apply">Apply Now <i class="fas fa-arrow-right"></i></a>
+                    <!-- Career Highlights Start -->
+                    <div class="about-counter-item-list">
+                        <!-- Career Highlight Start -->
+                        <div class="about-counter-item">
+                            <h2><span class="counter">50</span>+</h2>
+                            <p>Team Members</p>
+                        </div>
+                        <!-- Career Highlight End -->
+
+                        <!-- Career Highlight Start -->
+                        <div class="about-counter-item">
+                            <h2><span class="counter">25</span>+</h2>
+                            <p>Years Experience</p>
+                        </div>
+                        <!-- Career Highlight End -->
+                    </div>
+                    <!-- Career Highlights End -->
                 </div>
+                <!-- Career Content Box End -->
             </div>
         </div>
     </div>
 </div>
-<!-- Open Positions End -->
+<!-- Career Opportunities Section End -->
+
+<!-- Open Positions Section Start -->
+<div class="our-approach bg-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <!-- Section Title Start -->
+                <div class="section-title text-center mb-5">
+                    <span class="section-sub-title wow fadeInUp">What We're Looking For</span>
+                    <h2 class="text-anime-style-2 mb-4" data-cursor="-opaque">Current Open Positions</h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.2s">We're hiring talented professionals to join our growing team. Explore our open opportunities below.</p>
+                </div>
+                <!-- Section Title End -->
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Position Start -->
+            <div class="col-xl-6">
+                <div class="approach-item wow fadeInUp">
+                    <div class="icon-box">
+                        <i class="fas fa-hardhat"></i>
+                    </div>
+                    <div class="approach-item-content">
+                        <h3>Site Engineer</h3>
+                        <p>Oversee construction projects, ensure quality standards, and lead site teams. Requires 3-5 years experience in on-site project management.</p>
+                        <a href="#apply-form" class="btn-apply-small">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Position End -->
+
+            <!-- Position Start -->
+            <div class="col-xl-6">
+                <div class="approach-item wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="icon-box">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="approach-item-content">
+                        <h3>Project Manager</h3>
+                        <p>Lead construction projects from conception to completion. Manage budgets, timelines, and teams with excellence. 5+ years required.</p>
+                        <a href="#apply-form" class="btn-apply-small">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Position End -->
+
+            <!-- Position Start -->
+            <div class="col-xl-6">
+                <div class="approach-item wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="icon-box">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <div class="approach-item-content">
+                        <h3>CAD Draftsman</h3>
+                        <p>Create detailed architectural and construction drawings using AutoCAD and design software. Support our design team. 2-3 years experience.</p>
+                        <a href="#apply-form" class="btn-apply-small">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Position End -->
+
+            <!-- Position Start -->
+            <div class="col-xl-6">
+                <div class="approach-item wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="icon-box">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="approach-item-content">
+                        <h3>Safety Officer</h3>
+                        <p>Ensure workplace safety compliance and conduct regular audits. Maintain high safety standards across all sites. 3-5 years required.</p>
+                        <a href="#apply-form" class="btn-apply-small">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Position End -->
+        </div>
+    </div>
+</div>
+<!-- Open Positions Section End -->
 
 <!-- Application Form Start -->
-<div class="application-section py-5" id="apply-form">
+<div class="our-history" id="apply-form">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="form-header text-center mb-5">
-                    <h2 class="mb-3">Submit Your Application</h2>
-                    <p class="text-muted">Fill out the form below and we'll get back to you shortly</p>
+            <div class="col-xl-12 mb-5">
+                <!-- Form Title Start -->
+                <div class="section-title text-center">
+                    <span class="section-sub-title wow fadeInUp">Ready to Join Us?</span>
+                    <h2 class="text-anime-style-2" data-cursor="-opaque">Submit Your Application</h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.2s">Fill out the form below and we'll get back to you shortly.</p>
                 </div>
+                <!-- Form Title End -->
+            </div>
+        </div>
 
-                <form action="{{ route('careers.submit') }}" method="POST" enctype="multipart/form-data" class="career-form">
+        <div class="row">
+            <div class="col-xl-8 mx-auto">
+                <form action="{{ route('careers.submit') }}" method="POST" enctype="multipart/form-data" class="career-form wow fadeInUp" data-wow-delay="0.2s">
                     @csrf
                     <div class="row">
                         <div class="form-group col-md-6 mb-4">
@@ -203,9 +277,8 @@
                         </div>
 
                         <div class="col-md-12">
-                            <button type="submit" class="btn-submit">
-                                <span>Submit Application</span>
-                                <i class="fas fa-paper-plane"></i>
+                            <button type="submit" class="btn-default w-100">
+                                Submit Application
                             </button>
                             @if(session('success'))
                                 <div class="alert alert-success mt-4" role="alert">
@@ -222,121 +295,18 @@
 <!-- Application Form End -->
 
 <style>
-.breadcrumb-light .breadcrumb-item a {
-    color: rgba(255, 255, 255, 0.8);
-}
-.breadcrumb-light .breadcrumb-item a:hover {
-    color: white;
-}
-
-.benefits-list {
-    list-style: none;
-    padding: 0;
-}
-
-.benefits-list li {
-    display: flex;
-    margin-bottom: 30px;
-    gap: 20px;
-}
-
-.benefit-icon {
-    flex-shrink: 0;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--primary-color), rgba(184, 150, 43, 0.1));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: white;
-}
-
-.benefits-list h5 {
-    margin: 0 0 8px 0;
-    font-weight: 600;
-    color: var(--primary-color, #b8962b);
-}
-
-.benefits-list p {
-    margin: 0;
-    font-size: 14px;
-    color: #666;
-}
-
-.position-card {
-    background: white;
-    border: 1px solid #e8e8e8;
-    border-radius: 12px;
-    padding: 30px;
-    position: relative;
-    transition: all 0.3s ease;
-    height: 100%;
-}
-
-.position-card:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transform: translateY(-5px);
-}
-
-.position-badge {
+.btn-apply-small {
     display: inline-block;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    background: var(--primary-color, #b8962b);
-    color: white;
-}
-
-.position-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--primary-color, #b8962b);
-    margin-bottom: 10px;
-}
-
-.position-meta {
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-.position-meta i {
-    margin-right: 6px;
+    margin-top: 15px;
     color: var(--primary-color);
-}
-
-.position-desc {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.btn-apply {
-    display: inline-block;
-    background: var(--primary-color, #b8962b);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 6px;
-    text-decoration: none;
     font-weight: 600;
+    text-decoration: none;
     transition: all 0.3s ease;
     font-size: 14px;
 }
 
-.btn-apply:hover {
-    background: rgba(184, 150, 43, 0.8);
-    color: white;
-    transform: translateX(5px);
-}
-
-.btn-apply i {
-    margin-left: 8px;
+.btn-apply-small:hover {
+    color: rgba(184, 150, 43, 0.7);
 }
 
 .form-control-lg {
@@ -362,60 +332,15 @@
     padding: 12px;
 }
 
-.btn-submit {
+.career-form .btn-default {
     width: 100%;
-    background: linear-gradient(135deg, var(--primary-color, #b8962b), rgba(184, 150, 43, 0.8));
-    color: white;
     padding: 15px 40px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.btn-submit:hover {
-    background: linear-gradient(135deg, rgba(184, 150, 43, 0.8), var(--primary-color, #b8962b));
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(184, 150, 43, 0.3);
-}
-
-.btn-submit:active {
-    transform: translateY(0);
-}
-
-.form-header {
-    margin-bottom: 40px;
-}
-
-.form-header h2 {
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--primary-color, #b8962b);
-}
-
-.bg-light {
-    background-color: #f8f9fa;
 }
 
 @media (max-width: 768px) {
-    .position-card {
-        padding: 20px;
-    }
-
-    .benefits-list li {
-        margin-bottom: 20px;
-    }
-
-    .benefit-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
+    .form-control-lg {
+        height: 44px;
+        font-size: 14px;
     }
 }
 </style>
