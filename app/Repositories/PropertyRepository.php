@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\Property;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection as BaseCollection;
 
 class PropertyRepository extends BaseRepository
 {
@@ -73,7 +74,7 @@ class PropertyRepository extends BaseRepository
             ->get();
     }
 
-    public function cities(): Collection
+    public function cities(): BaseCollection
     {
         return $this->model->active()
             ->whereNotNull('city')
