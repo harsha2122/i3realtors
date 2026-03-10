@@ -10,6 +10,11 @@ class NavigationMenuSeeder extends Seeder
 {
     public function run(): void
     {
+        // Skip if header menu already exists
+        if (NavigationMenu::where('slug', 'header-menu')->exists()) {
+            return;
+        }
+
         // Create Header Menu
         $headerMenu = NavigationMenu::create([
             'name' => 'Main Header Menu',
