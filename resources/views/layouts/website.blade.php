@@ -20,7 +20,7 @@
 
     {{-- Favicon --}}
     @if(!empty($site['favicon']))
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/' . $site['favicon']) }}" />
+        <link rel="shortcut icon" type="image/x-icon" href="{{ $site['favicon'] }}" />
     @else
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}" />
     @endif
