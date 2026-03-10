@@ -53,7 +53,7 @@ class PostRepository
                 'author',
                 'category',
                 'tags',
-                'comments' => fn($q) => $q->approved()
+                'comments' => function($q) { return $q->approved(); }
             ])
             ->firstOrFail();
     }
