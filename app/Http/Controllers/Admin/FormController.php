@@ -149,4 +149,90 @@ class FormController extends Controller
             'Content-Disposition' => 'attachment; filename="' . $form->name . '_submissions.csv"',
         ]);
     }
+
+    public function contactSubmissions()
+    {
+        $form = Form::where('name', 'contact')->first();
+
+        if (!$form) {
+            return view('admin.forms.contact-submissions', [
+                'form' => null,
+                'submissions' => collect([]),
+                'message' => 'Contact form not configured.'
+            ]);
+        }
+
+        $submissions = $form->submissions()->latest()->paginate(15);
+        return view('admin.forms.contact-submissions', compact('form', 'submissions'));
+    }
+
+    public function exportContactSubmissions()
+    {
+        $form = Form::where('name', 'contact')->first();
+
+        if (!$form) {
+            abort(404, 'Contact form not found');
+        }
+
+        $submissions = $form->submissions()->get();
+        $fields = $form->fields()->orderBy('order')->pluck('name')->toArray();
+
+        $csv = implode(',', $fields) . "\n";
+
+        foreach ($submissions as $submission) {
+            $row = [];
+            foreach ($fields as $field) {
+                $row[] = '"' . ($submission->data[$field] ?? '') . '"';
+            }
+            $csv .= implode(',', $row) . "\n";
+        }
+
+        return response($csv, 200, [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="contact_submissions.csv"',
+        ]);
+    }
+
+    public function careerSubmissions()
+    {
+        $form = Form::where('name', 'career')->first();
+
+        if (!$form) {
+            return view('admin.forms.career-submissions', [
+                'form' => null,
+                'submissions' => collect([]),
+                'message' => 'Career form not configured.'
+            ]);
+        }
+
+        $submissions = $form->submissions()->latest()->paginate(15);
+        return view('admin.forms.career-submissions', compact('form', 'submissions'));
+    }
+
+    public function exportCareerSubmissions()
+    {
+        $form = Form::where('name', 'career')->first();
+
+        if (!$form) {
+            abort(404, 'Career form not found');
+        }
+
+        $submissions = $form->submissions()->get();
+        $fields = $form->fields()->orderBy('order')->pluck('name')->toArray();
+
+        $csv = implode(',', $fields) . "\n";
+
+        foreach ($submissions as $submission) {
+            $row = [];
+            foreach ($fields as $field) {
+                $row[] = '"' . ($submission->data[$field] ?? '') . '"';
+            }
+            $csv .= implode(',', $row) . "\n";
+        }
+
+        return response($csv, 200, [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="career_submissions.csv"',
+        ]);
+    }
 }

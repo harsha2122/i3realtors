@@ -110,6 +110,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/forms/{form}/submissions', [Admin\FormController::class, 'submissions'])->name('forms.submissions');
         Route::get('/forms/{form}/submissions/export', [Admin\FormController::class, 'exportSubmissions'])->name('forms.exportSubmissions');
 
+        // Contact & Career Form Submissions
+        Route::get('/contact-submissions', [Admin\FormController::class, 'contactSubmissions'])->name('contact-submissions.index');
+        Route::get('/contact-submissions/export', [Admin\FormController::class, 'exportContactSubmissions'])->name('contact-submissions.export');
+        Route::get('/career-submissions', [Admin\FormController::class, 'careerSubmissions'])->name('career-submissions.index');
+        Route::get('/career-submissions/export', [Admin\FormController::class, 'exportCareerSubmissions'])->name('career-submissions.export');
+
         // Service Management
         Route::resource('services', Admin\ServiceController::class);
 

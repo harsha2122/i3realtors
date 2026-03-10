@@ -155,6 +155,12 @@
             <a href="{{ route('admin.forms.index') }}" class="nav-link {{ request()->routeIs('admin.forms.*') ? 'active' : '' }}">
                 <i class="fas fa-wpforms"></i> Form Builder
             </a>
+            <a href="{{ route('admin.contact-submissions.index') }}" class="nav-link {{ request()->routeIs('admin.contact-submissions.*') ? 'active' : '' }}">
+                <i class="fas fa-phone"></i> Contact Submissions
+            </a>
+            <a href="{{ route('admin.career-submissions.index') }}" class="nav-link {{ request()->routeIs('admin.career-submissions.*') ? 'active' : '' }}">
+                <i class="fas fa-briefcase"></i> Career Submissions
+            </a>
 
             <div class="nav-section-label">Analytics</div>
             <a href="{{ route('admin.analytics.dashboard') }}" class="nav-link {{ request()->routeIs('admin.analytics.*') ? 'active' : '' }}">
