@@ -2,8 +2,30 @@
 @section('title', $post->seo_title ?? $post->title)
 @section('description', $post->seo_description ?? Str::limit(strip_tags($post->content), 160))
 @section('content')
+
+    <!-- Page Header Start -->
+    <div class="page-header bg-section dark-section parallaxie">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="page-header-box">
+                        <h1 class="text-anime-style-2" data-cursor="-opaque">{{ $post->title }}</h1>
+                        <nav>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('blog.index') }}">Blog</a></li>
+                                <li class="breadcrumb-item active">{{ $post->title }}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
 <div class="min-h-screen bg-white">
-    <div class="bg-gray-900 text-white py-16">
+    <div class="bg-section py-16" style="padding: 40px 0;">
         <div class="container mx-auto px-4">
             <div class="max-w-3xl">
                 <div class="mb-6">

@@ -1,15 +1,30 @@
 @extends('layouts.website')
 @section('title', 'Blog - ' . \App\Models\Setting::get('site_name', config('app.name')))
 @section('content')
-<div class="min-h-screen bg-white">
-    <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl font-bold mb-4">Blog</h1>
-            <p class="text-xl text-blue-100">Insights, tips, and trends in real estate</p>
+
+    <!-- Page Header Start -->
+    <div class="page-header bg-section dark-section parallaxie">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="page-header-box">
+                        <h1 class="text-anime-style-2" data-cursor="-opaque">Blog</h1>
+                        <nav>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                                <li class="breadcrumb-item active">Blog</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <!-- Page Header End -->
 
-    <div class="container mx-auto px-4 py-16">
+<div class="min-h-screen bg-white">
+    <div class="container mx-auto px-4" style="padding: 80px 0;">
+
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div class="lg:col-span-2">
                 <div class="mb-12">
