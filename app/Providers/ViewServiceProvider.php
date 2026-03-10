@@ -18,6 +18,13 @@ class ViewServiceProvider extends ServiceProvider
             if ($site === null) {
                 try {
                     $site = Setting::getAllPublic();
+                    // Convert file paths to proper URLs
+                    $fileKeys = ['logo', 'logo_white', 'favicon'];
+                    foreach ($fileKeys as $key) {
+                        if (!empty($site[$key])) {
+                            $site[$key] = asset('uploads/' . $site[$key]);
+                        }
+                    }
                 } catch (\Throwable $e) {
                     // DB may not be ready yet (e.g., during migrations)
                     $site = [];

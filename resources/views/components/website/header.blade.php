@@ -12,7 +12,7 @@
                 <!-- Logo Start -->
                 <a class="navbar-brand" href="{{ route('home') }}">
                     @if($logo)
-                        <img src="{{ asset('storage/' . $logo) }}" alt="{{ $siteName }}" />
+                        <img src="{{ $logo }}" alt="{{ $siteName }}" />
                     @else
                         <img src="{{ asset('images/logo.svg') }}" alt="{{ $siteName }}" />
                     @endif

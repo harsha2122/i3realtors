@@ -100,7 +100,7 @@
                                 <div id="media-preview-{{ $setting->key }}" class="mb-2 {{ $setting->value ? '' : 'd-none' }}">
                                     @if($setting->value)
                                         <div class="d-flex align-items-center gap-3 p-3 border rounded-3 bg-light" style="max-width:360px;">
-                                            <img src="{{ asset('storage/' . $setting->value) }}"
+                                            <img src="{{ $setting->getFileUrl() }}"
                                                  id="preview-img-{{ $setting->key }}"
                                                  alt="{{ $label }}"
                                                  style="max-height:70px; max-width:160px; border-radius:6px; object-fit:contain;" />

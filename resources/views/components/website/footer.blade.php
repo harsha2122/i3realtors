@@ -63,7 +63,7 @@
                 <div class="about-footer">
                     <div class="footer-logo">
                         @if($logoWhite)
-                            <img src="{{ asset('storage/' . $logoWhite) }}" alt="{{ $siteName }}" />
+                            <img src="{{ $logoWhite }}" alt="{{ $siteName }}" />
                         @else
                             <img src="{{ asset('images/logo-white.svg') }}" alt="{{ $siteName }}" />
                         @endif

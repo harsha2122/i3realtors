@@ -115,4 +115,16 @@ class Setting extends Model
         Cache::forget('settings_all');
         Cache::forget('settings_all_public');
     }
+
+    /**
+     * Get the full URL for a file value.
+     */
+    public function getFileUrl(): ?string
+    {
+        if (!$this->value || !in_array($this->key, ['logo', 'logo_white', 'favicon'])) {
+            return null;
+        }
+
+        return asset('uploads/' . $this->value);
+    }
 }
