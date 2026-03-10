@@ -153,15 +153,24 @@ class NavigationService
 
     public function getAvailableRoutes(): array
     {
-        $routes = [];
+        try {
+            $cacheKey = 'available_routes';
 
-        foreach (Route::getRoutes() as $route) {
-            if ($route->getName() && !str_starts_with($route->getName(), 'admin.') && !str_starts_with($route->getName(), 'generated_')) {
-                $routes[$route->getName()] = $route->getName();
-            }
+            return Cache::remember($cacheKey, 3600, function () {
+                $routes = [];
+
+                foreach (Route::getRoutes() as $route) {
+                    if ($route->getName() && !str_starts_with($route->getName(), 'admin.') && !str_starts_with($route->getName(), 'generated_')) {
+                        $routes[$route->getName()] = $route->getName();
+                    }
+                }
+
+                return $routes;
+            });
+        } catch (\Exception $e) {
+            // If route fetching fails, return empty array instead of crashing
+            return [];
         }
-
-        return $routes;
     }
 
     public function duplicateMenu(NavigationMenu $menu): NavigationMenu

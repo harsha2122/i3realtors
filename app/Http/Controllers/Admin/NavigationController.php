@@ -39,11 +39,20 @@ class NavigationController extends Controller
 
     public function edit(NavigationMenu $menu)
     {
-        $menu->load('items');
-        $routes = $this->navigationService->getAvailableRoutes();
-        $menuTree = $menu->getMenuTree();
+        try {
+            $menu->load('items');
+            $routes = $this->navigationService->getAvailableRoutes();
+            $menuTree = $menu->getMenuTree();
 
-        return view('admin.navigation.edit', compact('menu', 'routes', 'menuTree'));
+            return view('admin.navigation.edit', compact('menu', 'routes', 'menuTree'));
+        } catch (\Exception $e) {
+            // If anything fails, still load the page with empty routes
+            $menu->load('items');
+            $routes = [];
+            $menuTree = $menu->getMenuTree();
+
+            return view('admin.navigation.edit', compact('menu', 'routes', 'menuTree'));
+        }
     }
 
     public function update(UpdateNavigationMenuRequest $request, NavigationMenu $menu)
