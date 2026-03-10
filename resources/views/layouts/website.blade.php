@@ -33,7 +33,6 @@
     <link href="{{ asset('css/all.min.css') }}" rel="stylesheet" media="screen" />
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/magnific-popup.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/mousecursor.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" media="screen" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
           crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -109,7 +108,6 @@
     <script src="{{ asset('js/SmoothScroll.js') }}"></script>
     <script src="{{ asset('js/parallaxie.js') }}"></script>
     <script src="{{ asset('js/gsap.min.js') }}"></script>
-    <script src="{{ asset('js/magiccursor.js') }}"></script>
     <script src="{{ asset('js/SplitText.min.js') }}"></script>
     <script src="{{ asset('js/ScrollTrigger.min.js') }}"></script>
     <script src="{{ asset('js/jquery.mb.YTPlayer.min.js') }}"></script>
