@@ -10970,10 +10970,12 @@ header.main-header .header-sticky.active {
 /* Dark Header Styling */
 header.main-header .header-sticky.bg-section {
   background: #1a1a1a !important;
+  background-color: #1a1a1a !important;
 }
 
 header.main-header .header-sticky.bg-section.active {
   background: #1a1a1a !important;
+  background-color: #1a1a1a !important;
 }
 
 .header-sticky.bg-section .main-menu ul li a {
