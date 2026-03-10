@@ -22,32 +22,23 @@
                 <!-- Main Menu Start -->
                 <div class="collapse navbar-collapse main-menu">
                     <div class="nav-menu-wrapper">
-                        @php
-                            $headerMenu = $navigationService->getMenu('header-menu');
-                        @endphp
+                        <!-- Hardcoded menu items -->
                         <ul class="navbar-nav mr-auto" id="menu">
-                            @if($headerMenu)
-                                @foreach($headerMenu['items'] as $item)
-                                    @include('components.website.header-menu-item', ['item' => $item])
-                                @endforeach
-                            @else
-                                <!-- Fallback: hardcoded menu items if database menu not available -->
-                                <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('home') }}">Home</a>
-                                </li>
-                                <li class="nav-item {{ request()->routeIs('about') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('about') }}">About</a>
-                                </li>
-                                <li class="nav-item {{ request()->routeIs('projects.*') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('projects.index') }}">Properties</a>
-                                </li>
-                                <li class="nav-item {{ request()->routeIs('blog.*') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('blog.index') }}">Blogs</a>
-                                </li>
-                                <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('contact') }}">Contact</a>
-                                </li>
-                            @endif
+                            <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('home') }}">Home</a>
+                            </li>
+                            <li class="nav-item {{ request()->routeIs('about') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('about') }}">About</a>
+                            </li>
+                            <li class="nav-item {{ request()->routeIs('projects.*') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('projects.index') }}">Properties</a>
+                            </li>
+                            <li class="nav-item {{ request()->routeIs('blog.*') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
+                            </li>
+                            <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('contact') }}">Contact</a>
+                            </li>
                         </ul>
                     </div>
 
