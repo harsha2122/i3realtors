@@ -10953,39 +10953,39 @@ header.main-header .header-sticky.active {
 }
 
 /* Dark Header Styling */
-header.main-header .header-sticky.bg-dark {
+header.main-header .header-sticky.bg-section {
   background: #1a1a1a !important;
 }
 
-header.main-header .header-sticky.bg-dark.active {
+header.main-header .header-sticky.bg-section.active {
   background: #1a1a1a !important;
 }
 
-.header-sticky.bg-dark .main-menu ul li a {
+.header-sticky.bg-section .main-menu ul li a {
   color: #ffffff;
 }
 
-.header-sticky.bg-dark .main-menu ul li a:hover,
-.header-sticky.bg-dark .main-menu ul li a:focus {
+.header-sticky.bg-section .main-menu ul li a:hover,
+.header-sticky.bg-section .main-menu ul li a:focus {
   color: var(--primary-color);
 }
 
-.header-sticky.bg-dark .main-menu ul li.submenu > a:after {
+.header-sticky.bg-section .main-menu ul li.submenu > a:after {
   color: #ffffff;
 }
 
-.header-sticky.bg-dark .header-btn .btn-default {
+.header-sticky.bg-section .header-btn .btn-default {
   background: var(--primary-color);
   color: #ffffff;
   border: 2px solid var(--primary-color);
 }
 
-.header-sticky.bg-dark .header-btn .btn-default:hover {
+.header-sticky.bg-section .header-btn .btn-default:hover {
   background: transparent;
   color: var(--primary-color);
   border-color: var(--primary-color);
 }
 
-.header-sticky.bg-dark .navbar-brand img {
+.header-sticky.bg-section .navbar-brand img {
   filter: brightness(1.2);
 }

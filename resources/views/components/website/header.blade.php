@@ -6,7 +6,7 @@
 
 <!-- Header Start -->
 <header class="main-header">
-    <div class="header-sticky bg-dark">
+    <div class="header-sticky bg-section">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <!-- Logo Start -->
