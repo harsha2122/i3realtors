@@ -49,7 +49,12 @@ class PostRepository
     public function bySlug(string $slug)
     {
         return Post::where('slug', $slug)
-            ->with('author', 'category', 'tags', 'comments' => fn($q) => $q->approved())
+            ->with([
+                'author',
+                'category',
+                'tags',
+                'comments' => fn($q) => $q->approved()
+            ])
             ->firstOrFail();
     }
 
