@@ -44,7 +44,7 @@
         }
         @if(!empty($site['custom_cursor']))
             * {
-                cursor: url('{{ $site['custom_cursor'] }}') 12 8, auto;
+                cursor: url('{{ $site['custom_cursor'] }}') 0 0, auto;
             }
         @endif
     </style>
