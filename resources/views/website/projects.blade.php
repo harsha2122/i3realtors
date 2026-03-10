@@ -1,7 +1,7 @@
 @extends('layouts.website')
 
-@section('title', 'Projects - ' . ($site['site_name'] ?? config('app.name')))
-@section('meta_description', 'Explore our residential, commercial, and industrial real estate projects.')
+@section('title', 'Properties - ' . ($site['site_name'] ?? config('app.name')))
+@section('meta_description', 'Explore our residential, commercial, and industrial real estate properties.')
 
 @section('content')
 
@@ -11,11 +11,11 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="page-header-box">
-                        <h1 class="text-anime-style-2" data-cursor="-opaque">Our Projects</h1>
+                        <h1 class="text-anime-style-2" data-cursor="-opaque">Our Properties</h1>
                         <nav>
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                                <li class="breadcrumb-item active">Projects</li>
+                                <li class="breadcrumb-item active">Properties</li>
                             </ol>
                         </nav>
                     </div>
