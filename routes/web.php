@@ -22,6 +22,7 @@ Route::get('/uploads/{path}', function ($path) {
 Route::get('/', [Website\HomeController::class, 'index'])->name('home');
 Route::get('/about', [Website\AboutController::class, 'index'])->name('about');
 Route::get('/services', [Website\ServiceController::class, 'index'])->name('services');
+Route::get('/calculator', [Website\CalculatorController::class, 'index'])->name('calculator');
 Route::get('/team', [Website\TeamController::class, 'index'])->name('team');
 Route::get('/contact', [Website\ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [Website\ContactController::class, 'submit'])->name('contact.submit');
