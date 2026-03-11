@@ -10,26 +10,35 @@ The calculator page now includes a custom cursor system that supports:
 ## Current Implementation
 
 ### What Was Added:
-1. **`calculator.html`** - New EMI calculator page with:
+1. **`app/Http/Controllers/Website/CalculatorController.php`** - New controller for:
+   - Handling calculator page requests
+   - Returns the calculator view with proper data
+
+2. **`resources/views/website/calculator.blade.php`** - Laravel Blade template with:
    - Loan amount input with range slider
    - Interest rate input with range slider
    - Loan tenure input with range slider
    - Real-time EMI calculations
    - Amortization schedule table
-   - Custom cursor styling
+   - Integrated with website layout
+   - Uses custom cursor styling
 
-2. **`css/custom-cursor.css`** - Custom cursor styles using:
+3. **`routes/web.php`** - Updated with:
+   - New route: `GET /calculator` named `calculator`
+   - Properly integrated with website routing
+
+4. **`css/custom-cursor.css`** - Custom cursor styles using:
    - SVG data URIs (no external files needed)
    - Different cursors for different interactive elements
    - Smooth transitions and hover effects
 
-3. **`js/custom-cursor.js`** - Enhanced cursor functionality with:
+5. **`js/custom-cursor.js`** - Enhanced cursor functionality with:
    - Mouse tracking
    - Hover effects on interactive elements
    - Focus effects for text inputs
    - Fallback cursor generation
 
-4. **`images/cursor.svg`** - Example SVG cursor file
+6. **`images/cursor.svg`** - Example SVG cursor file
 
 ## How to Use Custom PNG Cursors
 
@@ -180,14 +189,19 @@ The calculator page includes:
 ## Navigation
 
 The calculator is accessible from:
-- Direct URL: `/calculator.html`
-- Navigation menu: "Calculator" link under main menu
-- Works on all pages with the updated header
+- **Route**: `/calculator`
+- **Route Name**: `calculator`
+- **Navigation Menu**: "Calculator" link under main menu
+- **Template**: Located at `resources/views/website/calculator.blade.php`
+- **Controller**: `App\Http\Controllers\Website\CalculatorController`
+- Works with the main website layout and header navigation
 
 ## Technical Details
 
 ### Files Modified/Created:
-- ✅ `calculator.html` - New EMI calculator page
+- ✅ `app/Http/Controllers/Website/CalculatorController.php` - New controller
+- ✅ `resources/views/website/calculator.blade.php` - Blade template
+- ✅ `routes/web.php` - New calculator route added
 - ✅ `css/custom-cursor.css` - Custom cursor styles
 - ✅ `js/custom-cursor.js` - Cursor enhancement script
 - ✅ `images/cursor.svg` - Example SVG cursor
@@ -201,10 +215,11 @@ The calculator is accessible from:
 
 ## Quick Start
 
-1. Open `calculator.html` in your browser
+1. Navigate to `/calculator` route in your browser (or click "Calculator" in navigation menu)
 2. Adjust loan parameters using sliders or input fields
-3. View results and amortization schedule
-4. Try different values to see how EMI changes
+3. Click "Calculate EMI" button to view results
+4. View detailed amortization schedule in the results section
+5. Try different values to see how EMI changes in real-time
 
 ## Customization Tips
 
