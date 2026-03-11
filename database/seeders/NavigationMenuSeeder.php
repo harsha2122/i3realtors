@@ -60,9 +60,17 @@ class NavigationMenuSeeder extends Seeder
 
         NavigationItem::create([
             'menu_id' => $headerMenu->id,
+            'label' => 'Calculator',
+            'route_name' => 'calculator',
+            'order' => 4,
+            'is_visible' => true,
+        ]);
+
+        NavigationItem::create([
+            'menu_id' => $headerMenu->id,
             'label' => 'Contact',
             'route_name' => 'contact',
-            'order' => 4,
+            'order' => 5,
             'is_visible' => true,
         ]);
 
