@@ -1,0 +1,105 @@
+/* Custom SVG Cursor using Data URIs */
+
+/* Default cursor - simple arrow */
+body {
+  cursor: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%234a90e2' stroke='white' stroke-width='1' d='M2 2 L2 22 L10 14 L14 22 L16 22 L12 14 L20 14 Z'/%3E%3C/svg%3E") 2 2, auto;
+}
+
+/* Cursor for clickable elements */
+button,
+a,
+input[type='button'],
+input[type='submit'],
+.btn,
+[role='button'],
+label {
+  cursor: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%234a90e2' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='4' fill='%234a90e2'/%3E%3C/svg%3E") 12 12, pointer;
+}
+
+/* Cursor for text selection areas */
+input[type='text'],
+input[type='number'],
+input[type='email'],
+input[type='password'],
+textarea,
+[contenteditable='true'] {
+  cursor: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cline x1='12' y1='4' x2='12' y2='20' stroke='%234a90e2' stroke-width='2'/%3E%3Cline x1='8' y1='8' x2='16' y2='8' stroke='%234a90e2' stroke-width='1'/%3E%3C/svg%3E") 12 12, text;
+}
+
+/* Cursor for range sliders */
+input[type='range'] {
+  cursor: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%234a90e2' d='M12 2 C6.48 2 2 6.48 2 12 C2 17.52 6.48 22 12 22 C17.52 22 22 17.52 22 12 C22 6.48 17.52 2 12 2 Z M12 20 C7.59 20 4 16.41 4 12 C4 7.59 7.59 4 12 4 C16.41 4 20 7.59 20 12 C20 16.41 16.41 20 12 20 Z'/%3E%3C/svg%3E") 12 12, grab;
+}
+
+input[type='range']:active {
+  cursor: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%234a90e2' d='M12 2 C6.48 2 2 6.48 2 12 C2 17.52 6.48 22 12 22 C17.52 22 22 17.52 22 12 C22 6.48 17.52 2 12 2 Z M12 20 C7.59 20 4 16.41 4 12 C4 7.59 7.59 4 12 4 C16.41 4 20 7.59 20 12 C20 16.41 16.41 20 12 20 Z'/%3E%3C/svg%3E") 12 12, grabbing;
+}
+
+/* Hover effect for buttons */
+button:hover,
+a:hover,
+input[type='button']:hover,
+input[type='submit']:hover,
+.btn:hover,
+[role='button']:hover {
+  cursor: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%234a90e2' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='4' fill='%234a90e2'/%3E%3C/svg%3E") 12 12, pointer;
+}
+
+/* Cursor for disabled elements */
+button:disabled,
+input:disabled,
+[disabled] {
+  cursor: url('../images/cursor.png') 12 8, not-allowed;
+}
+
+/* Custom cursor element for animated cursor effect */
+.custom-cursor {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgba(74, 144, 226, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  display: none;
+  mix-blend-mode: difference;
+  transition: width 0.1s ease, height 0.1s ease;
+}
+
+.custom-cursor.active {
+  display: block;
+}
+
+/* Alternative: If you want to use a PNG image directly */
+.custom-cursor img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Cursor over interactive elements */
+.custom-cursor.hover {
+  width: 40px;
+  height: 40px;
+  border-color: rgba(74, 144, 226, 0.8);
+}
+
+/* Hide default cursor when custom cursor is active */
+body.custom-cursor-active {
+  cursor: none;
+}
+
+body.custom-cursor-active button,
+body.custom-cursor-active a,
+body.custom-cursor-active input[type='button'],
+body.custom-cursor-active input[type='submit'],
+body.custom-cursor-active .btn {
+  cursor: none;
+}
+
+body.custom-cursor-active input[type='text'],
+body.custom-cursor-active input[type='number'],
+body.custom-cursor-active textarea,
+body.custom-cursor-active [contenteditable='true'] {
+  cursor: none;
+}

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+    <meta name="description" content="EMI Calculator - Calculate your loan EMI easily" />
+    <meta name="keywords" content="EMI Calculator, Loan Calculator" />
+    <meta name="author" content="i3realtors" />
+    <!-- Page Title -->
+    <title>EMI Calculator | i3realtors</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <!-- Custom Fonts Css-->
+    <link href="css/fonts.css" rel="stylesheet" media="screen" />
+    <!-- Bootstrap Css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <!-- SlickNav Css -->
+    <link href="css/slicknav.min.css" rel="stylesheet" />
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <!-- Font Awesome Icon Css-->
+    <link href="css/all.min.css" rel="stylesheet" media="screen" />
+    <!-- Animated Css -->
+    <link href="css/animate.css" rel="stylesheet" />
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="css/mousecursor.css" />
+    <!-- Custom Cursor CSS -->
+    <link rel="stylesheet" href="css/custom-cursor.css" />
+    <!-- Main Custom Css -->
+    <link href="css/custom.css" rel="stylesheet" media="screen" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      .calculator-container {
+        max-width: 600px;
+        margin: 60px auto;
+        padding: 40px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      }
+
+      .calculator-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .calculator-header h1 {
+        font-size: 32px;
+        color: #333;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .calculator-header p {
+        color: #666;
+        font-size: 14px;
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border-color: #4a90e2;
+        box-shadow: 0 0 10px rgba(74, 144, 226, 0.2);
+      }
+
+      .slider-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .slider-container input[type="range"] {
+        flex: 1;
+        height: 8px;
+        border-radius: 5px;
+        background: #ddd;
+        outline: none;
+        -webkit-appearance: none;
+        width: 100%;
+      }
+
+      .slider-container input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #4a90e2;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .slider-container input[type="range"]::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #4a90e2;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .slider-value {
+        min-width: 60px;
+        text-align: right;
+        font-weight: 600;
+        color: #4a90e2;
+        font-size: 16px;
+      }
+
+      .btn-calculate {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+      }
+
+      .btn-calculate:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(74, 144, 226, 0.4);
+      }
+
+      .btn-calculate:active {
+        transform: translateY(0);
+      }
+
+      .results-section {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        margin-top: 30px;
+        display: none;
+      }
+
+      .results-section.show {
+        display: block;
+        animation: slideIn 0.4s ease;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .result-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .result-item:last-child {
+        border-bottom: none;
+      }
+
+      .result-label {
+        color: #666;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .result-value {
+        color: #4a90e2;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .result-item.highlight .result-value {
+        color: #e74c3c;
+        font-size: 22px;
+      }
+
+      .amortization-table {
+        margin-top: 30px;
+        overflow-x: auto;
+      }
+
+      .amortization-table table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+      }
+
+      .amortization-table thead {
+        background: #f0f0f0;
+      }
+
+      .amortization-table th {
+        padding: 10px;
+        text-align: left;
+        font-weight: 600;
+        color: #333;
+        border-bottom: 2px solid #ddd;
+      }
+
+      .amortization-table td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .amortization-table tbody tr:hover {
+        background: #f9f9f9;
+      }
+
+      @media (max-width: 768px) {
+        .calculator-container {
+          margin: 30px 10px;
+          padding: 25px;
+        }
+
+        .calculator-header h1 {
+          font-size: 24px;
+        }
+
+        .slider-container {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .slider-value {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Preloader Start -->
+    <div class="preloader">
+      <div class="loading-container">
+        <div class="loading"></div>
+        <div id="loading-icon"><img src="images/loader.svg" alt="" /></div>
+      </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Header Start -->
+    <header class="main-header">
+      <div class="header-sticky bg-section">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container">
+            <!-- Logo Start -->
+            <a class="navbar-brand" href="./">
+              <img src="images/logo.svg" alt="Logo" />
+            </a>
+            <!-- Logo End -->
+
+            <!-- Main Menu Start -->
+            <div class="collapse navbar-collapse main-menu">
+              <div class="nav-menu-wrapper">
+                <ul class="navbar-nav mr-auto" id="menu">
+                  <li class="nav-item submenu">
+                    <a class="nav-link" href="./">Home</a>
+                    <ul>
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home - Version 1</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="index-2.html">Home - Version 2</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="index-3.html">Home - Version 3</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="calculator.html">Calculator</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- Main Menu End -->
+
+            <!-- Header Right Start -->
+            <div class="header-right">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+            <!-- Header Right End -->
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Calculator Section Start -->
+    <section class="pb-5">
+      <div class="calculator-container">
+        <div class="calculator-header">
+          <h1>EMI Calculator</h1>
+          <p>Calculate your loan EMI with ease</p>
+        </div>
+
+        <form id="emiForm">
+          <!-- Loan Amount -->
+          <div class="form-group">
+            <label for="loanAmount">Loan Amount (₹)</label>
+            <div class="slider-container">
+              <input
+                type="range"
+                id="loanAmountSlider"
+                min="100000"
+                max="10000000"
+                step="100000"
+                value="1000000"
+              />
+              <span class="slider-value" id="loanAmountValue">₹10,00,000</span>
+            </div>
+            <input
+              type="number"
+              id="loanAmount"
+              min="100000"
+              max="10000000"
+              step="100000"
+              value="1000000"
+              placeholder="Enter loan amount"
+            />
+          </div>
+
+          <!-- Interest Rate -->
+          <div class="form-group">
+            <label for="interestRate">Annual Interest Rate (%)</label>
+            <div class="slider-container">
+              <input
+                type="range"
+                id="interestRateSlider"
+                min="3"
+                max="15"
+                step="0.1"
+                value="7"
+              />
+              <span class="slider-value" id="interestRateValue">7%</span>
+            </div>
+            <input
+              type="number"
+              id="interestRate"
+              min="0.1"
+              max="50"
+              step="0.1"
+              value="7"
+              placeholder="Enter interest rate"
+            />
+          </div>
+
+          <!-- Loan Tenure -->
+          <div class="form-group">
+            <label for="tenure">Loan Tenure (Months)</label>
+            <div class="slider-container">
+              <input
+                type="range"
+                id="tenureSlider"
+                min="6"
+                max="360"
+                step="1"
+                value="120"
+              />
+              <span class="slider-value" id="tenureValue">120 months</span>
+            </div>
+            <input
+              type="number"
+              id="tenure"
+              min="1"
+              max="600"
+              step="1"
+              value="120"
+              placeholder="Enter tenure in months"
+            />
+          </div>
+
+          <!-- Calculate Button -->
+          <button type="button" class="btn-calculate" onclick="calculateEMI()">
+            Calculate EMI
+          </button>
+        </form>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection">
+          <h3 style="color: #333; margin-bottom: 20px; font-weight: 700;">Results</h3>
+
+          <div class="result-item highlight">
+            <span class="result-label">Monthly EMI</span>
+            <span class="result-value" id="resultEMI">₹0</span>
+          </div>
+
+          <div class="result-item">
+            <span class="result-label">Total Amount Payable</span>
+            <span class="result-value" id="resultTotalAmount">₹0</span>
+          </div>
+
+          <div class="result-item">
+            <span class="result-label">Total Interest Payable</span>
+            <span class="result-value" id="resultTotalInterest">₹0</span>
+          </div>
+
+          <div class="result-item">
+            <span class="result-label">Loan Amount</span>
+            <span class="result-value" id="resultLoanAmount">₹0</span>
+          </div>
+
+          <!-- Amortization Table -->
+          <div class="amortization-table">
+            <table id="amortizationTable">
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Principal</th>
+                  <th>Interest</th>
+                  <th>EMI</th>
+                  <th>Balance</th>
+                </tr>
+              </thead>
+              <tbody id="amortizationBody">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Calculator Section End -->
+
+    <!-- Footer Start -->
+    <footer class="footer-section">
+      <div class="footer-container">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="footer-widget">
+                <h4>About Us</h4>
+                <p>i3realtors is your trusted real estate partner providing comprehensive property solutions.</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="footer-widget">
+                <h4>Quick Links</h4>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="services.html">Services</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="footer-widget">
+                <h4>Contact Info</h4>
+                <p>Email: info@i3realtors.com</p>
+                <p>Phone: +91-XXXXX XXXXX</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="footer-widget">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                  <a href="#"><i class="fab fa-facebook"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <p>&copy; 2024 i3realtors. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Cursor Element -->
+    <div class="custom-cursor"></div>
+
+    <!-- jQuery -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Main Slider JS -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <!-- WOW JS -->
+    <script src="js/wow.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- SlickNav JS -->
+    <script src="js/jquery.slicknav.js"></script>
+    <!-- Counter JS -->
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- Waypoints JS -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <!-- Parallax JS -->
+    <script src="js/parallaxie.js"></script>
+    <!-- GSAP JS -->
+    <script src="js/gsap.min.js"></script>
+    <!-- Scroll Trigger JS -->
+    <script src="js/ScrollTrigger.min.js"></script>
+    <!-- Split Text JS -->
+    <script src="js/SplitText.min.js"></script>
+    <!-- Smooth Scroll JS -->
+    <script src="js/SmoothScroll.js"></script>
+    <!-- Validator JS -->
+    <script src="js/validator.min.js"></script>
+    <!-- Magic Cursor JS -->
+    <script src="js/magiccursor.js"></script>
+    <!-- Custom Cursor JS -->
+    <script src="js/custom-cursor.js"></script>
+    <!-- Custom JS -->
+    <script src="js/function.js"></script>
+
+    <script>
+      // Sync slider and input for Loan Amount
+      const loanAmountInput = document.getElementById('loanAmount');
+      const loanAmountSlider = document.getElementById('loanAmountSlider');
+      const loanAmountValue = document.getElementById('loanAmountValue');
+
+      loanAmountSlider.addEventListener('input', function () {
+        loanAmountInput.value = this.value;
+        loanAmountValue.textContent = '₹' + formatNumber(this.value);
+      });
+
+      loanAmountInput.addEventListener('input', function () {
+        loanAmountSlider.value = this.value;
+        loanAmountValue.textContent = '₹' + formatNumber(this.value);
+      });
+
+      // Sync slider and input for Interest Rate
+      const interestRateInput = document.getElementById('interestRate');
+      const interestRateSlider = document.getElementById('interestRateSlider');
+      const interestRateValue = document.getElementById('interestRateValue');
+
+      interestRateSlider.addEventListener('input', function () {
+        interestRateInput.value = this.value;
+        interestRateValue.textContent = this.value + '%';
+      });
+
+      interestRateInput.addEventListener('input', function () {
+        interestRateSlider.value = this.value;
+        interestRateValue.textContent = this.value + '%';
+      });
+
+      // Sync slider and input for Tenure
+      const tenureInput = document.getElementById('tenure');
+      const tenureSlider = document.getElementById('tenureSlider');
+      const tenureValue = document.getElementById('tenureValue');
+
+      tenureSlider.addEventListener('input', function () {
+        tenureInput.value = this.value;
+        tenureValue.textContent = this.value + ' months';
+      });
+
+      tenureInput.addEventListener('input', function () {
+        tenureSlider.value = this.value;
+        tenureValue.textContent = this.value + ' months';
+      });
+
+      // Format number with commas
+      function formatNumber(num) {
+        return Math.round(num)
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      }
+
+      // Calculate EMI
+      function calculateEMI() {
+        const principal = parseFloat(loanAmountInput.value);
+        const rate = parseFloat(interestRateInput.value) / 12 / 100;
+        const tenure = parseInt(tenureInput.value);
+
+        if (principal <= 0 || tenure <= 0 || isNaN(rate)) {
+          alert('Please enter valid values');
+          return;
+        }
+
+        const emi = (principal * rate * Math.pow(1 + rate, tenure)) / (Math.pow(1 + rate, tenure) - 1);
+        const totalAmount = emi * tenure;
+        const totalInterest = totalAmount - principal;
+
+        // Display results
+        document.getElementById('resultEMI').textContent = '₹' + formatNumber(emi);
+        document.getElementById('resultTotalAmount').textContent = '₹' + formatNumber(totalAmount);
+        document.getElementById('resultTotalInterest').textContent = '₹' + formatNumber(totalInterest);
+        document.getElementById('resultLoanAmount').textContent = '₹' + formatNumber(principal);
+
+        // Generate amortization schedule
+        generateAmortizationSchedule(principal, rate, emi, tenure);
+
+        // Show results
+        document.getElementById('resultsSection').classList.add('show');
+      }
+
+      // Generate amortization schedule
+      function generateAmortizationSchedule(principal, rate, emi, tenure) {
+        const tbody = document.getElementById('amortizationBody');
+        tbody.innerHTML = '';
+
+        let balance = principal;
+
+        for (let i = 1; i <= tenure; i++) {
+          const interestPayment = balance * rate;
+          const principalPayment = emi - interestPayment;
+          balance -= principalPayment;
+
+          // Prevent negative balance due to rounding
+          if (balance < 0) balance = 0;
+
+          const row = `
+            <tr>
+              <td>${i}</td>
+              <td>₹${formatNumber(principalPayment)}</td>
+              <td>₹${formatNumber(interestPayment)}</td>
+              <td>₹${formatNumber(emi)}</td>
+              <td>₹${formatNumber(balance)}</td>
+            </tr>
+          `;
+
+          tbody.innerHTML += row;
+        }
+      }
+
+      // Auto calculate on page load
+      window.addEventListener('load', function () {
+        calculateEMI();
+      });
+    </script>
+  </body>
+</html>
