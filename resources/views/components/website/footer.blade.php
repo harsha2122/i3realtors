@@ -127,11 +127,11 @@
                     <div class="footer-links">
                         <h3>Our Services</h3>
                         <ul>
-                            <li><a href="{{ route('services') }}">Residential Construction</a></li>
-                            <li><a href="{{ route('services') }}">Commercial Construction</a></li>
-                            <li><a href="{{ route('services') }}">Real Estate Development</a></li>
-                            <li><a href="{{ route('services') }}">Renovation &amp; Remodeling</a></li>
-                            <li><a href="{{ route('services') }}">Design &amp; Planning</a></li>
+                            <li><a href="{{ route('services') }}">Developer Mandate Services</a></li>
+                            <li><a href="{{ route('services') }}">Project Marketing</a></li>
+                            <li><a href="{{ route('services') }}">Real Estate Investment Advisory</a></li>
+                            <li><a href="{{ route('services') }}">Developer Partnerships</a></li>
+                            <li><a href="{{ route('services') }}">Commercial Real Estate Consulting</a></li>
                         </ul>
                     </div>
                     <!-- Services Links End -->
@@ -139,7 +139,7 @@
                     <!-- Newsletter -->
                     <div class="footer-links footer-newsletter-form">
                         <h3>Subscribe Newsletter</h3>
-                        <p>** Subscribe to receive the latest updates, insights, and project news.</p>
+                        <p>Subscribe to receive updates on new projects, investment opportunities, and real estate insights.</p>
                         <form id="newslettersForm" action="#" method="POST">
                             @csrf
                             <div class="form-group">

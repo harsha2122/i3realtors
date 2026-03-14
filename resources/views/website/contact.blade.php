@@ -34,8 +34,10 @@
                     <!-- Section Title Start -->
                     <div class="section-title">
                         <span class="section-sub-title wow fadeInUp">Contact Us</span>
-                        <h2 class="text-anime-style-2" data-cursor="-opaque">We're ready to build your future together</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.2s">We partner with you to plan, design, and deliver high-quality construction projects with transparency, expertise, and a commitment to long-term value.</p>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque">We're ready to discuss your next real estate opportunity</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.2s">At i3 Realtors, we work closely with developers, investors, and strategic partners to create structured real estate opportunities. Whether you're exploring developer mandates, project partnerships, or investment opportunities, our team is ready to assist you with the right strategy and guidance.
+
+Reach out to us and our team will get back to you shortly.</p>
                     </div>
                     <!-- Section Title End -->
 
@@ -51,7 +53,7 @@
                         <!-- Contact Info Item Start -->
                         <div class="contact-info-item wow fadeInUp" data-wow-delay="0.2s">
                             <h4>Address:</h4>
-                            <p>{{ $site['contact_address'] ?? '123 Main Street, City Name, Office 201' }}</p>
+                            <p>i3 Realtors<br>Office No. 04, Sector No. 01, Plot No. 20<br>White House, Amchi Colony<br>Bavdhan, Pune 411021<br>Maharashtra, India</p>
                         </div>
                         <!-- Contact Info Item End -->
 
@@ -131,8 +133,8 @@
                 <!-- Section Title Start -->
                 <div class="section-title section-title-center">
                     <span class="section-sub-title wow fadeInUp">Our Location</span>
-                    <h2 class="text-anime-style-2" data-cursor="-opaque">Visit Us Today</h2>
-                    <p class="wow fadeInUp" data-wow-delay="0.2s">Find our location and reach out to us. We're always ready to help you with your construction needs.</p>
+                    <h2 class="text-anime-style-2" data-cursor="-opaque">Visit Our Office</h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.2s">Our office is located in Bavdhan, Pune. You can visit us to discuss developer mandates, real estate investments, and strategic project partnerships. We welcome developers, investors, and partners to connect with our team.</p>
                 </div>
                 <!-- Section Title End -->
             </div>
@@ -150,5 +152,27 @@
     </div>
 </div>
 <!-- Location Section End -->
+
+<!-- CTA Box Section Start -->
+<div class="cta-box bg-section dark-section parallaxie">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 text-center">
+                <div class="section-title section-title-center">
+                    <span class="section-sub-title wow fadeInUp">Partnership</span>
+                    <h2 class="text-anime-style-2" data-cursor="-opaque">
+                        Partner with i3 Realtors
+                    </h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.2s">If you are a developer launching a new project or an investor looking for structured opportunities, i3 Realtors provides the strategic guidance and partnerships needed to move forward with confidence.</p>
+                </div>
+                <div class="wow fadeInUp" data-wow-delay="0.4s">
+                    <a href="{{ route('projects.index') }}" class="btn-default btn-highlighted me-3">Explore Opportunities</a>
+                    <a href="{{ route('about') }}" class="btn-default">Learn More About Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- CTA Box Section End -->
 
 @endsection
