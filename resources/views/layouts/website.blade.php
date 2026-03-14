@@ -37,10 +37,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
           crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    {{-- Dynamic Primary Color CSS Variable --}}
+    {{-- Dynamic Brand Color CSS Variables --}}
     <style>
         :root {
-            --primary-color: {{ $site['primary_color'] ?? '#b8962b' }};
+            --primary-color: {{ $site['primary_color'] ?? '#040618' }};
+            --accent-color: {{ $site['primary_color'] ?? '#040618' }};
+            --accent-secondary-color: {{ $site['secondary_color'] ?? '#dcff09' }};
         }
     </style>
 
