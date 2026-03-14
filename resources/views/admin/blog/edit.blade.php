@@ -166,7 +166,7 @@
                 <div class="card-body p-4">
                     @if($post->featured_image)
                         <div class="mb-3">
-                            <img src="{{ Storage::url($post->featured_image) }}"
+                            <img src="{{ asset('uploads/' . $post->featured_image) }}"
                                  alt="{{ $post->title }}"
                                  class="img-fluid rounded" style="max-height: 160px;">
                             <div class="mt-2">
@@ -193,17 +193,17 @@
 
 @endsection
 
+@push('styles')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jodit/3.24.6/jodit.min.css">
+@endpush
+
 @push('scripts')
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jodit/3.24.6/jodit.min.js"></script>
 <script>
-    tinymce.init({
-        selector: '#content',
-        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
-        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    Jodit.make('#content', {
         height: 500,
-        license_key: 'gpl',
-        skin: 'oxide',
-        content_css: 'default'
+        buttons: 'bold,italic,underline,strikethrough,|,ul,ol,|,font,fontsize,|,image,link,table,|,align,|,undo,redo,|,source',
+        uploader: { insertImageAsBase64URI: true },
     });
 
     function previewFeaturedImage(input) {
