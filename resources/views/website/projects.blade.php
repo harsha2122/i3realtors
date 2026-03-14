@@ -95,13 +95,15 @@
                                 <a href="{{ route('projects.show', $property->slug) }}" data-cursor-text="View">
                                     <figure>
                                         <img src="{{ $property->thumbnail_url }}"
-                                             alt="{{ $property->title }}"
-                                             style="width:100%;height:260px;object-fit:cover;" />
+                                             alt="{{ $property->title }}" />
                                     </figure>
                                 </a>
+                                {{-- Status badge top-right --}}
+                                <span style="position: absolute; top: 16px; right: 16px; z-index: 3; background: var(--accent-secondary-color); color: var(--accent-color); font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                    {{ $property->status_label }}
+                                </span>
                                 @if($property->is_featured)
-                                    <span class="position-absolute top-0 start-0 m-2 badge"
-                                          style="background: var(--primary-color); color:#000; font-size:0.7rem;">
+                                    <span style="position: absolute; top: 16px; left: 16px; z-index: 3; background: var(--accent-secondary-color); color: var(--accent-color); font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
                                         <i class="fas fa-star me-1"></i>Featured
                                     </span>
                                 @endif
@@ -109,32 +111,19 @@
                             <div class="project-item-content">
                                 <ul>
                                     <li><a href="{{ route('projects.index') }}?type={{ $property->type }}">{{ $property->type_label }}</a></li>
-                                    <li>
-                                        <span class="badge bg-{{ $property->status_badge }} ms-2" style="font-size:0.7rem;">
-                                            {{ $property->status_label }}
-                                        </span>
-                                    </li>
+                                    @if($property->city)
+                                        <li>{{ $property->city }}</li>
+                                    @endif
                                 </ul>
                                 <h2><a href="{{ route('projects.show', $property->slug) }}">{{ $property->title }}</a></h2>
                                 <div class="d-flex justify-content-between align-items-center mt-2">
-                                    @if($property->city)
-                                        <span class="small text-muted">
-                                            <i class="fas fa-map-marker-alt me-1" style="color:var(--primary-color)"></i>{{ $property->city }}
+                                    <span style="font-weight: 700; font-size: 15px; color: var(--accent-secondary-color);">{{ $property->formatted_price }}</span>
+                                    @if($property->area)
+                                        <span style="font-size: 12px; color: rgba(255,255,255,0.75);">
+                                            <i class="fas fa-expand me-1"></i>{{ number_format($property->area) }} {{ $property->area_unit }}
                                         </span>
                                     @endif
-                                    <span class="fw-bold" style="color: var(--primary-color);">{{ $property->formatted_price }}</span>
                                 </div>
-                                @if($property->area)
-                                    <div class="small text-muted mt-1">
-                                        <i class="fas fa-expand me-1"></i>{{ number_format($property->area) }} {{ $property->area_unit }}
-                                        @if($property->bedrooms)
-                                            &nbsp;|&nbsp; <i class="fas fa-bed me-1"></i>{{ $property->bedrooms }} Bed
-                                        @endif
-                                        @if($property->bathrooms)
-                                            &nbsp;|&nbsp; <i class="fas fa-bath me-1"></i>{{ $property->bathrooms }} Bath
-                                        @endif
-                                    </div>
-                                @endif
                             </div>
                         </div>
                     </div>
