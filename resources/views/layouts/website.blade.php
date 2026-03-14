@@ -42,14 +42,6 @@
         :root {
             --primary-color: {{ $site['primary_color'] ?? '#b8962b' }};
         }
-        * {
-            cursor: url('/images/cursor.png') 0 0, auto;
-        }
-        a, button, [role="button"], label, select, input[type="submit"],
-        input[type="button"], input[type="reset"], .btn-default, .nav-link,
-        .navbar-brand, [onclick] {
-            cursor: url('/images/cursor.png') 0 0, pointer;
-        }
     </style>
 
     {{-- Google Analytics --}}
