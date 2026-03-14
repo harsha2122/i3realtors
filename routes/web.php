@@ -68,7 +68,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('/media', [Admin\MediaController::class, 'destroy'])->name('media.destroy');
 
         // Blog Management
-        Route::resource('blog', Admin\BlogController::class);
+        Route::resource('blog', Admin\BlogController::class)->parameters(['blog' => 'post']);
         Route::post('/blog/{post}/publish', [Admin\BlogController::class, 'publish'])->name('blog.publish');
         Route::post('/blog/{post}/archive', [Admin\BlogController::class, 'archive'])->name('blog.archive');
         Route::post('/blog/bulk-action', [Admin\BlogController::class, 'bulkAction'])->name('blog.bulkAction');
