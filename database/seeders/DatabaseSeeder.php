@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             AddCustomCursorSetting::class,
             AdminUserSeeder::class,
             NavigationMenuSeeder::class,
+            PropertySeeder::class,
+            BlogSeeder::class,
         ]);
     }
 }

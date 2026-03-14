@@ -30,13 +30,16 @@
         <div class="container">
 
             {{-- Filters --}}
-            <form method="GET" action="{{ route('projects.index') }}" class="row g-2 mb-5">
+            <form method="GET" action="{{ route('projects.index') }}" class="row g-2 mb-5 align-items-center">
                 <div class="col-md-4">
                     <input type="text" name="search" value="{{ $filters['search'] ?? '' }}"
-                           class="form-control" placeholder="Search projects…" />
+                           class="form-control"
+                           style="border: 2px solid var(--divider-color); border-radius: 50px; padding: 10px 20px; font-size: 14px;"
+                           placeholder="Search projects…" />
                 </div>
                 <div class="col-md-2">
-                    <select name="type" class="form-select">
+                    <select name="type" class="form-select"
+                            style="border: 2px solid var(--divider-color); border-radius: 50px; padding: 10px 20px; font-size: 14px;">
                         <option value="">All Types</option>
                         @foreach(['residential','commercial','industrial','infrastructure','plot'] as $t)
                             <option value="{{ $t }}" {{ ($filters['type'] ?? '') === $t ? 'selected' : '' }}>{{ ucfirst($t) }}</option>
@@ -44,7 +47,8 @@
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <select name="status" class="form-select">
+                    <select name="status" class="form-select"
+                            style="border: 2px solid var(--divider-color); border-radius: 50px; padding: 10px 20px; font-size: 14px;">
                         <option value="">All Status</option>
                         @foreach(['available','under_construction','coming_soon','sold'] as $s)
                             <option value="{{ $s }}" {{ ($filters['status'] ?? '') === $s ? 'selected' : '' }}>{{ ucwords(str_replace('_',' ',$s)) }}</option>
@@ -53,7 +57,8 @@
                 </div>
                 @if($cities->isNotEmpty())
                 <div class="col-md-2">
-                    <select name="city" class="form-select">
+                    <select name="city" class="form-select"
+                            style="border: 2px solid var(--divider-color); border-radius: 50px; padding: 10px 20px; font-size: 14px;">
                         <option value="">All Cities</option>
                         @foreach($cities as $city)
                             <option value="{{ $city }}" {{ ($filters['city'] ?? '') === $city ? 'selected' : '' }}>{{ $city }}</option>
@@ -64,7 +69,12 @@
                 <div class="col-md-2 d-flex gap-2">
                     <button type="submit" class="btn-default flex-fill" style="padding: 10px 16px; font-size: 0.9rem;">Filter</button>
                     @if(array_filter($filters))
-                        <a href="{{ route('projects.index') }}" class="btn btn-outline-secondary" style="padding: 10px 16px;">Clear</a>
+                        <a href="{{ route('projects.index') }}"
+                           style="display: inline-flex; align-items: center; padding: 10px 18px; border: 2px solid var(--divider-color); border-radius: 100px; font-size: 0.85rem; font-weight: 600; color: var(--text-color); text-decoration: none; transition: all 0.3s ease; white-space: nowrap;"
+                           onmouseover="this.style.borderColor='var(--primary-color)';this.style.color='var(--primary-color)'"
+                           onmouseout="this.style.borderColor='var(--divider-color)';this.style.color='var(--text-color)'">
+                            <i class="fas fa-times me-1"></i> Clear
+                        </a>
                     @endif
                 </div>
             </form>
