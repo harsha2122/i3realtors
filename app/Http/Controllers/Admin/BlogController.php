@@ -27,23 +27,30 @@ class BlogController extends Controller
 
     public function create()
     {
-        $categories = Category::where('is_active', true)->get();
+        $categories = Category::orderBy('name')->get();
         return view('admin.blog.create', compact('categories'));
     }
 
     public function store(Request $request)
     {
+        // Convert comma-separated tags string to array
+        if ($request->filled('tags') && is_string($request->tags)) {
+            $request->merge([
+                'tags' => array_filter(array_map('trim', explode(',', $request->tags)))
+            ]);
+        }
+
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|unique:posts',
-            'featured_image' => 'nullable|image|max:2048',
-            'excerpt' => 'nullable|string',
-            'content' => 'required|string',
-            'category_id' => 'nullable|exists:categories,id',
-            'tags' => 'nullable|array',
-            'seo_title' => 'nullable|string|max:60',
+            'title'           => 'required|string|max:255',
+            'slug'            => 'nullable|string|unique:posts',
+            'featured_image'  => 'nullable|image|max:2048',
+            'excerpt'         => 'nullable|string',
+            'content'         => 'required|string',
+            'category_id'     => 'nullable|exists:categories,id',
+            'tags'            => 'nullable|array',
+            'seo_title'       => 'nullable|string|max:60',
             'seo_description' => 'nullable|string|max:160',
-            'seo_keywords' => 'nullable|string',
+            'seo_keywords'    => 'nullable|string',
         ]);
 
         if ($request->hasFile('featured_image')) {
@@ -59,7 +66,7 @@ class BlogController extends Controller
 
     public function edit(Post $post)
     {
-        $categories = Category::where('is_active', true)->get();
+        $categories = Category::orderBy('name')->get();
         $post->load('category', 'tags');
 
         return view('admin.blog.edit', compact('post', 'categories'));
@@ -67,17 +74,24 @@ class BlogController extends Controller
 
     public function update(Request $request, Post $post)
     {
+        // Convert comma-separated tags string to array
+        if ($request->filled('tags') && is_string($request->tags)) {
+            $request->merge([
+                'tags' => array_filter(array_map('trim', explode(',', $request->tags)))
+            ]);
+        }
+
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|unique:posts,slug,' . $post->id,
-            'featured_image' => 'nullable|image|max:2048',
-            'excerpt' => 'nullable|string',
-            'content' => 'required|string',
-            'category_id' => 'nullable|exists:categories,id',
-            'tags' => 'nullable|array',
-            'seo_title' => 'nullable|string|max:60',
+            'title'           => 'required|string|max:255',
+            'slug'            => 'nullable|string|unique:posts,slug,' . $post->id,
+            'featured_image'  => 'nullable|image|max:2048',
+            'excerpt'         => 'nullable|string',
+            'content'         => 'required|string',
+            'category_id'     => 'nullable|exists:categories,id',
+            'tags'            => 'nullable|array',
+            'seo_title'       => 'nullable|string|max:60',
             'seo_description' => 'nullable|string|max:160',
-            'seo_keywords' => 'nullable|string',
+            'seo_keywords'    => 'nullable|string',
         ]);
 
         if ($request->hasFile('featured_image')) {
@@ -87,7 +101,12 @@ class BlogController extends Controller
 
         $this->service->updatePost($post, $validated);
 
-        return redirect()->route('admin.blog.edit', $post)
+        // Publish immediately if "Save & Publish" was clicked
+        if ($request->filled('publish_now') && $post->status === 'draft') {
+            $this->service->publishPost($post);
+        }
+
+        return redirect()->route('admin.blog.edit', $post->fresh())
             ->with('success', 'Post updated successfully');
     }
 
