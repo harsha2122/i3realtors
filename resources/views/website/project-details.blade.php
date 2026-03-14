@@ -92,68 +92,111 @@
 
                 {{-- Right: Info Sidebar --}}
                 <div class="col-xl-4">
-                    <div class="card border-0 shadow-sm rounded-3 mb-4 p-4">
-                        <div class="fw-bold" style="font-size:1.8rem; color: var(--primary-color);">
+
+                    {{-- Price Card --}}
+                    <div style="background: var(--primary-color); border-radius: 16px; padding: 28px; margin-bottom: 20px;">
+                        <div style="font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px;">
+                            For {{ ucfirst($property->price_type) }}
+                        </div>
+                        <div style="font-size: 2rem; font-weight: 800; color: var(--accent-secondary-color); line-height: 1.1; margin-bottom: 6px;">
                             {{ $property->formatted_price }}
                         </div>
-                        <div class="text-muted small text-capitalize">For {{ $property->price_type }}</div>
-                        <hr />
-                        <dl class="row g-2 small mb-0">
-                            <dt class="col-6 text-muted fw-normal">Status</dt>
-                            <dd class="col-6"><span class="badge bg-{{ $property->status_badge }}">{{ $property->status_label }}</span></dd>
+                        <span style="display: inline-block; background: var(--accent-secondary-color); color: var(--accent-color); font-size: 10px; font-weight: 700; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
+                            {{ $property->status_label }}
+                        </span>
+                    </div>
 
-                            <dt class="col-6 text-muted fw-normal">Type</dt>
-                            <dd class="col-6 fw-semibold">{{ $property->type_label }}</dd>
+                    {{-- Details Card --}}
+                    <div style="background: #fff; border-radius: 16px; padding: 24px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(4,6,24,0.07);">
+                        <h5 style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--primary-color); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--divider-color);">
+                            Property Details
+                        </h5>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="font-size: 13px; color: var(--text-color); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-home" style="width: 16px; color: var(--primary-color);"></i>Type
+                                </span>
+                                <span style="font-size: 13px; font-weight: 700; color: var(--primary-color);">{{ $property->type_label }}</span>
+                            </div>
 
                             @if($property->area)
-                            <dt class="col-6 text-muted fw-normal">Area</dt>
-                            <dd class="col-6 fw-semibold">{{ number_format($property->area) }} {{ $property->area_unit }}</dd>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--divider-color);">
+                                <span style="font-size: 13px; color: var(--text-color); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-expand-arrows-alt" style="width: 16px; color: var(--primary-color);"></i>Area
+                                </span>
+                                <span style="font-size: 13px; font-weight: 700; color: var(--primary-color);">{{ number_format($property->area) }} {{ $property->area_unit }}</span>
+                            </div>
                             @endif
 
                             @if($property->bedrooms)
-                            <dt class="col-6 text-muted fw-normal">Bedrooms</dt>
-                            <dd class="col-6 fw-semibold">{{ $property->bedrooms }}</dd>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--divider-color);">
+                                <span style="font-size: 13px; color: var(--text-color); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-bed" style="width: 16px; color: var(--primary-color);"></i>Bedrooms
+                                </span>
+                                <span style="font-size: 13px; font-weight: 700; color: var(--primary-color);">{{ $property->bedrooms }}</span>
+                            </div>
                             @endif
 
                             @if($property->bathrooms)
-                            <dt class="col-6 text-muted fw-normal">Bathrooms</dt>
-                            <dd class="col-6 fw-semibold">{{ $property->bathrooms }}</dd>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--divider-color);">
+                                <span style="font-size: 13px; color: var(--text-color); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-bath" style="width: 16px; color: var(--primary-color);"></i>Bathrooms
+                                </span>
+                                <span style="font-size: 13px; font-weight: 700; color: var(--primary-color);">{{ $property->bathrooms }}</span>
+                            </div>
                             @endif
 
                             @if($property->floors)
-                            <dt class="col-6 text-muted fw-normal">Floors</dt>
-                            <dd class="col-6 fw-semibold">{{ $property->floors }}</dd>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--divider-color);">
+                                <span style="font-size: 13px; color: var(--text-color); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-layer-group" style="width: 16px; color: var(--primary-color);"></i>Floors
+                                </span>
+                                <span style="font-size: 13px; font-weight: 700; color: var(--primary-color);">{{ $property->floors }}</span>
+                            </div>
                             @endif
 
                             @if($property->city)
-                            <dt class="col-6 text-muted fw-normal">City</dt>
-                            <dd class="col-6 fw-semibold">{{ $property->city }}</dd>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--divider-color);">
+                                <span style="font-size: 13px; color: var(--text-color); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-city" style="width: 16px; color: var(--primary-color);"></i>City
+                                </span>
+                                <span style="font-size: 13px; font-weight: 700; color: var(--primary-color);">{{ $property->city }}</span>
+                            </div>
                             @endif
 
                             @if($property->location)
-                            <dt class="col-6 text-muted fw-normal">Location</dt>
-                            <dd class="col-6 fw-semibold">{{ $property->location }}</dd>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--divider-color);">
+                                <span style="font-size: 13px; color: var(--text-color); display: flex; align-items: center; gap: 8px;">
+                                    <i class="fas fa-map-marker-alt" style="width: 16px; color: var(--primary-color);"></i>Location
+                                </span>
+                                <span style="font-size: 13px; font-weight: 700; color: var(--primary-color); text-align: right; max-width: 55%;">{{ $property->location }}</span>
+                            </div>
                             @endif
-                        </dl>
+
+                        </div>
                     </div>
 
-                    <div class="card border-0 shadow-sm rounded-3 mb-4 p-4 text-center"
-                         style="background: var(--primary-color);">
-                        <h5 class="text-white fw-bold mb-2">Interested in this property?</h5>
-                        <p class="text-white mb-3" style="opacity:0.9;font-size:0.9rem;">
+                    {{-- CTA Card --}}
+                    <div style="background: var(--accent-secondary-color); border-radius: 16px; padding: 28px; text-align: center;">
+                        <h5 style="font-size: 1.1rem; font-weight: 800; color: var(--primary-color); margin-bottom: 8px;">Interested in this property?</h5>
+                        <p style="font-size: 13px; color: var(--primary-color); opacity: 0.75; margin-bottom: 20px; line-height: 1.5;">
                             Contact us for a site visit or more details.
                         </p>
-                        <a href="{{ route('contact') }}" class="btn btn-light fw-bold" style="border-radius:8px;">
+                        <a href="{{ route('contact') }}" class="btn-default"
+                           style="display: inline-block; background: var(--primary-color); color: var(--accent-secondary-color); padding: 12px 28px; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; width: 100%; text-align: center;">
                             <i class="fas fa-phone me-2"></i>Enquire Now
                         </a>
                         @if(!empty($site['phone_primary']))
                         <div class="mt-3">
-                            <a href="tel:{{ $site['phone_primary'] }}" class="text-white text-decoration-none small">
+                            <a href="tel:{{ $site['phone_primary'] }}"
+                               style="font-size: 13px; font-weight: 600; color: var(--primary-color); text-decoration: none;">
                                 <i class="fas fa-phone me-1"></i>{{ $site['phone_primary'] }}
                             </a>
                         </div>
                         @endif
                     </div>
+
                 </div>
             </div>
 

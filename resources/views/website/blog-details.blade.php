@@ -7,14 +7,14 @@
     <div class="page-header bg-section dark-section parallaxie">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="page-header-box">
                         <h1 class="text-anime-style-2" data-cursor="-opaque">{{ $post->title }}</h1>
                         <nav>
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                                 <li class="breadcrumb-item"><a href="{{ route('blog.index') }}">Blog</a></li>
-                                <li class="breadcrumb-item active">{{ $post->title }}</li>
+                                <li class="breadcrumb-item active">{{ Str::limit($post->title, 40) }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -24,165 +24,235 @@
     </div>
     <!-- Page Header End -->
 
-<div class="min-h-screen bg-white">
-    <div class="bg-section py-16" style="padding: 40px 0;">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl">
-                <div class="mb-6">
-                    @if($post->category)
-                        <span class="inline-block bg-blue-600 px-4 py-2 rounded text-sm font-semibold">
-                            {{ $post->category->name }}
-                        </span>
-                    @endif
-                </div>
-                <h1 class="text-5xl font-bold mb-6">{{ $post->title }}</h1>
-                <div class="flex items-center gap-8 text-gray-300">
-                    <div class="flex items-center gap-2">
-                        <span class="font-semibold">{{ $post->author->name }}</span>
+    <!-- Blog Detail Start -->
+    <div class="our-blog" style="padding: 80px 0;">
+        <div class="container">
+            <div class="row">
+
+                <!-- Main Content -->
+                <div class="col-xl-8 col-lg-8">
+
+                    <!-- Featured Image -->
+                    @if($post->featured_image)
+                    <div class="post-featured-image mb-4" style="position: relative; border-radius: 16px; overflow: hidden;">
+                        <figure style="margin: 0;">
+                            <img src="{{ asset('uploads/' . $post->featured_image) }}" alt="{{ $post->title }}"
+                                 style="width: 100%; height: 420px; object-fit: cover;" />
+                        </figure>
+                        @if($post->category)
+                            <span style="position: absolute; top: 20px; left: 20px; background: var(--accent-secondary-color); color: var(--accent-color); font-size: 11px; font-weight: 700; padding: 6px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                {{ $post->category->name }}
+                            </span>
+                        @endif
                     </div>
-                    <span>{{ $post->published_at->format('M d, Y') }}</span>
-                    <span>{{ $post->getReadingTimeAttribute() }} min read</span>
-                    <span>{{ $post->view_count }} views</span>
+                    @endif
+
+                    <!-- Post Meta -->
+                    <div class="d-flex flex-wrap gap-3 mb-4" style="font-size: 13px; color: var(--text-color);">
+                        <span><i class="fas fa-user me-1" style="color: var(--primary-color);"></i>{{ $post->author->name }}</span>
+                        <span><i class="fas fa-calendar-alt me-1" style="color: var(--primary-color);"></i>{{ $post->published_at->format('M d, Y') }}</span>
+                        <span><i class="fas fa-clock me-1" style="color: var(--primary-color);"></i>{{ $post->getReadingTimeAttribute() }} min read</span>
+                        <span><i class="fas fa-eye me-1" style="color: var(--primary-color);"></i>{{ number_format($post->view_count) }} views</span>
+                    </div>
+
+                    <!-- Post Content -->
+                    <div class="blog-content mb-5" style="font-size: 15px; line-height: 1.9; color: var(--text-color);">
+                        {!! $post->content !!}
+                    </div>
+
+                    <!-- Tags -->
+                    @if($post->tags->count())
+                    <div class="d-flex flex-wrap align-items-center gap-2 mb-5 pt-4"
+                         style="border-top: 1px solid var(--divider-color);">
+                        <span style="font-size: 13px; font-weight: 700; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.5px;">Tags:</span>
+                        @foreach($post->tags as $tag)
+                            <span style="background: var(--bg-color); color: var(--text-color); font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 20px; border: 1px solid var(--divider-color);">
+                                {{ $tag->name }}
+                            </span>
+                        @endforeach
+                    </div>
+                    @endif
+
+                    <!-- Comments -->
+                    <div class="mb-5">
+                        <div class="section-title">
+                            <h3 class="text-anime-style-2" style="font-size: 1.5rem;" data-cursor="-opaque">
+                                Comments <span>({{ $post->comments()->approved()->count() }})</span>
+                            </h3>
+                        </div>
+
+                        @foreach($post->comments()->approved()->get() as $comment)
+                        <div class="mb-4 p-4" style="border-left: 3px solid var(--accent-secondary-color); background: var(--bg-color); border-radius: 0 10px 10px 0;">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span style="font-weight: 700; font-size: 14px; color: var(--primary-color);">
+                                    <i class="fas fa-user-circle me-2" style="color: var(--accent-secondary-color);"></i>{{ $comment->author_name }}
+                                </span>
+                                <span style="font-size: 12px; color: var(--text-color);">{{ $comment->created_at->format('M d, Y') }}</span>
+                            </div>
+                            <p style="margin: 0; font-size: 14px; line-height: 1.7; color: var(--text-color);">{{ $comment->content }}</p>
+                        </div>
+                        @endforeach
+
+                        <!-- Comment Form -->
+                        <div class="mt-5 p-4" style="background: var(--bg-color); border-radius: 16px;">
+                            <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--primary-color); margin-bottom: 1.5rem;">Leave a Comment</h4>
+                            <form action="{{ route('api.v1.comments.store', $post) }}" method="post">
+                                @csrf
+                                <div class="row g-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label style="font-size: 13px; font-weight: 600; color: var(--primary-color); margin-bottom: 6px; display: block;">Name <span style="color: red;">*</span></label>
+                                        <input type="text" name="author_name" required
+                                               style="width: 100%; padding: 12px 16px; border: 2px solid var(--divider-color); border-radius: 8px; font-size: 14px; background: #fff; outline: none; transition: border-color 0.2s;"
+                                               onfocus="this.style.borderColor='var(--primary-color)'"
+                                               onblur="this.style.borderColor='var(--divider-color)'" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label style="font-size: 13px; font-weight: 600; color: var(--primary-color); margin-bottom: 6px; display: block;">Email <span style="color: red;">*</span></label>
+                                        <input type="email" name="author_email" required
+                                               style="width: 100%; padding: 12px 16px; border: 2px solid var(--divider-color); border-radius: 8px; font-size: 14px; background: #fff; outline: none; transition: border-color 0.2s;"
+                                               onfocus="this.style.borderColor='var(--primary-color)'"
+                                               onblur="this.style.borderColor='var(--divider-color)'" />
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label style="font-size: 13px; font-weight: 600; color: var(--primary-color); margin-bottom: 6px; display: block;">Comment <span style="color: red;">*</span></label>
+                                    <textarea name="content" rows="5" required
+                                              style="width: 100%; padding: 12px 16px; border: 2px solid var(--divider-color); border-radius: 8px; font-size: 14px; background: #fff; outline: none; resize: vertical; transition: border-color 0.2s;"
+                                              onfocus="this.style.borderColor='var(--primary-color)'"
+                                              onblur="this.style.borderColor='var(--divider-color)'"></textarea>
+                                </div>
+                                <button type="submit" class="btn-default">
+                                    <i class="fas fa-paper-plane me-2"></i>Post Comment
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Related Posts -->
+                    @if($relatedPosts->count())
+                    <div class="mt-4">
+                        <div class="section-title">
+                            <span class="section-sub-title wow fadeInUp">Keep Reading</span>
+                            <h3 class="text-anime-style-2" data-cursor="-opaque">Related <span>Posts</span></h3>
+                        </div>
+                        <div class="row">
+                            @foreach($relatedPosts as $related)
+                            <div class="col-md-6 wow fadeInUp">
+                                <div class="post-item">
+                                    <div class="post-featured-image">
+                                        <a href="{{ route('blog.show', $related->slug) }}">
+                                            <figure>
+                                                <img src="{{ $related->featured_image ? asset('uploads/' . $related->featured_image) : asset('images/post-1.jpg') }}"
+                                                     alt="{{ $related->title }}" />
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="post-item-content">
+                                        <div class="d-flex gap-3 mb-2" style="font-size: 12px; color: var(--text-color);">
+                                            <span><i class="fas fa-calendar-alt me-1" style="color: var(--primary-color);"></i>{{ $related->published_at->format('M d, Y') }}</span>
+                                            <span><i class="fas fa-clock me-1" style="color: var(--primary-color);"></i>{{ $related->getReadingTimeAttribute() }} min</span>
+                                        </div>
+                                        <h2>
+                                            <a href="{{ route('blog.show', $related->slug) }}">{{ $related->title }}</a>
+                                        </h2>
+                                        <p style="font-size: 13px; line-height: 1.7; color: var(--text-color);">
+                                            {{ Str::limit($related->excerpt ?? strip_tags($related->content), 90) }}
+                                        </p>
+                                        <a href="{{ route('blog.show', $related->slug) }}" class="readmore-btn">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    @endif
+
                 </div>
+
+                <!-- Sidebar -->
+                <div class="col-xl-4 col-lg-4 mt-5 mt-lg-0">
+                    <div class="page-single-sidebar">
+
+                        <!-- About Author -->
+                        <div class="page-category-list">
+                            <h2>About Author</h2>
+                            <div class="d-flex align-items-center gap-3 p-3" style="background: var(--bg-color); border-radius: 12px;">
+                                <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--primary-color); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <i class="fas fa-user" style="color: var(--accent-secondary-color); font-size: 18px;"></i>
+                                </div>
+                                <div>
+                                    <div style="font-weight: 700; font-size: 14px; color: var(--primary-color);">{{ $post->author->name }}</div>
+                                    <div style="font-size: 12px; color: var(--text-color);">Real Estate Expert</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Share -->
+                        <div class="page-category-list">
+                            <h2>Share This Post</h2>
+                            <div class="d-flex gap-3">
+                                <a href="https://facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" target="_blank"
+                                   style="width: 42px; height: 42px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-secondary-color); font-size: 15px; transition: opacity 0.2s;"
+                                   onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ urlencode($post->title) }}" target="_blank"
+                                   style="width: 42px; height: 42px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-secondary-color); font-size: 15px; transition: opacity 0.2s;"
+                                   onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                                    <i class="fab fa-x-twitter"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(url()->current()) }}" target="_blank"
+                                   style="width: 42px; height: 42px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-secondary-color); font-size: 15px; transition: opacity 0.2s;"
+                                   onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://wa.me/?text={{ urlencode($post->title . ' ' . url()->current()) }}" target="_blank"
+                                   style="width: 42px; height: 42px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-secondary-color); font-size: 15px; transition: opacity 0.2s;"
+                                   onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Category -->
+                        @if($post->category)
+                        <div class="page-category-list">
+                            <h2>Category</h2>
+                            <ul>
+                                <li>
+                                    <a href="{{ route('blog.index', ['category' => $post->category->slug]) }}">
+                                        {{ $post->category->name }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        @endif
+
+                        <!-- Recent Posts from sidebar if available -->
+                        @if(isset($recentPosts) && $recentPosts->count())
+                        <div class="page-category-list">
+                            <h2>Recent Posts</h2>
+                            <ul>
+                                @foreach($recentPosts->take(5) as $recent)
+                                <li>
+                                    <a href="{{ route('blog.show', $recent->slug) }}">
+                                        {{ Str::limit($recent->title, 50) }}
+                                        <div style="font-size: 11px; margin-top: 4px; opacity: 0.6; font-weight: 400;">
+                                            <i class="fas fa-calendar-alt me-1"></i>{{ $recent->published_at->format('M d, Y') }}
+                                        </div>
+                                    </a>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
+    <!-- Blog Detail End -->
 
-    @if($post->featured_image)
-        <img src="{{ asset('uploads/' . $post->featured_image) }}" alt="{{ $post->title }}"
-            class="w-full h-96 object-cover">
-    @endif
-
-    <div class="container mx-auto px-4 py-16">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <main class="lg:col-span-2">
-                <article class="prose prose-lg max-w-none mb-12">
-                    {!! $post->content !!}
-                </article>
-
-                @if($post->seo_keywords)
-                    <div class="mb-12 pb-12 border-b">
-                        <p class="text-sm text-gray-600 mb-2 font-semibold">Tags:</p>
-                        <div class="flex flex-wrap gap-2">
-                            @foreach(explode(',', $post->seo_keywords) as $keyword)
-                                <span class="inline-block bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">
-                                    {{ trim($keyword) }}
-                                </span>
-                            @endforeach
-                        </div>
-                    </div>
-                @endif
-
-                @if($post->tags->count())
-                    <div class="mb-12 pb-12 border-b">
-                        <p class="text-sm text-gray-600 mb-2 font-semibold">Categories:</p>
-                        <div class="flex flex-wrap gap-2">
-                            @foreach($post->tags as $tag)
-                                <span class="inline-block bg-gray-200 text-gray-800 text-sm px-4 py-2 rounded">
-                                    {{ $tag->name }}
-                                </span>
-                            @endforeach
-                        </div>
-                    </div>
-                @endif
-
-                <!-- Comments Section -->
-                <div class="mb-12">
-                    <h3 class="text-2xl font-bold mb-8">Comments ({{ $post->comments()->approved()->count() }})</h3>
-
-                    @if($post->comments()->approved()->count())
-                        <div class="space-y-8 mb-12">
-                            @foreach($post->comments()->approved()->get() as $comment)
-                                <div class="border-l-4 border-blue-500 pl-6">
-                                    <p class="font-semibold">{{ $comment->author_name }}</p>
-                                    <p class="text-gray-500 text-sm mb-4">{{ $comment->created_at->format('M d, Y') }}</p>
-                                    <p class="text-gray-700">{{ $comment->content }}</p>
-                                </div>
-                            @endforeach
-                        </div>
-                    @endif
-
-                    <form action="{{ route('api.v1.comments.store', $post) }}" method="post" class="border-t pt-8">
-                        @csrf
-                        <h4 class="text-lg font-semibold mb-6">Leave a Comment</h4>
-                        <div class="grid grid-cols-2 gap-6 mb-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                                <input type="text" name="author_name" required
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                                <input type="email" name="author_email" required
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
-                            </div>
-                        </div>
-                        <div class="mb-6">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Comment</label>
-                            <textarea name="content" rows="5" required
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"></textarea>
-                        </div>
-                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold">
-                            Post Comment
-                        </button>
-                    </form>
-                </div>
-
-                <!-- Related Posts -->
-                @if($relatedPosts->count())
-                    <div class="mt-16">
-                        <h3 class="text-2xl font-bold mb-8">Related Posts</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            @foreach($relatedPosts as $related)
-                                <div class="border rounded-lg overflow-hidden hover:shadow-lg transition">
-                                    @if($related->featured_image)
-                                        <img src="{{ asset('uploads/' . $related->featured_image) }}" alt="{{ $related->title }}"
-                                            class="w-full h-40 object-cover">
-                                    @endif
-                                    <div class="p-6">
-                                        <h4 class="font-bold mb-2">
-                                            <a href="{{ route('blog.show', $related->slug) }}" class="hover:text-blue-600">
-                                                {{ $related->title }}
-                                            </a>
-                                        </h4>
-                                        <p class="text-gray-600 text-sm mb-4">{{ $related->published_at->format('M d, Y') }}</p>
-                                        <p class="text-gray-700">{{ Str::limit(strip_tags($related->content), 100) }}</p>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                @endif
-            </main>
-
-            <!-- Sidebar -->
-            <aside class="lg:col-span-1">
-                <!-- Author Info -->
-                <div class="bg-gray-100 p-6 rounded-lg mb-8">
-                    <h4 class="font-bold text-lg mb-2">About Author</h4>
-                    <p class="text-gray-700 text-sm">{{ $post->author->name }}</p>
-                </div>
-
-                <!-- Share -->
-                <div class="mb-8">
-                    <h4 class="font-bold text-lg mb-4">Share This Post</h4>
-                    <div class="flex gap-4">
-                        <a href="https://facebook.com/sharer/sharer.php?u={{ url()->current() }}" target="_blank"
-                            class="text-blue-600 hover:text-blue-800">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                        </a>
-                        <a href="https://twitter.com/intent/tweet?url={{ url()->current() }}&text={{ $post->title }}" target="_blank"
-                            class="text-blue-400 hover:text-blue-600">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"/></svg>
-                        </a>
-                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ url()->current() }}" target="_blank"
-                            class="text-blue-700 hover:text-blue-900">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.006 1.413-.103.25-.129.599-.129.948v5.444h-3.554s.047-8.834 0-9.749h3.554v1.383c.43-.664 1.198-1.61 2.915-1.61 2.129 0 3.726 1.39 3.726 4.38v5.596zM5.337 9.432c-1.144 0-1.915-.759-1.915-1.71 0-.957.765-1.71 1.959-1.71 1.188 0 1.911.753 1.927 1.71 0 .951-.739 1.71-1.971 1.71zm1.581 10.02H3.656V9.704h3.262v9.748zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </aside>
-        </div>
-    </div>
-</div>
 @endsection
