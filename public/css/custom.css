@@ -462,7 +462,6 @@ a:focus {
   font-weight: 500;
   letter-spacing: -0.02em;
   margin-bottom: 0;
-  cursor: none;
 }
 
 .section-title h2 {
@@ -470,7 +469,6 @@ a:focus {
   font-weight: 500;
   letter-spacing: -0.02em;
   margin-bottom: 0;
-  cursor: none;
 }
 
 .section-title h1 span,
@@ -1741,7 +1739,6 @@ header.main-header .header-sticky.active {
   display: inline-block;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  cursor: none;
   border-radius: 50%;
 }
 
@@ -1920,7 +1917,6 @@ header.main-header .header-sticky.active {
 }
 
 .project-item-image a {
-  cursor: none;
   display: block;
 }
 
@@ -2413,7 +2409,6 @@ header.main-header .header-sticky.active {
 }
 
 .testimonial-slider .swiper-wrapper {
-  cursor: none;
 }
 
 .testimonial-item {
@@ -2540,7 +2535,6 @@ header.main-header .header-sticky.active {
 .post-featured-image figure {
   display: block;
   border-radius: 20px;
-  cursor: none;
   overflow: hidden;
 }
 
@@ -2806,7 +2800,6 @@ header.main-header .header-sticky.active {
   font-weight: 500;
   color: var(--white-color);
   margin-bottom: 10px;
-  cursor: none;
 }
 
 .page-header-box h1 span {
@@ -4630,7 +4623,6 @@ header.main-header .header-sticky.active {
 }
 
 .page-gallery-box .photo-gallery a {
-  cursor: none;
 }
 
 .page-gallery-box .photo-gallery figure {
@@ -4662,7 +4654,6 @@ header.main-header .header-sticky.active {
 .video-gallery-image a {
   position: relative;
   display: block;
-  cursor: none;
 }
 
 .video-gallery-image a::before {
@@ -4703,7 +4694,6 @@ header.main-header .header-sticky.active {
   border-radius: 50%;
   height: 60px;
   width: 60px;
-  cursor: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7654,7 +7644,6 @@ header.main-header .header-sticky.active {
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: none;
   transition: all 0.4s ease-in-out;
 }
 
@@ -7912,7 +7901,6 @@ header.main-header .header-sticky.active {
 }
 
 .testimonial-slider-prime .swiper-wrapper {
-  cursor: none;
 }
 
 .testimonial-item-prime {
@@ -8962,7 +8950,6 @@ header.main-header .header-sticky.active {
   display: inline-block;
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
-  cursor: none;
   border-radius: 50%;
 }
 
@@ -9660,7 +9647,6 @@ header.main-header .header-sticky.active {
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: none;
   transition: all 0.3s ease-in-out;
 }
 
@@ -9957,7 +9943,6 @@ header.main-header .header-sticky.active {
 }
 
 .testimonial-slider-metal .swiper-wrapper {
-  cursor: none;
 }
 
 .testimonial-item-metal {
