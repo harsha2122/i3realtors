@@ -86,7 +86,7 @@ class Property extends Model
     public function getThumbnailUrlAttribute(): string
     {
         return $this->thumbnail
-            ? asset('storage/' . $this->thumbnail)
+            ? asset('uploads/' . $this->thumbnail)
             : asset('images/project-image-1.jpg');
     }
 

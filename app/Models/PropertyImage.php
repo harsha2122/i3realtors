@@ -16,6 +16,6 @@ class PropertyImage extends Model
 
     public function getUrlAttribute(): string
     {
-        return asset('storage/' . $this->image);
+        return asset('uploads/' . $this->image);
     }
 }
