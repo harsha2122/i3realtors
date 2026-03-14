@@ -52,7 +52,7 @@
                                 <div class="post-featured-image">
                                     <a href="{{ route('blog.show', $post->slug) }}">
                                         <figure>
-                                            <img src="{{ $post->featured_image ? Storage::url($post->featured_image) : asset('images/post-' . ((($loop->index % 3) + 1)) . '.jpg') }}"
+                                            <img src="{{ $post->featured_image ? asset('uploads/' . $post->featured_image) : asset('images/post-' . ((($loop->index % 3) + 1)) . '.jpg') }}"
                                                  alt="{{ $post->title }}" />
                                         </figure>
                                     </a>
