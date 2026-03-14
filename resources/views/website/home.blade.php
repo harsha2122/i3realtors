@@ -18,9 +18,9 @@
           <div class="col-xl-6">
             <div class="hero-content-box">
               <div class="section-title">
-                <span class="section-sub-title wow fadeInUp">{{ $site['site_tagline'] ?? 'Building Trust. Creating Value.' }}</span>
+                <span class="section-sub-title wow fadeInUp">Strategic Real Estate Mandates</span>
                 <h1 class="text-anime-style-2" data-cursor="-opaque">
-                  Smart real estate <span>reliable construction</span>
+                  Strategic Real Estate Mandates for <span>Developers & Investors</span>
                 </h1>
               </div>
             </div>
@@ -31,21 +31,22 @@
               <div class="hero-counter-list wow fadeInUp">
                 <div class="hero-counter-item">
                   <h2><span class="counter">25</span>+</h2>
-                  <p>Year of Experience</p>
+                  <p>Developer Partnerships</p>
                 </div>
                 <div class="hero-counter-item">
                   <h2><span class="counter">50</span>+</h2>
-                  <p>Expert Team Member</p>
+                  <p>Projects Handled</p>
                 </div>
                 <div class="hero-counter-item">
                   <h2><span class="counter">500</span>+</h2>
-                  <p>Project Completed</p>
+                  <p>Investor Network</p>
                 </div>
               </div>
 
               <div class="hero-counter-footer wow fadeInUp" data-wow-delay="0.2s">
                 <div class="hero-btn">
-                  <a href="{{ route('contact') }}" class="btn-default btn-highlighted">Get Free Consultation</a>
+                  <a href="{{ route('projects.index') }}" class="btn-default btn-highlighted">Explore Projects</a>
+                  <a href="{{ route('contact') }}" class="btn-default" style="margin-left: 10px;">Partner With Us</a>
                 </div>
                 <div class="hero-rating-box">
                   <div class="hero-rating-box-header">
@@ -76,16 +77,16 @@
         <div class="row section-row align-items-center">
           <div class="col-xl-7">
             <div class="section-title">
-              <span class="section-sub-title wow fadeInUp">About Our Construction</span>
+              <span class="section-sub-title wow fadeInUp">About i3 Realtors</span>
               <h2 class="text-anime-style-2" data-cursor="-opaque">
-                Trusted builders creating modern <span>spaces with integrity</span>
+                Trusted Real Estate Mandate <span>Partners for Developers</span>
               </h2>
             </div>
           </div>
           <div class="col-xl-5">
             <div class="section-content-btn">
               <div class="section-title-content wow fadeInUp" data-wow-delay="0.2s">
-                <p>We are trusted builders committed to delivering modern, quality spaces built with honesty, precision, and care.</p>
+                <p>i3 Realtors is a mandate-focused real estate consulting firm specializing in developer partnerships, project marketing, and structured real estate investments.</p>
               </div>
               <div class="section-btn wow fadeInUp" data-wow-delay="0.4s">
                 <a href="{{ route('about') }}" class="btn-default">Learn More About</a>
@@ -115,8 +116,8 @@
               <div class="about-us-item-list">
                 <div class="about-us-item box-1">
                   <div class="about-us-item-content">
-                    <h3>Your Trusted Partners</h3>
-                    <p>We stand by you at every stage of the construction journey</p>
+                    <h3>Strategic Market Understanding</h3>
+                    <p>We analyze market trends and buyer behavior to position projects for optimal visibility</p>
                   </div>
                   <div class="about-us-item-image">
                     <figure>
@@ -127,8 +128,8 @@
 
                 <div class="about-us-item box-2">
                   <div class="about-us-item-content">
-                    <h3>Modern Design Solution</h3>
-                    <p>We stand by you at every stage of the construction journey</p>
+                    <h3>Investor Network</h3>
+                    <p>Through a growing network of investors and partners, we connect the right opportunities with stakeholders</p>
                   </div>
                   <div class="about-us-item-image">
                     <figure class="image-anime">
@@ -141,15 +142,15 @@
               <div class="about-counter-item-list">
                 <div class="about-counter-item">
                   <h2><span class="counter">25</span>+</h2>
-                  <p>Real Estate Expertise</p>
+                  <p>Developer Partnerships</p>
                 </div>
                 <div class="about-counter-item">
                   <h2><span class="counter">50</span>+</h2>
-                  <p>Expert Team Members</p>
+                  <p>Projects Represented</p>
                 </div>
                 <div class="about-counter-item">
                   <h2><span class="counter">500</span>+</h2>
-                  <p>Handed-Over Project</p>
+                  <p>Investor Network</p>
                 </div>
               </div>
             </div>
@@ -167,7 +168,7 @@
             <div class="section-title section-title-center">
               <span class="section-sub-title wow fadeInUp">Our Services</span>
               <h2 class="text-anime-style-2" data-cursor="-opaque">
-                Reliable services for real <span>estate and construction</span>
+                Reliable Services for Real <span>Estate Development</span>
               </h2>
             </div>
           </div>
@@ -176,10 +177,10 @@
         <div class="row service-item-list">
           @php
           $services = [
-            ['img' => 'service-1.jpg', 'icon' => 'icon-service-item-1.svg', 'title' => 'Residential Construction', 'desc' => 'We build high-quality durability, and modern living.', 'delay' => ''],
-            ['img' => 'service-2.jpg', 'icon' => 'icon-service-item-2.svg', 'title' => 'Commercial Construction', 'desc' => 'We build high-quality durability, and modern living.', 'delay' => '0.2s'],
-            ['img' => 'service-3.jpg', 'icon' => 'icon-service-item-3.svg', 'title' => 'Project Management', 'desc' => 'We build high-quality durability, and modern living.', 'delay' => '0.4s'],
-            ['img' => 'service-4.jpg', 'icon' => 'icon-service-item-4.svg', 'title' => 'Design & Planning', 'desc' => 'We build high-quality durability, and modern living.', 'delay' => '0.6s'],
+            ['img' => 'service-1.jpg', 'icon' => 'icon-service-item-1.svg', 'title' => 'Developer Mandate Services', 'desc' => 'We partner with developers as mandate consultants to manage project positioning, marketing strategy, and sales execution.', 'delay' => ''],
+            ['img' => 'service-2.jpg', 'icon' => 'icon-service-item-2.svg', 'title' => 'Project Marketing Strategy', 'desc' => 'From project launch to sustained demand generation, we design structured marketing strategies tailored to each development.', 'delay' => '0.2s'],
+            ['img' => 'service-3.jpg', 'icon' => 'icon-service-item-3.svg', 'title' => 'Real Estate Investment Advisory', 'desc' => 'We guide investors in identifying high-potential opportunities across residential and commercial developments.', 'delay' => '0.4s'],
+            ['img' => 'service-4.jpg', 'icon' => 'icon-service-item-4.svg', 'title' => 'Developer Partnerships', 'desc' => 'Building long-term collaborations with developers to structure real estate mandates and maximize project visibility.', 'delay' => '0.6s'],
           ];
           @endphp
 
@@ -221,7 +222,7 @@
                   <img src="{{ asset('images/icon-phone-primary.svg') }}" alt="" />
                 </div>
               </div>
-              <p>Complete Real Estate And Construction Solutions - <a href="{{ route('services') }}">View all services.</a></p>
+              <p>Strategic Real Estate Consulting & Developer Partnerships - <a href="{{ route('services') }}">View all services.</a></p>
               <ul>
                 <li><span class="counter">4.9</span>/5</li>
                 <li>
@@ -244,9 +245,9 @@
         <div class="row section-row">
           <div class="col-lg-12">
             <div class="section-title section-title-center">
-              <span class="section-sub-title wow fadeInUp">Who We Are</span>
+              <span class="section-sub-title wow fadeInUp">Why Choose Us</span>
               <h2 class="wow fadeInUp" data-wow-delay="0.2s">
-                Shaping residential and commercial <span>spaces with expertise</span>
+                Why Developers Partner With <span>i3 Realtors</span>
               </h2>
             </div>
           </div>
@@ -260,17 +261,17 @@
                   <ul class="nav nav-tabs" id="mvTab" role="tablist">
                     <li class="nav-item" role="presentation">
                       <button class="nav-link active" id="first-tab" data-bs-toggle="tab" data-bs-target="#first" type="button" role="tab" aria-selected="true">
-                        <img src="{{ asset('images/icon-who-we-tab-1.svg') }}" alt="" /> Industry Experts
+                        <img src="{{ asset('images/icon-who-we-tab-1.svg') }}" alt="" /> Strategic Understanding
                       </button>
                     </li>
                     <li class="nav-item" role="presentation">
                       <button class="nav-link" id="second-tab" data-bs-toggle="tab" data-bs-target="#second" type="button" role="tab" aria-selected="false">
-                        <img src="{{ asset('images/icon-who-we-tab-2.svg') }}" alt="" /> Trusted Builders
+                        <img src="{{ asset('images/icon-who-we-tab-2.svg') }}" alt="" /> Mandate Execution
                       </button>
                     </li>
                     <li class="nav-item" role="presentation">
                       <button class="nav-link" id="third-tab" data-bs-toggle="tab" data-bs-target="#third" type="button" role="tab" aria-selected="false">
-                        <img src="{{ asset('images/icon-who-we-tab-3.svg') }}" alt="" /> Modern Designers
+                        <img src="{{ asset('images/icon-who-we-tab-3.svg') }}" alt="" /> Investor Network
                       </button>
                     </li>
                   </ul>
@@ -278,15 +279,15 @@
 
                 @php
                 $tabs = [
-                  ['id' => 'first', 'title' => 'Industry Experts:', 'active' => true],
-                  ['id' => 'second', 'title' => 'Trusted builders:', 'active' => false],
-                  ['id' => 'third', 'title' => 'Modern Designers:', 'active' => false],
+                  ['id' => 'first', 'title' => 'Strategic Understanding:', 'active' => true],
+                  ['id' => 'second', 'title' => 'Mandate Execution:', 'active' => false],
+                  ['id' => 'third', 'title' => 'Investor Network:', 'active' => false],
                 ];
                 $items = [
-                  ['icon' => 'icon-who-we-item-1.svg', 'text' => 'Experience Professional'],
-                  ['icon' => 'icon-who-we-item-2.svg', 'text' => 'Strong Safety Standards'],
-                  ['icon' => 'icon-who-we-item-3.svg', 'text' => 'Client-Focused Approach'],
-                  ['icon' => 'icon-who-we-item-4.svg', 'text' => 'Quality Craftsmanship'],
+                  ['icon' => 'icon-who-we-item-1.svg', 'text' => 'Market Analysis'],
+                  ['icon' => 'icon-who-we-item-2.svg', 'text' => 'Strategic Positioning'],
+                  ['icon' => 'icon-who-we-item-3.svg', 'text' => 'Demand Generation'],
+                  ['icon' => 'icon-who-we-item-4.svg', 'text' => 'Buyer Connection'],
                 ];
                 @endphp
 
@@ -295,7 +296,7 @@
                   <div class="who-we-tab-content">
                     <div class="who-we-tab-header-content">
                       <h3>{{ $tab['title'] }}</h3>
-                      <p>We are known for delivering high-quality construction with honesty, precision, and reliability. Every project is handled with strong craftsmanship, transparent processes, and a commitment to meeting timelines.</p>
+                      <p>We combine deep market intelligence with structured execution to deliver measurable results. Our mandate partnerships ensure developers receive dedicated focus and strategic positioning in every market segment.</p>
                     </div>
                     <div class="who-we-item-list">
                       @foreach($items as $item)
@@ -378,9 +379,9 @@
           <div class="col-xl-7 col-md-9">
             <div class="intro-video-content">
               <div class="section-title">
-                <span class="section-sub-title wow fadeInUp">Watch Video</span>
+                <span class="section-sub-title wow fadeInUp">Video</span>
                 <h2 class="text-anime-style-2" data-cursor="-opaque">
-                  Watch how we build <span>modern quality living spaces</span>
+                  Building Strategic Real Estate <span>Opportunities</span>
                 </h2>
               </div>
             </div>
@@ -407,10 +408,10 @@
                 <div class="section-title">
                   <span class="section-sub-title wow fadeInUp">Our Commitment</span>
                   <h2 class="text-anime-style-2" data-cursor="-opaque">
-                    Dedicated to honest & <span>reliable construction</span>
+                    Committed to Integrity & <span>Long-Term Partnerships</span>
                   </h2>
                   <p class="wow fadeInUp" data-wow-delay="0.2s">
-                    We are committed to delivering construction services built on honesty, reliability, and transparency from planning to completion.
+                    Real estate development requires more than just marketing—it demands strategic positioning, trusted relationships, and a deep understanding of the market dynamics.
                   </p>
                 </div>
                 <div class="our-commitment-btn wow fadeInUp" data-wow-delay="0.4s">
@@ -437,9 +438,9 @@
             <div class="our-commitment-item-list">
               @php
               $commitments = [
-                ['icon' => 'icon-commitment-item-1.svg', 'title' => 'Quality Craftsmanship - Superior construction with attention to detail', 'delay' => ''],
-                ['icon' => 'icon-commitment-item-2.svg', 'title' => 'Sustainability - Durable and environmentally conscious practices', 'delay' => '0.2s'],
-                ['icon' => 'icon-commitment-item-3.svg', 'title' => 'Modern Techniques - Innovative construction and design methods', 'delay' => '0.4s'],
+                ['icon' => 'icon-commitment-item-1.svg', 'title' => 'Structured Mandate Execution - Dedicated focus and strategic marketing strategies', 'delay' => ''],
+                ['icon' => 'icon-commitment-item-2.svg', 'title' => 'Transparency & Professionalism - Honest relationships with consistent execution', 'delay' => '0.2s'],
+                ['icon' => 'icon-commitment-item-3.svg', 'title' => 'Market Expertise - Deep understanding of market dynamics and buyer behavior', 'delay' => '0.4s'],
               ];
               @endphp
               @foreach($commitments as $c)
@@ -449,7 +450,7 @@
                   <div class="commitment-item-title"><h3>{{ $c['title'] }}</h3></div>
                 </div>
                 <div class="commitment-item-content">
-                  <p>We prioritize quality craftsmanship in every project, ensuring that every detail is executed with precision and care.</p>
+                  <p>We focus on transparency, professionalism, and consistent execution to ensure every project we represent achieves maximum visibility and impact.</p>
                 </div>
               </div>
               @endforeach
@@ -466,9 +467,9 @@
         <div class="row section-row">
           <div class="col-lg-12">
             <div class="section-title section-title-center">
-              <span class="section-sub-title wow fadeInUp">Our Projects</span>
+              <span class="section-sub-title wow fadeInUp">Project Portfolio</span>
               <h2 class="text-anime-style-2" data-cursor="-opaque">
-                Our work defined by precision <span>strength And Integrity</span>
+                Our Work Defined by Precision & <span>Execution</span>
               </h2>
             </div>
           </div>
@@ -524,9 +525,9 @@
         <div class="row section-row">
           <div class="col-lg-12">
             <div class="section-title section-title-center">
-              <span class="section-sub-title wow fadeInUp">Our Fact</span>
+              <span class="section-sub-title wow fadeInUp">Experience Stats</span>
               <h2 class="text-anime-style-2" data-cursor="-opaque">
-                Facts that showcase experience <span>quality and reliability</span>
+                Experience That Drives Real <span>Estate Success</span>
               </h2>
             </div>
           </div>
@@ -558,15 +559,15 @@
             <div class="fact-item-list wow fadeInUp" data-wow-delay="0.2s">
               @php
               $facts = [
-                ['count' => '25', 'label' => 'Year Experience Real Estate'],
-                ['count' => '50', 'label' => 'Our Expert Team Members'],
-                ['count' => '500', 'label' => 'Project Completed Real Estate'],
-                ['count' => '300', 'label' => 'Our Trusted Happy Homeowner'],
+                ['count' => '25', 'label' => 'Developer Partnerships'],
+                ['count' => '50', 'label' => 'Projects Represented'],
+                ['count' => '500', 'label' => 'Investor Network'],
+                ['count' => '300', 'label' => 'Successful Transactions'],
               ];
               @endphp
               @foreach($facts as $fact)
               <div class="fact-item">
-                <div class="fact-item-title"><ul><li>Residential</li></ul></div>
+                <div class="fact-item-title"><ul><li>i3 Realtors</li></ul></div>
                 <div class="fact-item-counter-content">
                   <h2><span class="counter">{{ $fact['count'] }}</span>+</h2>
                   <p>{{ $fact['label'] }}</p>
@@ -588,12 +589,12 @@
             <div class="section-title section-title-center">
               <span class="section-sub-title wow fadeInUp">Get In Touch</span>
               <h2 class="text-anime-style-2" data-cursor="-opaque">
-                Ready to start your <span>construction project?</span>
+                Partner With <span>i3 Realtors</span>
               </h2>
             </div>
             <div class="wow fadeInUp" data-wow-delay="0.4s">
-              <a href="{{ route('contact') }}" class="btn-default btn-highlighted me-3">Get Free Quote</a>
-              <a href="{{ route('about') }}" class="btn-default">Learn More</a>
+              <a href="{{ route('contact') }}" class="btn-default btn-highlighted me-3">Start a Partnership</a>
+              <a href="{{ route('contact') }}" class="btn-default">Contact Our Team</a>
             </div>
           </div>
         </div>
