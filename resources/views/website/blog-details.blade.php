@@ -176,68 +176,85 @@
                         <!-- About Author -->
                         <div class="page-category-list">
                             <h2>About Author</h2>
-                            <div class="d-flex align-items-center gap-3 p-3" style="background: var(--bg-color); border-radius: 12px;">
-                                <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--primary-color); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <i class="fas fa-user" style="color: var(--accent-secondary-color); font-size: 18px;"></i>
-                                </div>
-                                <div>
-                                    <div style="font-weight: 700; font-size: 14px; color: var(--primary-color);">{{ $post->author->name }}</div>
-                                    <div style="font-size: 12px; color: var(--text-color);">Real Estate Expert</div>
-                                </div>
-                            </div>
+                            <ul>
+                                <li style="padding-bottom: 0; border: none; margin: 0;">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div style="width: 52px; height: 52px; border-radius: 50%; background: var(--primary-color); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                            <i class="fas fa-user" style="color: var(--accent-secondary-color); font-size: 20px;"></i>
+                                        </div>
+                                        <div>
+                                            <div style="font-weight: 700; font-size: 15px; color: var(--primary-color);">{{ $post->author->name }}</div>
+                                            <div style="font-size: 12px; color: var(--text-color); margin-top: 2px;">Real Estate Expert</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
 
-                        <!-- Share -->
+                        <!-- Share This Post -->
                         <div class="page-category-list">
                             <h2>Share This Post</h2>
-                            <div class="d-flex gap-3">
-                                <a href="https://facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" target="_blank"
-                                   style="width: 42px; height: 42px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-secondary-color); font-size: 15px; transition: opacity 0.2s;"
-                                   onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ urlencode($post->title) }}" target="_blank"
-                                   style="width: 42px; height: 42px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-secondary-color); font-size: 15px; transition: opacity 0.2s;"
-                                   onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
-                                    <i class="fab fa-x-twitter"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(url()->current()) }}" target="_blank"
-                                   style="width: 42px; height: 42px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-secondary-color); font-size: 15px; transition: opacity 0.2s;"
-                                   onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="https://wa.me/?text={{ urlencode($post->title . ' ' . url()->current()) }}" target="_blank"
-                                   style="width: 42px; height: 42px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-secondary-color); font-size: 15px; transition: opacity 0.2s;"
-                                   onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
-                                    <i class="fab fa-whatsapp"></i>
-                                </a>
-                            </div>
+                            <ul>
+                                <li style="padding-bottom: 0; border: none; margin: 0;">
+                                    <div class="d-flex gap-3 flex-wrap">
+                                        <a href="https://facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" target="_blank"
+                                           style="width: 44px; height: 44px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-secondary-color); font-size: 16px;"
+                                           onmouseover="this.style.background='var(--accent-secondary-color)';this.style.color='var(--primary-color)'"
+                                           onmouseout="this.style.background='var(--primary-color)';this.style.color='var(--accent-secondary-color)'">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ urlencode($post->title) }}" target="_blank"
+                                           style="width: 44px; height: 44px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-secondary-color); font-size: 16px;"
+                                           onmouseover="this.style.background='var(--accent-secondary-color)';this.style.color='var(--primary-color)'"
+                                           onmouseout="this.style.background='var(--primary-color)';this.style.color='var(--accent-secondary-color)'">
+                                            <i class="fab fa-x-twitter"></i>
+                                        </a>
+                                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(url()->current()) }}" target="_blank"
+                                           style="width: 44px; height: 44px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-secondary-color); font-size: 16px;"
+                                           onmouseover="this.style.background='var(--accent-secondary-color)';this.style.color='var(--primary-color)'"
+                                           onmouseout="this.style.background='var(--primary-color)';this.style.color='var(--accent-secondary-color)'">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a href="https://wa.me/?text={{ urlencode($post->title . ' ' . url()->current()) }}" target="_blank"
+                                           style="width: 44px; height: 44px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-secondary-color); font-size: 16px;"
+                                           onmouseover="this.style.background='var(--accent-secondary-color)';this.style.color='var(--primary-color)'"
+                                           onmouseout="this.style.background='var(--primary-color)';this.style.color='var(--accent-secondary-color)'">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
 
-                        <!-- Category -->
-                        @if($post->category)
+                        <!-- Categories -->
+                        @if($categories->count())
                         <div class="page-category-list">
-                            <h2>Category</h2>
+                            <h2>Categories</h2>
                             <ul>
+                                @foreach($categories as $cat)
                                 <li>
-                                    <a href="{{ route('blog.index', ['category' => $post->category->slug]) }}">
-                                        {{ $post->category->name }}
+                                    <a href="{{ route('blog.index', ['category' => $cat->slug]) }}">
+                                        {{ $cat->name }}
+                                        <span style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); font-size: 11px; color: var(--text-color); right: 25px; text-align: right; pointer-events: none;">
+                                            ({{ $cat->posts_count }})
+                                        </span>
                                     </a>
                                 </li>
+                                @endforeach
                             </ul>
                         </div>
                         @endif
 
-                        <!-- Recent Posts from sidebar if available -->
-                        @if(isset($recentPosts) && $recentPosts->count())
+                        <!-- Recent Posts -->
+                        @if($recentPosts->count())
                         <div class="page-category-list">
                             <h2>Recent Posts</h2>
                             <ul>
-                                @foreach($recentPosts->take(5) as $recent)
+                                @foreach($recentPosts as $recent)
                                 <li>
                                     <a href="{{ route('blog.show', $recent->slug) }}">
-                                        {{ Str::limit($recent->title, 50) }}
-                                        <div style="font-size: 11px; margin-top: 4px; opacity: 0.6; font-weight: 400;">
+                                        {{ Str::limit($recent->title, 48) }}
+                                        <div style="font-size: 11px; margin-top: 5px; font-weight: 400; color: var(--text-color);">
                                             <i class="fas fa-calendar-alt me-1"></i>{{ $recent->published_at->format('M d, Y') }}
                                         </div>
                                     </a>

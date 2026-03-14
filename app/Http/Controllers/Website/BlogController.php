@@ -29,7 +29,9 @@ class BlogController extends Controller
         $post = $this->repository->bySlug($slug);
         $this->service->trackView($post);
         $relatedPosts = $this->service->getRelatedPosts($post);
+        $recentPosts = Post::published()->where('id', '!=', $post->id)->latest('published_at')->limit(5)->get();
+        $categories = Category::where('is_active', true)->withCount(['posts' => fn($q) => $q->published()])->get();
 
-        return view('website.blog-details', compact('post', 'relatedPosts'));
+        return view('website.blog-details', compact('post', 'relatedPosts', 'recentPosts', 'categories'));
     }
 }
