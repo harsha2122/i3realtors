@@ -6,14 +6,10 @@
 @section('content')
 
     <!-- Hero Section Start -->
-    <div class="hero hero-video bg-section dark-section">
-      <div class="hero-bg-video">
-        <video autoplay muted loop id="myvideo">
-          <source src="https://demo.awaikenthemes.com/assets/videos/skyvilla-video.mp4" type="video/mp4" />
-        </video>
-      </div>
+    <div class="hero hero-video bg-section dark-section" style="position:relative; overflow:hidden;">
+      <canvas id="fluidCanvas" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;"></canvas>
 
-      <div class="container">
+      <div class="container" style="position:relative; z-index:1;">
         <div class="row align-items-end">
           <div class="col-xl-6">
             <div class="hero-content-box">
@@ -603,3 +599,7 @@
     <!-- Cta Box Section End -->
 
 @endsection
+
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/gh/Libero793/KNGURUWebsite3.0@latest/js/script.js" defer></script>
+@endpush
