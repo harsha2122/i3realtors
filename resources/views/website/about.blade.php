@@ -31,8 +31,8 @@
             <div class="col-xl-7">
                 <!-- Section Title Start -->
                 <div class="section-title">
-                    <span class="section-sub-title wow fadeInUp">About Our Construction</span>
-                    <h2 class="text-anime-style-2" data-cursor="-opaque">Trusted builders creating modern spaces with integrity</h2>
+                    <span class="section-sub-title wow fadeInUp">About i3 Realtors</span>
+                    <h2 class="text-anime-style-2" data-cursor="-opaque">Trusted real estate mandate partners for developers and investors</h2>
                 </div>
                 <!-- Section Title End -->
             </div>
@@ -42,7 +42,7 @@
                 <div class="section-content-btn">
                     <!-- Section Title Content Start -->
                     <div class="section-title-content wow fadeInUp" data-wow-delay="0.2s">
-                        <p>We are trusted builders committed to delivering modern, quality spaces built with honesty, precision, and care.</p>
+                        <p>i3 Realtors is a mandate-focused real estate consulting firm working with developers, investors, and strategic partners to structure, market, and execute successful real estate opportunities. Our role goes beyond traditional brokerage. We work closely with developers to position projects strategically, build market visibility, and connect them with the right investor and buyer networks.</p>
                     </div>
                     <!-- Section Title Content End -->
 
@@ -89,7 +89,7 @@
                             <!-- About Us Item Content Start -->
                             <div class="about-us-item-content">
                                 <h3>Your Trusted Partners</h3>
-                                <p>We stand by you at every stage of the construction journey</p>
+                                <p>We support developers and investors at every stage of the real estate lifecycle—from project positioning and marketing strategy to investor outreach and partnership development.</p>
                             </div>
                             <!-- About Us Item Content End -->
 
@@ -107,8 +107,8 @@
                         <div class="about-us-item box-2">
                             <!-- About Us Item Content Start -->
                             <div class="about-us-item-content">
-                                <h3>Modern Design Solution</h3>
-                                <p>We stand by you at every stage of the construction journey</p>
+                                <h3>Strategic Market Expertise</h3>
+                                <p>Our experience in the real estate sector enables us to identify market opportunities, structure mandate partnerships, and deliver measurable results for developers and investors.</p>
                             </div>
                             <!-- About Us Item Content End -->
 
@@ -129,21 +129,21 @@
                         <!-- About Counter Item Start -->
                         <div class="about-counter-item">
                             <h2><span class="counter">25</span>+</h2>
-                            <p>Years of Expertise</p>
+                            <p>Developer Partnerships</p>
                         </div>
                         <!-- About Counter Item End -->
 
                         <!-- About Counter Item Start -->
                         <div class="about-counter-item">
                             <h2><span class="counter">50</span>+</h2>
-                            <p>Expert Team Members</p>
+                            <p>Projects Represented</p>
                         </div>
                         <!-- About Counter Item End -->
 
                         <!-- About Counter Item Start -->
                         <div class="about-counter-item">
                             <h2><span class="counter">500</span>+</h2>
-                            <p>Completed Projects</p>
+                            <p>Investor Network</p>
                         </div>
                         <!-- About Counter Item End -->
                     </div>
@@ -196,8 +196,8 @@
                     <!-- Section Title Start -->
                     <div class="section-title">
                         <span class="section-sub-title wow fadeInUp">Our Approach</span>
-                        <h2 class="text-anime-style-2" data-cursor="-opaque">Our strategic approach to quality construction</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.2s">We follow a strategic, detail-driven approach that combines careful planning, skilled execution and strict quality standards to deliver durable, high-value construction projects.</p>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque">A strategic approach to real estate partnerships</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.2s">At i3 Realtors, we follow a structured approach that combines market intelligence, strategic marketing, and strong developer relationships to ensure every project receives the visibility and positioning it deserves. Our goal is to build long-term partnerships with developers and investors by delivering reliable execution and measurable outcomes.</p>
                     </div>
                     <!-- Section Title End -->
 
@@ -210,7 +210,7 @@
                             </div>
                             <div class="approach-item-content">
                                 <h3>Our Mission</h3>
-                                <p>Our mission is to build lasting value with quality craftsmanship and integrity in every project.</p>
+                                <p>To empower developers and investors by creating structured real estate opportunities that deliver long-term value, transparency, and strategic growth.</p>
                             </div>
                         </div>
                         <!-- Our Approach Item End -->
@@ -222,7 +222,7 @@
                             </div>
                             <div class="approach-item-content">
                                 <h3>Our Vision</h3>
-                                <p>To be the trusted partner for modern, sustainable construction solutions that transform communities.</p>
+                                <p>To become a trusted mandate partner for developers across India, providing strategic real estate consulting that drives successful project outcomes.</p>
                             </div>
                         </div>
                         <!-- Our Approach Item End -->
@@ -234,7 +234,7 @@
                             </div>
                             <div class="approach-item-content">
                                 <h3>Our Values</h3>
-                                <p>Integrity, quality, and accountability are at our core. We deliver projects that stand the test of time.</p>
+                                <p>Integrity, professionalism, and accountability guide everything we do. We believe in building relationships based on trust, transparency, and consistent performance.</p>
                             </div>
                         </div>
                         <!-- Our Approach Item End -->
@@ -257,9 +257,9 @@
                 <div class="our-history-content">
                     <!-- Section Title Start -->
                     <div class="section-title">
-                        <span class="section-sub-title wow fadeInUp">Our History</span>
-                        <h2 class="text-anime-style-2" data-cursor="-opaque">Our journey of growth and construction excellence</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.2s">Our journey reflects steady growth, industry expertise, and a commitment to construction excellence, built through years of successful projects and trusted client relationships.</p>
+                        <span class="section-sub-title wow fadeInUp">Our Journey</span>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque">Building partnerships and real estate expertise</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.2s">Our journey reflects steady growth, strong partnerships, and a commitment to delivering strategic real estate solutions. Over the years, i3 Realtors has developed strong relationships with developers and investors while expanding its network and market presence.</p>
                     </div>
                     <!-- Section Title End -->
 
@@ -281,10 +281,10 @@
                     <div class="history-item wow fadeInUp">
                         <!-- History Item Header Start -->
                         <div class="history-item-header">
-                            <h2>2010</h2>
+                            <h2>2018</h2>
                             <div class="history-item-content">
-                                <h3>Foundation & Vision</h3>
-                                <p>Our journey began in 2010 with a clear vision to deliver dependable, high-quality construction solutions to our community.</p>
+                                <h3>Foundation</h3>
+                                <p>i3 Realtors was established with a clear vision to support developers and investors through structured real estate consulting and mandate partnerships.</p>
                             </div>
                         </div>
                         <!-- History Item Header End -->
@@ -303,10 +303,10 @@
                     <div class="history-item wow fadeInUp" data-wow-delay="0.2s">
                         <!-- History Item Header Start -->
                         <div class="history-item-header">
-                            <h2>2014</h2>
+                            <h2>2020</h2>
                             <div class="history-item-content">
-                                <h3>Early Growth & First Milestone</h3>
-                                <p>By 2014, we had successfully completed numerous residential and commercial projects, establishing ourselves as a trusted name in construction.</p>
+                                <h3>Market Expansion</h3>
+                                <p>The company expanded its developer network and began working on multiple residential and commercial projects across Pune.</p>
                             </div>
                         </div>
                         <!-- History Item Header End -->
@@ -325,10 +325,10 @@
                     <div class="history-item wow fadeInUp" data-wow-delay="0.4s">
                         <!-- History Item Header Start -->
                         <div class="history-item-header">
-                            <h2>2018</h2>
+                            <h2>2022</h2>
                             <div class="history-item-content">
-                                <h3>Expertise Development</h3>
-                                <p>In 2018, we expanded our team and services, incorporating modern construction techniques and sustainable building practices.</p>
+                                <h3>Strategic Partnerships</h3>
+                                <p>i3 Realtors strengthened its mandate-based approach, collaborating with developers and investors to structure projects and marketing strategies.</p>
                             </div>
                         </div>
                         <!-- History Item Header End -->
@@ -347,10 +347,10 @@
                     <div class="history-item wow fadeInUp" data-wow-delay="0.6s">
                         <!-- History Item Header Start -->
                         <div class="history-item-header">
-                            <h2>2024</h2>
+                            <h2>Present</h2>
                             <div class="history-item-content">
-                                <h3>Present & Future Vision</h3>
-                                <p>Today, we continue to lead the industry with innovation, sustainability, and a commitment to delivering excellence in every project.</p>
+                                <h3>Continued Growth</h3>
+                                <p>Today, i3 Realtors continues to expand its partnerships while focusing on strategic project positioning, investor engagement, and long-term real estate opportunities.</p>
                             </div>
                         </div>
                         <!-- History Item Header End -->
@@ -371,5 +371,27 @@
     </div>
 </div>
 <!-- Our History Section End -->
+
+<!-- CTA Box Section Start -->
+<div class="cta-box bg-section dark-section parallaxie">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 text-center">
+                <div class="section-title section-title-center">
+                    <span class="section-sub-title wow fadeInUp">Partnership</span>
+                    <h2 class="text-anime-style-2" data-cursor="-opaque">
+                        Partner with i3 Realtors for your next <span>real estate opportunity</span>
+                    </h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.2s">Whether you are a developer launching a new project or an investor exploring structured opportunities, i3 Realtors provides the expertise, market insights, and partnerships required to succeed.</p>
+                </div>
+                <div class="wow fadeInUp" data-wow-delay="0.4s">
+                    <a href="{{ route('contact') }}" class="btn-default btn-highlighted me-3">Connect With Us</a>
+                    <a href="{{ route('projects.index') }}" class="btn-default">Explore Opportunities</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- CTA Box Section End -->
 
 @endsection
