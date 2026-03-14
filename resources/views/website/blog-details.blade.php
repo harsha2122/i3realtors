@@ -49,7 +49,7 @@
     </div>
 
     @if($post->featured_image)
-        <img src="{{ Storage::url($post->featured_image) }}" alt="{{ $post->title }}"
+        <img src="{{ asset('uploads/' . $post->featured_image) }}" alt="{{ $post->title }}"
             class="w-full h-96 object-cover">
     @endif
 
@@ -136,7 +136,7 @@
                             @foreach($relatedPosts as $related)
                                 <div class="border rounded-lg overflow-hidden hover:shadow-lg transition">
                                     @if($related->featured_image)
-                                        <img src="{{ Storage::url($related->featured_image) }}" alt="{{ $related->title }}"
+                                        <img src="{{ asset('uploads/' . $related->featured_image) }}" alt="{{ $related->title }}"
                                             class="w-full h-40 object-cover">
                                     @endif
                                     <div class="p-6">
