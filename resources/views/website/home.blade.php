@@ -41,7 +41,7 @@
 
               <div class="hero-counter-footer wow fadeInUp" data-wow-delay="0.2s">
                 <div class="hero-btn">
-                  <a href="{{ route('projects.index') }}" class="btn-default btn-highlighted">Explore Projects</a>
+                  <a href="{{ route('website.projects.index') }}" class="btn-default btn-highlighted">Explore Projects</a>
                   <a href="{{ route('contact') }}" class="btn-default" style="margin-left: 10px;">Partner With Us</a>
                 </div>
                 <div class="hero-rating-box">
@@ -100,7 +100,7 @@
                 </figure>
               </div>
               <div class="about-us-circle">
-                <a href="{{ route('projects.index') }}">
+                <a href="{{ route('website.projects.index') }}">
                   <img src="{{ asset('images/circle-project.png') }}" alt="" />
                 </a>
               </div>
@@ -484,13 +484,13 @@
           <div class="col-xl-3 col-md-6">
             <div class="project-item wow fadeInUp" {{ $p['delay'] ? 'data-wow-delay="'.$p['delay'].'"' : '' }}>
               <div class="project-item-image">
-                <a href="{{ route('projects.index') }}" data-cursor-text="View">
+                <a href="{{ route('website.projects.index') }}" data-cursor-text="View">
                   <figure><img src="{{ asset('images/'.$p['img']) }}" alt="{{ $p['title'] }}" /></figure>
                 </a>
               </div>
               <div class="project-item-content">
-                <ul><li><a href="{{ route('projects.index') }}">{{ $p['cat'] }}</a></li></ul>
-                <h2><a href="{{ route('projects.index') }}">{{ $p['title'] }}</a></h2>
+                <ul><li><a href="{{ route('website.projects.index') }}">{{ $p['cat'] }}</a></li></ul>
+                <h2><a href="{{ route('website.projects.index') }}">{{ $p['title'] }}</a></h2>
               </div>
             </div>
           </div>
@@ -514,6 +514,26 @@
       </div>
     </div>
     <!-- Our Project Section End -->
+
+    <!-- Properties CTA Start -->
+    <div style="background: var(--accent-secondary-color); padding: 60px 0;">
+        <div class="container">
+            <div class="row align-items-center justify-content-between g-4">
+                <div class="col-lg-8">
+                    <span style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--primary-color); opacity: 0.6;">Available Listings</span>
+                    <h2 style="font-size: 2rem; font-weight: 800; color: var(--primary-color); margin: 8px 0 12px;">Browse Our Available Properties</h2>
+                    <p style="font-size: 15px; color: var(--primary-color); opacity: 0.75; margin: 0;">Explore residential, commercial &amp; industrial properties currently available for sale or rent.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="{{ route('properties.index') }}" class="btn-default"
+                       style="display: inline-block; padding: 14px 36px; font-size: 15px; font-weight: 700; border-radius: 8px; background: var(--primary-color); color: var(--accent-secondary-color); text-decoration: none;">
+                        <i class="fas fa-building me-2"></i>View All Properties
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Properties CTA End -->
 
     <!-- Our Fact Section Start -->
     <div class="our-fact">

@@ -166,7 +166,7 @@ Reach out to us and our team will get back to you shortly.</p>
                     <p class="wow fadeInUp" data-wow-delay="0.2s">If you are a developer launching a new project or an investor looking for structured opportunities, i3 Realtors provides the strategic guidance and partnerships needed to move forward with confidence.</p>
                 </div>
                 <div class="wow fadeInUp" data-wow-delay="0.4s">
-                    <a href="{{ route('projects.index') }}" class="btn-default btn-highlighted me-3">Explore Opportunities</a>
+                    <a href="{{ route('website.projects.index') }}" class="btn-default btn-highlighted me-3">Explore Opportunities</a>
                     <a href="{{ route('about') }}" class="btn-default">Learn More About Us</a>
                 </div>
             </div>

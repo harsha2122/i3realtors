@@ -126,6 +126,9 @@
             </a>
 
             <div class="nav-section-label">Content</div>
+            <a href="{{ route('admin.projects.index') }}" class="nav-link {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">
+                <i class="fas fa-city"></i> Projects
+            </a>
             <a href="{{ route('admin.properties.index') }}" class="nav-link {{ request()->routeIs('admin.properties.*') ? 'active' : '' }}">
                 <i class="fas fa-building"></i> Properties
             </a>
