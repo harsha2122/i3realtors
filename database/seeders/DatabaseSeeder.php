@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             AdminUserSeeder::class,
             NavigationMenuSeeder::class,
             PropertySeeder::class,
+            ProjectSeeder::class,
             BlogSeeder::class,
         ]);
     }

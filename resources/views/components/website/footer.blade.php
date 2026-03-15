@@ -116,7 +116,7 @@
                             <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="{{ route('about') }}">About Us</a></li>
                             <li><a href="{{ route('services') }}">Our Services</a></li>
-                            <li><a href="{{ route('projects.index') }}">Projects</a></li>
+                            <li><a href="{{ route('website.projects.index') }}">Projects</a></li>
                             <li><a href="{{ route('careers') }}">Careers</a></li>
                             <li><a href="{{ route('contact') }}">Contact Us</a></li>
                         </ul>

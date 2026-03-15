@@ -70,7 +70,7 @@
 
                     <!-- About Us Circle Start -->
                     <div class="about-us-circle">
-                        <a href="{{ route('projects.index') }}">
+                        <a href="{{ route('website.projects.index') }}">
                             <img src="{{ asset('images/circle-project.png') }}" alt="">
                         </a>
                     </div>
@@ -265,7 +265,7 @@
 
                     <!-- Explore Project Circle Start -->
                     <div class="explore-project-circle wow fadeInUp" data-wow-delay="0.4s">
-                        <a href="{{ route('projects.index') }}">
+                        <a href="{{ route('website.projects.index') }}">
                             <img src="{{ asset('images/explore-project-circle-accent.svg') }}" alt="">
                         </a>
                     </div>
@@ -386,7 +386,7 @@
                 </div>
                 <div class="wow fadeInUp" data-wow-delay="0.4s">
                     <a href="{{ route('contact') }}" class="btn-default btn-highlighted me-3">Connect With Us</a>
-                    <a href="{{ route('projects.index') }}" class="btn-default">Explore Opportunities</a>
+                    <a href="{{ route('website.projects.index') }}" class="btn-default">Explore Opportunities</a>
                 </div>
             </div>
         </div>

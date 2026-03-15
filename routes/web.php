@@ -28,8 +28,13 @@ Route::get('/contact', [Website\ContactController::class, 'index'])->name('conta
 Route::post('/contact', [Website\ContactController::class, 'submit'])->name('contact.submit');
 Route::get('/careers', [Website\CareersController::class, 'index'])->name('careers');
 Route::post('/careers', [Website\CareersController::class, 'submit'])->name('careers.submit');
-Route::get('/projects', [Website\PropertyController::class, 'index'])->name('projects.index');
-Route::get('/projects/{slug}', [Website\PropertyController::class, 'show'])->name('projects.show');
+// Projects (Ongoing & Completed) - main public section
+Route::get('/projects', [Website\ProjectController::class, 'index'])->name('website.projects.index');
+Route::get('/projects/{slug}', [Website\ProjectController::class, 'show'])->name('website.projects.show');
+
+// Properties - accessible via CTA, kept for admin management
+Route::get('/properties', [Website\PropertyController::class, 'index'])->name('properties.index');
+Route::get('/properties/{slug}', [Website\PropertyController::class, 'show'])->name('properties.show');
 Route::get('/blog', [Website\BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [Website\BlogController::class, 'show'])->name('blog.show');
 
@@ -58,6 +63,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Properties
         Route::delete('/properties/images/{imageId}', [Admin\PropertyController::class, 'destroyImage'])->name('properties.image.destroy');
         Route::resource('properties', Admin\PropertyController::class);
+
+        // Projects
+        Route::delete('/projects/images/{imageId}', [Admin\ProjectController::class, 'destroyImage'])->name('projects.image.destroy');
+        Route::resource('projects', Admin\ProjectController::class);
 
         // Settings
         Route::get('/settings', [Admin\SettingController::class, 'index'])->name('settings.index');
