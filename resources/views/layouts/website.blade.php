@@ -79,7 +79,12 @@
         <div class="loading-container">
             <div class="loading"></div>
             <div id="loading-icon">
-                <img src="{{ asset('images/loader.svg') }}" alt="" />
+                @php $preloaderLogo = $site['logo_white'] ?? null; @endphp
+                @if($preloaderLogo)
+                    <img src="{{ $preloaderLogo }}" alt="{{ $site['site_name'] ?? config('app.name') }}" style="max-height:60px;width:auto;" />
+                @else
+                    <img src="{{ asset('images/logo-white.svg') }}" alt="" style="max-height:60px;width:auto;" />
+                @endif
             </div>
         </div>
     </div>
