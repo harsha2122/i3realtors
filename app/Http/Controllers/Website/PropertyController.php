@@ -16,7 +16,7 @@ class PropertyController extends Controller
         $properties = $this->service->publicList($filters, 9);
         $cities     = $this->service->cities();
 
-        return view('website.projects', compact('properties', 'filters', 'cities'));
+        return view('website.properties', compact('properties', 'filters', 'cities'));
     }
 
     public function show(string $slug)
@@ -27,6 +27,6 @@ class PropertyController extends Controller
 
         $related = $this->service->publicList(['type' => $property->type], 3);
 
-        return view('website.project-details', compact('property', 'related'));
+        return view('website.property-details', compact('property', 'related'));
     }
 }
