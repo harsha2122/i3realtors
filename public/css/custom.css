@@ -10980,7 +10980,7 @@ header.main-header .header-sticky.bg-section.active {
 
 .header-sticky.bg-section .main-menu ul li a:hover,
 .header-sticky.bg-section .main-menu ul li a:focus {
-  color: var(--primary-color);
+  color: var(--accent-secondary-color);
 }
 
 .header-sticky.bg-section .main-menu ul li.submenu > a:after {
