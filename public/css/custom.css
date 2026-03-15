@@ -607,7 +607,7 @@ header.main-header .header-sticky.active {
 
 .main-menu ul li a:hover,
 .main-menu ul li a:focus {
-  color: var(--primary-color);
+  color: var(--accent-secondary-color);
 }
 
 .header-btn .btn-default,
