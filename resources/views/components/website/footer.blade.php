@@ -2,13 +2,12 @@
     $logoWhite   = $site['logo_white'] ?? null;
     $siteName    = $site['site_name'] ?? config('app.name');
     $footerAbout = $site['footer_about'] ?? '';
-    $footerCta   = $site['footer_cta_title'] ?? 'Begin your construction journey with trusted experts';
+    $footerCta   = $site['footer_cta_title'] ?? 'Explore Strategic Real Estate Opportunities With i3 Realtors';
     $copyright   = $site['footer_copyright'] ?? ('Copyright &copy; ' . date('Y') . ' All Rights Reserved.');
 
-    // Contact
-    $phone1  = $site['phone_primary'] ?? '';
-    $phone2  = $site['phone_secondary'] ?? '';
-    $email   = $site['email_primary'] ?? '';
+    // Contact (phones are intentionally not displayed)
+    $email1  = $site['email_primary']   ?? 'i3realtorsllp@gmail.com';
+    $email2  = $site['email_secondary'] ?? 'admin@i3realtors.com';
     $address = $site['address'] ?? '';
 
     // Social
@@ -68,40 +67,26 @@
                             <img src="{{ asset('images/logo-white.svg') }}" alt="{{ $siteName }}" style="max-height: 60px; width: auto; object-fit: contain;" />
                         @endif
                     </div>
-                    @if($footerAbout)
                     <div class="about-footer-content">
-                        <p>{{ $footerAbout }}</p>
+                        <p>{{ $footerAbout ?: 'i3 Realtors is a mandate-focused real estate consulting firm connecting developers and investors through strategic project marketing, structured partnerships, and market-driven real estate opportunities.' }}</p>
                     </div>
-                    @endif
 
-                    @if($phone1 || $email || $address)
                     <div class="about-footer-contact mt-3" style="font-size: 0.9rem;">
-                        @if($phone1)
                         <div class="mb-1">
-                            <i class="fas fa-phone-alt me-2" style="color: var(--primary-color)"></i>
-                            <a href="tel:{{ $phone1 }}" style="color: rgba(255,255,255,0.75); text-decoration: none;">{{ $phone1 }}</a>
+                            <i class="fas fa-envelope me-2" style="color: var(--accent-secondary-color);"></i>
+                            <a href="mailto:{{ $email1 }}" style="color: rgba(255,255,255,0.75); text-decoration: none;">{{ $email1 }}</a>
                         </div>
-                        @endif
-                        @if($phone2)
                         <div class="mb-1">
-                            <i class="fas fa-phone-alt me-2" style="color: var(--primary-color)"></i>
-                            <a href="tel:{{ $phone2 }}" style="color: rgba(255,255,255,0.75); text-decoration: none;">{{ $phone2 }}</a>
+                            <i class="fas fa-envelope me-2" style="color: var(--accent-secondary-color);"></i>
+                            <a href="mailto:{{ $email2 }}" style="color: rgba(255,255,255,0.75); text-decoration: none;">{{ $email2 }}</a>
                         </div>
-                        @endif
-                        @if($email)
-                        <div class="mb-1">
-                            <i class="fas fa-envelope me-2" style="color: var(--primary-color)"></i>
-                            <a href="mailto:{{ $email }}" style="color: rgba(255,255,255,0.75); text-decoration: none;">{{ $email }}</a>
-                        </div>
-                        @endif
                         @if($address)
-                        <div>
-                            <i class="fas fa-map-marker-alt me-2" style="color: var(--primary-color)"></i>
+                        <div class="mt-1">
+                            <i class="fas fa-map-marker-alt me-2" style="color: var(--accent-secondary-color);"></i>
                             <span style="color: rgba(255,255,255,0.75);">{{ $address }}</span>
                         </div>
                         @endif
                     </div>
-                    @endif
                 </div>
                 <!-- About Footer End -->
             </div>
@@ -115,10 +100,11 @@
                         <ul>
                             <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="{{ route('about') }}">About Us</a></li>
-                            <li><a href="{{ route('services') }}">Our Services</a></li>
                             <li><a href="{{ route('website.projects.index') }}">Projects</a></li>
+                            <li><a href="{{ route('properties.index') }}">Investment Opportunities</a></li>
+                            <li><a href="{{ route('blog.index') }}">Blog</a></li>
                             <li><a href="{{ route('careers') }}">Careers</a></li>
-                            <li><a href="{{ route('contact') }}">Contact Us</a></li>
+                            <li><a href="{{ route('contact') }}">Contact</a></li>
                         </ul>
                     </div>
                     <!-- Quick Links End -->
@@ -128,7 +114,7 @@
                         <h3>Our Services</h3>
                         <ul>
                             <li><a href="{{ route('services') }}">Developer Mandate Services</a></li>
-                            <li><a href="{{ route('services') }}">Project Marketing</a></li>
+                            <li><a href="{{ route('services') }}">Project Marketing Strategy</a></li>
                             <li><a href="{{ route('services') }}">Real Estate Investment Advisory</a></li>
                             <li><a href="{{ route('services') }}">Developer Partnerships</a></li>
                             <li><a href="{{ route('services') }}">Commercial Real Estate Consulting</a></li>
@@ -138,13 +124,13 @@
 
                     <!-- Newsletter -->
                     <div class="footer-links footer-newsletter-form">
-                        <h3>Subscribe Newsletter</h3>
-                        <p>Subscribe to receive updates on new projects, investment opportunities, and real estate insights.</p>
+                        <h3>Subscribe for Real Estate Insights</h3>
+                        <p>Receive updates on new real estate projects, investment opportunities, and market trends directly in your inbox.</p>
                         <form id="newslettersForm" action="#" method="POST">
                             @csrf
                             <div class="form-group">
                                 <input type="email" name="email" class="form-control"
-                                       placeholder="Enter Your E-mail" required />
+                                       placeholder="Enter Your Email" required />
                                 <button type="submit" class="newsletter-btn">
                                     <i class="fa-regular fa-paper-plane"></i>
                                 </button>

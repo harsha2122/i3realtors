@@ -7,340 +7,246 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <!-- Page Header Box Start -->
                 <div class="page-header-box">
                     <h1 class="text-anime-style-2" data-cursor="-opaque">Careers</h1>
                     <nav class="wow fadeInUp">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('careers') }}">Careers</a></li>
+                            <li class="breadcrumb-item active">Careers</li>
                         </ol>
                     </nav>
                 </div>
-                <!-- Page Header Box End -->
             </div>
         </div>
     </div>
 </div>
 <!-- Page Header End -->
 
-<!-- Career Opportunities Section Start -->
+<!-- Career Intro Section Start -->
 <div class="about-us">
     <div class="container">
         <div class="row section-row align-items-center">
             <div class="col-xl-7">
-                <!-- Section Title Start -->
                 <div class="section-title">
-                    <span class="section-sub-title wow fadeInUp">Build Your Future</span>
-                    <h2 class="text-anime-style-2" data-cursor="-opaque">Join our team and grow with industry leaders in construction</h2>
+                    <span class="section-sub-title wow fadeInUp">Ready to Join i3 Realtors?</span>
+                    <h2 class="text-anime-style-2" data-cursor="-opaque">Apply to Join <span>Our Team</span></h2>
                 </div>
-                <!-- Section Title End -->
             </div>
-
             <div class="col-xl-5">
-                <!-- Section Content Button Start -->
                 <div class="section-content-btn">
-                    <!-- Section Title Content Start -->
                     <div class="section-title-content wow fadeInUp" data-wow-delay="0.2s">
-                        <p>We believe in building more than just projects—we build careers, develop talent, and create opportunities for professionals who are passionate about excellence.</p>
+                        <p>We are always looking for talented professionals in sales, marketing, and real estate consulting. Submit your application and our team will get in touch if your profile matches our requirements.</p>
                     </div>
-                    <!-- Section Title Content End -->
-
-                    <!-- Section Button Start -->
                     <div class="section-btn wow fadeInUp" data-wow-delay="0.4s">
                         <a href="#apply-form" class="btn-default">Apply Now</a>
                     </div>
-                    <!-- Section Button End -->
                 </div>
-                <!-- Section Content Button End -->
             </div>
         </div>
 
         <div class="row">
             <div class="col-xl-6">
-                <!-- Career Image Box Start -->
                 <div class="about-us-image-box wow fadeInUp">
-                    <!-- Career Image Start -->
                     <div class="about-us-image">
                         <figure class="image-anime">
-                            <img src="{{ asset('images/careers-image.jpg') }}" alt="Careers">
+                            <img src="{{ asset('images/careers-image.jpg') }}" alt="Careers at i3 Realtors">
                         </figure>
                     </div>
-                    <!-- Career Image End -->
                 </div>
-                <!-- Career Image Box End -->
             </div>
 
             <div class="col-xl-6">
-                <!-- Career Content Box Start -->
                 <div class="about-us-content-box wow fadeInUp" data-wow-delay="0.2s">
-                    <!-- Why Join List Start -->
                     <div class="about-us-item-list">
-                        <!-- Why Join Item Start -->
                         <div class="about-us-item box-1">
-                            <!-- Why Join Item Content Start -->
                             <div class="about-us-item-content">
-                                <h3>Competitive Compensation</h3>
-                                <p>Attractive salary packages and comprehensive benefits for all team members</p>
+                                <h3>Grow With Industry Experts</h3>
+                                <p>Work alongside experienced real estate professionals and gain exposure to developer mandates, project marketing, and strategic investment advisory.</p>
                             </div>
-                            <!-- Why Join Item Content End -->
                         </div>
-                        <!-- Why Join Item End -->
-
-                        <!-- Why Join Item Start -->
                         <div class="about-us-item box-2">
-                            <!-- Why Join Item Content Start -->
                             <div class="about-us-item-content">
-                                <h3>Professional Growth</h3>
-                                <p>Training, mentorship, and advancement opportunities to develop your career</p>
+                                <h3>Real Opportunities, Real Impact</h3>
+                                <p>At i3 Realtors, every team member plays a role in delivering value for developers and investors — with clear growth paths and performance-driven recognition.</p>
                             </div>
-                            <!-- Why Join Item Content End -->
                         </div>
-                        <!-- Why Join Item End -->
                     </div>
-                    <!-- Why Join List End -->
 
-                    <!-- Career Highlights Start -->
                     <div class="about-counter-item-list">
-                        <!-- Career Highlight Start -->
-                        <div class="about-counter-item">
-                            <h2><span class="counter">50</span>+</h2>
-                            <p>Team Members</p>
-                        </div>
-                        <!-- Career Highlight End -->
-
-                        <!-- Career Highlight Start -->
                         <div class="about-counter-item">
                             <h2><span class="counter">25</span>+</h2>
-                            <p>Years Experience</p>
+                            <p>Developer Partners</p>
                         </div>
-                        <!-- Career Highlight End -->
+                        <div class="about-counter-item">
+                            <h2><span class="counter">50</span>+</h2>
+                            <p>Projects Handled</p>
+                        </div>
                     </div>
-                    <!-- Career Highlights End -->
                 </div>
-                <!-- Career Content Box End -->
             </div>
         </div>
     </div>
 </div>
-<!-- Career Opportunities Section End -->
+<!-- Career Intro Section End -->
 
 <!-- Open Positions Section Start -->
 <div class="open-positions bg-section">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
-                <!-- Section Title Start -->
                 <div class="section-title text-center mb-5">
                     <span class="section-sub-title wow fadeInUp">What We're Looking For</span>
-                    <h2 class="text-anime-style-2 mb-4" data-cursor="-opaque">Current Open Positions</h2>
-                    <p class="wow fadeInUp" data-wow-delay="0.2s">We're hiring talented professionals to join our growing team. Explore our open opportunities below.</p>
+                    <h2 class="text-anime-style-2 mb-4" data-cursor="-opaque">Open Departments & Roles</h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.2s">We are hiring across multiple departments. Explore the roles we are currently recruiting for.</p>
                 </div>
-                <!-- Section Title End -->
 
-                <!-- Filter Controls Start -->
                 <div class="filter-controls text-center mb-5 wow fadeInUp" data-wow-delay="0.3s">
-                    <button class="filter-btn active" data-filter="all">All Positions</button>
-                    <button class="filter-btn" data-filter="on-site">On-Site</button>
-                    <button class="filter-btn" data-filter="office">Office</button>
-                    <button class="filter-btn" data-filter="full-time">Full-Time</button>
+                    <button class="filter-btn active" data-filter="all">All Roles</button>
+                    <button class="filter-btn" data-filter="sales">Sales</button>
+                    <button class="filter-btn" data-filter="marketing">Marketing</button>
+                    <button class="filter-btn" data-filter="operations">Operations</button>
                 </div>
-                <!-- Filter Controls End -->
             </div>
         </div>
 
         <div class="row" id="positions-container">
-            <!-- Position Card Start -->
-            <div class="col-lg-6 position-card-wrapper mb-4" data-category="on-site full-time">
+
+            <div class="col-lg-6 position-card-wrapper mb-4" data-category="sales full-time">
                 <div class="position-card wow fadeInUp">
                     <div class="position-header">
                         <div class="position-badge">Full-Time</div>
-                        <div class="position-location">
-                            <i class="fas fa-map-marker-alt"></i> On-Site
-                        </div>
+                        <div class="position-location"><i class="fas fa-map-marker-alt"></i> Pune</div>
                     </div>
-                    <h3 class="position-title">Site Engineer</h3>
+                    <h3 class="position-title">Sales Executive</h3>
                     <div class="position-meta">
-                        <span class="meta-item"><i class="fas fa-briefcase"></i> 3-5 Years</span>
+                        <span class="meta-item"><i class="fas fa-briefcase"></i> 1–3 Years</span>
                         <span class="meta-item"><i class="fas fa-money-bill"></i> Competitive</span>
                     </div>
-                    <p class="position-description">Oversee construction projects, ensure quality standards, and lead site teams with precision and excellence.</p>
-
+                    <p class="position-description">Drive project sales through direct client engagement, investor outreach, and developer mandate presentations.</p>
                     <div class="position-details">
                         <div class="detail-item">
-                            <strong>Responsibilities:</strong>
+                            <strong>Key Responsibilities:</strong>
                             <ul>
-                                <li>Manage daily site operations</li>
-                                <li>Ensure safety compliance</li>
-                                <li>Quality assurance oversight</li>
+                                <li>Client acquisition and relationship management</li>
+                                <li>Investor presentations and site visits</li>
+                                <li>Pipeline management and deal closures</li>
                             </ul>
                         </div>
                         <div class="detail-item">
                             <strong>Requirements:</strong>
                             <ul>
-                                <li>3-5 years experience</li>
-                                <li>Civil engineering degree</li>
-                                <li>Strong leadership skills</li>
-                            </ul>
-                        </div>
-                        <div class="detail-item">
-                            <strong>Benefits:</strong>
-                            <ul>
-                                <li>Health insurance</li>
-                                <li>Professional development</li>
-                                <li>Competitive salary</li>
+                                <li>1–3 years in real estate sales</li>
+                                <li>Strong communication and negotiation skills</li>
+                                <li>Knowledge of Pune real estate market</li>
                             </ul>
                         </div>
                     </div>
-
                     <a href="#apply-form" class="btn-default btn-sm">Apply Now</a>
                 </div>
             </div>
-            <!-- Position Card End -->
 
-            <!-- Position Card Start -->
-            <div class="col-lg-6 position-card-wrapper mb-4" data-category="office full-time">
+            <div class="col-lg-6 position-card-wrapper mb-4" data-category="marketing full-time">
                 <div class="position-card wow fadeInUp" data-wow-delay="0.1s">
                     <div class="position-header">
                         <div class="position-badge">Full-Time</div>
-                        <div class="position-location">
-                            <i class="fas fa-map-marker-alt"></i> Office
-                        </div>
+                        <div class="position-location"><i class="fas fa-map-marker-alt"></i> Pune</div>
                     </div>
-                    <h3 class="position-title">Project Manager</h3>
+                    <h3 class="position-title">Marketing Executive</h3>
                     <div class="position-meta">
-                        <span class="meta-item"><i class="fas fa-briefcase"></i> 5+ Years</span>
+                        <span class="meta-item"><i class="fas fa-briefcase"></i> 1–3 Years</span>
                         <span class="meta-item"><i class="fas fa-money-bill"></i> Competitive</span>
                     </div>
-                    <p class="position-description">Lead construction projects from conception to completion, managing budgets, timelines, and teams with excellence.</p>
-
+                    <p class="position-description">Plan and execute digital and offline marketing campaigns for real estate projects under developer mandate partnerships.</p>
                     <div class="position-details">
                         <div class="detail-item">
-                            <strong>Responsibilities:</strong>
+                            <strong>Key Responsibilities:</strong>
                             <ul>
-                                <li>Project planning & execution</li>
-                                <li>Budget management</li>
-                                <li>Team coordination</li>
+                                <li>Project marketing strategy and execution</li>
+                                <li>Digital campaigns, social media, and lead generation</li>
+                                <li>Brand positioning and content creation</li>
                             </ul>
                         </div>
                         <div class="detail-item">
                             <strong>Requirements:</strong>
                             <ul>
-                                <li>5+ years experience</li>
-                                <li>Project management cert.</li>
-                                <li>Excellent communication</li>
-                            </ul>
-                        </div>
-                        <div class="detail-item">
-                            <strong>Benefits:</strong>
-                            <ul>
-                                <li>Health & dental insurance</li>
-                                <li>Career growth path</li>
-                                <li>Flexible hours</li>
+                                <li>1–3 years in real estate or digital marketing</li>
+                                <li>Proficiency in social media and Google Ads</li>
+                                <li>Creative thinking and analytical mindset</li>
                             </ul>
                         </div>
                     </div>
-
                     <a href="#apply-form" class="btn-default btn-sm">Apply Now</a>
                 </div>
             </div>
-            <!-- Position Card End -->
 
-            <!-- Position Card Start -->
-            <div class="col-lg-6 position-card-wrapper mb-4" data-category="office full-time">
+            <div class="col-lg-6 position-card-wrapper mb-4" data-category="sales full-time">
                 <div class="position-card wow fadeInUp" data-wow-delay="0.2s">
                     <div class="position-header">
                         <div class="position-badge">Full-Time</div>
-                        <div class="position-location">
-                            <i class="fas fa-map-marker-alt"></i> Office
-                        </div>
+                        <div class="position-location"><i class="fas fa-map-marker-alt"></i> Pune</div>
                     </div>
-                    <h3 class="position-title">CAD Draftsman</h3>
+                    <h3 class="position-title">Pre-Sales Executive</h3>
                     <div class="position-meta">
-                        <span class="meta-item"><i class="fas fa-briefcase"></i> 2-3 Years</span>
+                        <span class="meta-item"><i class="fas fa-briefcase"></i> 0–2 Years</span>
                         <span class="meta-item"><i class="fas fa-money-bill"></i> Competitive</span>
                     </div>
-                    <p class="position-description">Create detailed architectural and construction drawings using AutoCAD and design software to support our design team.</p>
-
+                    <p class="position-description">Qualify leads, handle initial client inquiries, and support the sales team with project information and client coordination.</p>
                     <div class="position-details">
                         <div class="detail-item">
-                            <strong>Responsibilities:</strong>
+                            <strong>Key Responsibilities:</strong>
                             <ul>
-                                <li>CAD drawings & models</li>
-                                <li>Design documentation</li>
-                                <li>Technical support</li>
+                                <li>Lead qualification and follow-up</li>
+                                <li>Client communication and CRM management</li>
+                                <li>Supporting sales team with project briefs</li>
                             </ul>
                         </div>
                         <div class="detail-item">
                             <strong>Requirements:</strong>
                             <ul>
-                                <li>2-3 years CAD experience</li>
-                                <li>AutoCAD proficiency</li>
-                                <li>Technical drawing knowledge</li>
-                            </ul>
-                        </div>
-                        <div class="detail-item">
-                            <strong>Benefits:</strong>
-                            <ul>
-                                <li>Health insurance</li>
-                                <li>Skill development programs</li>
-                                <li>Competitive compensation</li>
+                                <li>Good communication skills in English and Hindi</li>
+                                <li>Comfortable with CRM tools and Excel</li>
+                                <li>Freshers with real estate interest welcome</li>
                             </ul>
                         </div>
                     </div>
-
                     <a href="#apply-form" class="btn-default btn-sm">Apply Now</a>
                 </div>
             </div>
-            <!-- Position Card End -->
 
-            <!-- Position Card Start -->
-            <div class="col-lg-6 position-card-wrapper mb-4" data-category="on-site full-time">
+            <div class="col-lg-6 position-card-wrapper mb-4" data-category="operations full-time">
                 <div class="position-card wow fadeInUp" data-wow-delay="0.3s">
                     <div class="position-header">
                         <div class="position-badge">Full-Time</div>
-                        <div class="position-location">
-                            <i class="fas fa-map-marker-alt"></i> On-Site
-                        </div>
+                        <div class="position-location"><i class="fas fa-map-marker-alt"></i> Pune</div>
                     </div>
-                    <h3 class="position-title">Safety Officer</h3>
+                    <h3 class="position-title">Admin & Operations</h3>
                     <div class="position-meta">
-                        <span class="meta-item"><i class="fas fa-briefcase"></i> 3-5 Years</span>
+                        <span class="meta-item"><i class="fas fa-briefcase"></i> 1–3 Years</span>
                         <span class="meta-item"><i class="fas fa-money-bill"></i> Competitive</span>
                     </div>
-                    <p class="position-description">Ensure workplace safety compliance and conduct regular audits to maintain high safety standards across all sites.</p>
-
+                    <p class="position-description">Support day-to-day office operations, HR coordination, accounts, MIS reporting, and CRM management for the team.</p>
                     <div class="position-details">
                         <div class="detail-item">
-                            <strong>Responsibilities:</strong>
+                            <strong>Key Responsibilities:</strong>
                             <ul>
-                                <li>Safety audits & inspections</li>
-                                <li>Compliance monitoring</li>
-                                <li>Training & education</li>
+                                <li>Office administration and HR support</li>
+                                <li>Accounts, MIS, and reporting</li>
+                                <li>CRM data management and coordination</li>
                             </ul>
                         </div>
                         <div class="detail-item">
                             <strong>Requirements:</strong>
                             <ul>
-                                <li>3-5 years experience</li>
-                                <li>Safety certifications</li>
-                                <li>Knowledge of OSHA standards</li>
-                            </ul>
-                        </div>
-                        <div class="detail-item">
-                            <strong>Benefits:</strong>
-                            <ul>
-                                <li>Comprehensive insurance</li>
-                                <li>Certification support</li>
-                                <li>Competitive salary</li>
+                                <li>1–3 years in admin / back-office role</li>
+                                <li>Proficiency in Excel and CRM tools</li>
+                                <li>Organised, detail-oriented, and proactive</li>
                             </ul>
                         </div>
                     </div>
-
                     <a href="#apply-form" class="btn-default btn-sm">Apply Now</a>
                 </div>
             </div>
-            <!-- Position Card End -->
+
         </div>
     </div>
 </div>
@@ -351,13 +257,11 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-12 mb-5">
-                <!-- Form Title Start -->
                 <div class="section-title text-center">
-                    <span class="section-sub-title wow fadeInUp">Ready to Join Us?</span>
-                    <h2 class="text-anime-style-2" data-cursor="-opaque">Submit Your Application</h2>
-                    <p class="wow fadeInUp" data-wow-delay="0.2s">Fill out the form below and we'll get back to you shortly.</p>
+                    <span class="section-sub-title wow fadeInUp">Ready to Join i3 Realtors?</span>
+                    <h2 class="text-anime-style-2" data-cursor="-opaque">Apply to Join Our Team</h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.2s">We are always looking for talented professionals in sales, marketing, and real estate consulting. Submit your application and our team will get in touch if your profile matches our requirements.</p>
                 </div>
-                <!-- Form Title End -->
             </div>
         </div>
 
@@ -366,50 +270,63 @@
                 <form action="{{ route('careers.submit') }}" method="POST" enctype="multipart/form-data" class="career-form wow fadeInUp" data-wow-delay="0.2s">
                     @csrf
                     <div class="row">
+
                         <div class="form-group col-md-6 mb-4">
                             <label class="form-label fw-semibold">Full Name *</label>
-                            <input type="text" name="full_name" class="form-control form-control-lg" placeholder="Your Full Name" required>
+                            <input type="text" name="full_name" class="form-control form-control-lg" placeholder="Your Full Name" value="{{ old('full_name') }}" required>
                             @error('full_name')<div class="text-danger small mt-2">{{ $message }}</div>@enderror
                         </div>
 
                         <div class="form-group col-md-6 mb-4">
                             <label class="form-label fw-semibold">Email Address *</label>
-                            <input type="email" name="email" class="form-control form-control-lg" placeholder="your@email.com" required>
+                            <input type="email" name="email" class="form-control form-control-lg" placeholder="your@email.com" value="{{ old('email') }}" required>
                             @error('email')<div class="text-danger small mt-2">{{ $message }}</div>@enderror
                         </div>
 
                         <div class="form-group col-md-6 mb-4">
                             <label class="form-label fw-semibold">Phone Number *</label>
-                            <input type="text" name="phone" class="form-control form-control-lg" placeholder="Your Phone Number" required>
+                            <input type="text" name="phone" class="form-control form-control-lg" placeholder="Your Phone Number" value="{{ old('phone') }}" required>
                             @error('phone')<div class="text-danger small mt-2">{{ $message }}</div>@enderror
                         </div>
 
                         <div class="form-group col-md-6 mb-4">
-                            <label class="form-label fw-semibold">Position Applying For *</label>
+                            <label class="form-label fw-semibold">Department / Job Category *</label>
                             <select name="position" class="form-control form-control-lg" required>
-                                <option value="">-- Select Position --</option>
-                                <option value="Site Engineer">Site Engineer</option>
-                                <option value="Project Manager">Project Manager</option>
-                                <option value="CAD Draftsman">CAD Draftsman</option>
-                                <option value="Safety Officer">Safety Officer</option>
+                                <option value="">-- Select Department --</option>
+                                <option value="Sales" {{ old('position') === 'Sales' ? 'selected' : '' }}>Sales</option>
+                                <option value="Marketing" {{ old('position') === 'Marketing' ? 'selected' : '' }}>Marketing</option>
+                                <option value="Pre-Sales" {{ old('position') === 'Pre-Sales' ? 'selected' : '' }}>Pre-Sales</option>
+                                <option value="Admin & HR" {{ old('position') === 'Admin & HR' ? 'selected' : '' }}>Admin & HR</option>
+                                <option value="Accounts & MIS" {{ old('position') === 'Accounts & MIS' ? 'selected' : '' }}>Accounts & MIS</option>
+                                <option value="CRM" {{ old('position') === 'CRM' ? 'selected' : '' }}>CRM</option>
                             </select>
                             @error('position')<div class="text-danger small mt-2">{{ $message }}</div>@enderror
                         </div>
 
-                        <div class="form-group col-md-12 mb-4">
+                        <div class="form-group col-md-6 mb-4">
                             <label class="form-label fw-semibold">Years of Experience *</label>
-                            <input type="number" name="experience_years" class="form-control form-control-lg" placeholder="Years" required>
+                            <input type="number" name="experience_years" class="form-control form-control-lg" placeholder="Years" min="0" max="50" value="{{ old('experience_years') }}" required>
                             @error('experience_years')<div class="text-danger small mt-2">{{ $message }}</div>@enderror
+                        </div>
+
+                        <div class="form-group col-md-6 mb-4">
+                            <label class="form-label fw-semibold">Preferred Location</label>
+                            <select name="preferred_location" class="form-control form-control-lg">
+                                <option value="">-- Select Location --</option>
+                                <option value="Pune" {{ old('preferred_location') === 'Pune' ? 'selected' : '' }}>Pune</option>
+                                <option value="Remote / Flexible" {{ old('preferred_location') === 'Remote / Flexible' ? 'selected' : '' }}>Remote / Flexible</option>
+                            </select>
+                            @error('preferred_location')<div class="text-danger small mt-2">{{ $message }}</div>@enderror
                         </div>
 
                         <div class="form-group col-md-12 mb-4">
                             <label class="form-label fw-semibold">Cover Letter *</label>
-                            <textarea name="cover_letter" class="form-control form-control-lg" rows="5" placeholder="Tell us about yourself and why you'd like to join our team..." required></textarea>
+                            <textarea name="cover_letter" class="form-control form-control-lg" rows="5" placeholder="Briefly tell us about your experience and why you would like to join i3 Realtors." required>{{ old('cover_letter') }}</textarea>
                             @error('cover_letter')<div class="text-danger small mt-2">{{ $message }}</div>@enderror
                         </div>
 
                         <div class="form-group col-md-12 mb-4">
-                            <label class="form-label fw-semibold">Upload Resume (PDF) *</label>
+                            <label class="form-label fw-semibold">Upload Resume / CV (PDF) *</label>
                             <div class="file-input-wrapper">
                                 <input type="file" name="resume" id="resume" class="form-control form-control-lg" accept=".pdf" required>
                                 <small class="text-muted d-block mt-2">Maximum file size: 5MB</small>
@@ -418,15 +335,14 @@
                         </div>
 
                         <div class="col-md-12">
-                            <button type="submit" class="btn-default w-100">
-                                Submit Application
-                            </button>
+                            <button type="submit" class="btn-default w-100">Submit Application</button>
                             @if(session('success'))
                                 <div class="alert alert-success mt-4" role="alert">
                                     <i class="fas fa-check-circle"></i> {{ session('success') }}
                                 </div>
                             @endif
                         </div>
+
                     </div>
                 </form>
             </div>
@@ -436,14 +352,12 @@
 <!-- Application Form End -->
 
 <style>
-/* Filter Controls */
 .filter-controls {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
     justify-content: center;
 }
-
 .filter-btn {
     padding: 10px 24px;
     border: 2px solid var(--primary-color);
@@ -455,14 +369,10 @@
     transition: all 0.3s ease;
     font-size: 14px;
 }
-
-.filter-btn:hover,
-.filter-btn.active {
+.filter-btn:hover, .filter-btn.active {
     background: var(--primary-color);
     color: white;
 }
-
-/* Position Cards */
 .position-card {
     background: white;
     border: 1px solid #e8e8e8;
@@ -473,13 +383,11 @@
     display: flex;
     flex-direction: column;
 }
-
 .position-card:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 10px 30px rgba(184, 150, 43, 0.15);
+    border-color: var(--accent-secondary-color);
+    box-shadow: 0 10px 30px rgba(200, 169, 106, 0.15);
     transform: translateY(-5px);
 }
-
 .position-header {
     display: flex;
     justify-content: space-between;
@@ -487,7 +395,6 @@
     margin-bottom: 15px;
     gap: 10px;
 }
-
 .position-badge {
     display: inline-block;
     padding: 6px 14px;
@@ -497,7 +404,6 @@
     font-size: 12px;
     font-weight: 600;
 }
-
 .position-location {
     font-size: 13px;
     color: #666;
@@ -505,25 +411,19 @@
     align-items: center;
     gap: 5px;
 }
-
-.position-location i {
-    color: var(--primary-color);
-}
-
+.position-location i { color: var(--accent-secondary-color); }
 .position-title {
     font-size: 20px;
     font-weight: 700;
     color: #1a1a1a;
     margin: 15px 0 10px 0;
 }
-
 .position-meta {
     display: flex;
     gap: 15px;
     margin-bottom: 15px;
     flex-wrap: wrap;
 }
-
 .meta-item {
     font-size: 13px;
     color: #666;
@@ -531,27 +431,15 @@
     align-items: center;
     gap: 5px;
 }
-
-.meta-item i {
-    color: var(--primary-color);
-}
-
+.meta-item i { color: var(--accent-secondary-color); }
 .position-description {
     font-size: 15px;
     color: #555;
     line-height: 1.6;
     margin-bottom: 20px;
 }
-
-.position-details {
-    flex-grow: 1;
-    margin-bottom: 20px;
-}
-
-.detail-item {
-    margin-bottom: 18px;
-}
-
+.position-details { flex-grow: 1; margin-bottom: 20px; }
+.detail-item { margin-bottom: 18px; }
 .detail-item strong {
     display: block;
     font-size: 14px;
@@ -559,13 +447,7 @@
     margin-bottom: 8px;
     font-weight: 600;
 }
-
-.detail-item ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
+.detail-item ul { list-style: none; padding: 0; margin: 0; }
 .detail-item li {
     font-size: 13px;
     color: #666;
@@ -573,31 +455,16 @@
     margin-bottom: 5px;
     position: relative;
 }
-
 .detail-item li:before {
     content: "✓";
     position: absolute;
     left: 0;
-    color: var(--primary-color);
+    color: var(--accent-secondary-color);
     font-weight: bold;
 }
-
-.position-card-wrapper {
-    opacity: 1;
-    transition: all 0.3s ease;
-}
-
-.position-card-wrapper.hidden {
-    opacity: 0;
-    display: none;
-}
-
-.btn-sm {
-    padding: 12px 24px !important;
-    font-size: 14px !important;
-}
-
-/* Form Styles */
+.position-card-wrapper { opacity: 1; transition: all 0.3s ease; }
+.position-card-wrapper.hidden { opacity: 0; display: none; }
+.btn-sm { padding: 12px 24px !important; font-size: 14px !important; }
 .form-control-lg {
     height: 48px;
     border: 1px solid #e0e0e0;
@@ -605,70 +472,36 @@
     font-size: 15px;
     transition: all 0.3s ease;
 }
-
 .form-control-lg:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(184, 150, 43, 0.1);
+    border-color: var(--accent-secondary-color);
+    box-shadow: 0 0 0 3px rgba(200, 169, 106, 0.15);
 }
-
-.form-label {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.file-input-wrapper input[type="file"] {
-    padding: 12px;
-}
-
-.career-form .btn-default {
-    width: 100%;
-    padding: 15px 40px;
-}
-
+textarea.form-control-lg { height: auto; }
+.form-label { font-size: 14px; color: #333; margin-bottom: 10px; }
+.file-input-wrapper input[type="file"] { padding: 12px; }
+.career-form .btn-default { width: 100%; padding: 15px 40px; }
 @media (max-width: 768px) {
-    .form-control-lg {
-        height: 44px;
-        font-size: 14px;
-    }
-
-    .filter-controls {
-        gap: 10px;
-    }
-
-    .filter-btn {
-        padding: 8px 18px;
-        font-size: 12px;
-    }
-
-    .position-details {
-        display: none;
-    }
-
-    .position-card {
-        padding: 20px;
-    }
+    .form-control-lg { height: 44px; font-size: 14px; }
+    .filter-controls { gap: 10px; }
+    .filter-btn { padding: 8px 18px; font-size: 12px; }
+    .position-details { display: none; }
+    .position-card { padding: 20px; }
 }
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const positionCards = document.querySelectorAll('.position-card-wrapper');
 
     filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             const filter = this.getAttribute('data-filter');
-
-            // Update active button
             filterBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
-
-            // Filter cards
             positionCards.forEach(card => {
-                const categories = card.getAttribute('data-category').split(' ');
-
-                if (filter === 'all' || categories.includes(filter)) {
+                const cats = card.getAttribute('data-category').split(' ');
+                if (filter === 'all' || cats.includes(filter)) {
                     card.classList.remove('hidden');
                 } else {
                     card.classList.add('hidden');

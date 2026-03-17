@@ -25,6 +25,24 @@
     <!-- Blog Section Start -->
     <div class="our-blog" style="padding: 80px 0;">
         <div class="container">
+
+            <!-- Blog Section Intro -->
+            <div class="row section-row mb-5">
+                <div class="col-xl-7">
+                    <div class="section-title">
+                        <span class="section-sub-title wow fadeInUp">Our Blog</span>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque">
+                            Real Estate Insights & <span>Market Updates</span>
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-xl-5">
+                    <div class="section-title-content wow fadeInUp" data-wow-delay="0.2s">
+                        <p>Stay updated with the latest real estate market insights, investment opportunities, and developer stories. Our blog provides strategic perspectives on property markets, project marketing, investment trends, and real estate developments across India.</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
 
                 <!-- Main Content -->
@@ -34,7 +52,7 @@
                     <form action="{{ route('blog.index') }}" method="get" class="mb-5">
                         <div class="input-group" style="border: 2px solid var(--divider-color); border-radius: 50px; overflow: hidden;">
                             <input type="text" name="q" class="form-control border-0 shadow-none"
-                                   placeholder="Search posts..."
+                                   placeholder="Search articles..."
                                    value="{{ request('q') }}"
                                    style="padding: 14px 24px; font-size: 15px; background: transparent;" />
                             <button type="submit" class="btn-default"
@@ -57,16 +75,16 @@
                                         </figure>
                                     </a>
                                     @if($post->category)
-                                        <span style="position: absolute; top: 16px; left: 16px; background: var(--accent-secondary-color); color: var(--accent-color); font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                        <span style="position: absolute; top: 16px; left: 16px; background: var(--accent-secondary-color); color: var(--primary-color); font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
                                             {{ $post->category->name }}
                                         </span>
                                     @endif
                                 </div>
                                 <div class="post-item-content">
                                     <div class="d-flex gap-3 mb-2" style="font-size: 12px; color: var(--text-color);">
-                                        <span><i class="fas fa-user me-1" style="color: var(--primary-color);"></i>{{ $post->author->name }}</span>
-                                        <span><i class="fas fa-calendar-alt me-1" style="color: var(--primary-color);"></i>{{ $post->published_at->format('M d, Y') }}</span>
-                                        <span><i class="fas fa-clock me-1" style="color: var(--primary-color);"></i>{{ $post->getReadingTimeAttribute() }} min</span>
+                                        <span><i class="fas fa-user me-1" style="color: var(--accent-secondary-color);"></i>{{ $post->author->name }}</span>
+                                        <span><i class="fas fa-calendar-alt me-1" style="color: var(--accent-secondary-color);"></i>{{ $post->published_at->format('M d, Y') }}</span>
+                                        <span><i class="fas fa-clock me-1" style="color: var(--accent-secondary-color);"></i>{{ $post->getReadingTimeAttribute() }} min read</span>
                                     </div>
                                     <h2>
                                         <a href="{{ route('blog.show', $post->slug) }}">
@@ -85,16 +103,16 @@
                                             </span>
                                         @endforeach
                                     </div>
-                                    <a href="{{ route('blog.show', $post->slug) }}" class="readmore-btn">Read More</a>
+                                    <a href="{{ route('blog.show', $post->slug) }}" class="readmore-btn">Read Article</a>
                                 </div>
                             </div>
                         </div>
                         @empty
                         <div class="col-12 text-center py-5">
                             <i class="fas fa-newspaper fa-3x mb-3" style="color: var(--primary-color); opacity: 0.3;"></i>
-                            <h4 style="margin-top: 16px;">No posts found</h4>
+                            <h4 style="margin-top: 16px;">No articles found</h4>
                             <p style="color: var(--text-color);">Try a different search or check back later.</p>
-                            <a href="{{ route('blog.index') }}" class="btn-default" style="margin-top: 16px;">View All Posts</a>
+                            <a href="{{ route('blog.index') }}" class="btn-default" style="margin-top: 16px;">View All Articles</a>
                         </div>
                         @endforelse
                     </div>
@@ -117,8 +135,11 @@
                                 @foreach($categories as $category)
                                 <li>
                                     <a href="{{ route('blog.index', ['category' => $category->slug]) }}">
-                                        {{ $category->name }}
-                                        <span style="float: right; font-size: 12px; opacity: 0.6;">({{ $category->posts()->published()->count() }})</span>
+                                        <strong>{{ $category->name }}</strong>
+                                        @if($category->description)
+                                            <span style="display: block; font-size: 12px; font-weight: 400; opacity: 0.7; margin-top: 3px; line-height: 1.5;">{{ $category->description }}</span>
+                                        @endif
+                                        <span style="float: right; font-size: 11px; opacity: 0.5; margin-top: -18px;">({{ $category->posts()->published()->count() }})</span>
                                     </a>
                                 </li>
                                 @endforeach
@@ -128,7 +149,7 @@
 
                         @if(isset($recentPosts) && $recentPosts->count())
                         <div class="page-category-list">
-                            <h2>Recent Posts</h2>
+                            <h2>Recent Articles</h2>
                             <ul>
                                 @foreach($recentPosts->take(5) as $recent)
                                 <li>
