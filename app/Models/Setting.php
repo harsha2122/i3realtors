@@ -109,8 +109,13 @@ class Setting extends Model
     public static function clearCache(): void
     {
         $settings = static::all();
+        $groups = [];
         foreach ($settings as $setting) {
             Cache::forget("setting_{$setting->key}");
+            $groups[$setting->group] = true;
+        }
+        foreach (array_keys($groups) as $group) {
+            Cache::forget("settings_group_{$group}");
         }
         Cache::forget('settings_all');
         Cache::forget('settings_all_public');
