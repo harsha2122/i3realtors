@@ -12,7 +12,11 @@ class ProjectSeeder extends Seeder
 {
     public function run(): void
     {
-        // Copy project images to projects storage folder
+        // ── Remove all existing project data ──────────────────────────
+        ProjectImage::query()->delete();
+        Project::query()->delete();
+
+        // ── Copy placeholder images to storage ───────────────────────
         $sourceImages = [
             'project-image-1.jpg',
             'project-image-2.jpg',
@@ -32,197 +36,171 @@ class ProjectSeeder extends Seeder
         $admin = User::first();
 
         $projects = [
-            // ── ONGOING ──────────────────────────────────────────────
+
+            // ── 1. Cloud 51 Ultimate ─────────────────────────────────
             [
-                'title'             => 'Skyline Heights, BKC',
-                'slug'              => 'skyline-heights-bkc',
-                'short_description' => 'Ultra-premium 3 & 4 BHK residences rising in the heart of Bandra Kurla Complex.',
-                'description'       => "Skyline Heights is a landmark residential tower redefining luxury living in Mumbai's most coveted business district.\n\nOffering spacious 3 and 4 BHK homes with panoramic skyline views, premium Italian marble interiors, and world-class amenities including a rooftop sky deck, infinity pool, and a fully-equipped clubhouse.\n\nSeamless connectivity to the city's commercial and entertainment hubs makes this an ideal home for corporate professionals and investors alike.",
+                'title'             => 'Cloud 51 Ultimate',
+                'slug'              => 'cloud-51-ultimate',
+                'short_description' => 'IGBC Gold-rated luxury 2 & 3 BHK residences in Central Bavdhan, Pune — starting ₹95 Lakhs.',
+                'description'       => "Cloud 51 Ultimate by OREE Reality is a premium IGBC Gold-rated residential project in the heart of Central Bavdhan, Pune. Offering spacious 2 and 3 BHK homes ranging from 850 to 1,300 sq ft, starting at ₹95 Lakhs.\n\nThe project blends luxury living with sustainable design, featuring rooftop amenities, a resort-style swimming pool, a modern clubhouse, and a fully equipped gym. Enjoy morning walks along the dedicated jogging track or open-air evenings at the landscaped amphitheatre.\n\n**Highlights:** IGBC Gold Rated | Luxury Living | Rooftop Amenities\n\n**Amenities:** Swimming Pool · Clubhouse · Gym · Jogging Track · Amphitheatre\n\nCentrally located in Bavdhan, Cloud 51 Ultimate offers excellent connectivity to Pune's IT hubs, educational institutions, and retail centres — making it the ideal home for discerning buyers and investors.",
                 'status'            => 'ongoing',
                 'type'              => 'residential',
-                'area'              => 185000,
+                'area'              => 850,
                 'area_unit'         => 'sq ft',
-                'units'             => 280,
-                'floors'            => 42,
-                'completion_year'   => 2026,
-                'location'          => 'Bandra Kurla Complex, G-Block',
-                'city'              => 'Mumbai',
+                'units'             => null,
+                'floors'            => null,
+                'completion_year'   => null,
+                'location'          => 'Central Bavdhan',
+                'city'              => 'Pune',
                 'state'             => 'Maharashtra',
                 'thumbnail'         => 'projects/project-image-1.jpg',
+                'meta_title'        => 'Cloud 51 Ultimate Bavdhan Pune | Luxury 2 & 3 BHK IGBC Gold Homes',
+                'meta_description'  => 'IGBC Gold-rated luxury 2 & 3 BHK apartments in Central Bavdhan, Pune. Swimming pool, clubhouse, gym & rooftop amenities. Starting ₹95 Lakhs.',
                 'is_featured'       => true,
                 'is_active'         => true,
                 'sort_order'        => 1,
-                'created_by'        => $admin->id,
+                'created_by'        => $admin?->id,
             ],
+
+            // ── 2. Elegance Vega ─────────────────────────────────────
             [
-                'title'             => 'Emerald Business Park, Hinjewadi',
-                'slug'              => 'emerald-business-park-hinjewadi',
-                'short_description' => 'Grade A commercial offices and IT park in Pune\'s prime tech corridor.',
-                'description'       => "Emerald Business Park is a LEED Gold certified commercial development offering Grade A office spaces ranging from 500 sq ft to 50,000 sq ft.\n\nStrategically located in Hinjewadi Phase 2, it offers unmatched access to Pune's IT workforce and major tech campuses.\n\nAmenities include dedicated parking, a food court, conference facilities, and 24/7 security — making it the preferred business address for leading corporates and startups.",
+                'title'             => 'Elegance Vega',
+                'slug'              => 'elegance-vega',
+                'short_description' => 'Modern 2 BHK homes with commercial spaces on Baner Sus Road, Pune — starting ₹75 Lakhs.',
+                'description'       => "Elegance Vega by Elegance Landmarks is a contemporary mixed-use development on the sought-after Baner Sus Road, Pune. Featuring well-designed 2 BHK homes ranging from 760 to 907 sq ft, starting at ₹75 Lakhs.\n\nThe project strikes a balance between residential comfort and commercial convenience, with integrated commercial spaces at the podium level — ideal for retail, offices, or service businesses.\n\n**Highlights:** Prime Baner Location | Commercial Spaces | Modern Design\n\n**Amenities:** Open Gym · Meditation Area · Kids Play Area · Walking Track\n\nSituated on Baner Sus Road, Elegance Vega offers seamless access to Baner, Balewadi, and Hinjewadi IT Park — making it a strong choice for professionals and end-users alike.",
                 'status'            => 'ongoing',
-                'type'              => 'commercial',
-                'area'              => 420000,
+                'type'              => 'mixed_use',
+                'area'              => 760,
                 'area_unit'         => 'sq ft',
                 'units'             => null,
-                'floors'            => 18,
-                'completion_year'   => 2026,
-                'location'          => 'Hinjewadi Phase 2',
+                'floors'            => null,
+                'completion_year'   => null,
+                'location'          => 'Baner Sus Road',
                 'city'              => 'Pune',
                 'state'             => 'Maharashtra',
                 'thumbnail'         => 'projects/project-image-2.jpg',
+                'meta_title'        => 'Elegance Vega Baner Pune | 2 BHK Homes & Commercial Spaces',
+                'meta_description'  => 'Modern 2 BHK apartments with commercial spaces on Baner Sus Road, Pune. Open gym, kids play area & walking track. Starting ₹75 Lakhs.',
                 'is_featured'       => true,
                 'is_active'         => true,
                 'sort_order'        => 2,
-                'created_by'        => $admin->id,
+                'created_by'        => $admin?->id,
             ],
+
+            // ── 3. Redision Royal ────────────────────────────────────
             [
-                'title'             => 'Urban Nest Phase II, Thane West',
-                'slug'              => 'urban-nest-phase-2-thane-west',
-                'short_description' => 'Smartly designed 1 & 2 BHK homes for modern urban families in Thane West.',
-                'description'       => "Urban Nest Phase II continues the success of Phase I, bringing an additional 320 homes to Thane West with excellent metro connectivity.\n\nEach home comes with modular kitchens, premium fittings, and energy-efficient design. The project includes a well-designed clubhouse, outdoor sports courts, and a children's play area.\n\nReputed schools, hospitals, and shopping centers are all within a 5-minute radius.",
+                'title'             => 'Redision Royal',
+                'slug'              => 'redision-royal',
+                'short_description' => 'Spacious 2 & 3 BHK homes in Kondhwa, Pune by Charanraj Construction & Siddhi Group — starting ₹65 Lakhs.',
+                'description'       => "Redision Royal is a premium residential project in Kondhwa, Pune — jointly developed by Charanraj Construction and Siddhi Group. Offering well-appointed 2 and 3 BHK homes ranging from 850 to 1,250 sq ft, starting at ₹65 Lakhs.\n\nDesigned for families seeking comfort and lifestyle, Redision Royal delivers a curated set of amenities including a fully equipped gym, a party lawn for celebrations, indoor games, a kids' area, and a dedicated walking track.\n\n**Amenities:** Gym · Party Lawn · Indoor Games · Kids Area · Walking Track\n\nKondhwa's established residential neighbourhood, good schools, hospitals, and retail infrastructure make this an attractive investment and a great place to call home.",
                 'status'            => 'ongoing',
                 'type'              => 'residential',
-                'area'              => 68000,
+                'area'              => 850,
                 'area_unit'         => 'sq ft',
-                'units'             => 320,
-                'floors'            => 32,
-                'completion_year'   => 2027,
-                'location'          => 'Thane West, Kolshet Road',
-                'city'              => 'Thane',
+                'units'             => null,
+                'floors'            => null,
+                'completion_year'   => null,
+                'location'          => 'Kondhwa',
+                'city'              => 'Pune',
                 'state'             => 'Maharashtra',
                 'thumbnail'         => 'projects/project-image-3.jpg',
+                'meta_title'        => 'Redision Royal Kondhwa Pune | 2 & 3 BHK Homes',
+                'meta_description'  => 'Spacious 2 & 3 BHK homes in Kondhwa, Pune by Charanraj Construction & Siddhi Group. Gym, party lawn & kids area. Starting ₹65 Lakhs.',
                 'is_featured'       => false,
                 'is_active'         => true,
                 'sort_order'        => 3,
-                'created_by'        => $admin->id,
+                'created_by'        => $admin?->id,
             ],
+
+            // ── 4. Shivneri Torna ────────────────────────────────────
             [
-                'title'             => 'Prestige Logistics Hub Phase II, Bhiwandi',
-                'slug'              => 'prestige-logistics-hub-phase-2-bhiwandi',
-                'short_description' => 'Expanding Grade A warehousing in India\'s largest logistics cluster.',
-                'description'       => "Building on the success of Phase I, Prestige Logistics Hub Phase II adds 1.2 million sq ft of state-of-the-art warehousing infrastructure in Bhiwandi.\n\nFeatures include 36-feet clear height, dock levellers, solar rooftop integration, fire suppression systems, and EV charging bays — designed for e-commerce, FMCG, and 3PL operators seeking next-generation distribution solutions.",
+                'title'             => 'Shivneri Torna',
+                'slug'              => 'shivneri-torna',
+                'short_description' => 'Spacious high-rise 2 & 3 BHK apartments in Pune by Prasad Deshpande Group — starting ₹85 Lakhs.',
+                'description'       => "Shivneri Torna is a high-rise residential project by the reputed Prasad Deshpande Group, offering spacious 2 and 3 BHK homes ranging from 760 to 1,134 sq ft, starting at ₹85 Lakhs.\n\nWith well-planned layouts and quality construction, Shivneri Torna is built for those who value space, natural light, and thoughtful design. The project features landscaped common areas, ample parking, lifts, and round-the-clock security.\n\n**Highlights:** Spacious Homes | High-Rise Towers | Prime Location\n\n**Amenities:** Landscaped Areas · Parking · Lift · Security\n\nStrategically located in Pune with easy access to arterial roads, schools, hospitals, and commercial hubs — Shivneri Torna offers both lifestyle comfort and long-term investment value.",
                 'status'            => 'ongoing',
-                'type'              => 'industrial',
-                'area'              => 1200000,
+                'type'              => 'residential',
+                'area'              => 760,
                 'area_unit'         => 'sq ft',
                 'units'             => null,
-                'floors'            => 2,
-                'completion_year'   => 2026,
-                'location'          => 'Bhiwandi, Thane District',
-                'city'              => 'Bhiwandi',
+                'floors'            => null,
+                'completion_year'   => null,
+                'location'          => 'Pune',
+                'city'              => 'Pune',
                 'state'             => 'Maharashtra',
                 'thumbnail'         => 'projects/project-image-4.jpg',
+                'meta_title'        => 'Shivneri Torna Pune | 2 & 3 BHK High-Rise Apartments',
+                'meta_description'  => 'Spacious 2 & 3 BHK high-rise apartments in Pune by Prasad Deshpande Group. Landscaped areas, parking & security. Starting ₹85 Lakhs.',
                 'is_featured'       => false,
                 'is_active'         => true,
                 'sort_order'        => 4,
-                'created_by'        => $admin->id,
+                'created_by'        => $admin?->id,
             ],
 
-            // ── COMPLETED ─────────────────────────────────────────────
+            // ── 5. Valeentina Tower ──────────────────────────────────
             [
-                'title'             => 'The Grand Parc, Juhu',
-                'slug'              => 'the-grand-parc-juhu',
-                'short_description' => 'Sold-out sea-facing luxury villas and penthouses in the exclusive Juhu neighbourhood.',
-                'description'       => "The Grand Parc stands as one of Mumbai's most successful luxury residential completions — a collection of sea-facing villas and sky penthouses in Juhu.\n\nEvery home was crafted with private sea-facing terraces, smart home automation, and premium Italian marble finishes. All 96 units were successfully sold prior to project completion, making it a landmark mandate delivery for i3 Realtors.",
-                'status'            => 'completed',
+                'title'             => 'Valeentina Tower',
+                'slug'              => 'valeentina-tower',
+                'short_description' => 'Premium 2 & 3 BHK residences near Vadgaon Bridge, Pune by Chaandrai Construction — starting ₹75 Lakhs.',
+                'description'       => "Valeentina Tower is a premium residential development by Chaandrai Construction, located near Vadgaon Bridge, Vadgaon BK, Pune. Offering 2 and 3 BHK homes ranging from 781 to 1,254 sq ft, starting at ₹75 Lakhs.\n\nDesigned for modern families, Valeentina Tower brings together spacious layouts, quality finishes, and a lifestyle-oriented amenity suite that includes a swimming pool, jogging track, open gym, and a basketball court. Children can enjoy dedicated play areas, and residents can unwind at the beautifully designed gazebo.\n\n**Highlights:** 2 & 3 BHK Homes | Prime Location | Spacious Layouts\n\n**Amenities:** Swimming Pool · Jogging Track · Open Gym · Kids Play Area · Basketball Court · Gazebo\n\nConveniently located near Vadgaon Bridge with easy access to Sinhagad Road, NH-48, schools, hospitals, and major retail centres.",
+                'status'            => 'ongoing',
                 'type'              => 'residential',
-                'area'              => 320000,
+                'area'              => 781,
                 'area_unit'         => 'sq ft',
-                'units'             => 96,
-                'floors'            => 24,
-                'completion_year'   => 2024,
-                'location'          => 'Juhu Beach Road',
-                'city'              => 'Mumbai',
+                'units'             => null,
+                'floors'            => null,
+                'completion_year'   => null,
+                'location'          => 'Near Vadgaon Bridge, Vadgaon BK',
+                'city'              => 'Pune',
                 'state'             => 'Maharashtra',
-                'thumbnail'         => 'projects/project-image-2.jpg',
+                'thumbnail'         => 'projects/project-image-1.jpg',
+                'meta_title'        => 'Valeentina Tower Pune | 2 & 3 BHK Homes Vadgaon BK',
+                'meta_description'  => 'Premium 2 & 3 BHK apartments near Vadgaon Bridge, Pune by Chaandrai Construction. Swimming pool, gym & sports amenities. Starting ₹75 Lakhs.',
                 'is_featured'       => true,
                 'is_active'         => true,
                 'sort_order'        => 5,
-                'created_by'        => $admin->id,
+                'created_by'        => $admin?->id,
             ],
+
+            // ── 6. Chaandrai Vrundavan Biz Park ──────────────────────
             [
-                'title'             => 'Serene Valley Villas, Lonavala',
-                'slug'              => 'serene-valley-villas-lonavala',
-                'short_description' => 'Fully sold luxury weekend homes and investment villas in the Sahyadri foothills.',
-                'description'       => "Serene Valley Villas delivered a collection of 3 and 4 BHK villas nestled in the Sahyadri mountains near Lonavala — all successfully sold and handed over.\n\nEach villa features a private swimming pool, landscaped gardens, and breathtaking valley views. The project achieved 100% sales within 6 months of launch through the i3 Realtors mandate, generating strong returns for investors.",
-                'status'            => 'completed',
-                'type'              => 'residential',
-                'area'              => 280000,
-                'area_unit'         => 'sq ft',
-                'units'             => 64,
-                'floors'            => 2,
-                'completion_year'   => 2023,
-                'location'          => 'Lonavala, Pune-Mumbai Expressway',
-                'city'              => 'Lonavala',
-                'state'             => 'Maharashtra',
-                'thumbnail'         => 'projects/project-image-4.jpg',
-                'is_featured'       => false,
-                'is_active'         => true,
-                'sort_order'        => 6,
-                'created_by'        => $admin->id,
-            ],
-            [
-                'title'             => 'The Meridian Tower, Lower Parel',
-                'slug'              => 'the-meridian-tower-lower-parel',
-                'short_description' => 'LEED Platinum certified Grade A offices successfully sold in Mumbai\'s dynamic business district.',
-                'description'       => "The Meridian Tower is a landmark commercial development in Lower Parel — now fully occupied and operational.\n\nWith floor plates of 25,000 sq ft, panoramic city views, and proximity to upscale hotels and restaurants, it has become the preferred address for leading corporates. i3 Realtors managed the full mandate sale of 8 floors, achieving above-market valuations.",
-                'status'            => 'completed',
+                'title'             => 'Chaandrai Vrundavan Biz Park',
+                'slug'              => 'vrundavan-biz-park',
+                'short_description' => 'Premium commercial office spaces and showrooms near Sinhagad Road, Pune — starting ₹65 Lakhs.',
+                'description'       => "Chaandrai Vrundavan Biz Park by Chaandrai Construction is a thoughtfully designed commercial project near Sinhagad Road, Pune. Offering premium office spaces and showrooms ranging from 278 to 1,154 sq ft, starting at ₹65 Lakhs.\n\nThe project features a striking glass facade, modern infrastructure, and a curated range of business-grade amenities including a rooftop cafeteria, beverage counter, high-speed lifts, scooter lifts, digital lock washrooms, CCTV security, and a grand lobby.\n\n**Highlights:** Premium Commercial Offices & Showrooms | Glass Facade | Modern Infrastructure | Rooftop Cafeteria | High-Speed Lifts | Basement Parking\n\n**Amenities:** Rooftop Cafeteria · Beverage Counter · High-Speed Lifts · Scooter Lifts · Digital Lock Washrooms · CCTV Security · Lobby\n\n**Connectivity:** Katraj Chowk – 3.3 km · Swargate – 9.7 km · Pune Station – 13.9 km\n\nAn ideal address for businesses, professionals, and commercial investors seeking premium space in South Pune's growing corridor.",
+                'status'            => 'ongoing',
                 'type'              => 'commercial',
-                'area'              => 250000,
+                'area'              => 278,
                 'area_unit'         => 'sq ft',
                 'units'             => null,
-                'floors'            => 35,
-                'completion_year'   => 2023,
-                'location'          => 'Lower Parel, Elphinstone Road',
-                'city'              => 'Mumbai',
+                'floors'            => null,
+                'completion_year'   => null,
+                'location'          => 'Near Sinhagad Road',
+                'city'              => 'Pune',
                 'state'             => 'Maharashtra',
-                'thumbnail'         => 'projects/project-image-3.jpg',
+                'thumbnail'         => 'projects/project-image-2.jpg',
+                'meta_title'        => 'Chaandrai Vrundavan Biz Park Pune | Premium Office & Showroom Spaces',
+                'meta_description'  => 'Premium commercial offices and showroom spaces near Sinhagad Road, Pune. Glass facade, rooftop cafeteria & modern infrastructure. Starting ₹65 Lakhs.',
                 'is_featured'       => true,
                 'is_active'         => true,
-                'sort_order'        => 7,
-                'created_by'        => $admin->id,
+                'sort_order'        => 6,
+                'created_by'        => $admin?->id,
             ],
-            [
-                'title'             => 'Horizon Plots, Navi Mumbai',
-                'slug'              => 'horizon-plots-navi-mumbai',
-                'short_description' => 'CIDCO-approved residential plots near Navi Mumbai International Airport — all units sold.',
-                'description'       => "Horizon Plots offered a rare opportunity to own CIDCO-approved residential plots in one of the fastest appreciating corridors of Navi Mumbai — near the upcoming international airport.\n\nAll 150 plots were sold within 4 months of launch. Buyers have already seen significant capital appreciation as airport-related infrastructure development accelerates in the area.",
-                'status'            => 'completed',
-                'type'              => 'infrastructure',
-                'area'              => 150000,
-                'area_unit'         => 'sq ft',
-                'units'             => 150,
-                'floors'            => null,
-                'completion_year'   => 2022,
-                'location'          => 'Ulwe, Navi Mumbai',
-                'city'              => 'Navi Mumbai',
-                'state'             => 'Maharashtra',
-                'thumbnail'         => 'projects/project-image-1.jpg',
-                'is_featured'       => false,
-                'is_active'         => true,
-                'sort_order'        => 8,
-                'created_by'        => $admin->id,
-            ],
+
         ];
 
         foreach ($projects as $data) {
-            $project = Project::firstOrCreate(
-                ['slug' => $data['slug']],
-                $data
-            );
+            $project = Project::create($data);
 
-            // Add a gallery image if none exist yet
-            if ($project->wasRecentlyCreated && $project->images()->count() === 0) {
-                // Use the next image in the rotation as a gallery image
-                $galleryImgIndex = (($data['sort_order'] - 1) % 4) + 1;
-                $galleryImg = "projects/project-image-{$galleryImgIndex}.jpg";
-                if (Storage::disk('public')->exists($galleryImg)) {
-                    ProjectImage::create([
-                        'project_id' => $project->id,
-                        'image'      => $galleryImg,
-                        'sort_order' => 0,
-                    ]);
-                }
+            // Add one gallery image per project
+            $imgIndex = (($data['sort_order'] - 1) % 4) + 1;
+            $galleryImg = "projects/project-image-{$imgIndex}.jpg";
+            if (Storage::disk('public')->exists($galleryImg)) {
+                ProjectImage::create([
+                    'project_id' => $project->id,
+                    'image'      => $galleryImg,
+                    'sort_order' => 0,
+                ]);
             }
         }
     }
