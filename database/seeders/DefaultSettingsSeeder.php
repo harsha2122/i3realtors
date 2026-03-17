@@ -12,8 +12,8 @@ class DefaultSettingsSeeder extends Seeder
         $settings = [
             // General
             ['key' => 'site_name',        'value' => 'i3Realtors',         'type' => 'string', 'group' => 'general',   'label' => 'Site Name',          'is_public' => true],
-            ['key' => 'site_tagline',     'value' => 'Building Trust. Creating Value.', 'type' => 'string', 'group' => 'general', 'label' => 'Site Tagline', 'is_public' => true],
-            ['key' => 'site_description', 'value' => 'We are trusted builders and developers delivering modern, high-quality residential and commercial construction solutions.', 'type' => 'string', 'group' => 'general', 'label' => 'Site Description', 'is_public' => true],
+            ['key' => 'site_tagline',     'value' => 'Strategic Real Estate Mandate Partnerships', 'type' => 'string', 'group' => 'general', 'label' => 'Site Tagline', 'is_public' => true],
+            ['key' => 'site_description', 'value' => 'i3 Realtors is a mandate-focused real estate consulting firm connecting developers and investors through strategic project marketing, structured partnerships, and market-driven real estate opportunities.', 'type' => 'string', 'group' => 'general', 'label' => 'Site Description', 'is_public' => true],
 
             // Branding
             ['key' => 'logo',             'value' => '',                   'type' => 'string', 'group' => 'branding',  'label' => 'Header Logo',         'is_public' => true],
@@ -23,9 +23,10 @@ class DefaultSettingsSeeder extends Seeder
             ['key' => 'secondary_color',  'value' => '#1a1a1a',            'type' => 'string', 'group' => 'branding',  'label' => 'Secondary Color',     'is_public' => true],
 
             // Contact
-            ['key' => 'phone_primary',    'value' => '',                   'type' => 'string', 'group' => 'contact',   'label' => 'Primary Phone',       'is_public' => true],
-            ['key' => 'phone_secondary',  'value' => '',                   'type' => 'string', 'group' => 'contact',   'label' => 'Secondary Phone',     'is_public' => true],
-            ['key' => 'email_primary',    'value' => '',                   'type' => 'string', 'group' => 'contact',   'label' => 'Primary Email',       'is_public' => true],
+            ['key' => 'phone_primary',    'value' => '',                          'type' => 'string', 'group' => 'contact',   'label' => 'Primary Phone',       'is_public' => true],
+            ['key' => 'phone_secondary',  'value' => '',                          'type' => 'string', 'group' => 'contact',   'label' => 'Secondary Phone',     'is_public' => true],
+            ['key' => 'email_primary',    'value' => 'i3realtorsllp@gmail.com',   'type' => 'string', 'group' => 'contact',   'label' => 'Primary Email',       'is_public' => true],
+            ['key' => 'email_secondary',  'value' => 'admin@i3realtors.com',      'type' => 'string', 'group' => 'contact',   'label' => 'Secondary Email',     'is_public' => true],
             ['key' => 'address',          'value' => '',                   'type' => 'string', 'group' => 'contact',   'label' => 'Office Address',      'is_public' => true],
             ['key' => 'google_maps_url',  'value' => '',                   'type' => 'string', 'group' => 'contact',   'label' => 'Google Maps URL',     'is_public' => true],
             ['key' => 'business_hours',   'value' => 'Mon - Fri: 9am - 6pm', 'type' => 'string', 'group' => 'contact', 'label' => 'Business Hours',    'is_public' => true],
@@ -39,14 +40,14 @@ class DefaultSettingsSeeder extends Seeder
             ['key' => 'social_pinterest', 'value' => '',                   'type' => 'string', 'group' => 'social',    'label' => 'Pinterest URL',       'is_public' => true],
 
             // Footer
-            ['key' => 'footer_about',     'value' => 'We are trusted builders and developers delivering modern, high-quality residential and commercial construction solutions.', 'type' => 'string', 'group' => 'footer', 'label' => 'Footer About Text', 'is_public' => true],
-            ['key' => 'footer_copyright', 'value' => 'Copyright © 2025 i3Realtors. All Rights Reserved.', 'type' => 'string', 'group' => 'footer', 'label' => 'Copyright Text', 'is_public' => true],
-            ['key' => 'footer_cta_title', 'value' => 'Begin your construction journey with trusted experts', 'type' => 'string', 'group' => 'footer', 'label' => 'Footer CTA Title', 'is_public' => true],
+            ['key' => 'footer_about',     'value' => 'i3 Realtors is a mandate-focused real estate consulting firm connecting developers and investors through strategic project marketing, structured partnerships, and market-driven real estate opportunities.', 'type' => 'string', 'group' => 'footer', 'label' => 'Footer About Text', 'is_public' => true],
+            ['key' => 'footer_copyright', 'value' => 'Copyright © 2025 i3 Realtors. All Rights Reserved.', 'type' => 'string', 'group' => 'footer', 'label' => 'Copyright Text', 'is_public' => true],
+            ['key' => 'footer_cta_title', 'value' => 'Explore Strategic Real Estate Opportunities With i3 Realtors', 'type' => 'string', 'group' => 'footer', 'label' => 'Footer CTA Title', 'is_public' => true],
 
             // SEO
-            ['key' => 'meta_title',       'value' => 'i3Realtors - Smart Real Estate & Reliable Construction', 'type' => 'string', 'group' => 'seo', 'label' => 'Default Meta Title', 'is_public' => false],
-            ['key' => 'meta_description', 'value' => 'i3Realtors delivers modern, high-quality residential and commercial construction solutions with trust and integrity.', 'type' => 'string', 'group' => 'seo', 'label' => 'Default Meta Description', 'is_public' => false],
-            ['key' => 'meta_keywords',    'value' => 'real estate, construction, property, realtors, residential, commercial', 'type' => 'string', 'group' => 'seo', 'label' => 'Default Meta Keywords', 'is_public' => false],
+            ['key' => 'meta_title',       'value' => 'i3 Realtors - Strategic Real Estate Mandate Partnerships', 'type' => 'string', 'group' => 'seo', 'label' => 'Default Meta Title', 'is_public' => false],
+            ['key' => 'meta_description', 'value' => 'i3 Realtors is a mandate-focused real estate consulting firm connecting developers and investors through strategic project marketing and structured partnerships.', 'type' => 'string', 'group' => 'seo', 'label' => 'Default Meta Description', 'is_public' => false],
+            ['key' => 'meta_keywords',    'value' => 'real estate, mandate partner, developer partnership, investment, property marketing, India real estate', 'type' => 'string', 'group' => 'seo', 'label' => 'Default Meta Keywords', 'is_public' => false],
 
             // Analytics (private - contains tracking codes)
             ['key' => 'google_analytics', 'value' => '',                   'type' => 'string', 'group' => 'analytics', 'label' => 'Google Analytics ID', 'is_public' => false],
@@ -55,7 +56,7 @@ class DefaultSettingsSeeder extends Seeder
             // Email
             ['key' => 'mail_from_name',   'value' => 'i3Realtors',         'type' => 'string', 'group' => 'email',     'label' => 'Email From Name',     'is_public' => false],
             ['key' => 'mail_from_email',  'value' => '',                   'type' => 'string', 'group' => 'email',     'label' => 'Email From Address',  'is_public' => false],
-            ['key' => 'admin_email',      'value' => '',                   'type' => 'string', 'group' => 'email',     'label' => 'Admin Notification Email', 'is_public' => false],
+            ['key' => 'admin_email',      'value' => 'admin@i3realtors.com', 'type' => 'string', 'group' => 'email',     'label' => 'Admin Notification Email', 'is_public' => false],
         ];
 
         foreach ($settings as $setting) {

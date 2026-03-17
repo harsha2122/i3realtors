@@ -5,10 +5,9 @@
     $footerCta   = $site['footer_cta_title'] ?? 'Explore Strategic Real Estate Opportunities With i3 Realtors';
     $copyright   = $site['footer_copyright'] ?? ('Copyright &copy; ' . date('Y') . ' All Rights Reserved.');
 
-    // Contact
-    $phone1  = $site['phone_primary'] ?? '';
-    $phone2  = $site['phone_secondary'] ?? '';
-    $email   = $site['email_primary'] ?? '';
+    // Contact (phones are intentionally not displayed)
+    $email1  = $site['email_primary']   ?? 'i3realtorsllp@gmail.com';
+    $email2  = $site['email_secondary'] ?? 'admin@i3realtors.com';
     $address = $site['address'] ?? '';
 
     // Social
@@ -72,34 +71,22 @@
                         <p>{{ $footerAbout ?: 'i3 Realtors is a mandate-focused real estate consulting firm connecting developers and investors through strategic project marketing, structured partnerships, and market-driven real estate opportunities.' }}</p>
                     </div>
 
-                    @if($phone1 || $email || $address)
                     <div class="about-footer-contact mt-3" style="font-size: 0.9rem;">
-                        @if($phone1)
                         <div class="mb-1">
-                            <i class="fas fa-phone-alt me-2" style="color: var(--primary-color)"></i>
-                            <a href="tel:{{ $phone1 }}" style="color: rgba(255,255,255,0.75); text-decoration: none;">{{ $phone1 }}</a>
+                            <i class="fas fa-envelope me-2" style="color: var(--accent-secondary-color);"></i>
+                            <a href="mailto:{{ $email1 }}" style="color: rgba(255,255,255,0.75); text-decoration: none;">{{ $email1 }}</a>
                         </div>
-                        @endif
-                        @if($phone2)
                         <div class="mb-1">
-                            <i class="fas fa-phone-alt me-2" style="color: var(--primary-color)"></i>
-                            <a href="tel:{{ $phone2 }}" style="color: rgba(255,255,255,0.75); text-decoration: none;">{{ $phone2 }}</a>
+                            <i class="fas fa-envelope me-2" style="color: var(--accent-secondary-color);"></i>
+                            <a href="mailto:{{ $email2 }}" style="color: rgba(255,255,255,0.75); text-decoration: none;">{{ $email2 }}</a>
                         </div>
-                        @endif
-                        @if($email)
-                        <div class="mb-1">
-                            <i class="fas fa-envelope me-2" style="color: var(--primary-color)"></i>
-                            <a href="mailto:{{ $email }}" style="color: rgba(255,255,255,0.75); text-decoration: none;">{{ $email }}</a>
-                        </div>
-                        @endif
                         @if($address)
-                        <div>
-                            <i class="fas fa-map-marker-alt me-2" style="color: var(--primary-color)"></i>
+                        <div class="mt-1">
+                            <i class="fas fa-map-marker-alt me-2" style="color: var(--accent-secondary-color);"></i>
                             <span style="color: rgba(255,255,255,0.75);">{{ $address }}</span>
                         </div>
                         @endif
                     </div>
-                    @endif
                 </div>
                 <!-- About Footer End -->
             </div>
