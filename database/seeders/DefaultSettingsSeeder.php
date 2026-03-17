@@ -42,7 +42,7 @@ class DefaultSettingsSeeder extends Seeder
             // Footer
             ['key' => 'footer_about',     'value' => 'i3 Realtors is a mandate-focused real estate consulting firm connecting developers and investors through strategic project marketing, structured partnerships, and market-driven real estate opportunities.', 'type' => 'string', 'group' => 'footer', 'label' => 'Footer About Text', 'is_public' => true],
             ['key' => 'footer_copyright', 'value' => 'Copyright © 2025 i3 Realtors. All Rights Reserved.', 'type' => 'string', 'group' => 'footer', 'label' => 'Copyright Text', 'is_public' => true],
-            ['key' => 'footer_cta_title', 'value' => 'Explore Strategic Real Estate Opportunities With i3 Realtors', 'type' => 'string', 'group' => 'footer', 'label' => 'Footer CTA Title', 'is_public' => true],
+            ['key' => 'footer_cta_title', 'value' => 'Connecting Developers, Investors & High-Value Real Estate Opportunities', 'type' => 'string', 'group' => 'footer', 'label' => 'Footer CTA Title', 'is_public' => true],
 
             // SEO
             ['key' => 'meta_title',       'value' => 'i3 Realtors - Strategic Real Estate Mandate Partnerships', 'type' => 'string', 'group' => 'seo', 'label' => 'Default Meta Title', 'is_public' => false],
