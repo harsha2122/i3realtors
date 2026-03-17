@@ -49,7 +49,7 @@
                 <div class="about-us-image-box wow fadeInUp">
                     <div class="about-us-image">
                         <figure class="image-anime">
-                            <img src="{{ asset('images/careers-image.jpg') }}" alt="Careers at i3 Realtors">
+                            <img src="{{ asset('images/about-us-image.jpg') }}" alt="Careers at i3 Realtors">
                         </figure>
                     </div>
                 </div>
