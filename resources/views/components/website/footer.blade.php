@@ -6,8 +6,8 @@
     $copyright   = $site['footer_copyright'] ?? 'Copyright &copy; 2026 i3Realtors. All Rights Reserved.';
 
     // Contact (phones are intentionally not displayed)
-    $email1  = $site['email_primary']   ?? 'i3realtorsllp@gmail.com';
-    $email2  = $site['email_secondary'] ?? 'admin@i3realtors.com';
+    $email1  = !empty($site['email_primary'])   ? $site['email_primary']   : 'i3realtorsllp@gmail.com';
+    $email2  = !empty($site['email_secondary']) ? $site['email_secondary'] : 'admin@i3realtors.com';
     $address = $site['address'] ?? '';
 
     // Social
@@ -72,14 +72,18 @@
                     </div>
 
                     <div class="about-footer-contact mt-3" style="font-size: 0.9rem;">
+                        @if($email1)
                         <div class="mb-1">
                             <i class="fas fa-envelope me-2" style="color: var(--accent-secondary-color);"></i>
                             <a href="mailto:{{ $email1 }}" style="color: rgba(255,255,255,0.75); text-decoration: none;">{{ $email1 }}</a>
                         </div>
+                        @endif
+                        @if($email2)
                         <div class="mb-1">
                             <i class="fas fa-envelope me-2" style="color: var(--accent-secondary-color);"></i>
                             <a href="mailto:{{ $email2 }}" style="color: rgba(255,255,255,0.75); text-decoration: none;">{{ $email2 }}</a>
                         </div>
+                        @endif
                         @if($address)
                         <div class="mt-1">
                             <i class="fas fa-map-marker-alt me-2" style="color: var(--accent-secondary-color);"></i>
