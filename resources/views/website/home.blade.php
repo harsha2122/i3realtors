@@ -427,7 +427,7 @@
                   <div class="satisfy-client-image add-more"><i class="fa fa-solid fa-plus"></i></div>
                 </div>
                 <div class="commitment-client-box-content">
-                  <p>"Creating modern homes and commercial spaces precision construction and trusted real estate expertise."</p>
+                  <p>"Building long-term partnerships between developers and investors through strategic project marketing and real estate mandate execution."</p>
                 </div>
               </div>
             </div>
