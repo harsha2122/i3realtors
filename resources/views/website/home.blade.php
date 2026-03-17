@@ -14,9 +14,9 @@
           <div class="col-xl-6">
             <div class="hero-content-box">
               <div class="section-title">
-                <span class="section-sub-title wow fadeInUp">Strategic Real Estate Mandates</span>
+                <span class="section-sub-title wow fadeInUp">Invest in India</span>
                 <h1 class="text-anime-style-2" data-cursor="-opaque">
-                  Strategic Real Estate Mandates for <span>Developers & Investors</span>
+                  Invest in India with <span>Developers & Investors</span>
                 </h1>
               </div>
             </div>
@@ -56,7 +56,7 @@
                     </p>
                   </div>
                   <div class="hero-rating-box-content">
-                    <p>Our Word Wide Customer Review</p>
+                    <p>Trusted by Developers & Investment Partners<br>⭐ 4.9 Client Satisfaction Rating</p>
                   </div>
                 </div>
               </div>
