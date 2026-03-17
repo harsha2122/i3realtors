@@ -2,7 +2,7 @@
     $logoWhite   = $site['logo_white'] ?? null;
     $siteName    = $site['site_name'] ?? config('app.name');
     $footerAbout = $site['footer_about'] ?? '';
-    $footerCta   = $site['footer_cta_title'] ?? 'Build strategic real estate partnerships with trusted experts';
+    $footerCta   = $site['footer_cta_title'] ?? 'Connecting Developers, Investors & High-Value Real Estate Opportunities';
     $copyright   = $site['footer_copyright'] ?? 'Copyright &copy; 2026 i3Realtors. All Rights Reserved.';
 
     // Contact (phones are intentionally not displayed)
