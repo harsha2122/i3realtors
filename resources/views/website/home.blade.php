@@ -541,7 +541,7 @@
         <div class="row section-row">
           <div class="col-lg-12">
             <div class="section-title section-title-center">
-              <span class="section-sub-title wow fadeInUp">Experience Stats</span>
+              <span class="section-sub-title wow fadeInUp">Experience & Network</span>
               <h2 class="text-anime-style-2" data-cursor="-opaque">
                 Experience That Drives Real <span>Estate Success</span>
               </h2>
@@ -559,7 +559,7 @@
                   </figure>
                 </div>
                 <div class="our-fact-image-content">
-                  <p>"We are extremely satisfied with quality of construction and attention to detail."</p>
+                  <p>"Partnering with i3 Realtors has helped us position our projects strategically and connect with the right investors. Their market understanding and professional execution make them a reliable mandate partner."</p>
                 </div>
               </div>
               <div class="our-fact-image-box-2">
@@ -576,9 +576,9 @@
               @php
               $facts = [
                 ['count' => '25', 'label' => 'Developer Partnerships'],
-                ['count' => '50', 'label' => 'Projects Represented'],
-                ['count' => '500', 'label' => 'Investor Network'],
-                ['count' => '300', 'label' => 'Successful Transactions'],
+                ['count' => '50', 'label' => 'Projects Marketed'],
+                ['count' => '500', 'label' => 'Investor & Partner Network'],
+                ['count' => '300', 'label' => 'Successful Deal Closures'],
               ];
               @endphp
               @foreach($facts as $fact)
@@ -607,9 +607,10 @@
               <h2 class="text-anime-style-2" data-cursor="-opaque">
                 Partner With <span>i3 Realtors</span>
               </h2>
+              <p class="wow fadeInUp" data-wow-delay="0.3s">Whether you are a developer launching a new project or an investor exploring strategic opportunities, i3 Realtors helps connect the right projects with the right partners.</p>
             </div>
             <div class="wow fadeInUp" data-wow-delay="0.4s">
-              <a href="{{ route('contact') }}" class="btn-default btn-highlighted me-3">Start a Partnership</a>
+              <a href="{{ route('contact') }}" class="btn-default btn-highlighted me-3">Start A Partnership</a>
               <a href="{{ route('contact') }}" class="btn-default">Contact Our Team</a>
             </div>
           </div>

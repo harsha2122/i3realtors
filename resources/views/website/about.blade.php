@@ -32,7 +32,7 @@
                 <!-- Section Title Start -->
                 <div class="section-title">
                     <span class="section-sub-title wow fadeInUp">About i3 Realtors</span>
-                    <h2 class="text-anime-style-2" data-cursor="-opaque">Trusted real estate mandate partners for developers and investors</h2>
+                    <h2 class="text-anime-style-2" data-cursor="-opaque">Trusted Real Estate Mandate Partners for Developers and Investors</h2>
                 </div>
                 <!-- Section Title End -->
             </div>
@@ -42,7 +42,8 @@
                 <div class="section-content-btn">
                     <!-- Section Title Content Start -->
                     <div class="section-title-content wow fadeInUp" data-wow-delay="0.2s">
-                        <p>i3 Realtors is a mandate-focused real estate consulting firm working with developers, investors, and strategic partners to structure, market, and execute successful real estate opportunities. Our role goes beyond traditional brokerage. We work closely with developers to position projects strategically, build market visibility, and connect them with the right investor and buyer networks.</p>
+                        <p>i3 Realtors is a mandate-focused real estate consulting firm working with developers, investors, and strategic partners to structure, market, and execute successful real estate opportunities.</p>
+                        <p>Our role goes beyond traditional brokerage. We work closely with developers to position projects strategically, build market visibility, and connect them with the right investor and buyer network.</p>
                     </div>
                     <!-- Section Title Content End -->
 
@@ -89,7 +90,7 @@
                             <!-- About Us Item Content Start -->
                             <div class="about-us-item-content">
                                 <h3>Your Trusted Partners</h3>
-                                <p>We support developers and investors at every stage of the real estate lifecycle—from project positioning and marketing strategy to investor outreach and partnership development.</p>
+                                <p>We support developers and investors at every stage of the real estate lifecycle — from project positioning and marketing strategy to investor outreach and partnership development.</p>
                             </div>
                             <!-- About Us Item Content End -->
 
@@ -108,7 +109,7 @@
                             <!-- About Us Item Content Start -->
                             <div class="about-us-item-content">
                                 <h3>Strategic Market Expertise</h3>
-                                <p>Our experience in the real estate sector enables us to identify market opportunities, structure mandate partnerships, and deliver measurable results for developers and investors.</p>
+                                <p>Our experience in the real estate market allows us to identify opportunities, structure mandate partnerships, and deliver measurable value for developers and investors.</p>
                             </div>
                             <!-- About Us Item Content End -->
 
@@ -196,8 +197,9 @@
                     <!-- Section Title Start -->
                     <div class="section-title">
                         <span class="section-sub-title wow fadeInUp">Our Approach</span>
-                        <h2 class="text-anime-style-2" data-cursor="-opaque">A strategic approach to real estate partnerships</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.2s">At i3 Realtors, we follow a structured approach that combines market intelligence, strategic marketing, and strong developer relationships to ensure every project receives the visibility and positioning it deserves. Our goal is to build long-term partnerships with developers and investors by delivering reliable execution and measurable outcomes.</p>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque">A Strategic Approach to Real Estate Partnerships</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.2s">At i3 Realtors, we follow a structured approach that combines market intelligence, strategic marketing, and strong developer relationships to ensure every project receives the right visibility and positioning it deserves.</p>
+                        <p class="wow fadeInUp" data-wow-delay="0.3s">Our goal is to build long-term partnerships with developers and investors by delivering consistent results and transparent collaboration.</p>
                     </div>
                     <!-- Section Title End -->
 
@@ -210,7 +212,7 @@
                             </div>
                             <div class="approach-item-content">
                                 <h3>Our Mission</h3>
-                                <p>To empower developers and investors by creating structured real estate opportunities that deliver long-term value, transparency, and strategic growth.</p>
+                                <p>To empower developers and investors by creating structured real estate opportunities that deliver long-term growth, transparency, and strategic value.</p>
                             </div>
                         </div>
                         <!-- Our Approach Item End -->
@@ -234,7 +236,7 @@
                             </div>
                             <div class="approach-item-content">
                                 <h3>Our Values</h3>
-                                <p>Integrity, professionalism, and accountability guide everything we do. We believe in building relationships based on trust, transparency, and consistent performance.</p>
+                                <p>Integrity, professionalism, and accountability guide everything we do. We believe in building long-term relationships based on trust, transparency, and consistent performance.</p>
                             </div>
                         </div>
                         <!-- Our Approach Item End -->
@@ -258,8 +260,8 @@
                     <!-- Section Title Start -->
                     <div class="section-title">
                         <span class="section-sub-title wow fadeInUp">Our Journey</span>
-                        <h2 class="text-anime-style-2" data-cursor="-opaque">Building partnerships and real estate expertise</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.2s">Our journey reflects steady growth, strong partnerships, and a commitment to delivering strategic real estate solutions. Over the years, i3 Realtors has developed strong relationships with developers and investors while expanding its network and market presence.</p>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque">Building Partnerships and Real Estate Expertise</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.2s">Our journey reflects steady growth, strong developer partnerships, and a commitment to delivering strategic real estate solutions.</p>
                     </div>
                     <!-- Section Title End -->
 
@@ -380,9 +382,9 @@
                 <div class="section-title section-title-center">
                     <span class="section-sub-title wow fadeInUp">Partnership</span>
                     <h2 class="text-anime-style-2" data-cursor="-opaque">
-                        Partner with i3 Realtors for your next <span>real estate opportunity</span>
+                        Partner with i3 Realtors for Your Next <span>Real Estate Opportunity</span>
                     </h2>
-                    <p class="wow fadeInUp" data-wow-delay="0.2s">Whether you are a developer launching a new project or an investor exploring structured opportunities, i3 Realtors provides the expertise, market insights, and partnerships required to succeed.</p>
+                    <p class="wow fadeInUp" data-wow-delay="0.2s">Whether you are a developer launching a new project or an investor exploring structured real estate opportunities, i3 Realtors provides the expertise, market insights, and partnerships required to succeed.</p>
                 </div>
                 <div class="wow fadeInUp" data-wow-delay="0.4s">
                     <a href="{{ route('contact') }}" class="btn-default btn-highlighted me-3">Connect With Us</a>

@@ -2,7 +2,7 @@
     $logoWhite   = $site['logo_white'] ?? null;
     $siteName    = $site['site_name'] ?? config('app.name');
     $footerAbout = $site['footer_about'] ?? '';
-    $footerCta   = $site['footer_cta_title'] ?? 'Begin your construction journey with trusted experts';
+    $footerCta   = $site['footer_cta_title'] ?? 'Build strategic real estate partnerships with trusted experts';
     $copyright   = $site['footer_copyright'] ?? ('Copyright &copy; ' . date('Y') . ' All Rights Reserved.');
 
     // Contact
@@ -68,11 +68,9 @@
                             <img src="{{ asset('images/logo-white.svg') }}" alt="{{ $siteName }}" style="max-height: 60px; width: auto; object-fit: contain;" />
                         @endif
                     </div>
-                    @if($footerAbout)
                     <div class="about-footer-content">
-                        <p>{{ $footerAbout }}</p>
+                        <p>{{ $footerAbout ?: 'i3 Realtors is a mandate-focused real estate consulting firm connecting developers and investors through strategic project marketing, structured partnerships, and market-driven real estate opportunities.' }}</p>
                     </div>
-                    @endif
 
                     @if($phone1 || $email || $address)
                     <div class="about-footer-contact mt-3" style="font-size: 0.9rem;">
@@ -115,10 +113,11 @@
                         <ul>
                             <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="{{ route('about') }}">About Us</a></li>
-                            <li><a href="{{ route('services') }}">Our Services</a></li>
                             <li><a href="{{ route('website.projects.index') }}">Projects</a></li>
+                            <li><a href="{{ route('properties.index') }}">Investment Opportunities</a></li>
+                            <li><a href="{{ route('blog.index') }}">Blog</a></li>
                             <li><a href="{{ route('careers') }}">Careers</a></li>
-                            <li><a href="{{ route('contact') }}">Contact Us</a></li>
+                            <li><a href="{{ route('contact') }}">Contact</a></li>
                         </ul>
                     </div>
                     <!-- Quick Links End -->
@@ -128,7 +127,7 @@
                         <h3>Our Services</h3>
                         <ul>
                             <li><a href="{{ route('services') }}">Developer Mandate Services</a></li>
-                            <li><a href="{{ route('services') }}">Project Marketing</a></li>
+                            <li><a href="{{ route('services') }}">Project Marketing Strategy</a></li>
                             <li><a href="{{ route('services') }}">Real Estate Investment Advisory</a></li>
                             <li><a href="{{ route('services') }}">Developer Partnerships</a></li>
                             <li><a href="{{ route('services') }}">Commercial Real Estate Consulting</a></li>
@@ -139,12 +138,12 @@
                     <!-- Newsletter -->
                     <div class="footer-links footer-newsletter-form">
                         <h3>Subscribe Newsletter</h3>
-                        <p>Subscribe to receive updates on new projects, investment opportunities, and real estate insights.</p>
+                        <p>Subscribe to receive updates on new real estate projects, investment opportunities, and market insights.</p>
                         <form id="newslettersForm" action="#" method="POST">
                             @csrf
                             <div class="form-group">
                                 <input type="email" name="email" class="form-control"
-                                       placeholder="Enter Your E-mail" required />
+                                       placeholder="Enter Your Email" required />
                                 <button type="submit" class="newsletter-btn">
                                     <i class="fa-regular fa-paper-plane"></i>
                                 </button>
