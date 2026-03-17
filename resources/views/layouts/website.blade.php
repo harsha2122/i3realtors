@@ -11,12 +11,12 @@
     <meta name="keywords" content="@yield('meta_keywords', $site['meta_keywords'] ?? '')" />
 
     {{-- Open Graph --}}
-    <meta property="og:title" content="@yield('title', $site['site_name'] ?? config('app.name'))" />
+    <meta property="og:title" content="@yield('title', $site['meta_title'] ?? $site['site_name'] ?? config('app.name'))" />
     <meta property="og:description" content="@yield('meta_description', $site['meta_description'] ?? '')" />
     <meta property="og:type" content="website" />
 
     {{-- Page Title --}}
-    <title>@yield('title', $site['site_name'] ?? config('app.name'))</title>
+    <title>@yield('title', $site['meta_title'] ?? $site['site_name'] ?? config('app.name'))</title>
 
     {{-- Favicon --}}
     @if(!empty($site['favicon']))

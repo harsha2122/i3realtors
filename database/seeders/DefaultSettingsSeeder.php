@@ -45,13 +45,13 @@ class DefaultSettingsSeeder extends Seeder
             ['key' => 'footer_cta_title', 'value' => 'Connecting Developers, Investors & High-Value Real Estate Opportunities', 'type' => 'string', 'group' => 'footer', 'label' => 'Footer CTA Title', 'is_public' => true],
 
             // SEO
-            ['key' => 'meta_title',       'value' => 'i3 Realtors - Strategic Real Estate Mandate Partnerships', 'type' => 'string', 'group' => 'seo', 'label' => 'Default Meta Title', 'is_public' => false],
-            ['key' => 'meta_description', 'value' => 'i3 Realtors is a mandate-focused real estate consulting firm connecting developers and investors through strategic project marketing and structured partnerships.', 'type' => 'string', 'group' => 'seo', 'label' => 'Default Meta Description', 'is_public' => false],
-            ['key' => 'meta_keywords',    'value' => 'real estate, mandate partner, developer partnership, investment, property marketing, India real estate', 'type' => 'string', 'group' => 'seo', 'label' => 'Default Meta Keywords', 'is_public' => false],
+            ['key' => 'meta_title',       'value' => 'i3 Realtors - Strategic Real Estate Mandate Partnerships', 'type' => 'string', 'group' => 'seo', 'label' => 'Default Meta Title', 'is_public' => true],
+            ['key' => 'meta_description', 'value' => 'i3 Realtors is a mandate-focused real estate consulting firm connecting developers and investors through strategic project marketing and structured partnerships.', 'type' => 'string', 'group' => 'seo', 'label' => 'Default Meta Description', 'is_public' => true],
+            ['key' => 'meta_keywords',    'value' => 'real estate, mandate partner, developer partnership, investment, property marketing, India real estate', 'type' => 'string', 'group' => 'seo', 'label' => 'Default Meta Keywords', 'is_public' => true],
 
-            // Analytics (private - contains tracking codes)
-            ['key' => 'google_analytics', 'value' => '',                   'type' => 'string', 'group' => 'analytics', 'label' => 'Google Analytics ID', 'is_public' => false],
-            ['key' => 'meta_pixel',       'value' => '',                   'type' => 'string', 'group' => 'analytics', 'label' => 'Meta Pixel ID',       'is_public' => false],
+            // Analytics
+            ['key' => 'google_analytics', 'value' => '',                   'type' => 'string', 'group' => 'analytics', 'label' => 'Google Analytics ID', 'is_public' => true],
+            ['key' => 'meta_pixel',       'value' => '',                   'type' => 'string', 'group' => 'analytics', 'label' => 'Meta Pixel ID',       'is_public' => true],
 
             // Email
             ['key' => 'mail_from_name',   'value' => 'i3Realtors',         'type' => 'string', 'group' => 'email',     'label' => 'Email From Name',     'is_public' => false],
