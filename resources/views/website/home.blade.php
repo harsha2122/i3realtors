@@ -218,15 +218,15 @@
                   <img src="{{ asset('images/icon-phone-primary.svg') }}" alt="" />
                 </div>
               </div>
-              <p>Strategic Real Estate Consulting & Developer Partnerships - <a href="{{ route('services') }}">View all services.</a></p>
+              <p>Strategic Real Estate Consulting & Developer Partnerships</p>
+              <p>Trusted by Developers & Investors Across Pune</p>
               <ul>
-                <li><span class="counter">4.9</span>/5</li>
                 <li>
                   <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                   <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                   <i class="fa-solid fa-star"></i>
                 </li>
-                <li>Our 4200 Review</li>
+                <li>4.9 / 5 Client Satisfaction Rating</li>
               </ul>
             </div>
           </div>
