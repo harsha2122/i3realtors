@@ -16,7 +16,7 @@
               <div class="section-title">
                 <span class="section-sub-title wow fadeInUp">Invest in India</span>
                 <h1 class="text-anime-style-2" data-cursor="-opaque">
-                  Invest in India with <span>Developers & Investors</span>
+                  Strategic real estate mandates for <span>Developers & Investors</span>
                 </h1>
               </div>
             </div>
