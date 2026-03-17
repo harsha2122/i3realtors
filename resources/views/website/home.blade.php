@@ -463,9 +463,9 @@
         <div class="row section-row">
           <div class="col-lg-12">
             <div class="section-title section-title-center">
-              <span class="section-sub-title wow fadeInUp">Project Portfolio</span>
+              <span class="section-sub-title wow fadeInUp">Our Projects</span>
               <h2 class="text-anime-style-2" data-cursor="-opaque">
-                Our Work Defined by Precision & <span>Execution</span>
+                Our Featured Real Estate <span>Opportunities</span>
               </h2>
             </div>
           </div>
@@ -474,10 +474,10 @@
         <div class="row">
           @php
           $projects = [
-            ['img' => 'project-image-1.jpg', 'cat' => 'Residential', 'title' => 'The Vertex Plaza', 'delay' => ''],
-            ['img' => 'project-image-2.jpg', 'cat' => 'Commercial', 'title' => 'Aurelia Business Park', 'delay' => '0.2s'],
-            ['img' => 'project-image-3.jpg', 'cat' => 'Industrial', 'title' => 'Project Completion', 'delay' => '0.4s'],
-            ['img' => 'project-image-4.jpg', 'cat' => 'Infrastructure', 'title' => 'Crown Point Commercial', 'delay' => '0.6s'],
+            ['img' => 'project-image-1.jpg', 'cat' => 'Residential Development', 'title' => 'The Vertex Plaza', 'delay' => ''],
+            ['img' => 'project-image-2.jpg', 'cat' => 'Commercial Development', 'title' => 'Aurelia Business Park', 'delay' => '0.2s'],
+            ['img' => 'project-image-3.jpg', 'cat' => 'Industrial Opportunities', 'title' => 'Project Completion', 'delay' => '0.4s'],
+            ['img' => 'project-image-4.jpg', 'cat' => 'Commercial Projects', 'title' => 'Crown Point Commercial', 'delay' => '0.6s'],
           ];
           @endphp
           @foreach($projects as $p)
@@ -507,7 +507,7 @@
                 </div>
               </div>
               @php $phone = $site['phone_primary'] ?? '+123456789'; @endphp
-              <p>Let's make something great work together. <a href="tel:{{ $phone }}">Get Free Quote</a></p>
+              <p>Explore premium real estate opportunities through our developer mandate partnerships. <a href="{{ route('website.projects.index') }}">View All Projects</a></p>
             </div>
           </div>
         </div>
@@ -516,18 +516,18 @@
     <!-- Our Project Section End -->
 
     <!-- Properties CTA Start -->
-    <div style="background: var(--accent-secondary-color); padding: 60px 0;">
+    <div style="background: #0F0F0F; padding: 60px 0; border-top: 1px solid rgba(200,169,106,0.2); border-bottom: 1px solid rgba(200,169,106,0.2);">
         <div class="container">
             <div class="row align-items-center justify-content-between g-4">
                 <div class="col-lg-8">
-                    <span style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--primary-color); opacity: 0.6;">Available Listings</span>
-                    <h2 style="font-size: 2rem; font-weight: 800; color: var(--primary-color); margin: 8px 0 12px;">Browse Our Available Properties</h2>
-                    <p style="font-size: 15px; color: var(--primary-color); opacity: 0.75; margin: 0;">Explore residential, commercial &amp; industrial properties currently available for sale or rent.</p>
+                    <span style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent-secondary-color); opacity: 0.85;">Investment Opportunities</span>
+                    <h2 style="font-size: 2rem; font-weight: 800; color: #ffffff; margin: 8px 0 12px;">Browse Available Investment Opportunities</h2>
+                    <p style="font-size: 15px; color: rgba(255,255,255,0.65); margin: 0;">Explore residential and commercial real estate projects available through our developer mandate partnerships.</p>
                 </div>
                 <div class="col-lg-4 text-lg-end">
                     <a href="{{ route('properties.index') }}" class="btn-default"
-                       style="display: inline-block; padding: 14px 36px; font-size: 15px; font-weight: 700; border-radius: 8px; background: var(--primary-color); color: var(--accent-secondary-color); text-decoration: none;">
-                        <i class="fas fa-building me-2"></i>View All Properties
+                       style="display: inline-block; padding: 14px 36px; font-size: 15px; font-weight: 700; border-radius: 8px; background: var(--accent-secondary-color); color: #0F0F0F; text-decoration: none; border: 2px solid var(--accent-secondary-color);">
+                        <i class="fas fa-building me-2"></i>View All Opportunities
                     </a>
                 </div>
             </div>

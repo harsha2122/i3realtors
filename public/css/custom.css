@@ -48,12 +48,16 @@
 /************************************/
 
 :root {
-  --primary-color: #040618;
-  --secondary-color: #ffffff;
-  --bg-color: #f3f3f3;
-  --text-color: #585960;
-  --accent-color: #040618;
-  --accent-secondary-color: #dcff09;
+  /* ─── Brand Palette ────────────────────────────────────────────────────────
+     To retheme the site change ONLY the values in this block.
+     --accent-secondary-color is the primary action/highlight color (gold).
+  ──────────────────────────────────────────────────────────────────────────── */
+  --primary-color: #040618;          /* deep navy – page background / text */
+  --secondary-color: #ffffff;        /* white */
+  --bg-color: #f3f3f3;               /* light grey page bg */
+  --text-color: #585960;             /* body text */
+  --accent-color: #040618;           /* dark accent (same as primary) */
+  --accent-secondary-color: #C8A96A; /* ★ GOLD – buttons, hovers, icons, highlights */
   --white-color: #ffffff;
   --divider-color: #0406181a;
   --dark-divider-color: #ffffff1a;
