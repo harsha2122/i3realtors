@@ -2,7 +2,7 @@
     $logoWhite   = $site['logo_white'] ?? null;
     $siteName    = $site['site_name'] ?? config('app.name');
     $footerAbout = $site['footer_about'] ?? '';
-    $footerCta   = $site['footer_cta_title'] ?? 'Explore Strategic Real Estate Opportunities With i3 Realtors';
+    $footerCta   = $site['footer_cta_title'] ?? 'Build strategic real estate partnerships with trusted experts';
     $copyright   = $site['footer_copyright'] ?? ('Copyright &copy; ' . date('Y') . ' All Rights Reserved.');
 
     // Contact (phones are intentionally not displayed)
@@ -124,8 +124,8 @@
 
                     <!-- Newsletter -->
                     <div class="footer-links footer-newsletter-form">
-                        <h3>Subscribe for Real Estate Insights</h3>
-                        <p>Receive updates on new real estate projects, investment opportunities, and market trends directly in your inbox.</p>
+                        <h3>Subscribe Newsletter</h3>
+                        <p>Subscribe to receive updates on new real estate projects, investment opportunities, and market insights.</p>
                         <form id="newslettersForm" action="#" method="POST">
                             @csrf
                             <div class="form-group">
