@@ -37,7 +37,7 @@
                                 <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
                             </li>
                             <li class="nav-item {{ request()->routeIs('calculator') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('calculator') }}">Calculator</a>
+                                <a class="nav-link" href="{{ route('calculator') }}">EMI Calculator</a>
                             </li>
                             <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('contact') }}">Contact</a>
