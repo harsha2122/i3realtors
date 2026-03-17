@@ -471,30 +471,27 @@
           </div>
         </div>
 
+        @php $delays = ['', '0.2s', '0.4s', '0.6s']; @endphp
         <div class="row">
-          @php
-          $projects = [
-            ['img' => 'project-image-1.jpg', 'cat' => 'Residential Development', 'title' => 'The Vertex Plaza', 'delay' => ''],
-            ['img' => 'project-image-2.jpg', 'cat' => 'Commercial Development', 'title' => 'Aurelia Business Park', 'delay' => '0.2s'],
-            ['img' => 'project-image-3.jpg', 'cat' => 'Industrial Opportunities', 'title' => 'Project Completion', 'delay' => '0.4s'],
-            ['img' => 'project-image-4.jpg', 'cat' => 'Commercial Projects', 'title' => 'Crown Point Commercial', 'delay' => '0.6s'],
-          ];
-          @endphp
-          @foreach($projects as $p)
+          @forelse($projects as $i => $project)
           <div class="col-xl-3 col-md-6">
-            <div class="project-item wow fadeInUp" {{ $p['delay'] ? 'data-wow-delay="'.$p['delay'].'"' : '' }}>
+            <div class="project-item wow fadeInUp" {{ $delays[$i] ? 'data-wow-delay="'.$delays[$i].'"' : '' }}>
               <div class="project-item-image">
-                <a href="{{ route('website.projects.index') }}" data-cursor-text="View">
-                  <figure><img src="{{ asset('images/'.$p['img']) }}" alt="{{ $p['title'] }}" /></figure>
+                <a href="{{ route('website.projects.show', $project->slug) }}" data-cursor-text="View">
+                  <figure><img src="{{ $project->thumbnail_url }}" alt="{{ $project->title }}" /></figure>
                 </a>
               </div>
               <div class="project-item-content">
-                <ul><li><a href="{{ route('website.projects.index') }}">{{ $p['cat'] }}</a></li></ul>
-                <h2><a href="{{ route('website.projects.index') }}">{{ $p['title'] }}</a></h2>
+                <ul><li><a href="{{ route('website.projects.show', $project->slug) }}">{{ $project->type_label }}</a></li></ul>
+                <h2><a href="{{ route('website.projects.show', $project->slug) }}">{{ $project->title }}</a></h2>
               </div>
             </div>
           </div>
-          @endforeach
+          @empty
+          <div class="col-12 text-center py-5">
+            <p style="color: rgba(255,255,255,0.5);">No projects available yet.</p>
+          </div>
+          @endforelse
 
           <div class="col-lg-12">
             <div class="section-footer-text section-satisfy-img wow fadeInUp" data-wow-delay="0.4s">
