@@ -50,7 +50,7 @@
 
                     <!-- Header Btn Start -->
                     <div class="header-btn">
-                        <a href="{{ route('contact') }}" class="btn-default">Get Free Quote</a>
+                        <a href="{{ route('contact') }}" class="btn-default">Partner With Us</a>
                     </div>
                     <!-- Header Btn End -->
                 </div>
