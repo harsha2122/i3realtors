@@ -38,6 +38,11 @@
                               {{ $activeStatus === '' ? 'background: var(--primary-color); color: var(--accent-secondary-color);' : 'background: transparent; color: var(--primary-color);' }}">
                         All
                     </a>
+                    <a href="{{ route('website.projects.index', ['status' => 'upcoming']) }}"
+                       style="display:inline-block; padding: 10px 28px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.3s;
+                              {{ $activeStatus === 'upcoming' ? 'background: var(--primary-color); color: var(--accent-secondary-color);' : 'background: transparent; color: var(--primary-color);' }}">
+                        Upcoming
+                    </a>
                     <a href="{{ route('website.projects.index', ['status' => 'ongoing']) }}"
                        style="display:inline-block; padding: 10px 28px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.3s;
                               {{ $activeStatus === 'ongoing' ? 'background: var(--primary-color); color: var(--accent-secondary-color);' : 'background: transparent; color: var(--primary-color);' }}">
@@ -115,8 +120,15 @@
                                     </figure>
                                 </a>
                                 {{-- Status badge --}}
+                                @php
+                                    $badgeColor = match($project->status) {
+                                        'completed' => '#22c55e',
+                                        'upcoming'  => '#3b82f6',
+                                        default     => '#f59e0b',
+                                    };
+                                @endphp
                                 <span style="position: absolute; top: 16px; right: 16px; z-index: 3;
-                                             background: {{ $project->status === 'completed' ? '#22c55e' : '#f59e0b' }};
+                                             background: {{ $badgeColor }};
                                              color: #fff; font-size: 10px; font-weight: 700;
                                              padding: 4px 12px; border-radius: 20px;
                                              text-transform: uppercase; letter-spacing: 0.5px;">

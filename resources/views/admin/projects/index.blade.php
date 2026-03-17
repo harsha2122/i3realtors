@@ -33,6 +33,7 @@
             <div class="col-md-2">
                 <select name="status" class="form-select form-select-sm">
                     <option value="">All Status</option>
+                    <option value="upcoming"  {{ ($filters['status'] ?? '') === 'upcoming'  ? 'selected' : '' }}>Upcoming</option>
                     <option value="ongoing"   {{ ($filters['status'] ?? '') === 'ongoing'   ? 'selected' : '' }}>Ongoing</option>
                     <option value="completed" {{ ($filters['status'] ?? '') === 'completed' ? 'selected' : '' }}>Completed</option>
                 </select>

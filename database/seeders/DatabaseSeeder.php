@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             NavigationMenuSeeder::class,
             PropertySeeder::class,
             ProjectSeeder::class,
+            BalajiSiddhiPrimeSeeder::class,
             BlogSeeder::class,
         ]);
     }
