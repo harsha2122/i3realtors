@@ -150,6 +150,9 @@
             <a href="{{ route('admin.testimonials.index') }}" class="nav-link {{ request()->routeIs('admin.testimonials.*') ? 'active' : '' }}">
                 <i class="fas fa-quote-left"></i> Testimonials
             </a>
+            <a href="{{ route('admin.gallery.index') }}" class="nav-link {{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
+                <i class="fas fa-images"></i> Gallery
+            </a>
 
             <div class="nav-section-label">Leads & Forms</div>
             <a href="{{ route('admin.leads.index') }}" class="nav-link {{ request()->routeIs('admin.leads.*') ? 'active' : '' }}">

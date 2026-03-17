@@ -38,6 +38,9 @@ Route::get('/properties/{slug}', [Website\PropertyController::class, 'show'])->n
 Route::get('/blog', [Website\BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [Website\BlogController::class, 'show'])->name('blog.show');
 
+// Gallery
+Route::get('/gallery', [Website\GalleryController::class, 'index'])->name('gallery.index');
+
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -145,6 +148,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/navigation/{menu}/duplicate', [Admin\NavigationController::class, 'duplicate'])->name('navigation.duplicate');
         Route::get('/navigation/{menu}/export', [Admin\NavigationController::class, 'export'])->name('navigation.export');
         Route::post('/navigation/import', [Admin\NavigationController::class, 'import'])->name('navigation.import');
+
+        // Gallery
+        Route::resource('gallery', Admin\GalleryController::class);
 
         // Analytics
         Route::get('/analytics/dashboard', [Admin\AnalyticsController::class, 'dashboard'])->name('analytics.dashboard');

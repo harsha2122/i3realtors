@@ -54,6 +54,7 @@
                     <div class="col-md-4">
                         <label class="form-label fw-semibold">Status <span class="text-danger">*</span></label>
                         <select name="status" class="form-select">
+                            <option value="upcoming"  {{ old('status', $project->status ?? 'ongoing') === 'upcoming'  ? 'selected' : '' }}>Upcoming</option>
                             <option value="ongoing"   {{ old('status', $project->status ?? 'ongoing') === 'ongoing'   ? 'selected' : '' }}>Ongoing</option>
                             <option value="completed" {{ old('status', $project->status ?? 'ongoing') === 'completed' ? 'selected' : '' }}>Completed</option>
                         </select>

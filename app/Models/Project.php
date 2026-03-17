@@ -59,6 +59,11 @@ class Project extends Model
         return $query->where('status', 'ongoing');
     }
 
+    public function scopeUpcoming($query)
+    {
+        return $query->where('status', 'upcoming');
+    }
+
     public function scopeCompleted($query)
     {
         return $query->where('status', 'completed');
@@ -96,6 +101,7 @@ class Project extends Model
     public function getStatusBadgeAttribute(): string
     {
         return match($this->status) {
+            'upcoming'  => 'info',
             'ongoing'   => 'warning',
             'completed' => 'success',
             default     => 'secondary',
