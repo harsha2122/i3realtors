@@ -353,7 +353,10 @@
                       @for($s = 0; $s < 5; $s++)<i class="fa fa-solid fa-star"></i>@endfor
                     </span>
                   </div>
-                  <div class="who-we-cta-content"><p>Our 5k+ Satisfice Client</p></div>
+                  <div class="who-we-cta-content">
+                    <p>Trusted by 25+ Real Estate Developers</p>
+                    <small>Strategic Mandate Partnerships</small>
+                  </div>
                 </div>
                 <div class="who-we-image">
                   <figure class="image-anime reveal">
