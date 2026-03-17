@@ -59,12 +59,18 @@
                 <div class="about-us-content-box wow fadeInUp" data-wow-delay="0.2s">
                     <div class="about-us-item-list">
                         <div class="about-us-item box-1">
+                            <div class="about-us-item-image">
+                                <figure><img src="{{ asset('images/about-us-item-image-1.png') }}" alt=""></figure>
+                            </div>
                             <div class="about-us-item-content">
                                 <h3>Grow With Industry Experts</h3>
                                 <p>Work alongside experienced real estate professionals and gain exposure to developer mandates, project marketing, and strategic investment advisory.</p>
                             </div>
                         </div>
                         <div class="about-us-item box-2">
+                            <div class="about-us-item-image">
+                                <figure><img src="{{ asset('images/about-us-item-image-2.jpg') }}" alt=""></figure>
+                            </div>
                             <div class="about-us-item-content">
                                 <h3>Real Opportunities, Real Impact</h3>
                                 <p>At i3 Realtors, every team member plays a role in delivering value for developers and investors — with clear growth paths and performance-driven recognition.</p>
