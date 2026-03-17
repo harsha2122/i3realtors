@@ -3,7 +3,7 @@
     $siteName    = $site['site_name'] ?? config('app.name');
     $footerAbout = $site['footer_about'] ?? '';
     $footerCta   = $site['footer_cta_title'] ?? 'Build strategic real estate partnerships with trusted experts';
-    $copyright   = $site['footer_copyright'] ?? ('Copyright &copy; ' . date('Y') . ' All Rights Reserved.');
+    $copyright   = $site['footer_copyright'] ?? 'Copyright &copy; 2026 i3Realtors. All Rights Reserved.';
 
     // Contact (phones are intentionally not displayed)
     $email1  = $site['email_primary']   ?? 'i3realtorsllp@gmail.com';
