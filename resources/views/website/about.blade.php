@@ -158,7 +158,7 @@
 <!-- About Us Section End -->
 
 <!-- Leadership Team Section Start -->
-<div style="background: #f9f9f9; padding: 80px 0;">
+<div style="background: #f9f9f9; padding: 100px 0;">
     <div class="container">
         <div class="row section-row">
             <div class="col-lg-12">

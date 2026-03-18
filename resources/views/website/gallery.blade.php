@@ -26,7 +26,7 @@
     <!-- Page Header End -->
 
     <!-- Gallery Section Start -->
-    <div style="padding: 80px 0;">
+    <div style="padding: 100px 0;">
         <div class="container">
 
             {{-- Category Tabs --}}
