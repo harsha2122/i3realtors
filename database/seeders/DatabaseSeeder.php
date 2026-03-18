@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             ProjectSeeder::class,
             BalajiSiddhiPrimeSeeder::class,
             BlogSeeder::class,
+            TeamMemberSeeder::class,
         ]);
     }
 }

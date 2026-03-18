@@ -67,6 +67,62 @@
     </div>
     <!-- Hero Section End -->
 
+    <!-- Trusted Developers Section Start -->
+    <div style="background: #0a0a0a; padding: 60px 0; border-bottom: 1px solid rgba(200,169,106,0.15);">
+      <div class="container">
+        <div class="row section-row">
+          <div class="col-lg-12">
+            <div class="section-title section-title-center">
+              <span class="section-sub-title wow fadeInUp">Our Developer Partners</span>
+              <h2 class="text-anime-style-2" data-cursor="-opaque" style="color:#ffffff;">
+                Trusted by Leading <span>Developers</span>
+              </h2>
+              <p class="wow fadeInUp" data-wow-delay="0.2s" style="color:rgba(255,255,255,0.65); max-width:680px; margin: 0 auto 16px;">
+                We have partnered with leading real estate developers across Pune and Mumbai to deliver structured mandate sales, marketing strategies, and investor-driven growth.
+              </p>
+              <div class="wow fadeInUp" data-wow-delay="0.3s" style="color: var(--accent-secondary-color); font-size: 13px; font-weight: 700; letter-spacing: 1px; margin-bottom: 40px;">
+                25+ Developer Partnerships &nbsp;|&nbsp; 1500+ Channel Partners &nbsp;|&nbsp; 1.8M+ Sq.ft Sold
+              </div>
+            </div>
+          </div>
+        </div>
+
+        @if($developerLogos->isNotEmpty())
+        <div class="wow fadeInUp" data-wow-delay="0.4s" style="overflow: hidden; position: relative;">
+          <div class="developer-logo-track" style="display: flex; gap: 40px; align-items: center; animation: logoScroll 30s linear infinite;">
+            @foreach($developerLogos->concat($developerLogos) as $devLogo)
+            <div class="developer-logo-item" style="flex-shrink: 0; min-width: 140px; text-align: center;">
+              @if($devLogo->link)
+              <a href="{{ $devLogo->link }}" target="_blank" rel="noopener noreferrer">
+              @endif
+              <img src="{{ asset('storage/' . $devLogo->logo) }}" alt="{{ $devLogo->name }}"
+                   style="max-height: 60px; max-width: 140px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s ease;"
+                   onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';"
+                   onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6';">
+              @if($devLogo->link)
+              </a>
+              @endif
+            </div>
+            @endforeach
+          </div>
+        </div>
+        @else
+        <div class="row justify-content-center wow fadeInUp" data-wow-delay="0.4s">
+          <div class="col-lg-10">
+            <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; align-items: center; padding: 20px 0;">
+              @foreach(['Shapoorji Pallonji', 'Puranik Builders', 'Gagan Developers', 'Kumar Properties', 'Kolte Patil', 'Mantra'] as $devName)
+              <div style="padding: 12px 24px; background: rgba(255,255,255,0.05); border: 1px solid rgba(200,169,106,0.2); border-radius: 6px;">
+                <span style="color: rgba(255,255,255,0.5); font-size: 13px; font-weight: 600; letter-spacing: 0.5px;">{{ $devName }}</span>
+              </div>
+              @endforeach
+            </div>
+          </div>
+        </div>
+        @endif
+      </div>
+    </div>
+    <!-- Trusted Developers Section End -->
+
     <!-- About US Section Start -->
     <div class="about-us">
       <div class="container">
@@ -515,6 +571,133 @@
     </div>
     <!-- Our Project Section End -->
 
+    <!-- Recognitions Section Start -->
+    <div style="background: #ffffff; padding: 80px 0; border-top: 1px solid #f0f0f0;">
+      <div class="container">
+        <div class="row section-row">
+          <div class="col-lg-12">
+            <div class="section-title section-title-center">
+              <span class="section-sub-title wow fadeInUp">Awards & Affiliations</span>
+              <h2 class="text-anime-style-2" data-cursor="-opaque">
+                Recognitions & <span>Associations</span>
+              </h2>
+              <p class="wow fadeInUp" data-wow-delay="0.2s" style="max-width:620px; margin: 0 auto;">
+                Our experience includes working with and representing some of the most recognized names in the real estate industry.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        @if($recognitions->isNotEmpty())
+        <div class="row justify-content-center g-4 wow fadeInUp" data-wow-delay="0.3s">
+          @foreach($recognitions as $rec)
+          <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
+            <div style="padding: 20px 16px; border: 1px solid #eeeeee; border-radius: 8px; transition: all 0.3s ease; cursor: default;"
+                 onmouseover="this.style.borderColor='var(--accent-secondary-color)'; this.style.boxShadow='0 4px 20px rgba(200,169,106,0.15)';"
+                 onmouseout="this.style.borderColor='#eeeeee'; this.style.boxShadow='none';">
+              <img src="{{ asset('storage/' . $rec->logo) }}" alt="{{ $rec->name }}" style="max-height:55px; max-width:110px; object-fit:contain;">
+              @if($rec->name)
+              <p style="font-size:11px; color:#888; margin:8px 0 0; font-weight:600;">{{ $rec->name }}</p>
+              @endif
+            </div>
+          </div>
+          @endforeach
+        </div>
+        @else
+        <div class="row justify-content-center wow fadeInUp" data-wow-delay="0.3s">
+          <div class="col-lg-8 text-center">
+            <p style="color: #aaa; font-size: 14px;">Recognition logos will appear here once added from the admin panel.</p>
+          </div>
+        </div>
+        @endif
+      </div>
+    </div>
+    <!-- Recognitions Section End -->
+
+    <!-- Testimonials Section Start -->
+    <div class="bg-section" style="padding: 80px 0;">
+      <div class="container">
+        <div class="row section-row">
+          <div class="col-lg-12">
+            <div class="section-title section-title-center">
+              <span class="section-sub-title wow fadeInUp">Client Feedback</span>
+              <h2 class="text-anime-style-2" data-cursor="-opaque">
+                What Our Clients <span>Say</span>
+              </h2>
+              <p class="wow fadeInUp" data-wow-delay="0.2s">Real feedback from developers, investors, and homebuyers we've worked with.</p>
+            </div>
+          </div>
+        </div>
+
+        @if($testimonials->isNotEmpty())
+        <div class="row g-4">
+          @foreach($testimonials as $i => $testimonial)
+          <div class="col-xl-4 col-md-6">
+            <div class="wow fadeInUp" data-wow-delay="{{ ['','0.2s','0.4s','','0.2s','0.4s'][$i] ?? '' }}"
+                 style="background:#ffffff; border-radius:12px; padding:32px; height:100%; display:flex; flex-direction:column; border: 1px solid #f0f0f0; box-shadow: 0 2px 20px rgba(0,0,0,0.04);">
+              {{-- Stars --}}
+              <div style="margin-bottom:16px;">
+                @for($s = 1; $s <= 5; $s++)
+                  <i class="fas fa-star" style="color: {{ $s <= $testimonial->rating ? '#f4b400' : '#e0e0e0' }}; font-size:14px;"></i>
+                @endfor
+              </div>
+              {{-- Video or Text --}}
+              @if($testimonial->video_url)
+              <div style="margin-bottom:16px; border-radius:8px; overflow:hidden; aspect-ratio:16/9;">
+                <iframe src="{{ str_replace('watch?v=', 'embed/', $testimonial->video_url) }}" style="width:100%;height:100%;border:0;" allowfullscreen loading="lazy"></iframe>
+              </div>
+              @endif
+              <p style="color:#555; font-size:14px; line-height:1.7; flex:1; font-style:italic;">"{{ $testimonial->content }}"</p>
+              <div style="display:flex; align-items:center; gap:12px; margin-top:20px; padding-top:20px; border-top:1px solid #f5f5f5;">
+                @if($testimonial->author_image)
+                <img src="{{ asset('storage/' . $testimonial->author_image) }}" alt="{{ $testimonial->author_name }}"
+                     style="width:48px; height:48px; border-radius:50%; object-fit:cover; flex-shrink:0;">
+                @else
+                <div style="width:48px; height:48px; border-radius:50%; background: linear-gradient(135deg, var(--accent-secondary-color), #c8a96a); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                  <span style="color:#fff; font-size:18px; font-weight:700;">{{ strtoupper(substr($testimonial->author_name, 0, 1)) }}</span>
+                </div>
+                @endif
+                <div>
+                  <p style="font-weight:700; color:#111; margin:0; font-size:14px;">{{ $testimonial->author_name }}</p>
+                  <p style="color:#888; margin:0; font-size:12px;">
+                    {{ $testimonial->author_title ?? '' }}
+                    @if($testimonial->company) &nbsp;•&nbsp; {{ $testimonial->company }} @endif
+                    @if($testimonial->client_type) &nbsp;<span style="background:rgba(200,169,106,0.15); color:var(--accent-secondary-color); padding:2px 8px; border-radius:20px; font-size:10px; font-weight:700;">{{ $testimonial->client_type }}</span> @endif
+                  </p>
+                  @if($testimonial->project_name)
+                  <p style="color:#aaa; margin:2px 0 0; font-size:11px;">{{ $testimonial->project_name }}</p>
+                  @endif
+                </div>
+              </div>
+            </div>
+          </div>
+          @endforeach
+        </div>
+        @else
+        <div class="row wow fadeInUp" data-wow-delay="0.3s">
+          <div class="col-lg-8 offset-lg-2">
+            <div style="background:#ffffff; border-radius:12px; padding:40px; border: 1px solid #f0f0f0;">
+              <div style="margin-bottom:16px;">
+                @for($s = 0; $s < 5; $s++)<i class="fas fa-star" style="color:#f4b400; font-size:16px;"></i>@endfor
+              </div>
+              <p style="color:#555; font-size:15px; line-height:1.7; font-style:italic;">"i3 Realtors helped us structure and market our project efficiently. Their investor network and sales strategy delivered strong results within a short timeline."</p>
+              <div style="display:flex; align-items:center; gap:12px; margin-top:20px; padding-top:20px; border-top:1px solid #f5f5f5;">
+                <div style="width:48px; height:48px; border-radius:50%; background: linear-gradient(135deg, var(--accent-secondary-color), #c8a96a); display:flex; align-items:center; justify-content:center;">
+                  <span style="color:#fff; font-size:18px; font-weight:700;">D</span>
+                </div>
+                <div>
+                  <p style="font-weight:700; color:#111; margin:0; font-size:14px;">Developer Partner</p>
+                  <p style="color:#888; margin:0; font-size:12px;"><span style="background:rgba(200,169,106,0.15); color:var(--accent-secondary-color); padding:2px 8px; border-radius:20px; font-size:10px; font-weight:700;">Developer</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        @endif
+      </div>
+    </div>
+    <!-- Testimonials Section End -->
+
     <!-- Properties CTA Start -->
     <div style="background: #0F0F0F; padding: 60px 0; border-top: 1px solid rgba(200,169,106,0.2); border-bottom: 1px solid rgba(200,169,106,0.2);">
         <div class="container">
@@ -620,6 +803,16 @@
     <!-- Cta Box Section End -->
 
 @endsection
+
+@push('styles')
+<style>
+@keyframes logoScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.developer-logo-track:hover { animation-play-state: paused; }
+</style>
+@endpush
 
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/gh/Libero793/KNGURUWebsite3.0@latest/js/script.js" defer></script>

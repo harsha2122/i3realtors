@@ -15,6 +15,7 @@ class TeamMember extends Model
         'bio',
         'email',
         'phone',
+        'linkedin_url',
         'profile_image',
         'status',
         'order',

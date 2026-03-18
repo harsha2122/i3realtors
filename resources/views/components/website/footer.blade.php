@@ -2,7 +2,7 @@
     $logoWhite   = $site['logo_white'] ?? null;
     $siteName    = $site['site_name'] ?? config('app.name');
     $footerAbout = $site['footer_about'] ?? '';
-    $footerCta   = $site['footer_cta_title'] ?? 'Connecting Developers, Investors & High-Value Real Estate Opportunities';
+    $footerCta   = $site['footer_cta_title'] ?? 'Strategic Real Estate Partnerships for Developers &amp; Investors';
     $copyright   = $site['footer_copyright'] ?? 'Copyright &copy; 2026 i3Realtors. All Rights Reserved.';
 
     // Contact (phones are intentionally not displayed)
@@ -72,18 +72,10 @@
                     </div>
 
                     <div class="about-footer-contact mt-3" style="font-size: 0.9rem;">
-                        @if($email1)
-                        <div class="mb-1">
+                            <div class="mb-1">
                             <i class="fas fa-envelope me-2" style="color: var(--accent-secondary-color);"></i>
-                            <a href="mailto:{{ $email1 }}" style="color: rgba(255,255,255,0.75); text-decoration: none;">{{ $email1 }}</a>
+                            <a href="mailto:admin@i3realtors.com" style="color: rgba(255,255,255,0.75); text-decoration: none;">admin@i3realtors.com</a>
                         </div>
-                        @endif
-                        @if($email2)
-                        <div class="mb-1">
-                            <i class="fas fa-envelope me-2" style="color: var(--accent-secondary-color);"></i>
-                            <a href="mailto:{{ $email2 }}" style="color: rgba(255,255,255,0.75); text-decoration: none;">{{ $email2 }}</a>
-                        </div>
-                        @endif
                         @if($address)
                         <div class="mt-1">
                             <i class="fas fa-map-marker-alt me-2" style="color: var(--accent-secondary-color);"></i>
