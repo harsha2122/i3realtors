@@ -68,7 +68,7 @@
     <!-- Hero Section End -->
 
     <!-- Trusted Developers Section Start -->
-    <div style="background: #0a0a0a; padding: 60px 0; border-bottom: 1px solid rgba(200,169,106,0.15);">
+    <div style="background: #0a0a0a; padding: 100px 0; border-bottom: 1px solid rgba(200,169,106,0.15);">
       <div class="container">
         <div class="row section-row">
           <div class="col-lg-12">
@@ -572,7 +572,7 @@
     <!-- Our Project Section End -->
 
     <!-- Recognitions Section Start -->
-    <div style="background: #ffffff; padding: 80px 0; border-top: 1px solid #f0f0f0;">
+    <div style="background: #ffffff; padding: 100px 0; border-top: 1px solid #f0f0f0;">
       <div class="container">
         <div class="row section-row">
           <div class="col-lg-12">
@@ -615,7 +615,7 @@
     <!-- Recognitions Section End -->
 
     <!-- Testimonials Section Start -->
-    <div class="bg-section" style="padding: 80px 0;">
+    <div class="bg-section" style="padding: 100px 0;">
       <div class="container">
         <div class="row section-row">
           <div class="col-lg-12">
@@ -699,7 +699,7 @@
     <!-- Testimonials Section End -->
 
     <!-- Properties CTA Start -->
-    <div style="background: #0F0F0F; padding: 60px 0; border-top: 1px solid rgba(200,169,106,0.2); border-bottom: 1px solid rgba(200,169,106,0.2);">
+    <div style="background: #0F0F0F; padding: 100px 0; border-top: 1px solid rgba(200,169,106,0.2); border-bottom: 1px solid rgba(200,169,106,0.2);">
         <div class="container">
             <div class="row align-items-center justify-content-between g-4">
                 <div class="col-lg-8">
