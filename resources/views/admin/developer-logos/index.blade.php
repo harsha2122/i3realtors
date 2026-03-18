@@ -35,7 +35,7 @@
                 <tbody>
                     @foreach($logos as $logo)
                     <tr>
-                        <td><img src="{{ asset('storage/' . $logo->logo) }}" alt="{{ $logo->name }}" style="max-height:40px;max-width:80px;object-fit:contain;"></td>
+                        <td><img src="{{ asset('uploads/' . $logo->logo) }}" alt="{{ $logo->name }}" style="max-height:40px;max-width:80px;object-fit:contain;"></td>
                         <td class="fw-semibold small">{{ $logo->name }}</td>
                         <td class="small text-muted">{{ $logo->link ?? '—' }}</td>
                         <td class="small">{{ $logo->order }}</td>

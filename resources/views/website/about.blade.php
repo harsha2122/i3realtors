@@ -177,7 +177,7 @@
                      style="background:#ffffff; border-radius:12px; overflow:hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.07); height:100%;">
                     @if($member->profile_image)
                     <div style="height:260px; overflow:hidden;">
-                        <img src="{{ asset('storage/' . $member->profile_image) }}" alt="{{ $member->full_name }}"
+                        <img src="{{ asset('uploads/' . $member->profile_image) }}" alt="{{ $member->full_name }}"
                              style="width:100%; height:100%; object-fit:cover; object-position: top;">
                     </div>
                     @else

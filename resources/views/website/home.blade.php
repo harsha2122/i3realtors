@@ -95,7 +95,7 @@
               @if($devLogo->link)
               <a href="{{ $devLogo->link }}" target="_blank" rel="noopener noreferrer">
               @endif
-              <img src="{{ asset('storage/' . $devLogo->logo) }}" alt="{{ $devLogo->name }}"
+              <img src="{{ asset('uploads/' . $devLogo->logo) }}" alt="{{ $devLogo->name }}"
                    style="max-height: 60px; max-width: 140px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s ease;"
                    onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';"
                    onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6';">
@@ -595,7 +595,7 @@
             <div style="padding: 20px 16px; border: 1px solid #eeeeee; border-radius: 8px; transition: all 0.3s ease; cursor: default;"
                  onmouseover="this.style.borderColor='var(--accent-secondary-color)'; this.style.boxShadow='0 4px 20px rgba(200,169,106,0.15)';"
                  onmouseout="this.style.borderColor='#eeeeee'; this.style.boxShadow='none';">
-              <img src="{{ asset('storage/' . $rec->logo) }}" alt="{{ $rec->name }}" style="max-height:55px; max-width:110px; object-fit:contain;">
+              <img src="{{ asset('uploads/' . $rec->logo) }}" alt="{{ $rec->name }}" style="max-height:55px; max-width:110px; object-fit:contain;">
               @if($rec->name)
               <p style="font-size:11px; color:#888; margin:8px 0 0; font-weight:600;">{{ $rec->name }}</p>
               @endif
@@ -650,7 +650,7 @@
               <p style="color:#555; font-size:14px; line-height:1.7; flex:1; font-style:italic;">"{{ $testimonial->content }}"</p>
               <div style="display:flex; align-items:center; gap:12px; margin-top:20px; padding-top:20px; border-top:1px solid #f5f5f5;">
                 @if($testimonial->author_image)
-                <img src="{{ asset('storage/' . $testimonial->author_image) }}" alt="{{ $testimonial->author_name }}"
+                <img src="{{ asset('uploads/' . $testimonial->author_image) }}" alt="{{ $testimonial->author_name }}"
                      style="width:48px; height:48px; border-radius:50%; object-fit:cover; flex-shrink:0;">
                 @else
                 <div style="width:48px; height:48px; border-radius:50%; background: linear-gradient(135deg, var(--accent-secondary-color), #c8a96a); display:flex; align-items:center; justify-content:center; flex-shrink:0;">

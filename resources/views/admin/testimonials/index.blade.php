@@ -39,7 +39,7 @@
                     <tr>
                         <td>
                             @if($testimonial->author_image)
-                                <img src="{{ asset('storage/' . $testimonial->author_image) }}" alt="" class="rounded-circle" style="width:40px;height:40px;object-fit:cover;">
+                                <img src="{{ asset('uploads/' . $testimonial->author_image) }}" alt="" class="rounded-circle" style="width:40px;height:40px;object-fit:cover;">
                             @else
                                 <div class="rounded-circle bg-light d-flex align-items-center justify-content-center" style="width:40px;height:40px;">
                                     <i class="fas fa-user text-muted"></i>

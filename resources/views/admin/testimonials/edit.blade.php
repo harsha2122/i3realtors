@@ -79,14 +79,14 @@
                         <div class="col-md-6 mb-3">
                             <label for="author_image" class="form-label">Author Photo</label>
                             @if($testimonial->author_image)
-                                <div class="mb-2"><img src="{{ asset('storage/' . $testimonial->author_image) }}" alt="" class="rounded-circle" style="width:50px;height:50px;object-fit:cover;"></div>
+                                <div class="mb-2"><img src="{{ asset('uploads/' . $testimonial->author_image) }}" alt="" class="rounded-circle" style="width:50px;height:50px;object-fit:cover;"></div>
                             @endif
                             <input type="file" class="form-control" id="author_image" name="author_image" accept="image/*">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="company_logo" class="form-label">Company Logo</label>
                             @if($testimonial->company_logo)
-                                <div class="mb-2"><img src="{{ asset('storage/' . $testimonial->company_logo) }}" alt="" class="rounded" style="max-height:50px;"></div>
+                                <div class="mb-2"><img src="{{ asset('uploads/' . $testimonial->company_logo) }}" alt="" class="rounded" style="max-height:50px;"></div>
                             @endif
                             <input type="file" class="form-control" id="company_logo" name="company_logo" accept="image/*">
                         </div>

@@ -63,7 +63,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="profile_image" class="form-label">Profile Image</label>
                             @if($member->profile_image)
-                                <div class="mb-2"><img src="{{ asset('storage/' . $member->profile_image) }}" alt="" class="rounded" style="max-height:80px;"></div>
+                                <div class="mb-2"><img src="{{ asset('uploads/' . $member->profile_image) }}" alt="" class="rounded" style="max-height:80px;"></div>
                             @endif
                             <input type="file" class="form-control" id="profile_image" name="profile_image" accept="image/*">
                         </div>

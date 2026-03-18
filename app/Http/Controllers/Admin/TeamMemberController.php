@@ -53,21 +53,23 @@ class TeamMemberController extends Controller
         return redirect()->route('admin.team.show', $member)->with('success', 'Member created');
     }
 
-    public function show(TeamMember $member)
+    public function show(TeamMember $team)
     {
-        $member->load('skills', 'socials');
+        $team->load('skills', 'socials');
+        $member = $team;
         return view('admin.team.show', compact('member'));
     }
 
-    public function edit(TeamMember $member)
+    public function edit(TeamMember $team)
     {
-        $member->load('skills', 'socials');
+        $team->load('skills', 'socials');
+        $member = $team;
         $skills = TeamSkill::all();
         $socials = TeamSocial::all();
         return view('admin.team.edit', compact('member', 'skills', 'socials'));
     }
 
-    public function update(Request $request, TeamMember $member)
+    public function update(Request $request, TeamMember $team)
     {
         $validated = $request->validate([
             'first_name' => 'required|string',
@@ -75,7 +77,7 @@ class TeamMemberController extends Controller
             'position' => 'required|string',
             'department' => 'nullable|string',
             'bio' => 'nullable|string',
-            'email' => 'required|email|unique:team_members,email,' . $member->id,
+            'email' => 'required|email|unique:team_members,email,' . $team->id,
             'phone' => 'nullable|string',
             'linkedin_url' => 'nullable|url',
             'profile_image' => 'nullable|image|max:2048',
@@ -86,13 +88,13 @@ class TeamMemberController extends Controller
             $validated['profile_image'] = $request->file('profile_image')->store('team', 'public');
         }
 
-        $member->update($validated);
+        $team->update($validated);
         return redirect()->back()->with('success', 'Member updated');
     }
 
-    public function destroy(TeamMember $member)
+    public function destroy(TeamMember $team)
     {
-        $member->delete();
+        $team->delete();
         return redirect()->back()->with('success', 'Member deleted');
     }
 }
