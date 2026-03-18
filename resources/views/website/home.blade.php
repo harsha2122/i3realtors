@@ -68,7 +68,7 @@
     <!-- Hero Section End -->
 
     <!-- Trusted Developers Section Start -->
-    <div style="background: #0a0a0a; padding: 100px 0; border-bottom: 1px solid rgba(200,169,106,0.15);">
+    <div class="bg-section" style="margin-top: 20px; background: #0a0a0a; padding: 100px 0; border-bottom: 1px solid rgba(200,169,106,0.15);">
       <div class="container">
         <div class="row section-row">
           <div class="col-lg-12">
