@@ -34,7 +34,7 @@
                 <tbody>
                     @foreach($recognitions as $recognition)
                     <tr>
-                        <td><img src="{{ asset('storage/' . $recognition->logo) }}" alt="{{ $recognition->name }}" style="max-height:40px;max-width:100px;object-fit:contain;"></td>
+                        <td><img src="{{ asset('uploads/' . $recognition->logo) }}" alt="{{ $recognition->name }}" style="max-height:40px;max-width:100px;object-fit:contain;"></td>
                         <td class="fw-semibold small">{{ $recognition->name }}</td>
                         <td class="small">{{ $recognition->order }}</td>
                         <td>

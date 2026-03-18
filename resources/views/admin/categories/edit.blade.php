@@ -38,7 +38,7 @@
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>
                         @if($category->image)
-                            <div class="mb-2"><img src="{{ asset('storage/' . $category->image) }}" alt="" class="rounded" style="max-height:100px;"></div>
+                            <div class="mb-2"><img src="{{ asset('uploads/' . $category->image) }}" alt="" class="rounded" style="max-height:100px;"></div>
                         @endif
                         <input type="file" class="form-control" id="image" name="image" accept="image/*">
                     </div>

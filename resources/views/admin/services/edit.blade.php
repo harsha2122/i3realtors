@@ -45,7 +45,7 @@
                     <div class="mb-3">
                         <label for="featured_image" class="form-label">Featured Image</label>
                         @if($service->featured_image)
-                            <div class="mb-2"><img src="{{ asset('storage/' . $service->featured_image) }}" alt="" class="rounded" style="max-height:100px;"></div>
+                            <div class="mb-2"><img src="{{ asset('uploads/' . $service->featured_image) }}" alt="" class="rounded" style="max-height:100px;"></div>
                         @endif
                         <input type="file" class="form-control" id="featured_image" name="featured_image" accept="image/*">
                     </div>

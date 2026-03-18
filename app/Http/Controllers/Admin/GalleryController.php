@@ -55,7 +55,7 @@ class GalleryController extends Controller
         $sortOrder = (int) ($data['sort_order'] ?? 0);
 
         foreach ($request->file('images') as $file) {
-            $path = $file->store('gallery', ['disk' => 'uploads']);
+            $path = $file->store('gallery', 'public');
 
             GalleryImage::create([
                 'title'      => $data['title'] ?? null,
@@ -96,7 +96,7 @@ class GalleryController extends Controller
             if (file_exists($oldPath)) {
                 @unlink($oldPath);
             }
-            $data['image'] = $request->file('image')->store('gallery', ['disk' => 'uploads']);
+            $data['image'] = $request->file('image')->store('gallery', 'public');
         }
 
         $data['is_active'] = $request->boolean('is_active', true);

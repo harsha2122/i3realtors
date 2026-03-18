@@ -24,7 +24,7 @@
                     <div class="mb-3">
                         <label for="logo" class="form-label">Logo Image</label>
                         <div class="mb-2">
-                            <img src="{{ asset('storage/' . $recognition->logo) }}" alt="{{ $recognition->name }}" style="max-height:60px;max-width:150px;object-fit:contain;background:#f8f9fa;padding:8px;border-radius:4px;">
+                            <img src="{{ asset('uploads/' . $recognition->logo) }}" alt="{{ $recognition->name }}" style="max-height:60px;max-width:150px;object-fit:contain;background:#f8f9fa;padding:8px;border-radius:4px;">
                         </div>
                         <input type="file" class="form-control @error('logo') is-invalid @enderror" id="logo" name="logo" accept="image/*">
                         <div class="form-text">Leave blank to keep current logo.</div>

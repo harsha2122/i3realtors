@@ -13,7 +13,7 @@
         <div class="card border-0 shadow-sm rounded-3 text-center">
             <div class="card-body py-4">
                 @if($member->profile_image)
-                    <img src="{{ asset('storage/' . $member->profile_image) }}" alt="" class="rounded-circle mb-3" style="width:120px;height:120px;object-fit:cover;">
+                    <img src="{{ asset('uploads/' . $member->profile_image) }}" alt="" class="rounded-circle mb-3" style="width:120px;height:120px;object-fit:cover;">
                 @else
                     <div class="rounded-circle bg-light d-inline-flex align-items-center justify-content-center mb-3" style="width:120px;height:120px;">
                         <i class="fas fa-user fa-3x text-muted"></i>

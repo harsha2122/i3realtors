@@ -39,7 +39,7 @@
                     <tr>
                         <td>
                             @if($service->featured_image)
-                                <img src="{{ asset('storage/' . $service->featured_image) }}" alt="" class="rounded" style="width:50px;height:40px;object-fit:cover;">
+                                <img src="{{ asset('uploads/' . $service->featured_image) }}" alt="" class="rounded" style="width:50px;height:40px;object-fit:cover;">
                             @else
                                 <div class="bg-light rounded d-flex align-items-center justify-content-center" style="width:50px;height:40px;">
                                     <i class="{{ $service->icon ?? 'fas fa-cog' }} text-muted"></i>
