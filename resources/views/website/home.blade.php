@@ -572,7 +572,7 @@
     <!-- Our Project Section End -->
 
     <!-- Recognitions Section Start -->
-    <div style="background: #ffffff; padding: 100px 0; border-top: 1px solid #f0f0f0;">
+    <div class="bg-section" style="margin: 60px 0; padding: 100px 0;">
       <div class="container">
         <div class="row section-row">
           <div class="col-lg-12">
@@ -592,12 +592,14 @@
         <div class="row justify-content-center g-4 wow fadeInUp" data-wow-delay="0.3s">
           @foreach($recognitions as $rec)
           <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
-            <div style="padding: 20px 16px; border: 1px solid #eeeeee; border-radius: 8px; transition: all 0.3s ease; cursor: default;"
+            <div style="border: 1px solid #eeeeee; border-radius: 8px; transition: all 0.3s ease; cursor: default; overflow: hidden;"
                  onmouseover="this.style.borderColor='var(--accent-secondary-color)'; this.style.boxShadow='0 4px 20px rgba(200,169,106,0.15)';"
                  onmouseout="this.style.borderColor='#eeeeee'; this.style.boxShadow='none';">
-              <img src="{{ asset('uploads/' . $rec->logo) }}" alt="{{ $rec->name }}" style="max-height:55px; max-width:110px; object-fit:contain;">
+              <div style="width: 100%; height: 110px; overflow: hidden;">
+                <img src="{{ asset('uploads/' . $rec->logo) }}" alt="{{ $rec->name }}" style="width:100%; height:100%; object-fit:cover;">
+              </div>
               @if($rec->name)
-              <p style="font-size:11px; color:#888; margin:8px 0 0; font-weight:600;">{{ $rec->name }}</p>
+              <p style="font-size:11px; color:#888; margin:0; padding: 8px 6px; font-weight:600;">{{ $rec->name }}</p>
               @endif
             </div>
           </div>
