@@ -33,6 +33,7 @@ class TeamMemberController extends Controller
             'bio' => 'nullable|string',
             'email' => 'required|email|unique:team_members',
             'phone' => 'nullable|string',
+            'linkedin_url' => 'nullable|url',
             'profile_image' => 'nullable|image|max:2048',
             'joining_date' => 'nullable|date',
         ]);
@@ -76,6 +77,7 @@ class TeamMemberController extends Controller
             'bio' => 'nullable|string',
             'email' => 'required|email|unique:team_members,email,' . $member->id,
             'phone' => 'nullable|string',
+            'linkedin_url' => 'nullable|url',
             'profile_image' => 'nullable|image|max:2048',
             'joining_date' => 'nullable|date',
         ]);

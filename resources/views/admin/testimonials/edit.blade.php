@@ -28,9 +28,30 @@
                             <input type="text" class="form-control" id="author_title" name="author_title" value="{{ old('author_title', $testimonial->author_title) }}">
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="company" class="form-label">Company</label>
-                        <input type="text" class="form-control" id="company" name="company" value="{{ old('company', $testimonial->company) }}">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="company" class="form-label">Company</label>
+                            <input type="text" class="form-control" id="company" name="company" value="{{ old('company', $testimonial->company) }}">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="client_type" class="form-label">Client Type</label>
+                            <select class="form-select" id="client_type" name="client_type">
+                                <option value="">— Select —</option>
+                                @foreach(['Buyer','Investor','Developer'] as $type)
+                                    <option value="{{ $type }}" {{ old('client_type', $testimonial->client_type) === $type ? 'selected' : '' }}>{{ $type }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="project_name" class="form-label">Project Name</label>
+                            <input type="text" class="form-control" id="project_name" name="project_name" value="{{ old('project_name', $testimonial->project_name) }}">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="video_url" class="form-label">Video URL (optional)</label>
+                            <input type="url" class="form-control" id="video_url" name="video_url" value="{{ old('video_url', $testimonial->video_url) }}" placeholder="https://youtube.com/...">
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Testimonial Content <span class="text-danger">*</span></label>

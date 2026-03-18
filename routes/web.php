@@ -135,6 +135,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Team Management
         Route::resource('team', Admin\TeamMemberController::class);
 
+        // Developer Logos
+        Route::resource('developer-logos', Admin\DeveloperLogoController::class);
+
+        // Recognitions
+        Route::resource('recognitions', Admin\RecognitionController::class);
+
         // Testimonial Management
         Route::resource('testimonials', Admin\TestimonialController::class);
 

@@ -150,6 +150,12 @@
             <a href="{{ route('admin.testimonials.index') }}" class="nav-link {{ request()->routeIs('admin.testimonials.*') ? 'active' : '' }}">
                 <i class="fas fa-quote-left"></i> Testimonials
             </a>
+            <a href="{{ route('admin.developer-logos.index') }}" class="nav-link {{ request()->routeIs('admin.developer-logos.*') ? 'active' : '' }}">
+                <i class="fas fa-building"></i> Developer Logos
+            </a>
+            <a href="{{ route('admin.recognitions.index') }}" class="nav-link {{ request()->routeIs('admin.recognitions.*') ? 'active' : '' }}">
+                <i class="fas fa-award"></i> Recognitions
+            </a>
             <a href="{{ route('admin.gallery.index') }}" class="nav-link {{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
                 <i class="fas fa-images"></i> Gallery
             </a>

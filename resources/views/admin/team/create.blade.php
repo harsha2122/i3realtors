@@ -55,6 +55,10 @@
                         <label for="bio" class="form-label">Bio</label>
                         <textarea class="form-control" id="bio" name="bio" rows="4">{{ old('bio') }}</textarea>
                     </div>
+                    <div class="mb-3">
+                        <label for="linkedin_url" class="form-label">LinkedIn URL</label>
+                        <input type="url" class="form-control" id="linkedin_url" name="linkedin_url" value="{{ old('linkedin_url') }}" placeholder="https://linkedin.com/in/...">
+                    </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="profile_image" class="form-label">Profile Image</label>

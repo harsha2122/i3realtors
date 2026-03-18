@@ -157,6 +157,98 @@
 </div>
 <!-- About Us Section End -->
 
+<!-- Leadership Team Section Start -->
+<div style="background: #f9f9f9; padding: 80px 0;">
+    <div class="container">
+        <div class="row section-row">
+            <div class="col-lg-12">
+                <div class="section-title section-title-center">
+                    <span class="section-sub-title wow fadeInUp">Meet the Team</span>
+                    <h2 class="text-anime-style-2" data-cursor="-opaque">Leadership <span>Team</span></h2>
+                </div>
+            </div>
+        </div>
+
+        @if(isset($teamMembers) && $teamMembers->isNotEmpty())
+        <div class="row g-4 justify-content-center">
+            @foreach($teamMembers as $i => $member)
+            <div class="col-xl-4 col-md-6">
+                <div class="wow fadeInUp" data-wow-delay="{{ ['','0.2s','0.4s','0.6s'][$i] ?? '' }}"
+                     style="background:#ffffff; border-radius:12px; overflow:hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.07); height:100%;">
+                    @if($member->profile_image)
+                    <div style="height:260px; overflow:hidden;">
+                        <img src="{{ asset('storage/' . $member->profile_image) }}" alt="{{ $member->full_name }}"
+                             style="width:100%; height:100%; object-fit:cover; object-position: top;">
+                    </div>
+                    @else
+                    <div style="height:220px; background: linear-gradient(135deg, #1a1a1a, #2d2d2d); display:flex; align-items:center; justify-content:center;">
+                        <span style="font-size:64px; font-weight:700; color: var(--accent-secondary-color);">{{ strtoupper(substr($member->first_name, 0, 1)) }}</span>
+                    </div>
+                    @endif
+                    <div style="padding:28px;">
+                        <h3 style="font-size:20px; font-weight:700; color:#111; margin:0 0 4px;">{{ $member->full_name }}</h3>
+                        <p style="color: var(--accent-secondary-color); font-size:13px; font-weight:700; margin:0 0 16px; text-transform:uppercase; letter-spacing:0.5px;">{{ $member->position }}</p>
+                        @if($member->bio)
+                        <p style="color:#666; font-size:14px; line-height:1.7; margin:0 0 20px;">{{ $member->bio }}</p>
+                        @endif
+                        @if($member->linkedin_url)
+                        <a href="{{ $member->linkedin_url }}" target="_blank" rel="noopener noreferrer"
+                           style="display:inline-flex; align-items:center; gap:6px; color: var(--accent-secondary-color); font-size:13px; font-weight:600; text-decoration:none;">
+                            <i class="fa-brands fa-linkedin-in"></i> LinkedIn Profile
+                        </a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        @else
+        {{-- Hardcoded leadership content as default --}}
+        <div class="row g-4 justify-content-center">
+            @php
+            $leaders = [
+                [
+                    'name' => 'Ankit Nigam',
+                    'designation' => 'Founder & Managing Director',
+                    'description' => '14+ years of experience in real estate builder relations and mandate partnerships. Worked with leading developers like Shapoorji Pallonji, Puranik, and Gagan Developers.',
+                    'stats' => '1.1 Million Sq.ft sold | ₹770+ Cr business value',
+                ],
+                [
+                    'name' => 'Pravin Kolte',
+                    'designation' => 'Director – Strategy',
+                    'description' => '14+ years of experience in real estate sales strategy and developer partnerships. Handled multiple residential and commercial mandates across Pune, Mumbai, and Raigad.',
+                    'stats' => '2.4 Million Sq.ft sold | ₹1700+ Cr business value',
+                ],
+                [
+                    'name' => 'Shrikant Potale',
+                    'designation' => 'Director – Sales & Marketing',
+                    'description' => '12+ years of experience in builder relations and sales execution. Worked with Kumar Properties, Kolte Patil, and Mantra.',
+                    'stats' => '1 Million Sq.ft sold | ₹600+ Cr business value',
+                ],
+            ];
+            @endphp
+            @foreach($leaders as $i => $leader)
+            <div class="col-xl-4 col-md-6">
+                <div class="wow fadeInUp" data-wow-delay="{{ ['','0.2s','0.4s'][$i] }}"
+                     style="background:#ffffff; border-radius:12px; overflow:hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.07); height:100%;">
+                    <div style="height:180px; background: linear-gradient(135deg, #111111, #2a2a2a); display:flex; align-items:center; justify-content:center;">
+                        <span style="font-size:64px; font-weight:700; color: var(--accent-secondary-color);">{{ strtoupper(substr($leader['name'], 0, 1)) }}</span>
+                    </div>
+                    <div style="padding:28px;">
+                        <h3 style="font-size:20px; font-weight:700; color:#111; margin:0 0 4px;">{{ $leader['name'] }}</h3>
+                        <p style="color: var(--accent-secondary-color); font-size:13px; font-weight:700; margin:0 0 12px; text-transform:uppercase; letter-spacing:0.5px;">{{ $leader['designation'] }}</p>
+                        <p style="color:#666; font-size:14px; line-height:1.7; margin:0 0 12px;">{{ $leader['description'] }}</p>
+                        <p style="color:#999; font-size:12px; font-weight:600; border-top: 1px solid #f0f0f0; padding-top:12px; margin:0;">{{ $leader['stats'] }}</p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        @endif
+    </div>
+</div>
+<!-- Leadership Team Section End -->
+
 <!-- Our Approach Section Start -->
 <div class="our-approach bg-section">
     <div class="container">
