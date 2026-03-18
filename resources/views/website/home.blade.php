@@ -596,7 +596,7 @@
                  onmouseover="this.style.borderColor='var(--accent-secondary-color)'; this.style.boxShadow='0 4px 20px rgba(200,169,106,0.15)';"
                  onmouseout="this.style.borderColor='#eeeeee'; this.style.boxShadow='none';">
               <div style="width: 100%; height: 110px; overflow: hidden;">
-                <img src="{{ asset('uploads/' . $rec->logo) }}" alt="{{ $rec->name }}" style="width:100%; height:100%; object-fit:cover;">
+                <img src="{{ asset('uploads/' . $rec->logo) }}" alt="{{ $rec->name }}" style="width:100%; height:100%; object-fit:contain;">
               </div>
               @if($rec->name)
               <p style="font-size:11px; color:#888; margin:0; padding: 8px 6px; font-weight:600;">{{ $rec->name }}</p>
