@@ -23,7 +23,7 @@
     <!-- Page Header End -->
 
     <!-- Blog Section Start -->
-    <div class="our-blog" style="padding: 80px 0;">
+    <div class="our-blog" style="padding: 100px 0;">
         <div class="container">
 
             <!-- Blog Section Intro -->

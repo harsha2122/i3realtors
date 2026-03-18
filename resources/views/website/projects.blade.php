@@ -26,7 +26,7 @@
     <!-- Page Header End -->
 
     <!-- Projects Section Start -->
-    <div class="our-project page-project" style="padding: 80px 0;">
+    <div class="our-project page-project" style="padding: 100px 0;">
         <div class="container">
 
             {{-- Status Tabs --}}

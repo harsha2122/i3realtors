@@ -27,7 +27,7 @@
     <!-- Page Header End -->
 
     <!-- Project Detail Start -->
-    <div class="project-detail" style="padding: 80px 0;">
+    <div class="project-detail" style="padding: 100px 0;">
         <div class="container">
             <div class="row g-5">
 

@@ -23,7 +23,7 @@
 <!-- Page Header End -->
 
 <style>
-    .calc-section { padding: 80px 0; background: var(--bg-color); }
+    .calc-section { padding: 100px 0; background: var(--bg-color); }
 
     .calc-card {
         background: #fff;
