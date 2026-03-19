@@ -91,12 +91,12 @@
         <div class="wow fadeInUp" data-wow-delay="0.4s" style="overflow: hidden; position: relative;">
           <div class="developer-logo-track" style="display: flex; gap: 40px; align-items: center; animation: logoScroll 30s linear infinite;">
             @foreach($developerLogos->concat($developerLogos) as $devLogo)
-            <div class="developer-logo-item" style="flex-shrink: 0; min-width: 140px; text-align: center;">
+            <div class="developer-logo-item" style="flex-shrink: 0; min-width: 200px; text-align: center;">
               @if($devLogo->link)
               <a href="{{ $devLogo->link }}" target="_blank" rel="noopener noreferrer">
               @endif
               <img src="{{ asset('uploads/' . $devLogo->logo) }}" alt="{{ $devLogo->name }}"
-                   style="max-height: 60px; max-width: 140px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s ease;"
+                   style="max-height: 200px; max-width: 200px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s ease;"
                    onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';"
                    onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6';">
               @if($devLogo->link)
