@@ -443,7 +443,7 @@
           </div>
           <div class="col-xl-5 col-md-3">
             <div class="watch-video-circle">
-              <a href="{{ route('projects') }}" data-cursor-text="View Projects">
+              <a href="{{ route('website.projects.index') }}" data-cursor-text="View Projects">
                 <img src="{{ asset('images/watch-video-circle.png') }}" alt="" />
               </a>
             </div>
