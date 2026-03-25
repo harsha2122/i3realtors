@@ -7,60 +7,94 @@
 
     <!-- Hero Section Start -->
     <div class="hero hero-video bg-section dark-section" style="position:relative; overflow:hidden;">
+
+      {{-- Fluid animation (toggled from admin) --}}
+      @if($heroSettings['fluid_animation'])
       <canvas id="fluidCanvas" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;"></canvas>
+      @endif
+
+      {{-- Hero background video --}}
+      @if($heroSettings['video_type'] === 'youtube' && $heroSettings['video_url'])
+      @php
+        preg_match('/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $heroSettings['video_url'], $m);
+        $ytId = $m[1] ?? '';
+        $ytSrc = 'https://www.youtube.com/embed/' . $ytId
+               . '?autoplay=1&mute=1&loop=1&playlist=' . $ytId
+               . '&controls=0&showinfo=0&rel=0&modestbranding=1'
+               . ($heroSettings['video_start'] ? '&start=' . $heroSettings['video_start'] : '')
+               . ($heroSettings['video_end']   ? '&end='   . $heroSettings['video_end']   : '');
+      @endphp
+      @if($ytId)
+      <iframe src="{{ $ytSrc }}"
+              style="position:absolute;top:50%;left:50%;width:177.78vh;min-width:100%;height:56.25vw;min-height:100%;transform:translate(-50%,-50%);pointer-events:none;z-index:0;border:0;"
+              allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);z-index:0;"></div>
+      @endif
+      @elseif($heroSettings['video_type'] === 'upload' && $heroSettings['video_file'])
+      <video autoplay muted loop playsinline
+             style="position:absolute;top:50%;left:50%;width:100%;height:100%;object-fit:cover;transform:translate(-50%,-50%);z-index:0;">
+        <source src="{{ asset('uploads/' . $heroSettings['video_file']) }}" type="video/mp4">
+      </video>
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);z-index:0;"></div>
+      @endif
 
       <div class="container" style="position:relative; z-index:1;">
-        <div class="row align-items-end">
-          <div class="col-xl-6">
+        <div class="row justify-content-center">
+          <div class="col-xl-10 text-center">
+
+            <!-- Heading -->
             <div class="hero-content-box">
-              <div class="section-title">
+              <div class="section-title section-title-center">
                 <span class="section-sub-title wow fadeInUp">Invest in India</span>
                 <h1 class="text-anime-style-2" data-cursor="-opaque">
-                  Strategic real estate mandates for <span>Developers & Investors</span>
+                  Strategic Real Estate Mandates for Developers and Investors
                 </h1>
               </div>
             </div>
-          </div>
 
-          <div class="col-xl-6">
-            <div class="hero-counter-box">
-              <div class="hero-counter-list wow fadeInUp">
-                <div class="hero-counter-item">
-                  <h2><span class="counter">25</span>+</h2>
-                  <p>Developer Partnerships</p>
-                </div>
-                <div class="hero-counter-item">
-                  <h2><span class="counter">50</span>+</h2>
-                  <p>Projects Handled</p>
-                </div>
-                <div class="hero-counter-item">
-                  <h2><span class="counter">500</span>+</h2>
-                  <p>Investor Network</p>
-                </div>
+            <!-- Counters -->
+            <div class="hero-counter-box wow fadeInUp" data-wow-delay="0.1s" style="display:flex; justify-content:center; flex-wrap:wrap; gap:40px; margin-top:40px;">
+              <div class="hero-counter-item" style="text-align:center;">
+                <h2><span class="counter">20</span>+</h2>
+                <p>Developer Partnerships</p>
               </div>
+              <div class="hero-counter-item" style="text-align:center;">
+                <h2><span class="counter">36</span>+</h2>
+                <p>Projects Handled</p>
+              </div>
+              <div class="hero-counter-item" style="text-align:center;">
+                <h2><span class="counter">450</span>+</h2>
+                <p>Investor Network</p>
+              </div>
+              <div class="hero-counter-item" style="text-align:center;">
+                <h2><span class="counter">1800</span>+</h2>
+                <p>Channel Partner Network</p>
+              </div>
+            </div>
 
-              <div class="hero-counter-footer wow fadeInUp" data-wow-delay="0.2s">
-                <div class="hero-btn">
-                  <a href="{{ route('website.projects.index') }}" class="btn-default btn-highlighted">Explore Projects</a>
-                  <a href="{{ route('contact') }}" class="btn-default" style="margin-left: 10px;">Partner With Us</a>
+            <!-- Buttons + Rating -->
+            <div class="hero-counter-footer wow fadeInUp" data-wow-delay="0.2s" style="margin-top:36px; display:flex; flex-direction:column; align-items:center; gap:24px;">
+              <div class="hero-btn">
+                <a href="{{ route('website.projects.index') }}" class="btn-default btn-highlighted">Explore Projects</a>
+                <a href="{{ route('contact') }}" class="btn-default" style="margin-left: 10px;">Partner With Us</a>
+              </div>
+              <div class="hero-rating-box" style="display:flex; align-items:center; gap:16px; justify-content:center;">
+                <div class="hero-rating-box-header">
+                  <h3><span class="counter">4.9</span></h3>
+                  <p>
+                    <i class="fa fa-solid fa-star"></i>
+                    <i class="fa fa-solid fa-star"></i>
+                    <i class="fa fa-solid fa-star"></i>
+                    <i class="fa fa-solid fa-star"></i>
+                    <i class="fa fa-solid fa-star"></i>
+                  </p>
                 </div>
-                <div class="hero-rating-box">
-                  <div class="hero-rating-box-header">
-                    <h3><span class="counter">4.9</span></h3>
-                    <p>
-                      <i class="fa fa-solid fa-star"></i>
-                      <i class="fa fa-solid fa-star"></i>
-                      <i class="fa fa-solid fa-star"></i>
-                      <i class="fa fa-solid fa-star"></i>
-                      <i class="fa fa-solid fa-star"></i>
-                    </p>
-                  </div>
-                  <div class="hero-rating-box-content">
-                    <p>Trusted by Developers & Investment Partners<br>⭐ 4.9 Client Satisfaction Rating</p>
-                  </div>
+                <div class="hero-rating-box-content">
+                  <p>Trusted by Developers & Investment Partners<br>⭐ 4.9 Client Satisfaction Rating</p>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -89,16 +123,32 @@
 
         @if($developerLogos->isNotEmpty())
         <div class="wow fadeInUp" data-wow-delay="0.4s" style="overflow: hidden; position: relative;">
-          <div class="developer-logo-track" style="display: flex; gap: 40px; align-items: center; animation: logoScroll 30s linear infinite;">
+          <div class="developer-logo-track" style="display: flex; gap: 24px; align-items: center; animation: logoScroll 30s linear infinite;">
             @foreach($developerLogos->concat($developerLogos) as $devLogo)
-            <div class="developer-logo-item" style="flex-shrink: 0; min-width: 200px; text-align: center;">
+            <div class="developer-logo-item" style="flex-shrink: 0;">
               @if($devLogo->link)
-              <a href="{{ $devLogo->link }}" target="_blank" rel="noopener noreferrer">
+              <a href="{{ $devLogo->link }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
               @endif
-              <img src="{{ asset('uploads/' . $devLogo->logo) }}" alt="{{ $devLogo->name }}"
-                   style="max-height: 200px; max-width: 200px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s ease;"
-                   onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';"
-                   onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6';">
+              <div style="
+                display: flex; align-items: center; gap: 12px;
+                padding: 10px 20px;
+                background: rgba(255,255,255,0.08);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid rgba(255,255,255,0.18);
+                border-radius: 50px;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+                transition: all 0.3s ease;
+                white-space: nowrap;
+              "
+              onmouseover="this.style.background='rgba(255,255,255,0.16)'; this.style.borderColor='rgba(255,255,255,0.35)'; this.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)';"
+              onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(255,255,255,0.18)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.2)';">
+                <img src="{{ asset('uploads/' . $devLogo->logo) }}" alt="{{ $devLogo->name }}"
+                     style="height: 36px; width: auto; max-width: 80px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9;">
+                @if($devLogo->name)
+                <span style="color: rgba(255,255,255,0.85); font-size: 13px; font-weight: 600; letter-spacing: 0.03em;">{{ $devLogo->name }}</span>
+                @endif
+              </div>
               @if($devLogo->link)
               </a>
               @endif
@@ -190,21 +240,6 @@
                   </div>
                 </div>
               </div>
-
-              <div class="about-counter-item-list">
-                <div class="about-counter-item">
-                  <h2><span class="counter">25</span>+</h2>
-                  <p>Developer Partnerships</p>
-                </div>
-                <div class="about-counter-item">
-                  <h2><span class="counter">50</span>+</h2>
-                  <p>Projects Represented</p>
-                </div>
-                <div class="about-counter-item">
-                  <h2><span class="counter">500</span>+</h2>
-                  <p>Investor Network</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -226,18 +261,25 @@
           </div>
         </div>
 
-        <div class="row service-item-list">
+        <div class="row service-item-list g-4 justify-content-center">
           @php
           $services = [
-            ['img' => 'service-1.jpg', 'icon' => 'icon-service-item-1.svg', 'title' => 'Developer Mandate Services', 'desc' => 'We partner with developers as mandate consultants to manage project positioning, marketing strategy, and sales execution.', 'delay' => ''],
-            ['img' => 'service-2.jpg', 'icon' => 'icon-service-item-2.svg', 'title' => 'Project Marketing Strategy', 'desc' => 'From project launch to sustained demand generation, we design structured marketing strategies tailored to each development.', 'delay' => '0.2s'],
-            ['img' => 'service-3.jpg', 'icon' => 'icon-service-item-3.svg', 'title' => 'Real Estate Investment Advisory', 'desc' => 'We guide investors in identifying high-potential opportunities across residential and commercial developments.', 'delay' => '0.4s'],
-            ['img' => 'service-4.jpg', 'icon' => 'icon-service-item-4.svg', 'title' => 'Developer Partnerships', 'desc' => 'Building long-term collaborations with developers to structure real estate mandates and maximize project visibility.', 'delay' => '0.6s'],
+            ['img' => 'service-1.jpg', 'icon' => 'icon-service-item-1.svg', 'title' => 'Residential',         'desc' => 'End-to-end mandate management for residential projects — from launch positioning to sales execution and investor connect.', 'delay' => ''],
+            ['img' => 'service-2.jpg', 'icon' => 'icon-service-item-2.svg', 'title' => 'Commercial',          'desc' => 'Commercial property sales advisory and mandate representation to maximise developer returns and buyer engagement.', 'delay' => '0.1s'],
+            ['img' => 'service-3.jpg', 'icon' => 'icon-service-item-3.svg', 'title' => 'Retail',              'desc' => 'Retail space leasing, tenant mix strategy, and mandate services tailored to high-footfall commercial developments.', 'delay' => '0.2s'],
+            ['img' => 'service-4.jpg', 'icon' => 'icon-service-item-4.svg', 'title' => 'Investment Banking',  'desc' => 'Structured real estate investment solutions, deal syndication, and financial advisory for large-scale developments.', 'delay' => '0.1s'],
+            ['img' => 'service-1.jpg', 'icon' => 'icon-service-item-1.svg', 'title' => 'Commercial Leasing',  'desc' => 'Strategic leasing mandates for office spaces, warehouses, and retail units — negotiated for optimal occupancy and yield.', 'delay' => '0.2s'],
+            ['img' => 'service-2.jpg', 'icon' => 'icon-service-item-2.svg', 'title' => 'Hospitality',         'desc' => 'Hospitality real estate consulting, hotel project mandates, and investment advisory for premium leisure developments.', 'delay' => '0.3s'],
+            ['img' => 'service-3.jpg', 'icon' => 'icon-service-item-3.svg', 'title' => 'Project Management',  'desc' => 'Complete project oversight from planning to delivery — coordinating timelines, resources, and stakeholder communication.', 'delay' => '0.2s'],
+            ['img' => 'service-4.jpg', 'icon' => 'icon-service-item-4.svg', 'title' => 'Sales',               'desc' => 'High-performance sales deployment through our 1800+ channel partner network to drive consistent project velocity.', 'delay' => '0.3s'],
+            ['img' => 'service-1.jpg', 'icon' => 'icon-service-item-1.svg', 'title' => 'Designing',           'desc' => 'Architectural design consultation and interior planning to elevate project appeal and buyer experience.', 'delay' => '0.4s'],
+            ['img' => 'service-2.jpg', 'icon' => 'icon-service-item-2.svg', 'title' => 'Branding',            'desc' => 'Developer and project branding, identity creation, and marketing collateral to build lasting market presence.', 'delay' => '0.3s'],
+            ['img' => 'service-3.jpg', 'icon' => 'icon-service-item-3.svg', 'title' => 'Fund Raising',        'desc' => 'Real estate fund structuring, investor outreach, and capital raising services for developers and project promoters.', 'delay' => '0.4s'],
           ];
           @endphp
 
           @foreach($services as $i => $svc)
-          <div class="col-xl-3 col-md-6">
+          <div class="col-xl-3 col-lg-4 col-md-6">
             <div class="service-item {{ $i === 0 ? 'active' : '' }} wow fadeInUp" {{ $svc['delay'] ? 'data-wow-delay="'.$svc['delay'].'"' : '' }}>
               <div class="service-item-image">
                 <figure>
@@ -456,24 +498,43 @@
     <!-- Our Commitment Section Start -->
     <div class="our-commitment">
       <div class="container">
-        <div class="row">
+        <div class="row align-items-start">
+
+          {{-- LEFT: Mission / Vision / CTA --}}
           <div class="col-xl-5">
             <div class="our-commitment-content">
               <div class="our-commitment-header-content">
                 <div class="section-title">
-                  <span class="section-sub-title wow fadeInUp">Our Commitment</span>
+                  <span class="section-sub-title wow fadeInUp">Vision & Values</span>
                   <h2 class="text-anime-style-2" data-cursor="-opaque">
-                    Committed to Integrity & <span>Long-Term Partnerships</span>
+                    Our Mission, Vision & Values
                   </h2>
-                  <p class="wow fadeInUp" data-wow-delay="0.2s">
-                    Real estate development requires more than just marketing—it demands strategic positioning, trusted relationships, and a deep understanding of the market dynamics.
+                </div>
+
+                {{-- Mission --}}
+                <div class="wow fadeInUp" data-wow-delay="0.1s"
+                     style="border-left: 3px solid var(--accent-color); padding: 16px 20px; background: var(--bg-color); border-radius: 0 12px 12px 0; margin-bottom: 20px;">
+                  <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-color); display: block; margin-bottom: 6px;">Our Mission</span>
+                  <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--text-color);">
+                    To create a hassle-free Sales &amp; Marketing service to Developers in today's competitive market — connecting the right projects with the right buyers through strategic mandate execution.
                   </p>
                 </div>
-                <div class="our-commitment-btn wow fadeInUp" data-wow-delay="0.4s">
-                  <a href="{{ route('contact') }}" class="btn-default">Contact Us</a>
+
+                {{-- Vision --}}
+                <div class="wow fadeInUp" data-wow-delay="0.2s"
+                     style="border-left: 3px solid var(--accent-secondary-color); padding: 16px 20px; background: var(--bg-color); border-radius: 0 12px 12px 0; margin-bottom: 28px;">
+                  <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-secondary-color); display: block; margin-bottom: 6px;">Our Vision</span>
+                  <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--text-color);">
+                    To be the most trusted real estate mandate firm in India — empowering developers, unlocking investor potential, and setting the benchmark for ethical, results-driven real estate consulting.
+                  </p>
+                </div>
+
+                <div class="our-commitment-btn wow fadeInUp" data-wow-delay="0.3s">
+                  <a href="{{ route('contact') }}" class="btn-default">Partner With Us</a>
                 </div>
               </div>
-              <div class="commitment-client-box wow fadeInUp" data-wow-delay="0.6s">
+
+              <div class="commitment-client-box wow fadeInUp" data-wow-delay="0.5s">
                 <div class="satisfy-client-images">
                   @foreach(['author-1.jpg', 'author-2.jpg', 'author-3.jpg', 'author-4.jpg'] as $a)
                   <div class="satisfy-client-image">
@@ -489,28 +550,35 @@
             </div>
           </div>
 
+          {{-- RIGHT: 6 Values in 2-column grid --}}
           <div class="col-xl-7">
-            <div class="our-commitment-item-list">
+            <div class="row g-3">
               @php
               $commitments = [
-                ['icon' => 'icon-commitment-item-1.svg', 'title' => 'Structured Mandate Execution - Dedicated focus and strategic marketing strategies', 'delay' => ''],
-                ['icon' => 'icon-commitment-item-2.svg', 'title' => 'Transparency & Professionalism - Honest relationships with consistent execution', 'delay' => '0.2s'],
-                ['icon' => 'icon-commitment-item-3.svg', 'title' => 'Market Expertise - Deep understanding of market dynamics and buyer behavior', 'delay' => '0.4s'],
+                ['icon' => 'icon-commitment-item-1.svg', 'title' => 'Trust',            'desc' => 'We believe in the Power of Trust. Every developer and investor relationship we build is grounded in honesty, reliability, and long-term commitment.',       'delay' => ''],
+                ['icon' => 'icon-commitment-item-2.svg', 'title' => 'Transparency',     'desc' => 'We believe in transparency in all transactions. Clear communication and open processes ensure every client knows exactly where they stand.',                   'delay' => '0.1s'],
+                ['icon' => 'icon-commitment-item-3.svg', 'title' => 'Growing Together', 'desc' => 'We believe in working together in a win-win situation. When our developer partners succeed, we succeed — shared growth drives everything we do.',              'delay' => '0.2s'],
+                ['icon' => 'icon-commitment-item-1.svg', 'title' => 'Innovation',       'desc' => 'We embrace modern tools, data-driven strategies, and market intelligence to keep our developer partners ahead of the competition.',                           'delay' => '0.1s'],
+                ['icon' => 'icon-commitment-item-2.svg', 'title' => 'Client-Centric',   'desc' => 'Every decision we make puts our clients first. We tailor our mandate approach to each developer\'s unique project, timeline, and market goals.',              'delay' => '0.2s'],
+                ['icon' => 'icon-commitment-item-3.svg', 'title' => 'Excellence',       'desc' => 'We hold ourselves to the highest standard in every mandate we take — from project launch to final sale, excellence is non-negotiable.',                       'delay' => '0.3s'],
               ];
               @endphp
               @foreach($commitments as $c)
-              <div class="commitment-item wow fadeInUp" {{ $c['delay'] ? 'data-wow-delay="'.$c['delay'].'"' : '' }}>
-                <div class="commitment-item-header">
-                  <div class="icon-box"><img src="{{ asset('images/'.$c['icon']) }}" alt="" /></div>
-                  <div class="commitment-item-title"><h3>{{ $c['title'] }}</h3></div>
-                </div>
-                <div class="commitment-item-content">
-                  <p>We focus on transparency, professionalism, and consistent execution to ensure every project we represent achieves maximum visibility and impact.</p>
+              <div class="col-sm-6 col-12">
+                <div class="commitment-item wow fadeInUp" style="margin-bottom: 0; height: 100%;" {{ $c['delay'] ? 'data-wow-delay="'.$c['delay'].'"' : '' }}>
+                  <div class="commitment-item-header">
+                    <div class="icon-box"><img src="{{ asset('images/'.$c['icon']) }}" alt="" /></div>
+                    <div class="commitment-item-title"><h3>{{ $c['title'] }}</h3></div>
+                  </div>
+                  <div class="commitment-item-content">
+                    <p>{{ $c['desc'] }}</p>
+                  </div>
                 </div>
               </div>
               @endforeach
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -649,7 +717,7 @@
                 <iframe src="{{ str_replace('watch?v=', 'embed/', $testimonial->video_url) }}" style="width:100%;height:100%;border:0;" allowfullscreen loading="lazy"></iframe>
               </div>
               @endif
-              <p style="color:#555; font-size:14px; line-height:1.7; flex:1; font-style:italic;">"{{ $testimonial->content }}"</p>
+              <p style="color:#555; font-size:14px; line-height:1.7; flex:1; font-style:normal;">"{{ $testimonial->content }}"</p>
               <div style="display:flex; align-items:center; gap:12px; margin-top:20px; padding-top:20px; border-top:1px solid #f5f5f5;">
                 @if($testimonial->author_image)
                 <img src="{{ asset('uploads/' . $testimonial->author_image) }}" alt="{{ $testimonial->author_name }}"
@@ -682,7 +750,7 @@
               <div style="margin-bottom:16px;">
                 @for($s = 0; $s < 5; $s++)<i class="fas fa-star" style="color:#f4b400; font-size:16px;"></i>@endfor
               </div>
-              <p style="color:#555; font-size:15px; line-height:1.7; font-style:italic;">"i3 Realtors helped us structure and market our project efficiently. Their investor network and sales strategy delivered strong results within a short timeline."</p>
+              <p style="color:#555; font-size:15px; line-height:1.7; font-style:normal;">"i3 Realtors helped us structure and market our project efficiently. Their investor network and sales strategy delivered strong results within a short timeline."</p>
               <div style="display:flex; align-items:center; gap:12px; margin-top:20px; padding-top:20px; border-top:1px solid #f5f5f5;">
                 <div style="width:48px; height:48px; border-radius:50%; background: linear-gradient(135deg, var(--accent-secondary-color), #c8a96a); display:flex; align-items:center; justify-content:center;">
                   <span style="color:#fff; font-size:18px; font-weight:700;">D</span>
@@ -817,5 +885,7 @@
 @endpush
 
 @push('scripts')
+@if($heroSettings['fluid_animation'])
 <script src="https://cdn.jsdelivr.net/gh/Libero793/KNGURUWebsite3.0@latest/js/script.js" defer></script>
+@endif
 @endpush

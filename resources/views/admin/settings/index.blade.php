@@ -50,9 +50,13 @@
                         @foreach($settings as $key => $setting)
                         @if($setting->key === 'custom_cursor') @continue @endif
                         @php
-                            $label       = $setting->label ?? ucwords(str_replace('_', ' ', $setting->key));
+                            $label         = $setting->label ?? ucwords(str_replace('_', ' ', $setting->key));
                             $isColorField  = str_contains($setting->key, 'color');
                             $isMediaField  = in_array($setting->key, ['logo', 'logo_white', 'favicon']);
+                            $isVideoFile   = $setting->key === 'hero_video_file';
+                            $isVideoType   = $setting->key === 'hero_video_type';
+                            $isBoolField   = $setting->type === 'boolean';
+                            $isIntField    = $setting->type === 'integer';
                             $isLongText    = in_array($setting->key, ['google_analytics', 'meta_pixel', 'footer_about', 'site_description', 'footer_cta_title', 'footer_copyright', 'address', 'meta_description', 'meta_keywords']);
                             $isSocialField = str_starts_with($setting->key, 'social_');
                             $socialIcons   = [
@@ -77,8 +81,55 @@
                                 <p class="text-muted small mb-1">{{ $setting->description }}</p>
                             @endif
 
+                            {{-- ── BOOLEAN TOGGLE ── --}}
+                            @if($isBoolField)
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox"
+                                           name="{{ $setting->key }}" id="{{ $setting->key }}"
+                                           value="1" {{ $setting->value ? 'checked' : '' }}
+                                           style="width:48px; height:26px; cursor:pointer;">
+                                    <label class="form-check-label ms-2" for="{{ $setting->key }}">
+                                        {{ $setting->value ? 'Enabled' : 'Disabled' }}
+                                    </label>
+                                </div>
+
+                            {{-- ── VIDEO TYPE RADIO ── --}}
+                            @elseif($isVideoType)
+                                <div class="d-flex gap-3 flex-wrap">
+                                    @foreach(['none' => 'No Video', 'youtube' => 'YouTube Link', 'upload' => 'Upload Video'] as $val => $lbl)
+                                    <div class="form-check form-check-inline border rounded-3 px-3 py-2"
+                                         style="cursor:pointer; {{ ($setting->value ?? 'none') === $val ? 'border-color: var(--primary) !important; background:#faf7f0;' : '' }}">
+                                        <input class="form-check-input" type="radio"
+                                               name="{{ $setting->key }}" id="vtype_{{ $val }}"
+                                               value="{{ $val }}" {{ ($setting->value ?? 'none') === $val ? 'checked' : '' }}>
+                                        <label class="form-check-label fw-semibold" for="vtype_{{ $val }}">{{ $lbl }}</label>
+                                    </div>
+                                    @endforeach
+                                </div>
+
+                            {{-- ── VIDEO FILE UPLOAD ── --}}
+                            @elseif($isVideoFile)
+                                @if($setting->value)
+                                <div class="mb-2 p-3 border rounded-3 bg-light d-flex align-items-center gap-3" style="max-width:400px;">
+                                    <i class="fas fa-file-video fa-2x text-muted"></i>
+                                    <div>
+                                        <span class="small text-muted d-block">Current video:</span>
+                                        <span class="small fw-semibold">{{ basename($setting->value) }}</span>
+                                    </div>
+                                </div>
+                                @endif
+                                <input type="file" name="{{ $setting->key }}" class="form-control" accept="video/mp4,video/webm">
+                                <div class="form-text">Accepted: MP4, WebM. Max 50MB recommended.</div>
+
+                            {{-- ── INTEGER / NUMBER ── --}}
+                            @elseif($isIntField)
+                                <input type="number" name="{{ $setting->key }}"
+                                       value="{{ old($setting->key, $setting->value) }}"
+                                       class="form-control" style="max-width:180px;"
+                                       min="0" placeholder="0">
+
                             {{-- ── COLOR PICKER ── --}}
-                            @if($isColorField)
+                            @elseif($isColorField)
                                 <div class="d-flex align-items-center gap-3">
                                     <input type="color" name="{{ $setting->key }}"
                                            id="picker_{{ $setting->key }}"
