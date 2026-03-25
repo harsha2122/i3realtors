@@ -261,18 +261,25 @@
           </div>
         </div>
 
-        <div class="row service-item-list">
+        <div class="row service-item-list g-4 justify-content-center">
           @php
           $services = [
-            ['img' => 'service-1.jpg', 'icon' => 'icon-service-item-1.svg', 'title' => 'Developer Mandate Services', 'desc' => 'We partner with developers as mandate consultants to manage project positioning, marketing strategy, and sales execution.', 'delay' => ''],
-            ['img' => 'service-2.jpg', 'icon' => 'icon-service-item-2.svg', 'title' => 'Project Marketing Strategy', 'desc' => 'From project launch to sustained demand generation, we design structured marketing strategies tailored to each development.', 'delay' => '0.2s'],
-            ['img' => 'service-3.jpg', 'icon' => 'icon-service-item-3.svg', 'title' => 'Real Estate Investment Advisory', 'desc' => 'We guide investors in identifying high-potential opportunities across residential and commercial developments.', 'delay' => '0.4s'],
-            ['img' => 'service-4.jpg', 'icon' => 'icon-service-item-4.svg', 'title' => 'Developer Partnerships', 'desc' => 'Building long-term collaborations with developers to structure real estate mandates and maximize project visibility.', 'delay' => '0.6s'],
+            ['img' => 'service-1.jpg', 'icon' => 'icon-service-item-1.svg', 'title' => 'Residential',         'desc' => 'End-to-end mandate management for residential projects — from launch positioning to sales execution and investor connect.', 'delay' => ''],
+            ['img' => 'service-2.jpg', 'icon' => 'icon-service-item-2.svg', 'title' => 'Commercial',          'desc' => 'Commercial property sales advisory and mandate representation to maximise developer returns and buyer engagement.', 'delay' => '0.1s'],
+            ['img' => 'service-3.jpg', 'icon' => 'icon-service-item-3.svg', 'title' => 'Retail',              'desc' => 'Retail space leasing, tenant mix strategy, and mandate services tailored to high-footfall commercial developments.', 'delay' => '0.2s'],
+            ['img' => 'service-4.jpg', 'icon' => 'icon-service-item-4.svg', 'title' => 'Investment Banking',  'desc' => 'Structured real estate investment solutions, deal syndication, and financial advisory for large-scale developments.', 'delay' => '0.1s'],
+            ['img' => 'service-1.jpg', 'icon' => 'icon-service-item-1.svg', 'title' => 'Commercial Leasing',  'desc' => 'Strategic leasing mandates for office spaces, warehouses, and retail units — negotiated for optimal occupancy and yield.', 'delay' => '0.2s'],
+            ['img' => 'service-2.jpg', 'icon' => 'icon-service-item-2.svg', 'title' => 'Hospitality',         'desc' => 'Hospitality real estate consulting, hotel project mandates, and investment advisory for premium leisure developments.', 'delay' => '0.3s'],
+            ['img' => 'service-3.jpg', 'icon' => 'icon-service-item-3.svg', 'title' => 'Project Management',  'desc' => 'Complete project oversight from planning to delivery — coordinating timelines, resources, and stakeholder communication.', 'delay' => '0.2s'],
+            ['img' => 'service-4.jpg', 'icon' => 'icon-service-item-4.svg', 'title' => 'Sales',               'desc' => 'High-performance sales deployment through our 1800+ channel partner network to drive consistent project velocity.', 'delay' => '0.3s'],
+            ['img' => 'service-1.jpg', 'icon' => 'icon-service-item-1.svg', 'title' => 'Designing',           'desc' => 'Architectural design consultation and interior planning to elevate project appeal and buyer experience.', 'delay' => '0.4s'],
+            ['img' => 'service-2.jpg', 'icon' => 'icon-service-item-2.svg', 'title' => 'Branding',            'desc' => 'Developer and project branding, identity creation, and marketing collateral to build lasting market presence.', 'delay' => '0.3s'],
+            ['img' => 'service-3.jpg', 'icon' => 'icon-service-item-3.svg', 'title' => 'Fund Raising',        'desc' => 'Real estate fund structuring, investor outreach, and capital raising services for developers and project promoters.', 'delay' => '0.4s'],
           ];
           @endphp
 
           @foreach($services as $i => $svc)
-          <div class="col-xl-3 col-md-6">
+          <div class="col-xl-3 col-lg-4 col-md-6">
             <div class="service-item {{ $i === 0 ? 'active' : '' }} wow fadeInUp" {{ $svc['delay'] ? 'data-wow-delay="'.$svc['delay'].'"' : '' }}>
               <div class="service-item-image">
                 <figure>
