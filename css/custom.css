@@ -550,8 +550,24 @@ header.main-header .header-sticky.active {
 }
 
 .navbar {
-  padding: 25px 10px;
+  padding: 12px 10px;
   align-items: center;
+}
+
+/* Navbar CTA button — secondary accent color */
+.btn-default.btn-navbar {
+  background-color: var(--accent-secondary-color);
+  border-color: var(--accent-secondary-color);
+  color: var(--dark-color);
+}
+
+.btn-default.btn-navbar::before {
+  background-color: var(--accent-color);
+}
+
+.btn-default.btn-navbar:hover {
+  color: var(--white-color);
+  border-color: var(--accent-color);
 }
 
 .navbar-brand {

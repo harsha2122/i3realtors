@@ -9,21 +9,24 @@
     <div class="header-sticky bg-section">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <!-- Logo Start -->
-                <a class="navbar-brand" href="{{ route('home') }}">
-                    @if($logo)
-                        <img src="{{ $logo }}" alt="{{ $siteName }}" style="max-height: 50px; width: auto; object-fit: contain;" />
-                    @else
-                        <img src="{{ asset('images/logo.svg') }}" alt="{{ $siteName }}" style="max-height: 50px; width: auto; object-fit: contain;" />
-                    @endif
-                </a>
-                <!-- Logo End -->
+                <!-- Logo + Tagline Start -->
+                <div class="d-flex align-items-center gap-3" style="flex-shrink:0;">
+                    <a class="navbar-brand" href="{{ route('home') }}">
+                        @if($logo)
+                            <img src="{{ $logo }}" alt="{{ $siteName }}" style="max-height: 65px; width: auto; object-fit: contain;" />
+                        @else
+                            <img src="{{ asset('images/logo.svg') }}" alt="{{ $siteName }}" style="max-height: 65px; width: auto; object-fit: contain;" />
+                        @endif
+                    </a>
+                    <span class="navbar-tagline d-none d-lg-block" style="font-size:12px; font-weight:700; color:var(--accent-secondary-color); letter-spacing:0.08em; text-transform:uppercase; line-height:1.3; border-left:2px solid var(--accent-secondary-color); padding-left:12px;">Invest<br>in India</span>
+                </div>
+                <!-- Logo + Tagline End -->
 
                 <!-- Main Menu Start -->
-                <div class="collapse navbar-collapse main-menu">
-                    <div class="nav-menu-wrapper">
+                <div class="collapse navbar-collapse main-menu justify-content-end">
+                    <div class="nav-menu-wrapper" style="flex:0 0 auto;">
                         <!-- Hardcoded menu items -->
-                        <ul class="navbar-nav mr-auto" id="menu">
+                        <ul class="navbar-nav" id="menu">
                             <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('home') }}">Home</a>
                             </li>
@@ -50,7 +53,7 @@
 
                     <!-- Header Btn Start -->
                     <div class="header-btn">
-                        <a href="{{ route('contact') }}" class="btn-default">Partner With Us</a>
+                        <a href="{{ route('contact') }}" class="btn-default btn-navbar">Partner With Us</a>
                     </div>
                     <!-- Header Btn End -->
                 </div>
