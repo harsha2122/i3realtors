@@ -475,7 +475,7 @@ a:focus {
 
 .section-title h1 span,
 .section-title h2 span {
-  font-style: italic;
+  font-style: normal;
 }
 
 .section-title p {
@@ -2811,7 +2811,7 @@ header.main-header .header-sticky.active {
 }
 
 .page-header-box h1 span {
-  font-style: italic;
+  font-style: normal;
 }
 
 .page-header-box ol {
@@ -3473,7 +3473,7 @@ header.main-header .header-sticky.active {
 }
 
 .service-entry h2 span {
-  font-style: italic;
+  font-style: normal;
 }
 
 .service-entry h3 {
@@ -3950,7 +3950,7 @@ header.main-header .header-sticky.active {
 }
 
 .project-entry h2 span {
-  font-style: italic;
+  font-style: normal;
 }
 
 .project-entry h3 {

@@ -683,7 +683,7 @@
                 <iframe src="{{ str_replace('watch?v=', 'embed/', $testimonial->video_url) }}" style="width:100%;height:100%;border:0;" allowfullscreen loading="lazy"></iframe>
               </div>
               @endif
-              <p style="color:#555; font-size:14px; line-height:1.7; flex:1; font-style:italic;">"{{ $testimonial->content }}"</p>
+              <p style="color:#555; font-size:14px; line-height:1.7; flex:1; font-style:normal;">"{{ $testimonial->content }}"</p>
               <div style="display:flex; align-items:center; gap:12px; margin-top:20px; padding-top:20px; border-top:1px solid #f5f5f5;">
                 @if($testimonial->author_image)
                 <img src="{{ asset('uploads/' . $testimonial->author_image) }}" alt="{{ $testimonial->author_name }}"
@@ -716,7 +716,7 @@
               <div style="margin-bottom:16px;">
                 @for($s = 0; $s < 5; $s++)<i class="fas fa-star" style="color:#f4b400; font-size:16px;"></i>@endfor
               </div>
-              <p style="color:#555; font-size:15px; line-height:1.7; font-style:italic;">"i3 Realtors helped us structure and market our project efficiently. Their investor network and sales strategy delivered strong results within a short timeline."</p>
+              <p style="color:#555; font-size:15px; line-height:1.7; font-style:normal;">"i3 Realtors helped us structure and market our project efficiently. Their investor network and sales strategy delivered strong results within a short timeline."</p>
               <div style="display:flex; align-items:center; gap:12px; margin-top:20px; padding-top:20px; border-top:1px solid #f5f5f5;">
                 <div style="width:48px; height:48px; border-radius:50%; background: linear-gradient(135deg, var(--accent-secondary-color), #c8a96a); display:flex; align-items:center; justify-content:center;">
                   <span style="color:#fff; font-size:18px; font-weight:700;">D</span>
