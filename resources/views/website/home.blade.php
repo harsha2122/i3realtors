@@ -503,12 +503,12 @@
             <div class="our-commitment-content">
               <div class="our-commitment-header-content">
                 <div class="section-title">
-                  <span class="section-sub-title wow fadeInUp">Our Commitment</span>
+                  <span class="section-sub-title wow fadeInUp">Vision & Values</span>
                   <h2 class="text-anime-style-2" data-cursor="-opaque">
-                    Committed to Integrity & <span>Long-Term Partnerships</span>
+                    Our Mission, Vision & Values
                   </h2>
                   <p class="wow fadeInUp" data-wow-delay="0.2s">
-                    Real estate development requires more than just marketing—it demands strategic positioning, trusted relationships, and a deep understanding of the market dynamics.
+                    We aim to create a hassle-free Sales & Marketing service to Developers in today's market competition.
                   </p>
                 </div>
                 <div class="our-commitment-btn wow fadeInUp" data-wow-delay="0.4s">
@@ -535,9 +535,24 @@
             <div class="our-commitment-item-list">
               @php
               $commitments = [
-                ['icon' => 'icon-commitment-item-1.svg', 'title' => 'Structured Mandate Execution - Dedicated focus and strategic marketing strategies', 'delay' => ''],
-                ['icon' => 'icon-commitment-item-2.svg', 'title' => 'Transparency & Professionalism - Honest relationships with consistent execution', 'delay' => '0.2s'],
-                ['icon' => 'icon-commitment-item-3.svg', 'title' => 'Market Expertise - Deep understanding of market dynamics and buyer behavior', 'delay' => '0.4s'],
+                [
+                  'icon'  => 'icon-commitment-item-1.svg',
+                  'title' => 'Trust',
+                  'desc'  => 'We believe in the Power of Trust. Every relationship we build — with developers, investors, and partners — is grounded in honesty, reliability, and long-term commitment.',
+                  'delay' => '',
+                ],
+                [
+                  'icon'  => 'icon-commitment-item-2.svg',
+                  'title' => 'Transparency',
+                  'desc'  => 'We believe in transparency in all transactions. Clear communication, honest reporting, and open processes ensure our clients always know exactly where they stand.',
+                  'delay' => '0.2s',
+                ],
+                [
+                  'icon'  => 'icon-commitment-item-3.svg',
+                  'title' => 'Growing Together',
+                  'desc'  => 'We believe in working together in a win-win situation. When our developer partners succeed, we succeed — and that shared growth drives everything we do.',
+                  'delay' => '0.4s',
+                ],
               ];
               @endphp
               @foreach($commitments as $c)
@@ -547,7 +562,7 @@
                   <div class="commitment-item-title"><h3>{{ $c['title'] }}</h3></div>
                 </div>
                 <div class="commitment-item-content">
-                  <p>We focus on transparency, professionalism, and consistent execution to ensure every project we represent achieves maximum visibility and impact.</p>
+                  <p>{{ $c['desc'] }}</p>
                 </div>
               </div>
               @endforeach
