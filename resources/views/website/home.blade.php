@@ -39,57 +39,62 @@
       @endif
 
       <div class="container" style="position:relative; z-index:1;">
-        <div class="row align-items-end">
-          <div class="col-xl-6">
+        <div class="row justify-content-center">
+          <div class="col-xl-10 text-center">
+
+            <!-- Heading -->
             <div class="hero-content-box">
-              <div class="section-title">
+              <div class="section-title section-title-center">
                 <span class="section-sub-title wow fadeInUp">Invest in India</span>
                 <h1 class="text-anime-style-2" data-cursor="-opaque">
-                  Strategic real estate mandates for <span>Developers & Investors</span>
+                  Strategic Real Estate Mandates for Developers and Investors
                 </h1>
               </div>
             </div>
-          </div>
 
-          <div class="col-xl-6">
-            <div class="hero-counter-box">
-              <div class="hero-counter-list wow fadeInUp">
-                <div class="hero-counter-item">
-                  <h2><span class="counter">25</span>+</h2>
-                  <p>Developer Partnerships</p>
-                </div>
-                <div class="hero-counter-item">
-                  <h2><span class="counter">50</span>+</h2>
-                  <p>Projects Handled</p>
-                </div>
-                <div class="hero-counter-item">
-                  <h2><span class="counter">500</span>+</h2>
-                  <p>Investor Network</p>
-                </div>
+            <!-- Counters -->
+            <div class="hero-counter-box wow fadeInUp" data-wow-delay="0.1s" style="display:flex; justify-content:center; flex-wrap:wrap; gap:40px; margin-top:40px;">
+              <div class="hero-counter-item" style="text-align:center;">
+                <h2><span class="counter">20</span>+</h2>
+                <p>Developer Partnerships</p>
               </div>
+              <div class="hero-counter-item" style="text-align:center;">
+                <h2><span class="counter">36</span>+</h2>
+                <p>Projects Handled</p>
+              </div>
+              <div class="hero-counter-item" style="text-align:center;">
+                <h2><span class="counter">450</span>+</h2>
+                <p>Investor Network</p>
+              </div>
+              <div class="hero-counter-item" style="text-align:center;">
+                <h2><span class="counter">1800</span>+</h2>
+                <p>Channel Partner Network</p>
+              </div>
+            </div>
 
-              <div class="hero-counter-footer wow fadeInUp" data-wow-delay="0.2s">
-                <div class="hero-btn">
-                  <a href="{{ route('website.projects.index') }}" class="btn-default btn-highlighted">Explore Projects</a>
-                  <a href="{{ route('contact') }}" class="btn-default" style="margin-left: 10px;">Partner With Us</a>
+            <!-- Buttons + Rating -->
+            <div class="hero-counter-footer wow fadeInUp" data-wow-delay="0.2s" style="margin-top:36px; display:flex; flex-direction:column; align-items:center; gap:24px;">
+              <div class="hero-btn">
+                <a href="{{ route('website.projects.index') }}" class="btn-default btn-highlighted">Explore Projects</a>
+                <a href="{{ route('contact') }}" class="btn-default" style="margin-left: 10px;">Partner With Us</a>
+              </div>
+              <div class="hero-rating-box" style="display:flex; align-items:center; gap:16px; justify-content:center;">
+                <div class="hero-rating-box-header">
+                  <h3><span class="counter">4.9</span></h3>
+                  <p>
+                    <i class="fa fa-solid fa-star"></i>
+                    <i class="fa fa-solid fa-star"></i>
+                    <i class="fa fa-solid fa-star"></i>
+                    <i class="fa fa-solid fa-star"></i>
+                    <i class="fa fa-solid fa-star"></i>
+                  </p>
                 </div>
-                <div class="hero-rating-box">
-                  <div class="hero-rating-box-header">
-                    <h3><span class="counter">4.9</span></h3>
-                    <p>
-                      <i class="fa fa-solid fa-star"></i>
-                      <i class="fa fa-solid fa-star"></i>
-                      <i class="fa fa-solid fa-star"></i>
-                      <i class="fa fa-solid fa-star"></i>
-                      <i class="fa fa-solid fa-star"></i>
-                    </p>
-                  </div>
-                  <div class="hero-rating-box-content">
-                    <p>Trusted by Developers & Investment Partners<br>⭐ 4.9 Client Satisfaction Rating</p>
-                  </div>
+                <div class="hero-rating-box-content">
+                  <p>Trusted by Developers & Investment Partners<br>⭐ 4.9 Client Satisfaction Rating</p>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
