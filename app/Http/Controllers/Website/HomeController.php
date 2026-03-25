@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\DeveloperLogo;
 use App\Models\Project;
 use App\Models\Recognition;
+use App\Models\Setting;
 use App\Domains\Services\Models\Testimonial;
 
 class HomeController extends Controller
@@ -29,6 +30,15 @@ class HomeController extends Controller
 
         $recognitions = Recognition::active()->get();
 
-        return view('website.home', compact('projects', 'developerLogos', 'testimonials', 'recognitions'));
+        $heroSettings = [
+            'fluid_animation' => (bool) Setting::get('hero_fluid_animation', true),
+            'video_type'      => Setting::get('hero_video_type', 'none'),
+            'video_url'       => Setting::get('hero_video_url', ''),
+            'video_start'     => (int) Setting::get('hero_video_start', 0),
+            'video_end'       => (int) Setting::get('hero_video_end', 0),
+            'video_file'      => Setting::get('hero_video_file', ''),
+        ];
+
+        return view('website.home', compact('projects', 'developerLogos', 'testimonials', 'recognitions', 'heroSettings'));
     }
 }

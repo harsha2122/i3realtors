@@ -25,7 +25,7 @@ class SettingsService
         $settings = Setting::where('group', $group)->get();
 
         foreach ($settings as $setting) {
-            // Handle file upload fields
+            // Handle file upload fields (images and videos)
             if (isset($files[$setting->key]) && $files[$setting->key] instanceof UploadedFile) {
                 $this->handleFileUpload($setting, $files[$setting->key], $group);
                 continue;
@@ -56,7 +56,10 @@ class SettingsService
             Storage::disk('public')->delete($setting->value);
         }
 
-        $path = $file->store("settings/{$group}", 'public');
+        $mimeType = $file->getMimeType();
+        $isVideo  = str_starts_with($mimeType, 'video/');
+        $folder   = $isVideo ? "settings/{$group}/videos" : "settings/{$group}";
+        $path     = $file->store($folder, 'public');
         $setting->update(['value' => $path]);
     }
 

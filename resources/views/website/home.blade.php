@@ -7,7 +7,36 @@
 
     <!-- Hero Section Start -->
     <div class="hero hero-video bg-section dark-section" style="position:relative; overflow:hidden;">
+
+      {{-- Fluid animation (toggled from admin) --}}
+      @if($heroSettings['fluid_animation'])
       <canvas id="fluidCanvas" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;"></canvas>
+      @endif
+
+      {{-- Hero background video --}}
+      @if($heroSettings['video_type'] === 'youtube' && $heroSettings['video_url'])
+      @php
+        preg_match('/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $heroSettings['video_url'], $m);
+        $ytId = $m[1] ?? '';
+        $ytSrc = 'https://www.youtube.com/embed/' . $ytId
+               . '?autoplay=1&mute=1&loop=1&playlist=' . $ytId
+               . '&controls=0&showinfo=0&rel=0&modestbranding=1'
+               . ($heroSettings['video_start'] ? '&start=' . $heroSettings['video_start'] : '')
+               . ($heroSettings['video_end']   ? '&end='   . $heroSettings['video_end']   : '');
+      @endphp
+      @if($ytId)
+      <iframe src="{{ $ytSrc }}"
+              style="position:absolute;top:50%;left:50%;width:177.78vh;min-width:100%;height:56.25vw;min-height:100%;transform:translate(-50%,-50%);pointer-events:none;z-index:0;border:0;"
+              allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);z-index:0;"></div>
+      @endif
+      @elseif($heroSettings['video_type'] === 'upload' && $heroSettings['video_file'])
+      <video autoplay muted loop playsinline
+             style="position:absolute;top:50%;left:50%;width:100%;height:100%;object-fit:cover;transform:translate(-50%,-50%);z-index:0;">
+        <source src="{{ asset('uploads/' . $heroSettings['video_file']) }}" type="video/mp4">
+      </video>
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);z-index:0;"></div>
+      @endif
 
       <div class="container" style="position:relative; z-index:1;">
         <div class="row align-items-end">
@@ -817,5 +846,7 @@
 @endpush
 
 @push('scripts')
+@if($heroSettings['fluid_animation'])
 <script src="https://cdn.jsdelivr.net/gh/Libero793/KNGURUWebsite3.0@latest/js/script.js" defer></script>
+@endif
 @endpush
