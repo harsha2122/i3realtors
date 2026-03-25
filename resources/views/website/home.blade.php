@@ -53,46 +53,28 @@
             </div>
 
             <!-- Counters -->
-            <div class="hero-counter-box wow fadeInUp" data-wow-delay="0.1s" style="display:flex; justify-content:center; flex-wrap:wrap; gap:40px; margin-top:40px;">
-              <div class="hero-counter-item" style="text-align:center;">
+            <div class="hero-counter-box wow fadeInUp" data-wow-delay="0.1s" style="display:flex; justify-content:center; flex-wrap:nowrap; gap:0; margin-top:40px; width:100%;">
+              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.15);">
                 <h2><span class="counter">20</span>+</h2>
                 <p>Developer Partnerships</p>
               </div>
-              <div class="hero-counter-item" style="text-align:center;">
+              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.15);">
                 <h2><span class="counter">36</span>+</h2>
                 <p>Projects Handled</p>
               </div>
-              <div class="hero-counter-item" style="text-align:center;">
+              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.15);">
                 <h2><span class="counter">450</span>+</h2>
                 <p>Investor Network</p>
               </div>
-              <div class="hero-counter-item" style="text-align:center;">
+              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px;">
                 <h2><span class="counter">1800</span>+</h2>
                 <p>Channel Partner Network</p>
               </div>
             </div>
 
-            <!-- Buttons + Rating -->
-            <div class="hero-counter-footer wow fadeInUp" data-wow-delay="0.2s" style="margin-top:36px; display:flex; flex-direction:column; align-items:center; gap:24px;">
-              <div class="hero-btn">
-                <a href="{{ route('website.projects.index') }}" class="btn-default btn-highlighted">Explore Projects</a>
-                <a href="{{ route('contact') }}" class="btn-default" style="margin-left: 10px;">Partner With Us</a>
-              </div>
-              <div class="hero-rating-box" style="display:flex; align-items:center; gap:16px; justify-content:center;">
-                <div class="hero-rating-box-header">
-                  <h3><span class="counter">4.9</span></h3>
-                  <p>
-                    <i class="fa fa-solid fa-star"></i>
-                    <i class="fa fa-solid fa-star"></i>
-                    <i class="fa fa-solid fa-star"></i>
-                    <i class="fa fa-solid fa-star"></i>
-                    <i class="fa fa-solid fa-star"></i>
-                  </p>
-                </div>
-                <div class="hero-rating-box-content">
-                  <p>Trusted by Developers & Investment Partners<br>⭐ 4.9 Client Satisfaction Rating</p>
-                </div>
-              </div>
+            <!-- Rating sentence only -->
+            <div class="wow fadeInUp" data-wow-delay="0.2s" style="margin-top:30px;">
+              <p style="color: rgba(255,255,255,0.7); font-size: 15px; margin:0;">Trusted by Developers &amp; Investment Partners &nbsp;|&nbsp; 4.9 Client Satisfaction Rating</p>
             </div>
 
           </div>
