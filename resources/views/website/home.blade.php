@@ -240,21 +240,6 @@
                   </div>
                 </div>
               </div>
-
-              <div class="about-counter-item-list">
-                <div class="about-counter-item">
-                  <h2><span class="counter">25</span>+</h2>
-                  <p>Developer Partnerships</p>
-                </div>
-                <div class="about-counter-item">
-                  <h2><span class="counter">50</span>+</h2>
-                  <p>Projects Represented</p>
-                </div>
-                <div class="about-counter-item">
-                  <h2><span class="counter">500</span>+</h2>
-                  <p>Investor Network</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
