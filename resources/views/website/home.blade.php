@@ -123,16 +123,32 @@
 
         @if($developerLogos->isNotEmpty())
         <div class="wow fadeInUp" data-wow-delay="0.4s" style="overflow: hidden; position: relative;">
-          <div class="developer-logo-track" style="display: flex; gap: 40px; align-items: center; animation: logoScroll 30s linear infinite;">
+          <div class="developer-logo-track" style="display: flex; gap: 24px; align-items: center; animation: logoScroll 30s linear infinite;">
             @foreach($developerLogos->concat($developerLogos) as $devLogo)
-            <div class="developer-logo-item" style="flex-shrink: 0; min-width: 200px; text-align: center;">
+            <div class="developer-logo-item" style="flex-shrink: 0;">
               @if($devLogo->link)
-              <a href="{{ $devLogo->link }}" target="_blank" rel="noopener noreferrer">
+              <a href="{{ $devLogo->link }}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
               @endif
-              <img src="{{ asset('uploads/' . $devLogo->logo) }}" alt="{{ $devLogo->name }}"
-                   style="max-height: 200px; max-width: 200px; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s ease;"
-                   onmouseover="this.style.filter='grayscale(0%)'; this.style.opacity='1';"
-                   onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6';">
+              <div style="
+                display: flex; align-items: center; gap: 12px;
+                padding: 10px 20px;
+                background: rgba(255,255,255,0.08);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid rgba(255,255,255,0.18);
+                border-radius: 50px;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+                transition: all 0.3s ease;
+                white-space: nowrap;
+              "
+              onmouseover="this.style.background='rgba(255,255,255,0.16)'; this.style.borderColor='rgba(255,255,255,0.35)'; this.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)';"
+              onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(255,255,255,0.18)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.2)';">
+                <img src="{{ asset('uploads/' . $devLogo->logo) }}" alt="{{ $devLogo->name }}"
+                     style="height: 36px; width: auto; max-width: 80px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9;">
+                @if($devLogo->name)
+                <span style="color: rgba(255,255,255,0.85); font-size: 13px; font-weight: 600; letter-spacing: 0.03em;">{{ $devLogo->name }}</span>
+                @endif
+              </div>
               @if($devLogo->link)
               </a>
               @endif
