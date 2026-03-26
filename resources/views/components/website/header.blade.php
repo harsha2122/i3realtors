@@ -13,9 +13,9 @@
                 <div class="d-flex align-items-center gap-3" style="flex-shrink:0;">
                     <a class="navbar-brand" href="{{ route('home') }}">
                         @if($logo)
-                            <img src="{{ $logo }}" alt="{{ $siteName }}" style="max-height: 65px; width: auto; object-fit: contain;" />
+                            <img src="{{ $logo }}" alt="{{ $siteName }}" style="max-height: 100px; width: auto; object-fit: contain;" />
                         @else
-                            <img src="{{ asset('images/logo.svg') }}" alt="{{ $siteName }}" style="max-height: 65px; width: auto; object-fit: contain;" />
+                            <img src="{{ asset('images/logo.svg') }}" alt="{{ $siteName }}" style="max-height: 100px; width: auto; object-fit: contain;" />
                         @endif
                     </a>
                     <span class="navbar-tagline d-none d-lg-block" style="font-size:12px; font-weight:700; color:var(--accent-secondary-color); letter-spacing:0.08em; text-transform:uppercase; line-height:1.3; border-left:2px solid var(--accent-secondary-color); padding-left:12px;">Invest<br>in India</span>
