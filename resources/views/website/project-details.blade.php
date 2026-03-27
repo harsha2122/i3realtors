@@ -209,7 +209,7 @@
                 <div class="col-xl-4 col-md-6 mb-4">
                     <div class="project-item wow fadeInUp">
                         <div class="project-item-image">
-                            <a href="{{ route('website.projects.show', $rel->slug) }}" data-cursor-text="View">
+                            <a href="#" data-cursor-text="View">
                                 <figure>
                                     <img src="{{ $rel->thumbnail_url }}" alt="{{ $rel->title }}"
                                          style="width:100%;height:220px;object-fit:cover;" />
@@ -218,7 +218,7 @@
                         </div>
                         <div class="project-item-content">
                             <ul><li>{{ $rel->type_label }}</li></ul>
-                            <h2><a href="{{ route('website.projects.show', $rel->slug) }}">{{ $rel->title }}</a></h2>
+                            <h2><a href="#">{{ $rel->title }}</a></h2>
                         </div>
                     </div>
                 </div>

@@ -62,9 +62,9 @@
                 <div class="about-footer">
                     <div class="footer-logo">
                         @if($logoWhite)
-                            <img src="{{ $logoWhite }}" alt="{{ $siteName }}" style="max-height: 60px; width: auto; object-fit: contain;" />
+                            <img src="{{ $logoWhite }}" alt="{{ $siteName }}" style="max-height: 130px; width: auto; object-fit: contain;" />
                         @else
-                            <img src="{{ asset('images/logo-white.svg') }}" alt="{{ $siteName }}" style="max-height: 60px; width: auto; object-fit: contain;" />
+                            <img src="{{ asset('images/logo-white.svg') }}" alt="{{ $siteName }}" style="max-height: 130px; width: auto; object-fit: contain;" />
                         @endif
                     </div>
                     <div class="about-footer-content">

@@ -54,15 +54,15 @@
 
             <!-- Counters -->
             <div class="hero-counter-box wow fadeInUp" data-wow-delay="0.1s" style="display:flex; justify-content:center; flex-wrap:nowrap; gap:0; margin-top:40px; width:100%;">
-              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.15);">
+              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px">
                 <h2><span class="counter">20</span>+</h2>
                 <p>Developer Partnerships</p>
               </div>
-              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.15);">
+              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px">
                 <h2><span class="counter">36</span>+</h2>
                 <p>Projects Handled</p>
               </div>
-              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.15);">
+              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px">
                 <h2><span class="counter">450</span>+</h2>
                 <p>Investor Network</p>
               </div>
@@ -126,10 +126,7 @@
               onmouseover="this.style.background='rgba(255,255,255,0.16)'; this.style.borderColor='rgba(255,255,255,0.35)'; this.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)';"
               onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(255,255,255,0.18)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.2)';">
                 <img src="{{ asset('uploads/' . $devLogo->logo) }}" alt="{{ $devLogo->name }}"
-                     style="height: 36px; width: auto; max-width: 80px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9;">
-                @if($devLogo->name)
-                <span style="color: rgba(255,255,255,0.85); font-size: 13px; font-weight: 600; letter-spacing: 0.03em;">{{ $devLogo->name }}</span>
-                @endif
+                     style="height: 40px; width: auto; max-width: 120px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9;">
               </div>
               @if($devLogo->link)
               </a>
@@ -586,13 +583,13 @@
           <div class="col-xl-3 col-md-6">
             <div class="project-item wow fadeInUp" {{ $delays[$i] ? 'data-wow-delay="'.$delays[$i].'"' : '' }}>
               <div class="project-item-image">
-                <a href="{{ route('website.projects.show', $project->slug) }}" data-cursor-text="View">
+                <a href="#" data-cursor-text="View">
                   <figure><img src="{{ $project->thumbnail_url }}" alt="{{ $project->title }}" /></figure>
                 </a>
               </div>
               <div class="project-item-content">
-                <ul><li><a href="{{ route('website.projects.show', $project->slug) }}">{{ $project->type_label }}</a></li></ul>
-                <h2><a href="{{ route('website.projects.show', $project->slug) }}">{{ $project->title }}</a></h2>
+                <ul><li><a href="#">{{ $project->type_label }}</a></li></ul>
+                <h2><a href="#">{{ $project->title }}</a></h2>
               </div>
             </div>
           </div>
@@ -770,7 +767,7 @@
     </div>
     <!-- Properties CTA End -->
 
-    <!-- Our Fact Section Start -->
+    {{-- Our Fact Section Start (commented out)
     <div class="our-fact">
       <div class="container">
         <div class="row section-row">
@@ -830,7 +827,7 @@
         </div>
       </div>
     </div>
-    <!-- Our Fact Section End -->
+    Our Fact Section End --}}
 
     <!-- Cta Box Section Start -->
     <div class="cta-box bg-section dark-section parallaxie">

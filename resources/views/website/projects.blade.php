@@ -38,20 +38,20 @@
                               {{ $activeStatus === '' ? 'background: var(--primary-color); color: var(--accent-secondary-color);' : 'background: transparent; color: var(--primary-color);' }}">
                         All
                     </a>
-                    <a href="{{ route('website.projects.index', ['status' => 'upcoming']) }}"
+                    <a href="{{ route('website.projects.index', ['status' => 'completed']) }}"
                        style="display:inline-block; padding: 10px 28px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.3s;
-                              {{ $activeStatus === 'upcoming' ? 'background: var(--primary-color); color: var(--accent-secondary-color);' : 'background: transparent; color: var(--primary-color);' }}">
-                        Upcoming
+                              {{ $activeStatus === 'completed' ? 'background: var(--primary-color); color: var(--accent-secondary-color);' : 'background: transparent; color: var(--primary-color);' }}">
+                        Completed
                     </a>
                     <a href="{{ route('website.projects.index', ['status' => 'ongoing']) }}"
                        style="display:inline-block; padding: 10px 28px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.3s;
                               {{ $activeStatus === 'ongoing' ? 'background: var(--primary-color); color: var(--accent-secondary-color);' : 'background: transparent; color: var(--primary-color);' }}">
                         Ongoing
                     </a>
-                    <a href="{{ route('website.projects.index', ['status' => 'completed']) }}"
+                    <a href="{{ route('website.projects.index', ['status' => 'upcoming']) }}"
                        style="display:inline-block; padding: 10px 28px; border-radius: 50px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.3s;
-                              {{ $activeStatus === 'completed' ? 'background: var(--primary-color); color: var(--accent-secondary-color);' : 'background: transparent; color: var(--primary-color);' }}">
-                        Completed
+                              {{ $activeStatus === 'upcoming' ? 'background: var(--primary-color); color: var(--accent-secondary-color);' : 'background: transparent; color: var(--primary-color);' }}">
+                        Upcoming
                     </a>
                 </div>
             </div>
@@ -113,7 +113,7 @@
                     <div class="col-xl-4 col-md-6 mb-4">
                         <div class="project-item wow fadeInUp">
                             <div class="project-item-image">
-                                <a href="{{ route('website.projects.show', $project->slug) }}" data-cursor-text="View">
+                                <a href="#" data-cursor-text="View">
                                     <figure>
                                         <img src="{{ $project->thumbnail_url }}"
                                              alt="{{ $project->title }}" />
@@ -147,7 +147,7 @@
                                         <li>{{ $project->city }}</li>
                                     @endif
                                 </ul>
-                                <h2><a href="{{ route('website.projects.show', $project->slug) }}">{{ $project->title }}</a></h2>
+                                <h2><a href="#">{{ $project->title }}</a></h2>
                                 <div class="d-flex justify-content-between align-items-center mt-2">
                                     @if($project->area)
                                         <span style="font-size: 12px; color: rgba(255,255,255,0.75);">

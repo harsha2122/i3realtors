@@ -473,10 +473,6 @@ a:focus {
   cursor: none;
 }
 
-.section-title h1 span,
-.section-title h2 span {
-  font-style: normal;
-}
 
 .section-title p {
   margin-top: 20px;
