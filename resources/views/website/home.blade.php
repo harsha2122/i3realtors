@@ -126,10 +126,7 @@
               onmouseover="this.style.background='rgba(255,255,255,0.16)'; this.style.borderColor='rgba(255,255,255,0.35)'; this.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)';"
               onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(255,255,255,0.18)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.2)';">
                 <img src="{{ asset('uploads/' . $devLogo->logo) }}" alt="{{ $devLogo->name }}"
-                     style="height: 36px; width: auto; max-width: 80px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9;">
-                @if($devLogo->name)
-                <span style="color: rgba(255,255,255,0.85); font-size: 13px; font-weight: 600; letter-spacing: 0.03em;">{{ $devLogo->name }}</span>
-                @endif
+                     style="height: 40px; width: auto; max-width: 120px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9;">
               </div>
               @if($devLogo->link)
               </a>
