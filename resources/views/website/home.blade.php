@@ -126,7 +126,7 @@
               onmouseover="this.style.background='rgba(255,255,255,0.16)'; this.style.borderColor='rgba(255,255,255,0.35)'; this.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)';"
               onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(255,255,255,0.18)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.2)';">
                 <img src="{{ asset('uploads/' . $devLogo->logo) }}" alt="{{ $devLogo->name }}"
-                     style="height: 40px; width: auto; max-width: 120px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9;">
+                     style="height: auto; width: 200px; max-width: 200px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9;">
               </div>
               @if($devLogo->link)
               </a>
@@ -748,7 +748,7 @@
     <!-- Testimonials Section End -->
 
     <!-- Properties CTA Start -->
-    <div style="background: #0F0F0F; padding: 100px 0; border-top: 1px solid rgba(200,169,106,0.2); border-bottom: 1px solid rgba(200,169,106,0.2);">
+    <div style="background: #0F0F0F; padding: 100px 0; border-top: 1px solid rgba(200,169,106,0.2); border-bottom: 1px solid rgba(200,169,106,0.2); margin-bottom: 80px;">
         <div class="container">
             <div class="row align-items-center justify-content-between g-4">
                 <div class="col-lg-8">
