@@ -767,7 +767,7 @@
     </div>
     <!-- Properties CTA End -->
 
-    <!-- Our Fact Section Start -->
+    {{-- Our Fact Section Start (commented out)
     <div class="our-fact">
       <div class="container">
         <div class="row section-row">
@@ -827,7 +827,7 @@
         </div>
       </div>
     </div>
-    <!-- Our Fact Section End -->
+    Our Fact Section End --}}
 
     <!-- Cta Box Section Start -->
     <div class="cta-box bg-section dark-section parallaxie">
