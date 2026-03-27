@@ -10,9 +10,14 @@
 <div class="card border-0 shadow-sm rounded-3">
     <div class="card-header bg-white border-0 pt-4 pb-3 d-flex justify-content-between align-items-center">
         <h6 class="fw-bold mb-0"><i class="fas fa-users me-2" style="color:var(--primary)"></i>Team Members</h6>
-        <a href="{{ route('admin.team.create') }}" class="btn btn-admin-primary btn-sm">
-            <i class="fas fa-plus me-1"></i>Add Member
-        </a>
+        <div class="d-flex gap-2">
+            <a href="{{ route('admin.team-gallery.index') }}" class="btn btn-outline-secondary btn-sm">
+                <i class="fas fa-images me-1"></i>Gallery
+            </a>
+            <a href="{{ route('admin.team.create') }}" class="btn btn-admin-primary btn-sm">
+                <i class="fas fa-plus me-1"></i>Add Member
+            </a>
+        </div>
     </div>
 
     <div class="card-body p-0">

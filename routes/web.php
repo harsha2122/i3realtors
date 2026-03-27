@@ -134,6 +134,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // Team Management
         Route::resource('team', Admin\TeamMemberController::class);
+        Route::get('/team-gallery', [Admin\TeamGalleryController::class, 'index'])->name('team-gallery.index');
+        Route::post('/team-gallery', [Admin\TeamGalleryController::class, 'store'])->name('team-gallery.store');
+        Route::delete('/team-gallery/{teamGallery}', [Admin\TeamGalleryController::class, 'destroy'])->name('team-gallery.destroy');
+        Route::patch('/team-gallery/{teamGallery}/toggle', [Admin\TeamGalleryController::class, 'toggle'])->name('team-gallery.toggle');
 
         // Developer Logos
         Route::resource('developer-logos', Admin\DeveloperLogoController::class);
