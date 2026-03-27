@@ -586,13 +586,13 @@
           <div class="col-xl-3 col-md-6">
             <div class="project-item wow fadeInUp" {{ $delays[$i] ? 'data-wow-delay="'.$delays[$i].'"' : '' }}>
               <div class="project-item-image">
-                <a href="{{ route('website.projects.show', $project->slug) }}" data-cursor-text="View">
+                <a href="#" data-cursor-text="View">
                   <figure><img src="{{ $project->thumbnail_url }}" alt="{{ $project->title }}" /></figure>
                 </a>
               </div>
               <div class="project-item-content">
-                <ul><li><a href="{{ route('website.projects.show', $project->slug) }}">{{ $project->type_label }}</a></li></ul>
-                <h2><a href="{{ route('website.projects.show', $project->slug) }}">{{ $project->title }}</a></h2>
+                <ul><li><a href="#">{{ $project->type_label }}</a></li></ul>
+                <h2><a href="#">{{ $project->title }}</a></h2>
               </div>
             </div>
           </div>
