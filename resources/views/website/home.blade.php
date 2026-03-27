@@ -54,15 +54,15 @@
 
             <!-- Counters -->
             <div class="hero-counter-box wow fadeInUp" data-wow-delay="0.1s" style="display:flex; justify-content:center; flex-wrap:nowrap; gap:0; margin-top:40px; width:100%;">
-              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.15);">
+              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px">
                 <h2><span class="counter">20</span>+</h2>
                 <p>Developer Partnerships</p>
               </div>
-              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.15);">
+              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px">
                 <h2><span class="counter">36</span>+</h2>
                 <p>Projects Handled</p>
               </div>
-              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.15);">
+              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px">
                 <h2><span class="counter">450</span>+</h2>
                 <p>Investor Network</p>
               </div>
