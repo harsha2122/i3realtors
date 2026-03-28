@@ -91,7 +91,7 @@
             <div class="hero-content-box">
               <div class="section-title">
                 <h1 class="text-anime-style-2" data-cursor="-opaque" style="font-size:clamp(2rem,4vw,3.2rem);">
-                  Strategic Real Estate Mandates for Developers and Investors
+                  Strategic Booster For Developers and Investors
                 </h1>
               </div>
             </div>
@@ -359,8 +359,8 @@
         <div class="row section-row">
           <div class="col-lg-12">
             <div class="section-title section-title-center">
-              <h2 class="wow fadeInUp" data-wow-delay="0.2s">
-                Why Developers Partner With <span>i3 Realtors</span>
+              <h2 class="wow fadeInUp" data-wow-delay="0.2s" style="font-style:normal;">
+                Why i3 Realtors ?
               </h2>
             </div>
           </div>
