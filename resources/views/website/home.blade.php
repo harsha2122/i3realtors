@@ -17,18 +17,63 @@
       @if($heroSettings['video_type'] === 'youtube' && $heroSettings['video_url'])
       @php
         preg_match('/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $heroSettings['video_url'], $m);
-        $ytId = $m[1] ?? '';
-        $ytSrc = 'https://www.youtube.com/embed/' . $ytId
-               . '?autoplay=1&mute=1&loop=1&playlist=' . $ytId
-               . '&controls=0&showinfo=0&rel=0&modestbranding=1'
-               . ($heroSettings['video_start'] ? '&start=' . $heroSettings['video_start'] : '')
-               . ($heroSettings['video_end']   ? '&end='   . $heroSettings['video_end']   : '');
+        $ytId        = $m[1] ?? '';
+        $ytStart     = (int) $heroSettings['video_start'];
+        $ytEnd       = (int) $heroSettings['video_end'];
       @endphp
       @if($ytId)
-      <iframe src="{{ $ytSrc }}"
-              style="position:absolute;top:50%;left:50%;width:177.78vh;min-width:100%;height:56.25vw;min-height:100%;transform:translate(-50%,-50%);pointer-events:none;z-index:0;border:0;"
-              allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div id="yt-hero-player"
+           style="position:absolute;top:50%;left:50%;width:177.78vh;min-width:100%;height:56.25vw;min-height:100%;transform:translate(-50%,-50%);pointer-events:none;z-index:0;"></div>
       <div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);z-index:0;"></div>
+      <script>
+        var _ytHeroReady = false;
+        var _ytHeroPlayer;
+        var _ytStart = {{ $ytStart }};
+        var _ytEnd   = {{ $ytEnd }};
+        var _ytId    = '{{ $ytId }}';
+
+        function onYouTubeIframeAPIReady() {
+          _ytHeroPlayer = new YT.Player('yt-hero-player', {
+            videoId: _ytId,
+            playerVars: {
+              autoplay: 1, mute: 1, controls: 0, rel: 0,
+              showinfo: 0, modestbranding: 1, playsinline: 1,
+              start: _ytStart || 0,
+            },
+            events: {
+              onReady: function(e) { e.target.playVideo(); },
+              onStateChange: function(e) {
+                // When playing, watch for end time
+                if (e.data === YT.PlayerState.PLAYING) {
+                  if (_ytEnd > 0) {
+                    clearInterval(window._ytTimer);
+                    window._ytTimer = setInterval(function() {
+                      if (_ytHeroPlayer && _ytHeroPlayer.getCurrentTime() >= _ytEnd) {
+                        _ytHeroPlayer.seekTo(_ytStart || 0, true);
+                      }
+                    }, 500);
+                  }
+                }
+                // On ended (no end param), loop back to start
+                if (e.data === YT.PlayerState.ENDED) {
+                  _ytHeroPlayer.seekTo(_ytStart || 0, true);
+                  _ytHeroPlayer.playVideo();
+                }
+              }
+            }
+          });
+        }
+
+        // Load YouTube IFrame API only once
+        if (!document.getElementById('yt-api-script')) {
+          var s = document.createElement('script');
+          s.id  = 'yt-api-script';
+          s.src = 'https://www.youtube.com/iframe_api';
+          document.head.appendChild(s);
+        } else if (window.YT && window.YT.Player) {
+          onYouTubeIframeAPIReady();
+        }
+      </script>
       @endif
       @elseif($heroSettings['video_type'] === 'upload' && $heroSettings['video_file'])
       <video autoplay muted loop playsinline
