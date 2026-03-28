@@ -531,7 +531,7 @@ a:focus {
 
 header.main-header {
   position: absolute;
-  top: 0;
+  top: 60px;
   left: 0;
   right: 0;
   z-index: 100;
@@ -825,6 +825,7 @@ header.main-header .header-sticky.active {
   align-content: end;
   min-height: 100vh;
   padding: 220px 0 80px;
+  margin-top: 20px;
   overflow: hidden;
 }
 
