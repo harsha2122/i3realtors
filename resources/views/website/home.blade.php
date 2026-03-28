@@ -95,9 +95,6 @@
               <p class="wow fadeInUp" data-wow-delay="0.2s" style="color:rgba(255,255,255,0.65); max-width:680px; margin: 0 auto 16px;">
                 We have partnered with leading real estate developers across Pune and Mumbai to deliver structured mandate sales, marketing strategies, and investor-driven growth.
               </p>
-              <div class="wow fadeInUp" data-wow-delay="0.3s" style="color: var(--accent-secondary-color); font-size: 13px; font-weight: 700; letter-spacing: 1px; margin-bottom: 40px;">
-                25+ Developer Partnerships &nbsp;|&nbsp; 1500+ Channel Partners &nbsp;|&nbsp; 1.8M+ Sq.ft Sold
-              </div>
             </div>
           </div>
         </div>
