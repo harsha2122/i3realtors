@@ -177,7 +177,7 @@
             <div class="about-us-image-box wow fadeInUp">
               <div class="about-us-image">
                 <figure class="image-anime">
-                  <img src="{{ asset('images/about-us-image.jpg') }}" alt="About i3Realtors" />
+                  <img src="{{ asset('images/who-we-are-image-1.jpg') }}" alt="About i3Realtors" />
                 </figure>
               </div>
               <div class="about-us-circle">
@@ -210,7 +210,7 @@
                   </div>
                   <div class="about-us-item-image">
                     <figure class="image-anime">
-                      <img src="{{ asset('images/about-us-item-image-2.jpg') }}" alt="" />
+                      <img src="{{ asset('images/who-we-are-image-2.jpg') }}" alt="" />
                     </figure>
                   </div>
                 </div>
