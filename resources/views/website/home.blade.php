@@ -331,14 +331,56 @@
                   <ul class="nav nav-tabs" id="mvTab" role="tablist" style="display:flex; flex-wrap:nowrap; border-bottom: 2px solid #e5e5e5; margin-bottom: 40px; overflow-x: auto;">
                     @php
                     $tabNav = [
-                      ['id' => 'tab1', 'label' => 'Strategic Understanding'],
-                      ['id' => 'tab2', 'label' => 'Mandate Execution'],
-                      ['id' => 'tab3', 'label' => 'Investor Network'],
-                      ['id' => 'tab4', 'label' => 'Tab 4'],
-                      ['id' => 'tab5', 'label' => 'Tab 5'],
-                      ['id' => 'tab6', 'label' => 'Tab 6'],
-                      ['id' => 'tab7', 'label' => 'Tab 7'],
-                      ['id' => 'tab8', 'label' => 'Tab 8'],
+                      ['id' => 'tab1', 'label' => 'Strategic Roadmap'],
+                      ['id' => 'tab2', 'label' => 'High Velocity of Sales'],
+                      ['id' => 'tab3', 'label' => 'Marketing Expertise'],
+                      ['id' => 'tab4', 'label' => 'Sales Expertise'],
+                      ['id' => 'tab5', 'label' => 'Performance Marketing'],
+                      ['id' => 'tab6', 'label' => 'Performance Base'],
+                      ['id' => 'tab7', 'label' => 'People'],
+                      ['id' => 'tab8', 'label' => 'Process Excellence'],
+                    ];
+                    $tabContent = [
+                      'tab1' => [
+                        'title'  => 'Strategic Roadmap',
+                        'desc'   => 'We create a clear strategic roadmap aligned with market conditions to accelerate project sales and developer success.',
+                        'points' => ['Way Forward Strategies', 'Sales Velocity Actions', 'Pricing Strategies', 'Branding & Market Communication'],
+                      ],
+                      'tab2' => [
+                        'title'  => 'High Velocity of Sales',
+                        'desc'   => 'We deploy high-velocity sales mechanisms to drive consistent deal closures across developer projects.',
+                        'points' => ['360 Degree Marketing', 'CP Network Extend', 'NRI Outreach'],
+                      ],
+                      'tab3' => [
+                        'title'  => 'Marketing Expertise',
+                        'desc'   => 'Our marketing expertise covers every digital and offline channel to ensure maximum project visibility and lead generation.',
+                        'points' => ['Creative Agencies', 'Web Development', 'Social Media Agencies', 'Corporate Reach'],
+                      ],
+                      'tab4' => [
+                        'title'  => 'Sales Expertise',
+                        'desc'   => 'Our experienced sales team provides on-ground support to convert leads into successful property transactions.',
+                        'points' => ['Sales Specialist', 'Support Center'],
+                      ],
+                      'tab5' => [
+                        'title'  => 'Performance Marketing (360 Degree)',
+                        'desc'   => 'We leverage full-funnel performance marketing strategies to generate qualified leads and measurable ROI for every project.',
+                        'points' => ['Search & Social Campaigns', 'Lead Generation Funnels', 'Retargeting & Remarketing', 'Analytics & Reporting'],
+                      ],
+                      'tab6' => [
+                        'title'  => 'Performance Base - CP Network',
+                        'desc'   => 'Our channel partner network is built on performance, ensuring active and motivated partners drive consistent sales across geographies.',
+                        'points' => ['Channel Partner Onboarding', 'CP Training & Enablement', 'Incentive Structures', 'Network Expansion'],
+                      ],
+                      'tab7' => [
+                        'title'  => 'People - Sales Experts',
+                        'desc'   => 'Our team of dedicated sales experts brings domain knowledge and execution excellence to every developer mandate.',
+                        'points' => ['Trained Sales Professionals', 'Developer Relationship Managers', 'Investor Advisory Team', 'Field Sales Execution'],
+                      ],
+                      'tab8' => [
+                        'title'  => 'Process Excellence',
+                        'desc'   => 'We follow structured processes and systems that ensure consistency, transparency, and efficiency across all mandate engagements.',
+                        'points' => ['Structured Sales Process', 'CRM & Reporting Systems', 'Quality Assurance', 'Post-Sale Support'],
+                      ],
                     ];
                     @endphp
                     @foreach($tabNav as $i => $t)
@@ -359,20 +401,21 @@
 
                 {{-- Tab Panes --}}
                 @foreach($tabNav as $i => $t)
+                @php $c = $tabContent[$t['id']]; @endphp
                 <div class="who-we-tab-item tab-pane fade {{ $i === 0 ? 'show active' : '' }}" id="{{ $t['id'] }}" role="tabpanel">
                   <div class="who-we-tab-content">
                     <div class="who-we-tab-header-content">
-                      <h3>{{ $t['label'] }}</h3>
-                      <p>We combine deep market intelligence with structured execution to deliver measurable results. Our mandate partnerships ensure developers receive dedicated focus and strategic positioning in every market segment.</p>
+                      <h3>{{ $c['title'] }}</h3>
+                      <p>{{ $c['desc'] }}</p>
                     </div>
                     <div class="who-we-item-list">
-                      @foreach([['icon' => 'icon-who-we-item-1.svg', 'text' => 'Market Analysis'], ['icon' => 'icon-who-we-item-2.svg', 'text' => 'Strategic Positioning'], ['icon' => 'icon-who-we-item-3.svg', 'text' => 'Demand Generation'], ['icon' => 'icon-who-we-item-4.svg', 'text' => 'Buyer Connection']] as $item)
+                      @foreach($c['points'] as $point)
                       <div class="who-we-item">
                         <div class="icon-box">
-                          <img src="{{ asset('images/'.$item['icon']) }}" alt="" />
+                          <img src="{{ asset('images/icon-who-we-item-1.svg') }}" alt="" />
                         </div>
                         <div class="who-we-item-content">
-                          <h3>{{ $item['text'] }}</h3>
+                          <h3>{{ $point }}</h3>
                         </div>
                       </div>
                       @endforeach
