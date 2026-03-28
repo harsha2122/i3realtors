@@ -436,7 +436,7 @@
                     <div class="history-item wow fadeInUp">
                         <!-- History Item Header Start -->
                         <div class="history-item-header">
-                            <h2>2018</h2>
+                            <h2>2021</h2>
                             <div class="history-item-content">
                                 <h3>Foundation</h3>
                                 <p>i3 Realtors was established with a clear vision to support developers and investors through structured real estate consulting and mandate partnerships.</p>
@@ -458,7 +458,7 @@
                     <div class="history-item wow fadeInUp" data-wow-delay="0.2s">
                         <!-- History Item Header Start -->
                         <div class="history-item-header">
-                            <h2>2020</h2>
+                            <h2>2022</h2>
                             <div class="history-item-content">
                                 <h3>Market Expansion</h3>
                                 <p>The company expanded its developer network and began working on multiple residential and commercial projects across Pune.</p>
@@ -480,7 +480,7 @@
                     <div class="history-item wow fadeInUp" data-wow-delay="0.4s">
                         <!-- History Item Header Start -->
                         <div class="history-item-header">
-                            <h2>2022</h2>
+                            <h2>2023</h2>
                             <div class="history-item-content">
                                 <h3>Strategic Partnerships</h3>
                                 <p>i3 Realtors strengthened its mandate-based approach, collaborating with developers and investors to structure projects and marketing strategies.</p>
