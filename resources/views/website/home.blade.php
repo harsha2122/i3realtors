@@ -128,8 +128,11 @@
     <!-- Hero Section End -->
 
     <!-- Trusted Developers Section Start -->
-    <div style="background: #0a0a0a; padding: 100px 0; border-bottom: 1px solid rgba(200,169,106,0.15);">
-      <div class="container">
+    <div style="background: #0a0a0a; padding: 100px 0; border-bottom: 1px solid rgba(200,169,106,0.15); position:relative; overflow:hidden;">
+      @if($heroSettings['fluid_animation'])
+      <canvas id="fluidCanvas2" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;"></canvas>
+      @endif
+      <div class="container" style="position:relative; z-index:1;">
         <div class="row section-row">
           <div class="col-lg-12">
             <div class="section-title section-title-center">
@@ -911,5 +914,24 @@
 @push('scripts')
 @if($heroSettings['fluid_animation'])
 <script src="https://cdn.jsdelivr.net/gh/Libero793/KNGURUWebsite3.0@latest/js/script.js" defer></script>
+<script>
+  // Mirror fluidCanvas onto fluidCanvas2 once the animation is running
+  window.addEventListener('load', function() {
+    var src = document.getElementById('fluidCanvas');
+    var dst = document.getElementById('fluidCanvas2');
+    if (!src || !dst) return;
+    var ctx = dst.getContext('2d');
+    function syncSize() {
+      dst.width  = dst.offsetWidth;
+      dst.height = dst.offsetHeight;
+    }
+    syncSize();
+    window.addEventListener('resize', syncSize);
+    (function draw() {
+      try { ctx.drawImage(src, 0, 0, dst.width, dst.height); } catch(e) {}
+      requestAnimationFrame(draw);
+    })();
+  });
+</script>
 @endif
 @endpush
