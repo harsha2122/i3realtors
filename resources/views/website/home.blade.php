@@ -328,7 +328,7 @@
 
                 {{-- 8 Tab Navigation --}}
                 <div class="who-we-nav">
-                  <ul class="nav nav-tabs flex-wrap" id="mvTab" role="tablist" style="gap: 8px; border-bottom: none; justify-content: center; margin-bottom: 40px;">
+                  <ul class="nav nav-tabs" id="mvTab" role="tablist" style="display:flex; flex-wrap:nowrap; border-bottom: 2px solid #e5e5e5; margin-bottom: 40px; overflow-x: auto;">
                     @php
                     $tabNav = [
                       ['id' => 'tab1', 'label' => 'Strategic Understanding'],
@@ -342,13 +342,14 @@
                     ];
                     @endphp
                     @foreach($tabNav as $i => $t)
-                    <li class="nav-item" role="presentation">
+                    <li class="nav-item" role="presentation" style="flex: 1;">
                       <button class="nav-link {{ $i === 0 ? 'active' : '' }}"
                               id="{{ $t['id'] }}-tab"
                               data-bs-toggle="tab"
                               data-bs-target="#{{ $t['id'] }}"
                               type="button" role="tab"
-                              aria-selected="{{ $i === 0 ? 'true' : 'false' }}">
+                              aria-selected="{{ $i === 0 ? 'true' : 'false' }}"
+                              style="width:100%; text-align:center; font-size:13px; font-weight:600; padding:12px 8px; border-radius:0; white-space:nowrap;">
                         {{ $t['label'] }}
                       </button>
                     </li>
