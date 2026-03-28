@@ -531,7 +531,7 @@ a:focus {
 
 header.main-header {
   position: absolute;
-  top: 60px;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 100;
