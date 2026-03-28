@@ -84,12 +84,12 @@
       @endif
 
       <div class="container" style="position:relative; z-index:1;">
-        <div class="row align-items-center">
-          <div class="col-xl-6 col-lg-7">
+        <div class="row justify-content-center">
+          <div class="col-xl-8 col-lg-10 text-center">
 
             <!-- Heading -->
             <div class="hero-content-box">
-              <div class="section-title">
+              <div class="section-title section-title-center">
                 <h1 class="text-anime-style-2" data-cursor="-opaque" style="font-size:clamp(2rem,4vw,3.2rem);">
                   Strategic Booster For Developers and Investors
                 </h1>
@@ -97,7 +97,7 @@
             </div>
 
             <!-- Counters -->
-            <div class="hero-counter-box wow fadeInUp" data-wow-delay="0.1s" style="display:flex; flex-wrap:nowrap; gap:0; margin-top:36px; width:100%;">
+            <div class="hero-counter-box wow fadeInUp" data-wow-delay="0.1s" style="display:flex; flex-wrap:nowrap; gap:0; margin-top:36px; width:100%; justify-content:center;">
               <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 16px">
                 <h2><span class="counter">20</span>+</h2>
                 <p>Developer Partnerships</p>
