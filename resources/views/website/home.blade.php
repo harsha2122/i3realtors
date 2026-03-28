@@ -167,7 +167,7 @@
               onmouseover="this.style.background='rgba(255,255,255,0.16)'; this.style.borderColor='rgba(255,255,255,0.35)'; this.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)';"
               onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(255,255,255,0.18)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.2)';">
                 <img src="{{ asset('uploads/' . $devLogo->logo) }}" alt="{{ $devLogo->name }}"
-                     style="height: auto; width: 200px; max-width: 200px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9;">
+                     style="height: auto; width: 200px; max-width: 200px; object-fit: contain;">
               </div>
               @if($devLogo->link)
               </a>
