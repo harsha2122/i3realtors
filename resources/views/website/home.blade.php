@@ -314,7 +314,6 @@
         <div class="row section-row">
           <div class="col-lg-12">
             <div class="section-title section-title-center">
-              <span class="section-sub-title wow fadeInUp">Why Choose Us</span>
               <h2 class="wow fadeInUp" data-wow-delay="0.2s">
                 Why Developers Partner With <span>i3 Realtors</span>
               </h2>
@@ -322,53 +321,51 @@
           </div>
         </div>
 
-        <div class="row align-items-center">
-          <div class="col-xl-6">
+        <div class="row">
+          <div class="col-12">
             <div class="who-we-content wow fadeInUp">
               <div class="who-we-box tab-content" id="mvTabContent">
+
+                {{-- 8 Tab Navigation --}}
                 <div class="who-we-nav">
-                  <ul class="nav nav-tabs" id="mvTab" role="tablist">
+                  <ul class="nav nav-tabs flex-wrap" id="mvTab" role="tablist" style="gap: 8px; border-bottom: none; justify-content: center; margin-bottom: 40px;">
+                    @php
+                    $tabNav = [
+                      ['id' => 'tab1', 'label' => 'Strategic Understanding'],
+                      ['id' => 'tab2', 'label' => 'Mandate Execution'],
+                      ['id' => 'tab3', 'label' => 'Investor Network'],
+                      ['id' => 'tab4', 'label' => 'Tab 4'],
+                      ['id' => 'tab5', 'label' => 'Tab 5'],
+                      ['id' => 'tab6', 'label' => 'Tab 6'],
+                      ['id' => 'tab7', 'label' => 'Tab 7'],
+                      ['id' => 'tab8', 'label' => 'Tab 8'],
+                    ];
+                    @endphp
+                    @foreach($tabNav as $i => $t)
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="first-tab" data-bs-toggle="tab" data-bs-target="#first" type="button" role="tab" aria-selected="true">
-                        <img src="{{ asset('images/icon-who-we-tab-1.svg') }}" alt="" /> Strategic Understanding
+                      <button class="nav-link {{ $i === 0 ? 'active' : '' }}"
+                              id="{{ $t['id'] }}-tab"
+                              data-bs-toggle="tab"
+                              data-bs-target="#{{ $t['id'] }}"
+                              type="button" role="tab"
+                              aria-selected="{{ $i === 0 ? 'true' : 'false' }}">
+                        {{ $t['label'] }}
                       </button>
                     </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="second-tab" data-bs-toggle="tab" data-bs-target="#second" type="button" role="tab" aria-selected="false">
-                        <img src="{{ asset('images/icon-who-we-tab-2.svg') }}" alt="" /> Mandate Execution
-                      </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="third-tab" data-bs-toggle="tab" data-bs-target="#third" type="button" role="tab" aria-selected="false">
-                        <img src="{{ asset('images/icon-who-we-tab-3.svg') }}" alt="" /> Investor Network
-                      </button>
-                    </li>
+                    @endforeach
                   </ul>
                 </div>
 
-                @php
-                $tabs = [
-                  ['id' => 'first', 'title' => 'Strategic Understanding:', 'active' => true],
-                  ['id' => 'second', 'title' => 'Mandate Execution:', 'active' => false],
-                  ['id' => 'third', 'title' => 'Investor Network:', 'active' => false],
-                ];
-                $items = [
-                  ['icon' => 'icon-who-we-item-1.svg', 'text' => 'Market Analysis'],
-                  ['icon' => 'icon-who-we-item-2.svg', 'text' => 'Strategic Positioning'],
-                  ['icon' => 'icon-who-we-item-3.svg', 'text' => 'Demand Generation'],
-                  ['icon' => 'icon-who-we-item-4.svg', 'text' => 'Buyer Connection'],
-                ];
-                @endphp
-
-                @foreach($tabs as $tab)
-                <div class="who-we-tab-item tab-pane fade {{ $tab['active'] ? 'show active' : '' }}" id="{{ $tab['id'] }}" role="tabpanel">
+                {{-- Tab Panes --}}
+                @foreach($tabNav as $i => $t)
+                <div class="who-we-tab-item tab-pane fade {{ $i === 0 ? 'show active' : '' }}" id="{{ $t['id'] }}" role="tabpanel">
                   <div class="who-we-tab-content">
                     <div class="who-we-tab-header-content">
-                      <h3>{{ $tab['title'] }}</h3>
+                      <h3>{{ $t['label'] }}</h3>
                       <p>We combine deep market intelligence with structured execution to deliver measurable results. Our mandate partnerships ensure developers receive dedicated focus and strategic positioning in every market segment.</p>
                     </div>
                     <div class="who-we-item-list">
-                      @foreach($items as $item)
+                      @foreach([['icon' => 'icon-who-we-item-1.svg', 'text' => 'Market Analysis'], ['icon' => 'icon-who-we-item-2.svg', 'text' => 'Strategic Positioning'], ['icon' => 'icon-who-we-item-3.svg', 'text' => 'Demand Generation'], ['icon' => 'icon-who-we-item-4.svg', 'text' => 'Buyer Connection']] as $item)
                       <div class="who-we-item">
                         <div class="icon-box">
                           <img src="{{ asset('images/'.$item['icon']) }}" alt="" />
@@ -382,6 +379,7 @@
                   </div>
                 </div>
                 @endforeach
+
               </div>
 
               <div class="who-we-footer">
@@ -397,44 +395,6 @@
                     <p>Call Us Now!</p>
                     <h3><a href="tel:{{ $phoneMain }}">{{ $phoneMain }}</a></h3>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-6">
-            <div class="who-we-image-box">
-              <div class="who-we-image-box-1">
-                <div class="who-we-image">
-                  <figure class="image-anime reveal">
-                    <img src="{{ asset('images/who-we-are-image-1.jpg') }}" alt="" />
-                  </figure>
-                </div>
-              </div>
-              <div class="who-we-image-box-2">
-                <div class="who-we-cta-box wow fadeInUp" data-wow-delay="0.2s">
-                  <div class="satisfy-client-images">
-                    @foreach(['author-1.jpg', 'author-2.jpg', 'author-3.jpg', 'author-4.jpg'] as $a)
-                    <div class="satisfy-client-image">
-                      <figure class="image-anime"><img src="{{ asset('images/'.$a) }}" alt="" /></figure>
-                    </div>
-                    @endforeach
-                    <div class="satisfy-client-image add-more"><i class="fa-solid fa-plus"></i></div>
-                  </div>
-                  <div class="who-we-cta-rating">
-                    <span>
-                      @for($s = 0; $s < 5; $s++)<i class="fa fa-solid fa-star"></i>@endfor
-                    </span>
-                  </div>
-                  <div class="who-we-cta-content">
-                    <p>Trusted by 25+ Real Estate Developers</p>
-                    <small>Strategic Mandate Partnerships</small>
-                  </div>
-                </div>
-                <div class="who-we-image">
-                  <figure class="image-anime reveal">
-                    <img src="{{ asset('images/who-we-are-image-2.jpg') }}" alt="" />
-                  </figure>
                 </div>
               </div>
             </div>
