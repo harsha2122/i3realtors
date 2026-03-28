@@ -359,8 +359,8 @@
         <div class="row section-row">
           <div class="col-lg-12">
             <div class="section-title section-title-center">
-              <h2 class="wow fadeInUp" data-wow-delay="0.2s">
-                Why Developers Partner With <span>i3 Realtors</span>
+              <h2 class="wow fadeInUp" data-wow-delay="0.2s" style="font-style:normal;">
+                Why i3 Realtors ?
               </h2>
             </div>
           </div>
