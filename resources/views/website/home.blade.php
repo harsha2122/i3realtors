@@ -45,7 +45,6 @@
             <!-- Heading -->
             <div class="hero-content-box">
               <div class="section-title section-title-center">
-                <span class="section-sub-title wow fadeInUp">Invest in India</span>
                 <h1 class="text-anime-style-2" data-cursor="-opaque">
                   Strategic Real Estate Mandates for Developers and Investors
                 </h1>
