@@ -84,41 +84,41 @@
       @endif
 
       <div class="container" style="position:relative; z-index:1;">
-        <div class="row justify-content-center">
-          <div class="col-xl-10 text-center">
+        <div class="row align-items-center">
+          <div class="col-xl-6 col-lg-7">
 
             <!-- Heading -->
             <div class="hero-content-box">
-              <div class="section-title section-title-center">
-                <h1 class="text-anime-style-2" data-cursor="-opaque">
+              <div class="section-title">
+                <h1 class="text-anime-style-2" data-cursor="-opaque" style="font-size:clamp(2rem,4vw,3.2rem);">
                   Strategic Real Estate Mandates for Developers and Investors
                 </h1>
               </div>
             </div>
 
             <!-- Counters -->
-            <div class="hero-counter-box wow fadeInUp" data-wow-delay="0.1s" style="display:flex; justify-content:center; flex-wrap:nowrap; gap:0; margin-top:40px; width:100%;">
-              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px">
+            <div class="hero-counter-box wow fadeInUp" data-wow-delay="0.1s" style="display:flex; flex-wrap:nowrap; gap:0; margin-top:36px; width:100%;">
+              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 16px">
                 <h2><span class="counter">20</span>+</h2>
                 <p>Developer Partnerships</p>
               </div>
-              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px">
+              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 16px">
                 <h2><span class="counter">36</span>+</h2>
                 <p>Projects Handled</p>
               </div>
-              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px">
+              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 16px">
                 <h2><span class="counter">450</span>+</h2>
                 <p>Investor Network</p>
               </div>
-              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 20px;">
+              <div class="hero-counter-item" style="text-align:center; flex:1; padding: 0 16px;">
                 <h2><span class="counter">1800</span>+</h2>
                 <p>Channel Partner Network</p>
               </div>
             </div>
 
             <!-- Rating sentence only -->
-            <div class="wow fadeInUp" data-wow-delay="0.2s" style="margin-top:30px;">
-              <p style="color: rgba(255,255,255,0.7); font-size: 15px; margin:0;">Trusted by Developers &amp; Investment Partners &nbsp;|&nbsp; 4.9 Client Satisfaction Rating</p>
+            <div class="wow fadeInUp" data-wow-delay="0.2s" style="margin-top:24px;">
+              <p style="color: rgba(255,255,255,0.7); font-size: 14px; margin:0;">Trusted by Developers &amp; Investment Partners &nbsp;|&nbsp; 4.9 Client Satisfaction Rating</p>
             </div>
 
           </div>
