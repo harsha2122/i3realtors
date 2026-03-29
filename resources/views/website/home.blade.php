@@ -7,7 +7,7 @@
 
     <!-- Hero Section Start -->
     @php $hasVideo = ($heroSettings['video_type'] === 'youtube' && $heroSettings['video_url']) || ($heroSettings['video_type'] === 'upload' && $heroSettings['video_file']); @endphp
-    <div class="hero hero-video {{ $hasVideo ? '' : 'bg-section dark-section' }}" style="position:relative; overflow:hidden; {{ $hasVideo ? 'background-image:none;' : '' }}">
+    <div class="hero hero-video bg-section {{ $hasVideo ? '' : 'dark-section' }}" style="position:relative; overflow:hidden; {{ $hasVideo ? 'background-image:none;' : '' }}">
 
       {{-- Fluid animation (toggled from admin) --}}
       @if($heroSettings['fluid_animation'])
@@ -115,7 +115,7 @@
             <!-- Heading -->
             <div class="hero-content-box">
               <div class="section-title section-title-center">
-                <h1 class="text-anime-style-2" data-cursor="-opaque" style="font-size:clamp(2rem,4vw,3.2rem);">
+                <h1 class="text-anime-style-2" data-cursor="-opaque" style="font-size:clamp(2rem,4vw,3.2rem); color:#ffffff;">
                   Strategic Booster For Developers and Investors
                 </h1>
               </div>
