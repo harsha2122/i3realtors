@@ -6,11 +6,12 @@
 @section('content')
 
     <!-- Hero Section Start -->
-    <div class="hero hero-video bg-section dark-section" style="position:relative; overflow:hidden;">
+    @php $hasVideo = ($heroSettings['video_type'] === 'youtube' && $heroSettings['video_url']) || ($heroSettings['video_type'] === 'upload' && $heroSettings['video_file']); @endphp
+    <div class="hero hero-video {{ $hasVideo ? '' : 'bg-section dark-section' }}" style="position:relative; overflow:hidden; {{ $hasVideo ? 'background-image:none;' : '' }}">
 
       {{-- Fluid animation (toggled from admin) --}}
       @if($heroSettings['fluid_animation'])
-      <canvas id="fluidCanvas" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;"></canvas>
+      <canvas id="fluidCanvas" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:2;"></canvas>
       @endif
 
       {{-- Hero background video --}}
@@ -23,11 +24,11 @@
         $ytEnd   = (int) $heroSettings['video_end'];
       @endphp
       @if($ytId)
-      {{-- Wrapper covers full hero; iframe is styled after YT API creates it --}}
-      <div style="position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none;">
+      {{-- Wrapper covers full hero; z-index:2 puts it above .hero::before (z-index:1) --}}
+      <div style="position:absolute;inset:0;overflow:hidden;z-index:2;pointer-events:none;">
         <div id="yt-hero-player"></div>
       </div>
-      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.5);z-index:0;pointer-events:none;"></div>
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.5);z-index:3;pointer-events:none;"></div>
       <script>
         var _ytHeroPlayer;
         var _ytStart = {{ $ytStart }};
@@ -96,13 +97,13 @@
         $mime = $ext === 'webm' ? 'video/webm' : 'video/mp4';
       @endphp
       <video autoplay muted loop playsinline
-             style="position:absolute;top:50%;left:50%;width:100%;height:100%;object-fit:cover;transform:translate(-50%,-50%);z-index:0;">
+             style="position:absolute;top:50%;left:50%;width:100%;height:100%;object-fit:cover;transform:translate(-50%,-50%);z-index:2;">
         <source src="{{ asset('uploads/' . $videoPath) }}" type="{{ $mime }}">
       </video>
-      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.5);z-index:0;"></div>
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.5);z-index:3;"></div>
       @endif
 
-      <div class="container" style="position:relative; z-index:1;">
+      <div class="container" style="position:relative; z-index:4;">
         <div class="row justify-content-center">
           <div class="col-xl-8 col-lg-10 text-center">
 
