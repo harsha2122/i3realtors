@@ -26,53 +26,48 @@
       @if($ytId)
       {{-- Wrapper covers full hero; z-index:2 puts it above .hero::before (z-index:1) --}}
       <div style="position:absolute;inset:0;overflow:hidden;z-index:2;pointer-events:none;">
-        <div id="yt-hero-player"></div>
+        <div id="yt-hero-player"
+             data-vid="{{ $ytId }}"
+             data-start="{{ $ytStart }}"
+             data-end="{{ $ytEnd }}"></div>
       </div>
       <div style="position:absolute;inset:0;background:rgba(0,0,0,0.5);z-index:3;pointer-events:none;"></div>
+      @push('scripts')
       <script>
+      (function(){
+        var el = document.getElementById('yt-hero-player');
+        if (!el) return;
+        var _ytId    = el.getAttribute('data-vid');
+        var _ytStart = parseInt(el.getAttribute('data-start')) || 0;
+        var _ytEnd   = parseInt(el.getAttribute('data-end'))   || 0;
         var _ytHeroPlayer;
-        var _ytStart = {{ $ytStart }};
-        var _ytEnd   = {{ $ytEnd }};
-        var _ytId    = '{{ $ytId }}';
 
-        function onYouTubeIframeAPIReady() {
+        function _initHeroYT() {
           _ytHeroPlayer = new YT.Player('yt-hero-player', {
             videoId: _ytId,
             playerVars: {
               autoplay: 1, mute: 1, controls: 0, rel: 0,
               showinfo: 0, modestbranding: 1, playsinline: 1,
               loop: 1, playlist: _ytId,
-              start: _ytStart || 0,
+              start: _ytStart,
             },
             events: {
               onReady: function(e) {
-                // Scale iframe to cover the full hero area
                 var iframe = e.target.getIframe();
-                iframe.style.cssText = [
-                  'position:absolute',
-                  'top:50%',
-                  'left:50%',
-                  'width:177.78vh',
-                  'min-width:100%',
-                  'height:56.25vw',
-                  'min-height:100%',
-                  'transform:translate(-50%,-50%)',
-                  'border:0',
-                  'pointer-events:none',
-                ].join(';');
+                iframe.style.cssText = 'position:absolute;top:50%;left:50%;width:177.78vh;min-width:100%;height:56.25vw;min-height:100%;transform:translate(-50%,-50%);border:0;pointer-events:none;';
                 e.target.playVideo();
               },
               onStateChange: function(e) {
                 if (e.data === YT.PlayerState.PLAYING && _ytEnd > 0) {
-                  clearInterval(window._ytTimer);
-                  window._ytTimer = setInterval(function() {
+                  clearInterval(window._ytHeroTimer);
+                  window._ytHeroTimer = setInterval(function() {
                     if (_ytHeroPlayer && _ytHeroPlayer.getCurrentTime() >= _ytEnd) {
-                      _ytHeroPlayer.seekTo(_ytStart || 0, true);
+                      _ytHeroPlayer.seekTo(_ytStart, true);
                     }
                   }, 500);
                 }
                 if (e.data === YT.PlayerState.ENDED) {
-                  _ytHeroPlayer.seekTo(_ytStart || 0, true);
+                  _ytHeroPlayer.seekTo(_ytStart, true);
                   _ytHeroPlayer.playVideo();
                 }
               }
@@ -80,15 +75,25 @@
           });
         }
 
+        // Chain with jquery.mb.YTPlayer's onYouTubeIframeAPIReady (it overwrites the global)
+        var _prevReady = window.onYouTubeIframeAPIReady;
+        window.onYouTubeIframeAPIReady = function() {
+          if (typeof _prevReady === 'function') _prevReady();
+          _initHeroYT();
+        };
+
+        // Load YouTube IFrame API (mb.YTPlayer may already have queued it)
         if (!document.getElementById('yt-api-script')) {
-          var s = document.createElement('script');
-          s.id  = 'yt-api-script';
-          s.src = 'https://www.youtube.com/iframe_api';
-          document.head.appendChild(s);
+          var tag = document.createElement('script');
+          tag.id  = 'yt-api-script';
+          tag.src = 'https://www.youtube.com/iframe_api';
+          document.head.appendChild(tag);
         } else if (window.YT && window.YT.Player) {
-          onYouTubeIframeAPIReady();
+          _initHeroYT();
         }
+      })();
       </script>
+      @endpush
       @endif
       @elseif($heroSettings['video_type'] === 'upload' && $heroSettings['video_file'])
       @php
