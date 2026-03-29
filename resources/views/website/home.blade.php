@@ -16,17 +16,19 @@
       {{-- Hero background video --}}
       @if($heroSettings['video_type'] === 'youtube' && $heroSettings['video_url'])
       @php
-        preg_match('/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $heroSettings['video_url'], $m);
-        $ytId        = $m[1] ?? '';
-        $ytStart     = (int) $heroSettings['video_start'];
-        $ytEnd       = (int) $heroSettings['video_end'];
+        // Broad regex: matches /watch?v=, youtu.be/, /embed/, /shorts/
+        preg_match('/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|v\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/', $heroSettings['video_url'], $m);
+        $ytId    = $m[1] ?? '';
+        $ytStart = (int) $heroSettings['video_start'];
+        $ytEnd   = (int) $heroSettings['video_end'];
       @endphp
       @if($ytId)
-      <div id="yt-hero-player"
-           style="position:absolute;top:50%;left:50%;width:177.78vh;min-width:100%;height:56.25vw;min-height:100%;transform:translate(-50%,-50%);pointer-events:none;z-index:0;"></div>
-      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);z-index:0;"></div>
+      {{-- Wrapper covers full hero; iframe is styled after YT API creates it --}}
+      <div style="position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none;">
+        <div id="yt-hero-player"></div>
+      </div>
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.5);z-index:0;pointer-events:none;"></div>
       <script>
-        var _ytHeroReady = false;
         var _ytHeroPlayer;
         var _ytStart = {{ $ytStart }};
         var _ytEnd   = {{ $ytEnd }};
@@ -38,23 +40,36 @@
             playerVars: {
               autoplay: 1, mute: 1, controls: 0, rel: 0,
               showinfo: 0, modestbranding: 1, playsinline: 1,
+              loop: 1, playlist: _ytId,
               start: _ytStart || 0,
             },
             events: {
-              onReady: function(e) { e.target.playVideo(); },
+              onReady: function(e) {
+                // Scale iframe to cover the full hero area
+                var iframe = e.target.getIframe();
+                iframe.style.cssText = [
+                  'position:absolute',
+                  'top:50%',
+                  'left:50%',
+                  'width:177.78vh',
+                  'min-width:100%',
+                  'height:56.25vw',
+                  'min-height:100%',
+                  'transform:translate(-50%,-50%)',
+                  'border:0',
+                  'pointer-events:none',
+                ].join(';');
+                e.target.playVideo();
+              },
               onStateChange: function(e) {
-                // When playing, watch for end time
-                if (e.data === YT.PlayerState.PLAYING) {
-                  if (_ytEnd > 0) {
-                    clearInterval(window._ytTimer);
-                    window._ytTimer = setInterval(function() {
-                      if (_ytHeroPlayer && _ytHeroPlayer.getCurrentTime() >= _ytEnd) {
-                        _ytHeroPlayer.seekTo(_ytStart || 0, true);
-                      }
-                    }, 500);
-                  }
+                if (e.data === YT.PlayerState.PLAYING && _ytEnd > 0) {
+                  clearInterval(window._ytTimer);
+                  window._ytTimer = setInterval(function() {
+                    if (_ytHeroPlayer && _ytHeroPlayer.getCurrentTime() >= _ytEnd) {
+                      _ytHeroPlayer.seekTo(_ytStart || 0, true);
+                    }
+                  }, 500);
                 }
-                // On ended (no end param), loop back to start
                 if (e.data === YT.PlayerState.ENDED) {
                   _ytHeroPlayer.seekTo(_ytStart || 0, true);
                   _ytHeroPlayer.playVideo();
@@ -64,7 +79,6 @@
           });
         }
 
-        // Load YouTube IFrame API only once
         if (!document.getElementById('yt-api-script')) {
           var s = document.createElement('script');
           s.id  = 'yt-api-script';
@@ -76,11 +90,16 @@
       </script>
       @endif
       @elseif($heroSettings['video_type'] === 'upload' && $heroSettings['video_file'])
+      @php
+        $videoPath = $heroSettings['video_file'];
+        $ext = strtolower(pathinfo($videoPath, PATHINFO_EXTENSION));
+        $mime = $ext === 'webm' ? 'video/webm' : 'video/mp4';
+      @endphp
       <video autoplay muted loop playsinline
              style="position:absolute;top:50%;left:50%;width:100%;height:100%;object-fit:cover;transform:translate(-50%,-50%);z-index:0;">
-        <source src="{{ asset('uploads/' . $heroSettings['video_file']) }}" type="video/mp4">
+        <source src="{{ asset('uploads/' . $videoPath) }}" type="{{ $mime }}">
       </video>
-      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);z-index:0;"></div>
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.5);z-index:0;"></div>
       @endif
 
       <div class="container" style="position:relative; z-index:1;">
