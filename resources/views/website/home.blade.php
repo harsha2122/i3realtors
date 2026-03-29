@@ -150,7 +150,7 @@
     <!-- Hero Section End -->
 
     <!-- Trusted Developers Section Start -->
-    <div class="bg-section" style="background: #0a0a0a; padding: 100px 0; border-bottom: 1px solid rgba(200,169,106,0.15); position:relative; overflow:hidden;">
+    <div class="bg-section" style="background: #0a0a0a; padding: 100px 0; border-bottom: 1px solid rgba(200,169,106,0.15); position:relative; overflow:hidden; margin-top: 12px;">
       @if($heroSettings['fluid_animation'])
       <canvas id="fluidCanvas" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;"></canvas>
       @endif
@@ -935,6 +935,6 @@
 
 @push('scripts')
 @if($heroSettings['fluid_animation'])
-<script src="https://cdn.jsdelivr.net/gh/Libero793/KNGURUWebsite3.0@latest/js/script.js" defer></script>
+<script src="{{ asset('js/fluid.js') }}"></script>
 @endif
 @endpush
