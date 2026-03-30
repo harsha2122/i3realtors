@@ -337,11 +337,11 @@
                 </div>
                 <div class="service-item-body-content">
                   <div class="service-item-content">
-                    <h2><a href="{{ route('services') }}">{{ $svc['title'] }}</a></h2>
+                    <h2>{{ $svc['title'] }}</h2>
                     <p>{{ $svc['desc'] }}</p>
                   </div>
                   <div class="service-item-btn">
-                    <a href="{{ route('services') }}" class="readmore-btn">View Details</a>
+                    <span class="readmore-btn">View Details</span>
                   </div>
                 </div>
               </div>
