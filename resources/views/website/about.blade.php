@@ -26,135 +26,76 @@
 <!-- Page Header End -->
 
 <!-- About Us Section Start -->
-<div class="about-us">
+<div class="about-us" style="margin: 12px 0;">
     <div class="container">
         <div class="row section-row align-items-center">
             <div class="col-xl-7">
-                <!-- Section Title Start -->
                 <div class="section-title">
                     <span class="section-sub-title wow fadeInUp">About i3 Realtors</span>
-                    <h2 class="text-anime-style-2" data-cursor="-opaque">Trusted Real Estate Mandate Partners for Developers and Investors</h2>
+                    <h2 class="text-anime-style-2" data-cursor="-opaque">
+                        Trusted Real Estate Mandate <span>Partners for Developers</span>
+                    </h2>
                 </div>
-                <!-- Section Title End -->
             </div>
-
             <div class="col-xl-5">
-                <!-- Section Content Button Start -->
                 <div class="section-content-btn">
-                    <!-- Section Title Content Start -->
                     <div class="section-title-content wow fadeInUp" data-wow-delay="0.2s">
-                        <p>i3 Realtors is a mandate-focused real estate consulting firm working with developers, investors, and strategic partners to structure, market, and execute successful real estate opportunities.</p>
-                        <p>Our role goes beyond traditional brokerage. We work closely with developers to position projects strategically, build market visibility, and connect them with the right investor and buyer network.</p>
+                        <p>i3 Realtors is a mandate-focused real estate consulting firm specializing in developer partnerships, project marketing, and structured real estate investments.</p>
                     </div>
-                    <!-- Section Title Content End -->
-
-                    <!-- Section Button Start -->
                     <div class="section-btn wow fadeInUp" data-wow-delay="0.4s">
-                        <a href="{{ route('contact') }}" class="btn-default">Contact Now</a>
+                        <a href="{{ route('about') }}" class="btn-default">Learn More About</a>
                     </div>
-                    <!-- Section Button End -->
                 </div>
-                <!-- Section Content Button End -->
             </div>
         </div>
 
         <div class="row">
             <div class="col-xl-6">
-                <!-- About US Image Box Start -->
                 <div class="about-us-image-box wow fadeInUp">
-                    <!-- About Us Image Start -->
                     <div class="about-us-image">
                         <figure class="image-anime">
                             @php $aboutMainImg = \App\Models\Setting::get('about_main_image'); @endphp
-                            <img src="{{ $aboutMainImg ? asset('uploads/' . $aboutMainImg) : asset('images/about-us-image.jpg') }}" alt="About Us">
+                            <img src="{{ $aboutMainImg ? asset('uploads/' . $aboutMainImg) : asset('images/who-we-are-image-1.jpeg') }}" alt="About i3Realtors" />
                         </figure>
                     </div>
-                    <!-- About Us Image End -->
-
-                    <!-- About Us Circle Start -->
                     <div class="about-us-circle">
                         <a href="{{ route('website.projects.index') }}">
-                            <img src="{{ asset('images/circle-project.png') }}" alt="">
+                            <img src="{{ asset('images/circle-project.png') }}" alt="" />
                         </a>
                     </div>
-                    <!-- About Us Circle End -->
                 </div>
-                <!-- About Us Image Box End -->
             </div>
 
             <div class="col-xl-6">
-                <!-- About Us Content Box Start -->
                 <div class="about-us-content-box wow fadeInUp" data-wow-delay="0.2s">
-                    <!-- About Us Item List Start -->
                     <div class="about-us-item-list">
-                        <!-- About Us Item Start -->
                         <div class="about-us-item box-1">
-                            <!-- About Us Item Content Start -->
                             <div class="about-us-item-content">
-                                <h3>Your Trusted Partners</h3>
-                                <p>We support developers and investors at every stage of the real estate lifecycle — from project positioning and marketing strategy to investor outreach and partnership development.</p>
+                                <h3>Strategic Market Understanding</h3>
+                                <p>We analyze market trends and buyer behavior to position projects for optimal visibility</p>
                             </div>
-                            <!-- About Us Item Content End -->
-
-                            <!-- About Us Item Image Start -->
                             <div class="about-us-item-image">
                                 <figure>
                                     @php $aboutItem1 = \App\Models\Setting::get('about_item_image_1'); @endphp
-                                    <img src="{{ $aboutItem1 ? asset('uploads/' . $aboutItem1) : asset('images/about-us-item-image-1.png') }}" alt="">
+                                    <img src="{{ $aboutItem1 ? asset('uploads/' . $aboutItem1) : asset('images/about-us-item-image-1.png') }}" alt="" />
                                 </figure>
                             </div>
-                            <!-- About Us Item Image End -->
                         </div>
-                        <!-- About Us Item End -->
 
-                        <!-- About Us Item Start -->
                         <div class="about-us-item box-2">
-                            <!-- About Us Item Content Start -->
                             <div class="about-us-item-content">
-                                <h3>Strategic Market Expertise</h3>
-                                <p>Our experience in the real estate market allows us to identify opportunities, structure mandate partnerships, and deliver measurable value for developers and investors.</p>
+                                <h3>Investor Network</h3>
+                                <p>Through a growing network of investors and partners, we connect the right opportunities with stakeholders</p>
                             </div>
-                            <!-- About Us Item Content End -->
-
-                            <!-- About Us Item Image Start -->
                             <div class="about-us-item-image">
                                 <figure class="image-anime">
                                     @php $aboutItem2 = \App\Models\Setting::get('about_item_image_2'); @endphp
-                                    <img src="{{ $aboutItem2 ? asset('uploads/' . $aboutItem2) : asset('images/about-us-item-image-2.jpg') }}" alt="">
+                                    <img src="{{ $aboutItem2 ? asset('uploads/' . $aboutItem2) : asset('images/who-we-are-image-2.jpg') }}" alt="" />
                                 </figure>
                             </div>
-                            <!-- About Us Item Image End -->
                         </div>
-                        <!-- About Us Item End -->
                     </div>
-                    <!-- About Us Item List End -->
-
-                    <!-- About Counter List Start -->
-                    <div class="about-counter-item-list">
-                        <!-- About Counter Item Start -->
-                        <div class="about-counter-item">
-                            <h2><span class="counter">25</span>+</h2>
-                            <p>Developer Partnerships</p>
-                        </div>
-                        <!-- About Counter Item End -->
-
-                        <!-- About Counter Item Start -->
-                        <div class="about-counter-item">
-                            <h2><span class="counter">50</span>+</h2>
-                            <p>Projects Represented</p>
-                        </div>
-                        <!-- About Counter Item End -->
-
-                        <!-- About Counter Item Start -->
-                        <div class="about-counter-item">
-                            <h2><span class="counter">500</span>+</h2>
-                            <p>Investor Network</p>
-                        </div>
-                        <!-- About Counter Item End -->
-                    </div>
-                    <!-- About Counter List End -->
                 </div>
-                <!-- About Us Content Box End -->
             </div>
         </div>
     </div>
