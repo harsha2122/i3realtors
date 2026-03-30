@@ -253,7 +253,6 @@
 </div>
 <!-- Leadership Team Section End -->
 
-@if(isset($achievements) && $achievements->isNotEmpty())
 <!-- Achievements Carousel Section Start -->
 <div style="padding: 100px 0; background: #111111;">
     <div class="container">
@@ -266,6 +265,7 @@
             </div>
         </div>
 
+        @if(isset($achievements) && $achievements->isNotEmpty())
         <div class="wow fadeInUp" data-wow-delay="0.2s">
             <div id="achievementsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
                 <div class="carousel-inner">
@@ -321,10 +321,16 @@
                 @endif
             </div>
         </div>
+        @else
+        <div class="row justify-content-center wow fadeInUp" data-wow-delay="0.2s">
+            <div class="col-lg-6 text-center">
+                <p style="color:rgba(255,255,255,0.4); font-size:15px;">Achievements coming soon.</p>
+            </div>
+        </div>
+        @endif
     </div>
 </div>
 <!-- Achievements Carousel Section End -->
-@endif
 
 @if(isset($galleryImages) && $galleryImages->isNotEmpty())
 <!-- Team Gallery Carousel Section Start -->
