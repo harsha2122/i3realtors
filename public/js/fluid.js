@@ -152,6 +152,6 @@
     requestAnimationFrame(animate);
   }
 
-  /* wait for full page load so layout/heights are finalised */
-  window.addEventListener('load', init);
+  /* wait for full page load + short delay so logo track layout is finalised */
+  window.addEventListener('load', function () { setTimeout(init, 350); });
 })();
