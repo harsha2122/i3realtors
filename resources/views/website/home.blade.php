@@ -611,19 +611,21 @@
             <div class="row g-3">
               @php
               $commitments = [
-                ['icon' => 'icon-commitment-item-1.svg', 'title' => 'Trust',            'desc' => 'We believe in the Power of Trust. Every developer and investor relationship we build is grounded in honesty, reliability, and long-term commitment.',       'delay' => ''],
-                ['icon' => 'icon-commitment-item-2.svg', 'title' => 'Transparency',     'desc' => 'We believe in transparency in all transactions. Clear communication and open processes ensure every client knows exactly where they stand.',                   'delay' => '0.1s'],
-                ['icon' => 'icon-commitment-item-3.svg', 'title' => 'Growing Together', 'desc' => 'We believe in working together in a win-win situation. When our developer partners succeed, we succeed — shared growth drives everything we do.',              'delay' => '0.2s'],
-                ['icon' => 'icon-commitment-item-1.svg', 'title' => 'Innovation',       'desc' => 'We embrace modern tools, data-driven strategies, and market intelligence to keep our developer partners ahead of the competition.',                           'delay' => '0.1s'],
-                ['icon' => 'icon-commitment-item-2.svg', 'title' => 'Client-Centric',   'desc' => 'Every decision we make puts our clients first. We tailor our mandate approach to each developer\'s unique project, timeline, and market goals.',              'delay' => '0.2s'],
-                ['icon' => 'icon-commitment-item-3.svg', 'title' => 'Excellence',       'desc' => 'We hold ourselves to the highest standard in every mandate we take — from project launch to final sale, excellence is non-negotiable.',                       'delay' => '0.3s'],
+                ['icon' => 'fa-handshake',    'title' => 'Trust',            'desc' => 'We believe in the Power of Trust. Every developer and investor relationship we build is grounded in honesty, reliability, and long-term commitment.',       'delay' => ''],
+                ['icon' => 'fa-eye',          'title' => 'Transparency',     'desc' => 'We believe in transparency in all transactions. Clear communication and open processes ensure every client knows exactly where they stand.',                   'delay' => '0.1s'],
+                ['icon' => 'fa-seedling',     'title' => 'Growing Together', 'desc' => 'We believe in working together in a win-win situation. When our developer partners succeed, we succeed — shared growth drives everything we do.',              'delay' => '0.2s'],
+                ['icon' => 'fa-lightbulb',    'title' => 'Innovation',       'desc' => 'We embrace modern tools, data-driven strategies, and market intelligence to keep our developer partners ahead of the competition.',                           'delay' => '0.1s'],
+                ['icon' => 'fa-user-check',   'title' => 'Client-Centric',   'desc' => 'Every decision we make puts our clients first. We tailor our mandate approach to each developer\'s unique project, timeline, and market goals.',              'delay' => '0.2s'],
+                ['icon' => 'fa-medal',        'title' => 'Excellence',       'desc' => 'We hold ourselves to the highest standard in every mandate we take — from project launch to final sale, excellence is non-negotiable.',                       'delay' => '0.3s'],
               ];
               @endphp
               @foreach($commitments as $c)
               <div class="col-sm-6 col-12">
                 <div class="commitment-item wow fadeInUp" style="margin-bottom: 0; height: 100%;" {{ $c['delay'] ? 'data-wow-delay="'.$c['delay'].'"' : '' }}>
                   <div class="commitment-item-header">
-                    <div class="icon-box"><img src="{{ asset('images/'.$c['icon']) }}" alt="" /></div>
+                    <div class="icon-box" style="display:flex; align-items:center; justify-content:center;">
+                      <i class="fa-solid {{ $c['icon'] }}" style="font-size:28px; color: var(--accent-secondary-color);"></i>
+                    </div>
                     <div class="commitment-item-title"><h3>{{ $c['title'] }}</h3></div>
                   </div>
                   <div class="commitment-item-content">
