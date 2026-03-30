@@ -482,7 +482,7 @@
                     <div class="history-item wow fadeInUp" data-wow-delay="0.2s">
                         <!-- History Item Header Start -->
                         <div class="history-item-header">
-                            <h2>2022</h2>
+                            <h2>2023</h2>
                             <div class="history-item-content">
                                 <h3>Market Expansion</h3>
                                 <p>The company expanded its developer network and began working on multiple residential and commercial projects across Pune.</p>
