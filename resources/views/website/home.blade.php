@@ -152,7 +152,7 @@
     <!-- Trusted Developers Section Start -->
     <div class="bg-section" style="background: #0a0a0a; padding: 100px 0; border-bottom: 1px solid rgba(200,169,106,0.15); position:relative; overflow:hidden; margin: 12px auto;">
       @if($heroSettings['fluid_animation'])
-      <canvas id="fluidCanvas" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;"></canvas>
+      <canvas id="fluidCanvas" style="position:absolute; top:0; left:0; z-index:0; display:block;"></canvas>
       @endif
       <div class="container" style="position:relative; z-index:1;">
         <div class="row section-row">
