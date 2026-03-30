@@ -18,6 +18,7 @@ class SettingController extends Controller
         'analytics' => ['label' => 'Analytics',         'icon' => 'fas fa-chart-line'],
         'email'     => ['label' => 'Email',             'icon' => 'fas fa-envelope'],
         'hero'      => ['label' => 'Hero Section',      'icon' => 'fas fa-film'],
+        'about'     => ['label' => 'About Section',     'icon' => 'fas fa-info'],
     ];
 
     public function __construct(private SettingsService $settingsService) {}

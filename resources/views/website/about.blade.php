@@ -3,7 +3,8 @@
 @section('content')
 
 <!-- Page Header Start -->
-<div class="page-header bg-section parallaxie" style="background-image: url({{ asset('images/page-header-bg.jpg') }}); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center 9px;">
+@php $breadcrumbBg = \App\Models\Setting::get('breadcrumb_bg'); @endphp
+<div class="page-header bg-section parallaxie" style="background-image: url({{ $breadcrumbBg ? asset('uploads/' . $breadcrumbBg) : asset('images/page-header-bg.jpg') }}); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center 9px;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -64,7 +65,8 @@
                     <!-- About Us Image Start -->
                     <div class="about-us-image">
                         <figure class="image-anime">
-                            <img src="{{ asset('images/about-us-image.jpg') }}" alt="About Us">
+                            @php $aboutMainImg = \App\Models\Setting::get('about_main_image'); @endphp
+                            <img src="{{ $aboutMainImg ? asset('uploads/' . $aboutMainImg) : asset('images/about-us-image.jpg') }}" alt="About Us">
                         </figure>
                     </div>
                     <!-- About Us Image End -->
@@ -97,7 +99,8 @@
                             <!-- About Us Item Image Start -->
                             <div class="about-us-item-image">
                                 <figure>
-                                    <img src="{{ asset('images/about-us-item-image-1.png') }}" alt="">
+                                    @php $aboutItem1 = \App\Models\Setting::get('about_item_image_1'); @endphp
+                                    <img src="{{ $aboutItem1 ? asset('uploads/' . $aboutItem1) : asset('images/about-us-item-image-1.png') }}" alt="">
                                 </figure>
                             </div>
                             <!-- About Us Item Image End -->
@@ -116,7 +119,8 @@
                             <!-- About Us Item Image Start -->
                             <div class="about-us-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/about-us-item-image-2.jpg') }}" alt="">
+                                    @php $aboutItem2 = \App\Models\Setting::get('about_item_image_2'); @endphp
+                                    <img src="{{ $aboutItem2 ? asset('uploads/' . $aboutItem2) : asset('images/about-us-item-image-2.jpg') }}" alt="">
                                 </figure>
                             </div>
                             <!-- About Us Item Image End -->
@@ -248,6 +252,79 @@
     </div>
 </div>
 <!-- Leadership Team Section End -->
+
+@if(isset($achievements) && $achievements->isNotEmpty())
+<!-- Achievements Carousel Section Start -->
+<div style="padding: 100px 0; background: #111111;">
+    <div class="container">
+        <div class="row section-row">
+            <div class="col-lg-12">
+                <div class="section-title section-title-center">
+                    <span class="section-sub-title wow fadeInUp" style="color: var(--accent-secondary-color);">Our Achievements</span>
+                    <h2 class="text-anime-style-2" data-cursor="-opaque" style="color:#ffffff;">Awards & <span>Recognition</span></h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="wow fadeInUp" data-wow-delay="0.2s">
+            <div id="achievementsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+                <div class="carousel-inner">
+                    @foreach($achievements->chunk(3) as $chunkIndex => $chunk)
+                    <div class="carousel-item {{ $chunkIndex === 0 ? 'active' : '' }}">
+                        <div class="row g-4 justify-content-center">
+                            @foreach($chunk as $achievement)
+                            <div class="{{ $chunk->count() === 1 ? 'col-lg-6' : ($chunk->count() === 2 ? 'col-md-6' : 'col-md-4') }}">
+                                <div style="background:#1a1a1a; border:1px solid rgba(200,169,106,0.2); border-radius:12px; overflow:hidden; height:100%;">
+                                    @if($achievement->image)
+                                    <div style="height:220px; overflow:hidden;">
+                                        <img src="{{ asset('uploads/' . $achievement->image) }}" alt="{{ $achievement->title }}"
+                                             style="width:100%; height:100%; object-fit:cover;">
+                                    </div>
+                                    @endif
+                                    <div style="padding:24px;">
+                                        @if($achievement->subtitle)
+                                        <span style="font-size:12px; font-weight:700; color: var(--accent-secondary-color); text-transform:uppercase; letter-spacing:1px;">{{ $achievement->subtitle }}</span>
+                                        @endif
+                                        <h3 style="font-size:18px; font-weight:700; color:#ffffff; margin:8px 0;">{{ $achievement->title }}</h3>
+                                        @if($achievement->description)
+                                        <p style="color:rgba(255,255,255,0.6); font-size:14px; line-height:1.6; margin:0;">{{ $achievement->description }}</p>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+
+                @if($achievements->count() > 3)
+                <button class="carousel-control-prev" type="button" data-bs-target="#achievementsCarousel" data-bs-slide="prev"
+                        style="width:48px; height:48px; background: var(--accent-secondary-color); border-radius:50%; top:50%; transform:translateY(-50%); left:-24px; opacity:1;">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#achievementsCarousel" data-bs-slide="next"
+                        style="width:48px; height:48px; background: var(--accent-secondary-color); border-radius:50%; top:50%; transform:translateY(-50%); right:-24px; opacity:1;">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+                @endif
+
+                @if($achievements->count() > 3)
+                <div class="carousel-indicators" style="bottom:-40px;">
+                    @foreach($achievements->chunk(3) as $chunkIndex => $chunk)
+                    <button type="button" data-bs-target="#achievementsCarousel" data-bs-slide-to="{{ $chunkIndex }}"
+                            class="{{ $chunkIndex === 0 ? 'active' : '' }}"
+                            style="width:8px; height:8px; border-radius:50%; background: {{ $chunkIndex === 0 ? 'var(--accent-secondary-color)' : 'rgba(255,255,255,0.3)' }}; border:none; margin:0 4px;">
+                    </button>
+                    @endforeach
+                </div>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Achievements Carousel Section End -->
+@endif
 
 @if(isset($galleryImages) && $galleryImages->isNotEmpty())
 <!-- Team Gallery Carousel Section Start -->

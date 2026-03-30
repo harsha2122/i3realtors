@@ -52,7 +52,8 @@
                         @php
                             $label         = $setting->label ?? ucwords(str_replace('_', ' ', $setting->key));
                             $isColorField  = str_contains($setting->key, 'color');
-                            $isMediaField  = in_array($setting->key, ['logo', 'logo_white', 'favicon']);
+                            $imageKeys     = ['logo', 'logo_white', 'favicon', 'about_main_image', 'about_item_image_1', 'about_item_image_2', 'breadcrumb_bg'];
+                            $isMediaField  = in_array($setting->key, $imageKeys);
                             $isVideoFile   = $setting->key === 'hero_video_file';
                             $isVideoType   = $setting->key === 'hero_video_type';
                             $isBoolField   = $setting->type === 'boolean';
@@ -178,6 +179,10 @@
                                         Recommended: 32×32 or 64×64 px, ICO or PNG format.
                                     @elseif($setting->key === 'logo_white')
                                         White/light version of your logo for dark backgrounds.
+                                    @elseif($setting->key === 'breadcrumb_bg')
+                                        Recommended: 1920×600 px, JPG or PNG. Used as the page header background.
+                                    @elseif(str_starts_with($setting->key, 'about_'))
+                                        Recommended: JPG or PNG. Max 4MB.
                                     @else
                                         Recommended: PNG or SVG with transparent background.
                                     @endif

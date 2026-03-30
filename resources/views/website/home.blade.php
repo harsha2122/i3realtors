@@ -247,7 +247,8 @@
             <div class="about-us-image-box wow fadeInUp">
               <div class="about-us-image">
                 <figure class="image-anime">
-                  <img src="{{ asset('images/who-we-are-image-1.jpeg') }}" alt="About i3Realtors" />
+                  @php $aboutMainImg = \App\Models\Setting::get('about_main_image'); @endphp
+                  <img src="{{ $aboutMainImg ? asset('uploads/' . $aboutMainImg) : asset('images/who-we-are-image-1.jpeg') }}" alt="About i3Realtors" />
                 </figure>
               </div>
               <div class="about-us-circle">
@@ -268,7 +269,8 @@
                   </div>
                   <div class="about-us-item-image">
                     <figure>
-                      <img src="{{ asset('images/about-us-item-image-1.png') }}" alt="" />
+                      @php $aboutItem1 = \App\Models\Setting::get('about_item_image_1'); @endphp
+                      <img src="{{ $aboutItem1 ? asset('uploads/' . $aboutItem1) : asset('images/about-us-item-image-1.png') }}" alt="" />
                     </figure>
                   </div>
                 </div>
@@ -280,7 +282,8 @@
                   </div>
                   <div class="about-us-item-image">
                     <figure class="image-anime">
-                      <img src="{{ asset('images/who-we-are-image-2.jpg') }}" alt="" />
+                      @php $aboutItem2 = \App\Models\Setting::get('about_item_image_2'); @endphp
+                      <img src="{{ $aboutItem2 ? asset('uploads/' . $aboutItem2) : asset('images/who-we-are-image-2.jpg') }}" alt="" />
                     </figure>
                   </div>
                 </div>

@@ -145,6 +145,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Recognitions
         Route::resource('recognitions', Admin\RecognitionController::class);
 
+        // Achievements
+        Route::resource('achievements', Admin\AchievementController::class);
+
         // Testimonial Management
         Route::resource('testimonials', Admin\TestimonialController::class);
 

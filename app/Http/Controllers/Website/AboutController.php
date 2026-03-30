@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use App\Domains\Services\Models\TeamMember;
+use App\Models\Achievement;
 use App\Models\TeamGalleryImage;
 
 class AboutController extends Controller
@@ -12,6 +13,7 @@ class AboutController extends Controller
     {
         $teamMembers   = TeamMember::active()->ordered()->get();
         $galleryImages = TeamGalleryImage::active()->ordered()->get();
-        return view('website.about', compact('teamMembers', 'galleryImages'));
+        $achievements  = Achievement::active()->ordered()->get();
+        return view('website.about', compact('teamMembers', 'galleryImages', 'achievements'));
     }
 }
