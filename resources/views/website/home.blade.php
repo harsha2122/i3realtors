@@ -150,7 +150,7 @@
     <!-- Hero Section End -->
 
     <!-- Trusted Developers Section Start -->
-    <div class="bg-section" style="background: #0a0a0a; padding: 100px 0; border-bottom: 1px solid rgba(200,169,106,0.15); position:relative; overflow:hidden; margin-top: 12px;">
+    <div class="bg-section" style="background: #0a0a0a; padding: 100px 0; border-bottom: 1px solid rgba(200,169,106,0.15); position:relative; overflow:hidden; margin: 12px auto;">
       @if($heroSettings['fluid_animation'])
       <canvas id="fluidCanvas" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;"></canvas>
       @endif
@@ -219,7 +219,7 @@
     <!-- Trusted Developers Section End -->
 
     <!-- About US Section Start -->
-    <div class="about-us">
+    <div class="about-us bg-section" style="margin: 12px auto;">
       <div class="container">
         <div class="row section-row align-items-center">
           <div class="col-xl-7">
@@ -293,7 +293,7 @@
     <!-- About US Section End -->
 
     <!-- Our Service Section Start -->
-    <div class="our-service bg-section">
+    <div class="our-service bg-section" style="margin: 12px auto;">
       <div class="container">
         <div class="row section-row">
           <div class="col-lg-12">
@@ -379,7 +379,7 @@
     <!-- Our Service Section End -->
 
     <!-- Who We Are Section Start -->
-    <div class="who-we-are">
+    <div class="who-we-are bg-section" style="margin: 12px auto;">
       <div class="container">
         <div class="row section-row">
           <div class="col-lg-12">
@@ -545,7 +545,7 @@
     <!-- Intro Video End -->
 
     <!-- Our Commitment Section Start -->
-    <div class="our-commitment">
+    <div class="our-commitment bg-section" style="margin: 12px auto;">
       <div class="container">
         <div class="row align-items-start">
 
@@ -634,7 +634,7 @@
     <!-- Our Commitment Section End -->
 
     <!-- Our Project Section Start -->
-    <div class="our-project bg-section dark-section">
+    <div class="our-project bg-section dark-section" style="margin: 12px auto;">
       <div class="container">
         <div class="row section-row">
           <div class="col-lg-12">
@@ -689,7 +689,7 @@
     <!-- Our Project Section End -->
 
     <!-- Recognitions Section Start -->
-    <div class="bg-section" style="margin: 60px 0; padding: 100px 0;">
+    <div class="bg-section" style="margin: 12px auto; padding: 100px 0;">
       <div class="container">
         <div class="row section-row">
           <div class="col-lg-12">
@@ -734,7 +734,7 @@
     <!-- Recognitions Section End -->
 
     <!-- Testimonials Section Start -->
-    <div class="bg-section" style="padding: 100px 0;">
+    <div class="bg-section" style="margin: 12px auto; padding: 100px 0;">
       <div class="container">
         <div class="row section-row">
           <div class="col-lg-12">
@@ -900,7 +900,7 @@
     Our Fact Section End --}}
 
     <!-- Cta Box Section Start -->
-    <div class="cta-box bg-section dark-section parallaxie">
+    <div class="cta-box bg-section dark-section parallaxie" style="margin: 12px auto;">
       <div class="container">
         <div class="row">
           <div class="col-xl-12 text-center">
