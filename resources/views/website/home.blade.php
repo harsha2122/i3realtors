@@ -219,7 +219,7 @@
     <!-- Trusted Developers Section End -->
 
     <!-- About US Section Start -->
-    <div class="about-us bg-section" style="margin: 12px auto;">
+    <div class="about-us" style="margin: 12px 0;">
       <div class="container">
         <div class="row section-row align-items-center">
           <div class="col-xl-7">
