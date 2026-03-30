@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class FundRaisingLogo extends Model
 {
-    protected $fillable = ['name', 'logo', 'sort_order', 'is_active'];
+    protected $fillable = ['logo', 'is_active'];
 
     protected $casts = ['is_active' => 'boolean'];
 
     public function scopeActive($query)
     {
-        return $query->where('is_active', true)->orderBy('sort_order')->orderBy('id');
+        return $query->where('is_active', true)->orderBy('id');
     }
 }

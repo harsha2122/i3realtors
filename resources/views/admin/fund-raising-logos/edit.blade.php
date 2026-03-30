@@ -1,55 +1,39 @@
 @extends('admin.layouts.app')
-@section('title', 'Edit Fund Raising Logo')
-@section('page-title', 'Edit Logo')
+@section('title', 'Replace Logo')
+@section('page-title', 'Replace Logo')
 @section('breadcrumb')
     <li class="breadcrumb-item"><a href="{{ route('admin.fund-raising-logos.index') }}">Fund Raising Logos</a></li>
-    <li class="breadcrumb-item active">Edit</li>
+    <li class="breadcrumb-item active">Replace</li>
 @endsection
 
 @section('content')
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-5">
         <div class="card border-0 shadow-sm rounded-3">
             <div class="card-header bg-white border-0 pt-4 pb-3">
-                <h6 class="fw-bold mb-0"><i class="fas fa-edit me-2" style="color:var(--primary)"></i>Edit Clientele Logo</h6>
+                <h6 class="fw-bold mb-0"><i class="fas fa-sync-alt me-2" style="color:var(--primary)"></i>Replace Logo</h6>
             </div>
             <div class="card-body">
+                <div class="mb-4 text-center">
+                    <p class="text-muted small mb-2">Current logo</p>
+                    <div style="display:inline-flex; align-items:center; justify-content:center; width:160px; height:160px; border:1px solid #e9ecef; border-radius:10px; background:#f9f9f9; padding:16px;">
+                        <img src="{{ asset('uploads/' . $fundRaisingLogo->logo) }}" id="currentImg"
+                             style="max-width:100%; max-height:100%; object-fit:contain;">
+                    </div>
+                </div>
+
                 <form action="{{ route('admin.fund-raising-logos.update', $fundRaisingLogo) }}" method="POST" enctype="multipart/form-data">
                     @csrf @method('PUT')
-                    <div class="mb-3">
-                        <label class="form-label">Name <span class="text-danger">*</span></label>
-                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                               value="{{ old('name', $fundRaisingLogo->name) }}" required>
-                        @error('name')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Logo Image</label>
-                        <div class="mb-2">
-                            <img src="{{ asset('uploads/' . $fundRaisingLogo->logo) }}" alt="{{ $fundRaisingLogo->name }}"
-                                 id="imgPreview" style="max-height:80px; border:1px solid #dee2e6; border-radius:6px; padding:6px; background:#fff;">
-                        </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">New Logo Image <span class="text-danger">*</span></label>
                         <input type="file" name="logo" class="form-control @error('logo') is-invalid @enderror"
-                               accept="image/*" onchange="previewImg(this)">
-                        <div class="form-text">Leave empty to keep current logo. PNG recommended. Max 2MB.</div>
+                               accept="image/*" required onchange="previewNew(this)">
+                        <div class="form-text">PNG recommended. Max 2MB.</div>
                         @error('logo')<div class="invalid-feedback">{{ $message }}</div>@enderror
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Display Order</label>
-                            <input type="number" name="sort_order" class="form-control"
-                                   value="{{ old('sort_order', $fundRaisingLogo->sort_order) }}" min="0">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label d-block">Status</label>
-                            <div class="form-check mt-2">
-                                <input type="checkbox" class="form-check-input" name="is_active" value="1" id="is_active"
-                                       {{ $fundRaisingLogo->is_active ? 'checked' : '' }}>
-                                <label class="form-check-label" for="is_active">Active</label>
-                            </div>
-                        </div>
+                        <img id="newPreview" src="" style="display:none; margin-top:10px; max-height:100px; border:1px solid #dee2e6; border-radius:8px; padding:8px; background:#fff;">
                     </div>
                     <div class="d-flex gap-2">
-                        <button type="submit" class="btn btn-admin-primary"><i class="fas fa-save me-1"></i>Update</button>
+                        <button type="submit" class="btn btn-admin-primary"><i class="fas fa-save me-1"></i>Save</button>
                         <a href="{{ route('admin.fund-raising-logos.index') }}" class="btn btn-outline-secondary">Cancel</a>
                     </div>
                 </form>
@@ -61,8 +45,8 @@
 
 @push('scripts')
 <script>
-function previewImg(input) {
-    const preview = document.getElementById('imgPreview');
+function previewNew(input) {
+    const preview = document.getElementById('newPreview');
     if (input.files && input.files[0]) {
         const reader = new FileReader();
         reader.onload = e => { preview.src = e.target.result; preview.style.display = 'block'; };

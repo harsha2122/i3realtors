@@ -10,30 +10,25 @@ class FundRaisingLogoController extends Controller
 {
     public function index()
     {
-        $logos = FundRaisingLogo::orderBy('sort_order')->orderBy('id')->paginate(20);
+        $logos = FundRaisingLogo::orderBy('id')->paginate(40);
         return view('admin.fund-raising-logos.index', compact('logos'));
-    }
-
-    public function create()
-    {
-        return view('admin.fund-raising-logos.create');
     }
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'name'       => 'required|string|max:255',
-            'logo'       => 'required|image|max:2048',
-            'sort_order' => 'nullable|integer',
-            'is_active'  => 'nullable|boolean',
+        $request->validate([
+            'logos'   => 'required|array|min:1',
+            'logos.*' => 'image|max:2048',
         ]);
 
-        $validated['logo']       = $request->file('logo')->store('fund-raising-logos', 'public');
-        $validated['is_active']  = $request->boolean('is_active', true);
-        $validated['sort_order'] = $request->input('sort_order', 0);
+        foreach ($request->file('logos') as $file) {
+            FundRaisingLogo::create([
+                'logo'      => $file->store('fund-raising-logos', 'public'),
+                'is_active' => true,
+            ]);
+        }
 
-        FundRaisingLogo::create($validated);
-        return redirect()->route('admin.fund-raising-logos.index')->with('success', 'Logo added.');
+        return back()->with('success', count($request->file('logos')) . ' logo(s) uploaded successfully.');
     }
 
     public function edit(FundRaisingLogo $fundRaisingLogo)
@@ -43,29 +38,18 @@ class FundRaisingLogoController extends Controller
 
     public function update(Request $request, FundRaisingLogo $fundRaisingLogo)
     {
-        $validated = $request->validate([
-            'name'       => 'required|string|max:255',
-            'logo'       => 'nullable|image|max:2048',
-            'sort_order' => 'nullable|integer',
-            'is_active'  => 'nullable|boolean',
+        $request->validate(['logo' => 'required|image|max:2048']);
+
+        $fundRaisingLogo->update([
+            'logo' => $request->file('logo')->store('fund-raising-logos', 'public'),
         ]);
 
-        if ($request->hasFile('logo')) {
-            $validated['logo'] = $request->file('logo')->store('fund-raising-logos', 'public');
-        } else {
-            unset($validated['logo']);
-        }
-
-        $validated['is_active']  = $request->boolean('is_active');
-        $validated['sort_order'] = $request->input('sort_order', 0);
-
-        $fundRaisingLogo->update($validated);
         return redirect()->route('admin.fund-raising-logos.index')->with('success', 'Logo updated.');
     }
 
     public function destroy(FundRaisingLogo $fundRaisingLogo)
     {
         $fundRaisingLogo->delete();
-        return redirect()->back()->with('success', 'Logo deleted.');
+        return back()->with('success', 'Logo deleted.');
     }
 }

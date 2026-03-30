@@ -155,12 +155,12 @@
         @if($logos->isNotEmpty())
         <div class="row g-3 wow fadeInUp" data-wow-delay="0.2s" style="margin-top:20px;">
             @foreach($logos as $logo)
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                <div style="border:1px solid #e5e5e5; border-radius:8px; padding:20px 16px; background:#fff; display:flex; align-items:center; justify-content:center; height:110px; transition:box-shadow 0.3s, border-color 0.3s;"
+            <div class="col-lg-3 col-md-4 col-6">
+                <div style="border:1px solid #e5e5e5; border-radius:8px; background:#fff; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; padding:20px; transition:box-shadow 0.3s, border-color 0.3s;"
                      onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.1)'; this.style.borderColor='var(--accent-secondary-color)';"
                      onmouseout="this.style.boxShadow='none'; this.style.borderColor='#e5e5e5';">
-                    <img src="{{ asset('uploads/' . $logo->logo) }}" alt="{{ $logo->name }}"
-                         style="max-width:100%; max-height:70px; object-fit:contain;">
+                    <img src="{{ asset('uploads/' . $logo->logo) }}" alt="Partner"
+                         style="max-width:100%; max-height:100%; object-fit:contain;">
                 </div>
             </div>
             @endforeach
