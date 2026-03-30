@@ -194,84 +194,107 @@
 </div>
 <!-- Leadership Team Section End -->
 
-<!-- Achievements Carousel Section Start -->
-<div style="padding: 100px 0; background: #111111;">
-    <div class="container">
+<!-- Achievements Section Start -->
+<div style="padding: 100px 0; background: #f5f5f5;">
+    <div class="container-fluid px-4 px-lg-5">
         <div class="row section-row">
             <div class="col-lg-12">
                 <div class="section-title section-title-center">
-                    <span class="section-sub-title wow fadeInUp" style="color: var(--accent-secondary-color);">Our Achievements</span>
-                    <h2 class="text-anime-style-2" data-cursor="-opaque" style="color:#ffffff;">Awards & <span>Recognition</span></h2>
+                    <span class="section-sub-title wow fadeInUp">Our Track Record</span>
+                    <h2 class="text-anime-style-2" data-cursor="-opaque">Achievements</h2>
                 </div>
             </div>
         </div>
 
         @if(isset($achievements) && $achievements->isNotEmpty())
-        <div class="wow fadeInUp" data-wow-delay="0.2s">
-            <div id="achievementsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
-                <div class="carousel-inner">
-                    @foreach($achievements->chunk(3) as $chunkIndex => $chunk)
-                    <div class="carousel-item {{ $chunkIndex === 0 ? 'active' : '' }}">
-                        <div class="row g-4 justify-content-center">
-                            @foreach($chunk as $achievement)
-                            <div class="{{ $chunk->count() === 1 ? 'col-lg-6' : ($chunk->count() === 2 ? 'col-md-6' : 'col-md-4') }}">
-                                <div style="background:#1a1a1a; border:1px solid rgba(200,169,106,0.2); border-radius:12px; overflow:hidden; height:100%;">
-                                    @if($achievement->image)
-                                    <div style="height:220px; overflow:hidden;">
-                                        <img src="{{ asset('uploads/' . $achievement->image) }}" alt="{{ $achievement->title }}"
-                                             style="width:100%; height:100%; object-fit:cover;">
-                                    </div>
-                                    @endif
-                                    <div style="padding:24px;">
-                                        @if($achievement->subtitle)
-                                        <span style="font-size:12px; font-weight:700; color: var(--accent-secondary-color); text-transform:uppercase; letter-spacing:1px;">{{ $achievement->subtitle }}</span>
-                                        @endif
-                                        <h3 style="font-size:18px; font-weight:700; color:#ffffff; margin:8px 0;">{{ $achievement->title }}</h3>
-                                        @if($achievement->description)
-                                        <p style="color:rgba(255,255,255,0.6); font-size:14px; line-height:1.6; margin:0;">{{ $achievement->description }}</p>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
+        <div class="wow fadeInUp" data-wow-delay="0.2s" style="position:relative; margin-top:40px;">
+
+            {{-- Prev/Next buttons --}}
+            <button id="achPrev" onclick="scrollAch(-1)"
+                    style="position:absolute; left:-10px; top:50%; transform:translateY(-50%); z-index:10; width:44px; height:44px; border-radius:50%; background:var(--accent-secondary-color); border:none; color:#fff; font-size:16px; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="achNext" onclick="scrollAch(1)"
+                    style="position:absolute; right:-10px; top:50%; transform:translateY(-50%); z-index:10; width:44px; height:44px; border-radius:50%; background:var(--accent-secondary-color); border:none; color:#fff; font-size:16px; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <div id="achTrack" style="display:flex; gap:20px; overflow:hidden; scroll-behavior:smooth; padding: 10px 4px 20px;">
+                @foreach($achievements as $achievement)
+                <div style="flex:0 0 calc(25% - 15px); min-width:220px;">
+                    {{-- Card --}}
+                    <div style="background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.10); height:100%;">
+
+                        {{-- Gray header with developer name --}}
+                        <div style="background:#6b6b6b; padding:18px 16px 16px; text-align:center; position:relative; clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);">
+                            <h3 style="color:#fff; font-size:17px; font-weight:800; letter-spacing:0.5px; margin:0; line-height:1.3; text-transform:uppercase;">{{ $achievement->title }}</h3>
                         </div>
+
+                        {{-- Logo --}}
+                        <div style="padding:20px 16px 12px; text-align:center; min-height:110px; display:flex; align-items:center; justify-content:center;">
+                            @if($achievement->image)
+                                <img src="{{ asset('uploads/' . $achievement->image) }}" alt="{{ $achievement->title }}"
+                                     style="max-height:80px; max-width:100%; object-fit:contain;">
+                            @else
+                                <div style="width:80px; height:80px; background:#f0f0f0; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                                    <i class="fas fa-building" style="font-size:28px; color:#bbb;"></i>
+                                </div>
+                            @endif
+                        </div>
+
+                        {{-- Stats --}}
+                        <div style="padding:4px 20px 24px; font-size:14px; line-height:2;">
+                            @if($achievement->units)
+                            <p style="margin:0; color:#e05a00; font-weight:600;">No of Units – {{ $achievement->units }}</p>
+                            @endif
+                            @if($achievement->sales_value)
+                            <p style="margin:0; color:#e05a00; font-weight:600;">Sales Value – {{ $achievement->sales_value }}</p>
+                            @endif
+                            @if($achievement->sold_percentage)
+                            <p style="margin:0; color:#e05a00; font-weight:600;">Sold – {{ $achievement->sold_percentage }}</p>
+                            @endif
+                            @if($achievement->time_period)
+                            <p style="margin:0; color:#e05a00; font-weight:600;">Time - {{ $achievement->time_period }}</p>
+                            @endif
+                            @if($achievement->location)
+                            <p style="margin:0; color:#e05a00; font-weight:600;">{{ $achievement->location }}</p>
+                            @endif
+                        </div>
+
                     </div>
-                    @endforeach
                 </div>
-
-                @if($achievements->count() > 3)
-                <button class="carousel-control-prev" type="button" data-bs-target="#achievementsCarousel" data-bs-slide="prev"
-                        style="width:48px; height:48px; background: var(--accent-secondary-color); border-radius:50%; top:50%; transform:translateY(-50%); left:-24px; opacity:1;">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#achievementsCarousel" data-bs-slide="next"
-                        style="width:48px; height:48px; background: var(--accent-secondary-color); border-radius:50%; top:50%; transform:translateY(-50%); right:-24px; opacity:1;">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
-                @endif
-
-                @if($achievements->count() > 3)
-                <div class="carousel-indicators" style="bottom:-40px;">
-                    @foreach($achievements->chunk(3) as $chunkIndex => $chunk)
-                    <button type="button" data-bs-target="#achievementsCarousel" data-bs-slide-to="{{ $chunkIndex }}"
-                            class="{{ $chunkIndex === 0 ? 'active' : '' }}"
-                            style="width:8px; height:8px; border-radius:50%; background: {{ $chunkIndex === 0 ? 'var(--accent-secondary-color)' : 'rgba(255,255,255,0.3)' }}; border:none; margin:0 4px;">
-                    </button>
-                    @endforeach
-                </div>
-                @endif
+                @endforeach
             </div>
         </div>
         @else
         <div class="row justify-content-center wow fadeInUp" data-wow-delay="0.2s">
             <div class="col-lg-6 text-center">
-                <p style="color:rgba(255,255,255,0.4); font-size:15px;">Achievements coming soon.</p>
+                <p style="color:#aaa; font-size:15px;">Achievements coming soon.</p>
             </div>
         </div>
         @endif
     </div>
 </div>
-<!-- Achievements Carousel Section End -->
+<!-- Achievements Section End -->
+
+@push('scripts')
+<script>
+(function() {
+    var track     = document.getElementById('achTrack');
+    var cardWidth = 0;
+
+    function getCardWidth() {
+        var first = track && track.firstElementChild;
+        return first ? first.offsetWidth + 20 : 260;
+    }
+
+    window.scrollAch = function(dir) {
+        cardWidth = getCardWidth();
+        track.scrollLeft += dir * cardWidth * 4;
+    };
+})();
+</script>
+@endpush
 
 @if(isset($galleryImages) && $galleryImages->isNotEmpty())
 <!-- Team Gallery Carousel Section Start -->

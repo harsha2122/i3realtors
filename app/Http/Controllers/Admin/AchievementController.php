@@ -22,12 +22,15 @@ class AchievementController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title'      => 'required|string|max:255',
-            'subtitle'   => 'nullable|string|max:255',
-            'description'=> 'nullable|string',
-            'image'      => 'nullable|image|max:4096',
-            'sort_order' => 'nullable|integer',
-            'is_active'  => 'nullable|boolean',
+            'title'           => 'required|string|max:255',
+            'image'           => 'nullable|image|max:4096',
+            'units'           => 'nullable|string|max:50',
+            'sales_value'     => 'nullable|string|max:50',
+            'sold_percentage' => 'nullable|string|max:20',
+            'time_period'     => 'nullable|string|max:50',
+            'location'        => 'nullable|string|max:255',
+            'sort_order'      => 'nullable|integer',
+            'is_active'       => 'nullable|boolean',
         ]);
 
         if ($request->hasFile('image')) {
@@ -49,12 +52,15 @@ class AchievementController extends Controller
     public function update(Request $request, Achievement $achievement)
     {
         $validated = $request->validate([
-            'title'      => 'required|string|max:255',
-            'subtitle'   => 'nullable|string|max:255',
-            'description'=> 'nullable|string',
-            'image'      => 'nullable|image|max:4096',
-            'sort_order' => 'nullable|integer',
-            'is_active'  => 'nullable|boolean',
+            'title'           => 'required|string|max:255',
+            'image'           => 'nullable|image|max:4096',
+            'units'           => 'nullable|string|max:50',
+            'sales_value'     => 'nullable|string|max:50',
+            'sold_percentage' => 'nullable|string|max:20',
+            'time_period'     => 'nullable|string|max:50',
+            'location'        => 'nullable|string|max:255',
+            'sort_order'      => 'nullable|integer',
+            'is_active'       => 'nullable|boolean',
         ]);
 
         if ($request->hasFile('image')) {

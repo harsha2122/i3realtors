@@ -8,9 +8,12 @@ class Achievement extends Model
 {
     protected $fillable = [
         'title',
-        'subtitle',
-        'description',
         'image',
+        'units',
+        'sales_value',
+        'sold_percentage',
+        'time_period',
+        'location',
         'sort_order',
         'is_active',
     ];
@@ -28,10 +31,5 @@ class Achievement extends Model
     public function scopeOrdered($query)
     {
         return $query->orderBy('sort_order')->orderBy('id');
-    }
-
-    public function getImageUrlAttribute(): ?string
-    {
-        return $this->image ? asset('uploads/' . $this->image) : null;
     }
 }
