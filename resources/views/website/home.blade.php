@@ -247,7 +247,7 @@
             <div class="about-us-image-box wow fadeInUp">
               <div class="about-us-image">
                 <figure class="image-anime">
-                  <img src="{{ asset('images/who-are-we-image-1.jpeg') }}" alt="About i3Realtors" />
+                  <img src="{{ asset('images/who-we-are-image-1.jpeg') }}" alt="About i3Realtors" />
                 </figure>
               </div>
               <div class="about-us-circle">
