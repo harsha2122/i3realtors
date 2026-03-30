@@ -312,17 +312,17 @@
         <div class="row service-item-list g-4 justify-content-center">
           @php
           $services = [
-            ['img' => 'service-1.jpg', 'icon' => 'icon-service-item-1.svg', 'title' => 'Residential',         'desc' => 'End-to-end mandate management for residential projects — from launch positioning to sales execution and investor connect.', 'delay' => ''],
-            ['img' => 'service-2.jpg', 'icon' => 'icon-service-item-2.svg', 'title' => 'Commercial',          'desc' => 'Commercial property sales advisory and mandate representation to maximise developer returns and buyer engagement.', 'delay' => '0.1s'],
-            ['img' => 'service-3.jpg', 'icon' => 'icon-service-item-3.svg', 'title' => 'Retail',              'desc' => 'Retail space leasing, tenant mix strategy, and mandate services tailored to high-footfall commercial developments.', 'delay' => '0.2s'],
-            ['img' => 'service-4.jpg', 'icon' => 'icon-service-item-4.svg', 'title' => 'Investment Banking',  'desc' => 'Structured real estate investment solutions, deal syndication, and financial advisory for large-scale developments.', 'delay' => '0.1s'],
-            ['img' => 'service-1.jpg', 'icon' => 'icon-service-item-1.svg', 'title' => 'Commercial Leasing',  'desc' => 'Strategic leasing mandates for office spaces, warehouses, and retail units — negotiated for optimal occupancy and yield.', 'delay' => '0.2s'],
-            ['img' => 'service-2.jpg', 'icon' => 'icon-service-item-2.svg', 'title' => 'Hospitality',         'desc' => 'Hospitality real estate consulting, hotel project mandates, and investment advisory for premium leisure developments.', 'delay' => '0.3s'],
-            ['img' => 'service-3.jpg', 'icon' => 'icon-service-item-3.svg', 'title' => 'Project Management',  'desc' => 'Complete project oversight from planning to delivery — coordinating timelines, resources, and stakeholder communication.', 'delay' => '0.2s'],
-            ['img' => 'service-4.jpg', 'icon' => 'icon-service-item-4.svg', 'title' => 'Sales',               'desc' => 'High-performance sales deployment through our 1800+ channel partner network to drive consistent project velocity.', 'delay' => '0.3s'],
-            ['img' => 'service-1.jpg', 'icon' => 'icon-service-item-1.svg', 'title' => 'Designing',           'desc' => 'Architectural design consultation and interior planning to elevate project appeal and buyer experience.', 'delay' => '0.4s'],
-            ['img' => 'service-2.jpg', 'icon' => 'icon-service-item-2.svg', 'title' => 'Branding',            'desc' => 'Developer and project branding, identity creation, and marketing collateral to build lasting market presence.', 'delay' => '0.3s'],
-            ['img' => 'service-3.jpg', 'icon' => 'icon-service-item-3.svg', 'title' => 'Fund Raising',        'desc' => 'Real estate fund structuring, investor outreach, and capital raising services for developers and project promoters.', 'delay' => '0.4s', 'link' => route('services.fund-raising')],
+            ['img' => 'service-1.jpg', 'icon' => 'fa-house-chimney',     'title' => 'Residential',         'desc' => 'End-to-end mandate management for residential projects — from launch positioning to sales execution and investor connect.', 'delay' => ''],
+            ['img' => 'service-2.jpg', 'icon' => 'fa-building',          'title' => 'Commercial',          'desc' => 'Commercial property sales advisory and mandate representation to maximise developer returns and buyer engagement.', 'delay' => '0.1s'],
+            ['img' => 'service-3.jpg', 'icon' => 'fa-store',             'title' => 'Retail',              'desc' => 'Retail space leasing, tenant mix strategy, and mandate services tailored to high-footfall commercial developments.', 'delay' => '0.2s'],
+            ['img' => 'service-4.jpg', 'icon' => 'fa-chart-line',        'title' => 'Investment Banking',  'desc' => 'Structured real estate investment solutions, deal syndication, and financial advisory for large-scale developments.', 'delay' => '0.1s'],
+            ['img' => 'service-1.jpg', 'icon' => 'fa-file-signature',    'title' => 'Commercial Leasing',  'desc' => 'Strategic leasing mandates for office spaces, warehouses, and retail units — negotiated for optimal occupancy and yield.', 'delay' => '0.2s'],
+            ['img' => 'service-2.jpg', 'icon' => 'fa-concierge-bell',    'title' => 'Hospitality',         'desc' => 'Hospitality real estate consulting, hotel project mandates, and investment advisory for premium leisure developments.', 'delay' => '0.3s'],
+            ['img' => 'service-3.jpg', 'icon' => 'fa-diagram-project',   'title' => 'Project Management',  'desc' => 'Complete project oversight from planning to delivery — coordinating timelines, resources, and stakeholder communication.', 'delay' => '0.2s'],
+            ['img' => 'service-4.jpg', 'icon' => 'fa-tags',              'title' => 'Sales',               'desc' => 'High-performance sales deployment through our 1800+ channel partner network to drive consistent project velocity.', 'delay' => '0.3s'],
+            ['img' => 'service-1.jpg', 'icon' => 'fa-compass-drafting',  'title' => 'Designing',           'desc' => 'Architectural design consultation and interior planning to elevate project appeal and buyer experience.', 'delay' => '0.4s'],
+            ['img' => 'service-2.jpg', 'icon' => 'fa-bullhorn',          'title' => 'Branding',            'desc' => 'Developer and project branding, identity creation, and marketing collateral to build lasting market presence.', 'delay' => '0.3s'],
+            ['img' => 'service-3.jpg', 'icon' => 'fa-hand-holding-dollar', 'title' => 'Fund Raising',      'desc' => 'Real estate fund structuring, investor outreach, and capital raising services for developers and project promoters.', 'delay' => '0.4s', 'link' => route('services.fund-raising')],
           ];
           @endphp
 
@@ -335,8 +335,8 @@
                 </figure>
               </div>
               <div class="service-item-body">
-                <div class="icon-box">
-                  <img src="{{ asset('images/'.$svc['icon']) }}" alt="" />
+                <div class="icon-box" style="display:flex; align-items:center; justify-content:center;">
+                  <i class="fa-solid {{ $svc['icon'] }}" style="font-size:28px; color: var(--accent-secondary-color);"></i>
                 </div>
                 <div class="service-item-body-content">
                   <div class="service-item-content">
