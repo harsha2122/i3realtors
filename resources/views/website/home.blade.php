@@ -322,7 +322,7 @@
             ['img' => 'service-4.jpg', 'icon' => 'icon-service-item-4.svg', 'title' => 'Sales',               'desc' => 'High-performance sales deployment through our 1800+ channel partner network to drive consistent project velocity.', 'delay' => '0.3s'],
             ['img' => 'service-1.jpg', 'icon' => 'icon-service-item-1.svg', 'title' => 'Designing',           'desc' => 'Architectural design consultation and interior planning to elevate project appeal and buyer experience.', 'delay' => '0.4s'],
             ['img' => 'service-2.jpg', 'icon' => 'icon-service-item-2.svg', 'title' => 'Branding',            'desc' => 'Developer and project branding, identity creation, and marketing collateral to build lasting market presence.', 'delay' => '0.3s'],
-            ['img' => 'service-3.jpg', 'icon' => 'icon-service-item-3.svg', 'title' => 'Fund Raising',        'desc' => 'Real estate fund structuring, investor outreach, and capital raising services for developers and project promoters.', 'delay' => '0.4s'],
+            ['img' => 'service-3.jpg', 'icon' => 'icon-service-item-3.svg', 'title' => 'Fund Raising',        'desc' => 'Real estate fund structuring, investor outreach, and capital raising services for developers and project promoters.', 'delay' => '0.4s', 'link' => route('services.fund-raising')],
           ];
           @endphp
 
@@ -344,7 +344,11 @@
                     <p>{{ $svc['desc'] }}</p>
                   </div>
                   <div class="service-item-btn">
-                    <span class="readmore-btn">View Details</span>
+                    @if(!empty($svc['link']))
+                      <a href="{{ $svc['link'] }}" class="readmore-btn">View Details</a>
+                    @else
+                      <span class="readmore-btn">View Details</span>
+                    @endif
                   </div>
                 </div>
               </div>

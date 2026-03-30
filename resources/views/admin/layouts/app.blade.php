@@ -159,6 +159,9 @@
             <a href="{{ route('admin.achievements.index') }}" class="nav-link {{ request()->routeIs('admin.achievements.*') ? 'active' : '' }}">
                 <i class="fas fa-trophy"></i> Achievements
             </a>
+            <a href="{{ route('admin.fund-raising-logos.index') }}" class="nav-link {{ request()->routeIs('admin.fund-raising-logos.*') ? 'active' : '' }}">
+                <i class="fas fa-hand-holding-usd"></i> Fund Raising Logos
+            </a>
             <a href="{{ route('admin.gallery.index') }}" class="nav-link {{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
                 <i class="fas fa-images"></i> Gallery
             </a>

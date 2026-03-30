@@ -22,6 +22,7 @@ Route::get('/uploads/{path}', function ($path) {
 Route::get('/', [Website\HomeController::class, 'index'])->name('home');
 Route::get('/about', [Website\AboutController::class, 'index'])->name('about');
 Route::get('/services', [Website\ServiceController::class, 'index'])->name('services');
+Route::get('/services/fund-raising', [Website\FundRaisingController::class, 'index'])->name('services.fund-raising');
 Route::get('/calculator', [Website\CalculatorController::class, 'index'])->name('calculator');
 Route::get('/team', [Website\TeamController::class, 'index'])->name('team');
 Route::get('/contact', [Website\ContactController::class, 'index'])->name('contact');
@@ -147,6 +148,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // Achievements
         Route::resource('achievements', Admin\AchievementController::class);
+
+        // Fund Raising Logos
+        Route::resource('fund-raising-logos', Admin\FundRaisingLogoController::class);
 
         // Testimonial Management
         Route::resource('testimonials', Admin\TestimonialController::class);
