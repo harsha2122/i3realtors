@@ -406,9 +406,8 @@
                       ['id' => 'tab2', 'label' => 'High Velocity of Sales'],
                       ['id' => 'tab3', 'label' => 'Marketing Expertise'],
                       ['id' => 'tab4', 'label' => 'Sales Expertise'],
-                      ['id' => 'tab5', 'label' => 'Performance Marketing'],
                       ['id' => 'tab6', 'label' => 'Performance Base'],
-                      ['id' => 'tab7', 'label' => 'People'],
+                      ['id' => 'tab7', 'label' => 'Our Sales Force'],
                       ['id' => 'tab8', 'label' => 'Process Excellence'],
                     ];
                     $tabContent = [
@@ -432,20 +431,15 @@
                         'desc'   => 'Our experienced sales team provides on-ground support to convert leads into successful property transactions.',
                         'points' => ['Sales Specialist', 'Support Center'],
                       ],
-                      'tab5' => [
-                        'title'  => 'Performance Marketing (360 Degree)',
-                        'desc'   => 'We leverage full-funnel performance marketing strategies to generate qualified leads and measurable ROI for every project.',
-                        'points' => ['Search & Social Campaigns', 'Lead Generation Funnels', 'Retargeting & Remarketing', 'Analytics & Reporting'],
-                      ],
                       'tab6' => [
                         'title'  => 'Performance Base - CP Network',
                         'desc'   => 'Our channel partner network is built on performance, ensuring active and motivated partners drive consistent sales across geographies.',
                         'points' => ['Channel Partner Onboarding', 'CP Training & Enablement', 'Incentive Structures', 'Network Expansion'],
                       ],
                       'tab7' => [
-                        'title'  => 'People - Sales Experts',
-                        'desc'   => 'Our team of dedicated sales experts brings domain knowledge and execution excellence to every developer mandate.',
-                        'points' => ['Trained Sales Professionals', 'Developer Relationship Managers', 'Investor Advisory Team', 'Field Sales Execution'],
+                        'title'  => 'Our Sales Force',
+                        'desc'   => 'Our dedicated sales force combines domain expertise with full-funnel performance marketing to drive qualified leads and successful closures on every mandate.',
+                        'points' => ['Trained Sales Professionals', 'Developer Relationship Managers', 'Investor Advisory Team', 'Field Sales Execution', 'Search & Social Campaigns', 'Lead Generation Funnels', 'Retargeting & Remarketing', 'Analytics & Reporting'],
                       ],
                       'tab8' => [
                         'title'  => 'Process Excellence',
