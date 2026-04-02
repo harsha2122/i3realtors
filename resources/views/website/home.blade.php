@@ -303,7 +303,7 @@
             <div class="section-title section-title-center">
               <span class="section-sub-title wow fadeInUp">Our Services</span>
               <h2 class="text-anime-style-2" data-cursor="-opaque">
-                Reliable Services for Real <span>Estate Development</span>
+                I3 Realtors <span>Services</span>
               </h2>
             </div>
           </div>
