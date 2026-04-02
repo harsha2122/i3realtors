@@ -150,19 +150,16 @@
     <!-- Hero Section End -->
 
     <!-- Trusted Developers Section Start -->
-    <div class="bg-section" style="background: #0a0a0a; padding: 100px 0; border-bottom: 1px solid rgba(200,169,106,0.15); position:relative; overflow:hidden; margin: 12px auto;">
-      @if($heroSettings['fluid_animation'])
-      <canvas id="fluidCanvas" style="position:absolute; top:0; left:0; right:0; bottom:0; width:100%; height:100%; z-index:0; display:block;"></canvas>
-      @endif
+    <div class="bg-section" style="background: #faf7f0; padding: 100px 0; border-top: 1px solid rgba(200,169,106,0.2); border-bottom: 1px solid rgba(200,169,106,0.2); position:relative; overflow:hidden; margin: 12px auto;">
       <div class="container" style="position:relative; z-index:1;">
         <div class="row section-row">
           <div class="col-lg-12">
             <div class="section-title section-title-center">
               <span class="section-sub-title wow fadeInUp">Our Developer Partners</span>
-              <h2 class="text-anime-style-2" data-cursor="-opaque" style="color:#ffffff;">
+              <h2 class="text-anime-style-2" data-cursor="-opaque">
                 Trusted by Leading <span>Developers</span>
               </h2>
-              <p class="wow fadeInUp" data-wow-delay="0.2s" style="color:rgba(255,255,255,0.65); max-width:680px; margin: 0 auto 16px;">
+              <p class="wow fadeInUp" data-wow-delay="0.2s" style="color:#666; max-width:680px; margin: 0 auto 16px;">
                 We have partnered with leading real estate developers across Pune and Mumbai to deliver structured mandate sales, marketing strategies, and investor-driven growth.
               </p>
             </div>
@@ -180,17 +177,15 @@
               <div style="
                 display: flex; align-items: center; gap: 12px;
                 padding: 10px 20px;
-                background: rgba(255,255,255,0.08);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-                border: 1px solid rgba(255,255,255,0.18);
+                background: #ffffff;
+                border: 1px solid rgba(200,169,106,0.25);
                 border-radius: 50px;
-                box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+                box-shadow: 0 2px 12px rgba(0,0,0,0.06);
                 transition: all 0.3s ease;
                 white-space: nowrap;
               "
-              onmouseover="this.style.background='rgba(255,255,255,0.16)'; this.style.borderColor='rgba(255,255,255,0.35)'; this.style.boxShadow='0 6px 24px rgba(0,0,0,0.3)';"
-              onmouseout="this.style.background='rgba(255,255,255,0.08)'; this.style.borderColor='rgba(255,255,255,0.18)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.2)';">
+              onmouseover="this.style.boxShadow='0 4px 20px rgba(184,150,43,0.2)'; this.style.borderColor='rgba(200,169,106,0.6)';"
+              onmouseout="this.style.boxShadow='0 2px 12px rgba(0,0,0,0.06)'; this.style.borderColor='rgba(200,169,106,0.25)';">
                 <img src="{{ asset('uploads/' . $devLogo->logo) }}" alt="{{ $devLogo->name }}"
                      style="height: auto; width: 200px; max-width: 200px; object-fit: contain;">
               </div>
@@ -206,8 +201,8 @@
           <div class="col-lg-10">
             <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; align-items: center; padding: 20px 0;">
               @foreach(['Shapoorji Pallonji', 'Puranik Builders', 'Gagan Developers', 'Kumar Properties', 'Kolte Patil', 'Mantra'] as $devName)
-              <div style="padding: 12px 24px; background: rgba(255,255,255,0.05); border: 1px solid rgba(200,169,106,0.2); border-radius: 6px;">
-                <span style="color: rgba(255,255,255,0.5); font-size: 13px; font-weight: 600; letter-spacing: 0.5px;">{{ $devName }}</span>
+              <div style="padding: 12px 24px; background: #ffffff; border: 1px solid rgba(200,169,106,0.3); border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <span style="color: #555; font-size: 13px; font-weight: 600; letter-spacing: 0.5px;">{{ $devName }}</span>
               </div>
               @endforeach
             </div>
