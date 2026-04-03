@@ -192,69 +192,112 @@
 <!-- Leadership Team Section End -->
 
 <!-- Achievements Section Start -->
-<div style="padding: 100px 0; background: #f5f5f5;">
+<div style="padding: 90px 0 100px; background: linear-gradient(160deg, #111111 0%, #1c1c1c 60%, #0e0e0e 100%); position:relative; overflow:hidden;">
+    {{-- Ambient glow blobs --}}
+    <div style="position:absolute; top:-80px; right:-80px; width:420px; height:420px; border-radius:50%; background:radial-gradient(circle, rgba(224,90,0,0.10) 0%, transparent 70%); pointer-events:none;"></div>
+    <div style="position:absolute; bottom:-60px; left:-60px; width:300px; height:300px; border-radius:50%; background:radial-gradient(circle, rgba(224,90,0,0.07) 0%, transparent 70%); pointer-events:none;"></div>
+
     <div class="container-fluid px-4 px-lg-5">
         <div class="row section-row">
             <div class="col-lg-12">
                 <div class="section-title section-title-center">
                     <span class="section-sub-title wow fadeInUp">Our Track Record</span>
-                    <h2 class="text-anime-style-2" data-cursor="-opaque">Achievements</h2>
+                    <h2 class="text-anime-style-2" data-cursor="-opaque" style="color:#fff;">Achievements</h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.2s" style="color:rgba(255,255,255,0.55); max-width:580px; margin:0 auto; font-size:15px; line-height:1.8;">
+                        A testament to our execution — projects sold, trust earned, and numbers that speak for themselves.
+                    </p>
                 </div>
             </div>
         </div>
 
         @if(isset($achievements) && $achievements->isNotEmpty())
-        <div class="wow fadeInUp" data-wow-delay="0.2s" style="position:relative; margin-top:40px;">
+        <div class="wow fadeInUp" data-wow-delay="0.2s" style="position:relative; margin-top:52px;">
 
-            {{-- Prev/Next buttons --}}
+            {{-- Nav buttons --}}
             <button id="achPrev" onclick="scrollAch(-1)"
-                    style="position:absolute; left:-10px; top:50%; transform:translateY(-50%); z-index:10; width:44px; height:44px; border-radius:50%; background:var(--accent-secondary-color); border:none; color:#fff; font-size:16px; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+                    style="position:absolute; left:-6px; top:45%; transform:translateY(-50%); z-index:10; width:48px; height:48px; border-radius:50%; background:var(--accent-secondary-color); border:none; color:#fff; font-size:15px; cursor:pointer; box-shadow:0 4px 24px rgba(224,90,0,0.45); transition:all 0.25s;">
                 <i class="fas fa-chevron-left"></i>
             </button>
             <button id="achNext" onclick="scrollAch(1)"
-                    style="position:absolute; right:-10px; top:50%; transform:translateY(-50%); z-index:10; width:44px; height:44px; border-radius:50%; background:var(--accent-secondary-color); border:none; color:#fff; font-size:16px; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+                    style="position:absolute; right:-6px; top:45%; transform:translateY(-50%); z-index:10; width:48px; height:48px; border-radius:50%; background:var(--accent-secondary-color); border:none; color:#fff; font-size:15px; cursor:pointer; box-shadow:0 4px 24px rgba(224,90,0,0.45); transition:all 0.25s;">
                 <i class="fas fa-chevron-right"></i>
             </button>
 
-            <div id="achTrack" style="display:flex; gap:20px; overflow:hidden; scroll-behavior:smooth; padding: 10px 4px 20px;">
+            <div id="achTrack" style="display:flex; gap:22px; overflow:hidden; scroll-behavior:smooth; padding:8px 6px 28px;">
                 @foreach($achievements as $achievement)
-                <div style="flex:0 0 calc(25% - 15px); min-width:220px;">
-                    {{-- Card --}}
-                    <div style="background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.10); height:100%;">
+                <div class="ach-slide" style="flex:0 0 calc(25% - 17px); min-width:240px;">
+                    <div class="ach-card" style="background:#ffffff; border-radius:18px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.35); transition:transform 0.3s ease, box-shadow 0.3s ease; height:100%; display:flex; flex-direction:column;">
 
-                        {{-- Gray header with developer name --}}
-                        <div style="background:#6b6b6b; padding:18px 16px 16px; text-align:center; position:relative; clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);">
-                            <h3 style="color:#fff; font-size:17px; font-weight:800; letter-spacing:0.5px; margin:0; line-height:1.3; text-transform:uppercase;">{{ $achievement->title }}</h3>
+                        {{-- Orange accent strip --}}
+                        <div style="height:4px; background:linear-gradient(90deg, var(--accent-secondary-color) 0%, #ff8c42 100%); flex-shrink:0;"></div>
+
+                        {{-- Dark header: developer name + location --}}
+                        <div style="background:linear-gradient(135deg, #181818 0%, #2a2a2a 100%); padding:22px 20px 18px; text-align:center; flex-shrink:0;">
+                            <h3 style="color:#fff; font-size:14px; font-weight:800; letter-spacing:1.8px; margin:0 0 6px; text-transform:uppercase; line-height:1.4;">{{ $achievement->title }}</h3>
+                            @if($achievement->location)
+                            <span style="display:inline-flex; align-items:center; gap:5px; background:rgba(224,90,0,0.15); color:var(--accent-secondary-color); font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; letter-spacing:0.4px;">
+                                <i class="fas fa-map-marker-alt" style="font-size:9px;"></i>{{ $achievement->location }}
+                            </span>
+                            @endif
                         </div>
 
                         {{-- Logo --}}
-                        <div style="padding:20px 16px 12px; text-align:center; min-height:110px; display:flex; align-items:center; justify-content:center;">
+                        <div style="padding:22px 20px 16px; text-align:center; background:#fff; min-height:100px; display:flex; align-items:center; justify-content:center; border-bottom:1px solid #f2f2f2; flex-shrink:0;">
                             @if($achievement->image)
                                 <img src="{{ asset('uploads/' . $achievement->image) }}" alt="{{ $achievement->title }}"
-                                     style="max-height:80px; max-width:100%; object-fit:contain;">
+                                     style="max-height:68px; max-width:150px; object-fit:contain;">
                             @else
-                                <div style="width:80px; height:80px; background:#f0f0f0; border-radius:50%; display:flex; align-items:center; justify-content:center;">
-                                    <i class="fas fa-building" style="font-size:28px; color:#bbb;"></i>
+                                <div style="width:60px; height:60px; background:linear-gradient(135deg,#f5f5f5,#ebebeb); border-radius:12px; display:flex; align-items:center; justify-content:center;">
+                                    <i class="fas fa-building" style="font-size:22px; color:#ccc;"></i>
                                 </div>
                             @endif
                         </div>
 
                         {{-- Stats --}}
-                        <div style="padding:4px 20px 24px; font-size:14px; line-height:2;">
+                        <div style="padding:16px 18px 20px; flex:1;">
                             @if($achievement->units)
-                            <p style="margin:0; color:#e05a00; font-weight:600;">No of Units – {{ $achievement->units }}</p>
+                            <div style="display:flex; align-items:center; gap:12px; padding:9px 0; border-bottom:1px solid #f5f5f5;">
+                                <div style="width:34px; height:34px; background:rgba(224,90,0,0.10); border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                    <i class="fas fa-building-user" style="font-size:13px; color:var(--accent-secondary-color);"></i>
+                                </div>
+                                <div style="min-width:0;">
+                                    <div style="font-size:10px; color:#aaa; text-transform:uppercase; letter-spacing:0.6px; line-height:1; margin-bottom:3px;">No. of Units</div>
+                                    <div style="font-size:16px; font-weight:800; color:#111; line-height:1.2;">{{ $achievement->units }}</div>
+                                </div>
+                            </div>
                             @endif
                             @if($achievement->sales_value)
-                            <p style="margin:0; color:#e05a00; font-weight:600;">Sales Value – {{ $achievement->sales_value }}</p>
+                            <div style="display:flex; align-items:center; gap:12px; padding:9px 0; border-bottom:1px solid #f5f5f5;">
+                                <div style="width:34px; height:34px; background:rgba(224,90,0,0.10); border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                    <i class="fas fa-chart-line" style="font-size:13px; color:var(--accent-secondary-color);"></i>
+                                </div>
+                                <div style="min-width:0;">
+                                    <div style="font-size:10px; color:#aaa; text-transform:uppercase; letter-spacing:0.6px; line-height:1; margin-bottom:3px;">Sales Value</div>
+                                    <div style="font-size:16px; font-weight:800; color:#111; line-height:1.2;">{{ $achievement->sales_value }}</div>
+                                </div>
+                            </div>
                             @endif
                             @if($achievement->sold_percentage)
-                            <p style="margin:0; color:#e05a00; font-weight:600;">Sold – {{ $achievement->sold_percentage }}</p>
+                            <div style="display:flex; align-items:center; gap:12px; padding:9px 0; border-bottom:1px solid #f5f5f5;">
+                                <div style="width:34px; height:34px; background:rgba(224,90,0,0.10); border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                    <i class="fas fa-circle-check" style="font-size:13px; color:var(--accent-secondary-color);"></i>
+                                </div>
+                                <div style="min-width:0;">
+                                    <div style="font-size:10px; color:#aaa; text-transform:uppercase; letter-spacing:0.6px; line-height:1; margin-bottom:3px;">Sold</div>
+                                    <div style="font-size:16px; font-weight:800; color:#111; line-height:1.2;">{{ $achievement->sold_percentage }}</div>
+                                </div>
+                            </div>
                             @endif
                             @if($achievement->time_period)
-                            <p style="margin:0; color:#e05a00; font-weight:600;">Time - {{ $achievement->time_period }}</p>
-                            @endif
-                            @if($achievement->location)
-                            <p style="margin:0; color:#e05a00; font-weight:600;">{{ $achievement->location }}</p>
+                            <div style="display:flex; align-items:center; gap:12px; padding:9px 0;">
+                                <div style="width:34px; height:34px; background:rgba(224,90,0,0.10); border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                                    <i class="fas fa-clock" style="font-size:13px; color:var(--accent-secondary-color);"></i>
+                                </div>
+                                <div style="min-width:0;">
+                                    <div style="font-size:10px; color:#aaa; text-transform:uppercase; letter-spacing:0.6px; line-height:1; margin-bottom:3px;">Duration</div>
+                                    <div style="font-size:16px; font-weight:800; color:#111; line-height:1.2;">{{ $achievement->time_period }}</div>
+                                </div>
+                            </div>
                             @endif
                         </div>
 
@@ -262,11 +305,14 @@
                 </div>
                 @endforeach
             </div>
+
+            {{-- Dot indicators --}}
+            <div id="achDots" style="display:flex; justify-content:center; gap:8px; margin-top:8px;"></div>
         </div>
         @else
         <div class="row justify-content-center wow fadeInUp" data-wow-delay="0.2s">
             <div class="col-lg-6 text-center">
-                <p style="color:#aaa; font-size:15px;">Achievements coming soon.</p>
+                <p style="color:rgba(255,255,255,0.4); font-size:15px;">Achievements coming soon.</p>
             </div>
         </div>
         @endif
@@ -276,19 +322,61 @@
 
 @push('scripts')
 <script>
-(function() {
-    var track     = document.getElementById('achTrack');
-    var cardWidth = 0;
+(function () {
+    var track = document.getElementById('achTrack');
+    if (!track) return;
+
+    var visibleCount = 4;
+    var totalCards   = track.querySelectorAll('.ach-slide').length;
+    var dotsEl       = document.getElementById('achDots');
+    var currentPage  = 0;
 
     function getCardWidth() {
-        var first = track && track.firstElementChild;
-        return first ? first.offsetWidth + 20 : 260;
+        var first = track.firstElementChild;
+        return first ? first.offsetWidth + 22 : 262;
     }
 
-    window.scrollAch = function(dir) {
-        cardWidth = getCardWidth();
-        track.scrollLeft += dir * cardWidth * 4;
+    function totalPages() {
+        return Math.ceil(totalCards / visibleCount);
+    }
+
+    function updateDots() {
+        if (!dotsEl) return;
+        var pages = totalPages();
+        if (pages <= 1) { dotsEl.style.display = 'none'; return; }
+        dotsEl.innerHTML = '';
+        for (var i = 0; i < pages; i++) {
+            var d = document.createElement('button');
+            d.style.cssText = 'width:' + (i === currentPage ? '28px' : '8px') + '; height:8px; border-radius:4px; border:none; cursor:pointer; transition:all 0.3s; background:' + (i === currentPage ? 'var(--accent-secondary-color)' : 'rgba(255,255,255,0.3)') + ';';
+            (function(page){ d.addEventListener('click', function(){ goToPage(page); }); })(i);
+            dotsEl.appendChild(d);
+        }
+    }
+
+    function goToPage(page) {
+        currentPage = Math.max(0, Math.min(page, totalPages() - 1));
+        var cw = getCardWidth();
+        track.scrollLeft = currentPage * cw * visibleCount;
+        updateDots();
+    }
+
+    window.scrollAch = function (dir) {
+        goToPage(currentPage + dir);
     };
+
+    // Hover lift effect
+    track.querySelectorAll('.ach-card').forEach(function(card) {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-6px)';
+            this.style.boxShadow = '0 16px 50px rgba(0,0,0,0.45)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 8px 40px rgba(0,0,0,0.35)';
+        });
+    });
+
+    updateDots();
 })();
 </script>
 @endpush
@@ -584,8 +672,7 @@
                     <p class="wow fadeInUp" data-wow-delay="0.2s">Whether you are a developer launching a new project or an investor exploring structured real estate opportunities, i3 Realtors provides the expertise, market insights, and partnerships required to succeed.</p>
                 </div>
                 <div class="wow fadeInUp" data-wow-delay="0.4s">
-                    <a href="{{ route('contact') }}" class="btn-default btn-highlighted me-3">Connect With Us</a>
-                    <a href="{{ route('website.projects.index') }}" class="btn-default">Explore Opportunities</a>
+                    <a href="{{ route('website.projects.index') }}" class="btn-default btn-highlighted">Explore Opportunities</a>
                 </div>
             </div>
         </div>
