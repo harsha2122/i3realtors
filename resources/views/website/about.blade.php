@@ -31,19 +31,19 @@
         <div class="row section-row align-items-center">
             <div class="col-xl-7">
                 <div class="section-title">
-                    <span class="section-sub-title wow fadeInUp">About i3 Realtors</span>
+                    <span class="section-sub-title wow fadeInUp">Who We Are</span>
                     <h2 class="text-anime-style-2" data-cursor="-opaque">
-                        Trusted Real Estate Mandate <span>Partners for Developers</span>
+                        Building Real Estate Success, <span>One Partnership at a Time</span>
                     </h2>
                 </div>
             </div>
             <div class="col-xl-5">
                 <div class="section-content-btn">
                     <div class="section-title-content wow fadeInUp" data-wow-delay="0.2s">
-                        <p>i3 Realtors is a mandate-focused real estate consulting firm specializing in developer partnerships, project marketing, and structured real estate investments.</p>
+                        <p>Founded with a clear purpose — to bridge the gap between developers and the market — i3 Realtors has grown into a trusted name in mandate-based real estate consulting across Pune and beyond.</p>
                     </div>
                     <div class="section-btn wow fadeInUp" data-wow-delay="0.4s">
-                        <a href="{{ route('about') }}" class="btn-default">Learn More About</a>
+                        <a href="{{ route('contact') }}" class="btn-default">Get in Touch</a>
                     </div>
                 </div>
             </div>
@@ -54,8 +54,7 @@
                 <div class="about-us-image-box wow fadeInUp">
                     <div class="about-us-image">
                         <figure class="image-anime">
-                            @php $aboutMainImg = \App\Models\Setting::get('about_main_image'); @endphp
-                            <img src="{{ $aboutMainImg ? asset('uploads/' . $aboutMainImg) : asset('images/who-we-are-image-1.jpeg') }}" alt="About i3Realtors" />
+                            <img src="{{ asset('images/our-approach-image-1.jpg') }}" alt="i3 Realtors Team" />
                         </figure>
                     </div>
                     <div class="about-us-circle">
@@ -71,26 +70,24 @@
                     <div class="about-us-item-list">
                         <div class="about-us-item box-1">
                             <div class="about-us-item-content">
-                                <h3>Strategic Market Understanding</h3>
-                                <p>We analyze market trends and buyer behavior to position projects for optimal visibility</p>
+                                <h3>Founded on Expertise</h3>
+                                <p>With a combined 40+ years of real estate experience, our founding team brings deep market insight, strong developer relationships, and a results-driven approach to every mandate.</p>
                             </div>
                             <div class="about-us-item-image">
                                 <figure>
-                                    @php $aboutItem1 = \App\Models\Setting::get('about_item_image_1'); @endphp
-                                    <img src="{{ $aboutItem1 ? asset('uploads/' . $aboutItem1) : asset('images/about-us-item-image-1.png') }}" alt="" />
+                                    <img src="{{ asset('images/our-history-image-1.png') }}" alt="" />
                                 </figure>
                             </div>
                         </div>
 
                         <div class="about-us-item box-2">
                             <div class="about-us-item-content">
-                                <h3>Investor Network</h3>
-                                <p>Through a growing network of investors and partners, we connect the right opportunities with stakeholders</p>
+                                <h3>Driven by Results</h3>
+                                <p>From project launch to final sale, we measure our success by the results we deliver — faster sales velocity, stronger investor connect, and long-term developer partnerships.</p>
                             </div>
                             <div class="about-us-item-image">
                                 <figure class="image-anime">
-                                    @php $aboutItem2 = \App\Models\Setting::get('about_item_image_2'); @endphp
-                                    <img src="{{ $aboutItem2 ? asset('uploads/' . $aboutItem2) : asset('images/who-we-are-image-2.jpg') }}" alt="" />
+                                    <img src="{{ asset('images/our-approach-image-2.jpg') }}" alt="" />
                                 </figure>
                             </div>
                         </div>
