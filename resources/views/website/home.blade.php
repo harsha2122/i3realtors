@@ -395,11 +395,18 @@
         <div class="row">
           <div class="col-12">
             <div class="who-we-content wow fadeInUp">
+              <style>
+                .who-we-box { border-right: none !important; }
+                #mvTab { border-bottom: 2px solid #e5e5e5 !important; }
+                #mvTab .nav-link { border: none !important; border-bottom: 3px solid transparent !important; margin-bottom: -2px; background: transparent !important; color: #666; font-size: 13px; font-weight: 600; padding: 12px 8px; border-radius: 0; transition: color 0.2s, border-color 0.2s; }
+                #mvTab .nav-link:hover { color: #111; }
+                #mvTab .nav-link.active { color: #111 !important; border-bottom: 3px solid var(--accent-secondary-color) !important; font-weight: 700; }
+              </style>
               <div class="who-we-box tab-content" id="mvTabContent">
 
                 {{-- 8 Tab Navigation --}}
                 <div class="who-we-nav">
-                  <ul class="nav nav-tabs" id="mvTab" role="tablist" style="display:flex; flex-wrap:nowrap; border-bottom: 2px solid #e5e5e5; margin-bottom: 40px; overflow-x: auto;">
+                  <ul class="nav nav-tabs" id="mvTab" role="tablist" style="display:flex; flex-wrap:nowrap; margin-bottom: 40px; overflow-x: auto;">
                     @php
                     $tabNav = [
                       ['id' => 'tab1', 'label' => 'Strategic Roadmap'],
@@ -455,7 +462,7 @@
                               data-bs-target="#{{ $t['id'] }}"
                               type="button" role="tab"
                               aria-selected="{{ $i === 0 ? 'true' : 'false' }}"
-                              style="width:100%; text-align:center; font-size:13px; font-weight:600; padding:12px 8px; border-radius:0; white-space:nowrap;">
+                              style="width:100%; text-align:center; white-space:nowrap;">
                         {{ $t['label'] }}
                       </button>
                     </li>
