@@ -684,6 +684,7 @@
     </div>
     <!-- Our Project Section End -->
 
+    {{-- Recognitions Section Start (commented out)
     <!-- Recognitions Section Start -->
     <div class="bg-section" style="margin: 12px auto; padding: 100px 0;">
       <div class="container">
@@ -728,6 +729,7 @@
       </div>
     </div>
     <!-- Recognitions Section End -->
+    --}}
 
     <!-- Testimonials Section Start -->
     <div class="bg-section" style="margin: 12px auto; padding: 100px 0;">
