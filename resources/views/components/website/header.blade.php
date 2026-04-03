@@ -51,11 +51,6 @@
                         </ul>
                     </div>
 
-                    <!-- Header Btn Start -->
-                    <div class="header-btn">
-                        <a href="{{ route('contact') }}" class="btn-default btn-navbar">Partner With Us</a>
-                    </div>
-                    <!-- Header Btn End -->
                 </div>
                 <!-- Main Menu End -->
                 <div class="navbar-toggle"></div>
