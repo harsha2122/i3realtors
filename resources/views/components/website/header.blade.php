@@ -45,12 +45,14 @@
                             <li class="nav-item {{ request()->routeIs('gallery.*') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('gallery.index') }}">Gallery</a>
                             </li>
-                            <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('contact') }}">Contact</a>
-                            </li>
                         </ul>
                     </div>
 
+                    <!-- Header Btn Start -->
+                    <div class="header-btn">
+                        <a href="{{ route('contact') }}" class="btn-default btn-navbar">Partner With Us</a>
+                    </div>
+                    <!-- Header Btn End -->
                 </div>
                 <!-- Main Menu End -->
                 <div class="navbar-toggle"></div>
