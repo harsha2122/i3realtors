@@ -942,4 +942,26 @@
 @if($heroSettings['fluid_animation'])
 <script src="{{ asset('js/fluid.js') }}"></script>
 @endif
+<script>
+(function () {
+    var tabs = document.querySelectorAll('#mvTab .nav-link');
+    if (!tabs.length) return;
+    var current = 0;
+    var timer = setInterval(function () {
+        current = (current + 1) % tabs.length;
+        bootstrap.Tab.getOrCreateInstance(tabs[current]).show();
+    }, 5000);
+    // Reset timer when user clicks a tab manually
+    tabs.forEach(function (tab, idx) {
+        tab.addEventListener('click', function () {
+            current = idx;
+            clearInterval(timer);
+            timer = setInterval(function () {
+                current = (current + 1) % tabs.length;
+                bootstrap.Tab.getOrCreateInstance(tabs[current]).show();
+            }, 5000);
+        });
+    });
+})();
+</script>
 @endpush
