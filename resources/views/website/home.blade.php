@@ -404,7 +404,6 @@
                     $tabNav = [
                       ['id' => 'tab1', 'label' => 'Strategic Roadmap'],
                       ['id' => 'tab2', 'label' => 'High Velocity of Sales'],
-                      ['id' => 'tab3', 'label' => 'Marketing Expertise'],
                       ['id' => 'tab4', 'label' => 'Sales Expertise'],
                       ['id' => 'tab6', 'label' => 'Performance Base'],
                       ['id' => 'tab7', 'label' => 'Our Sales Force'],
