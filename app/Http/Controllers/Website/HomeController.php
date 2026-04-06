@@ -8,6 +8,7 @@ use App\Models\Project;
 use App\Models\Recognition;
 use App\Models\Setting;
 use App\Domains\Services\Models\Testimonial;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -45,6 +46,11 @@ class HomeController extends Controller
                 ->limit(4)
                 ->get();
         }
+
+        // Strip out any projects whose uploaded file no longer exists on disk
+        $projects = $projects->filter(function ($p) {
+            return $p->thumbnail && Storage::disk('public')->exists($p->thumbnail);
+        })->values()->take(4);
 
         $developerLogos = DeveloperLogo::active()->get();
 

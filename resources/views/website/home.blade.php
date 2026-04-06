@@ -614,12 +614,11 @@
           </div>
         </div>
 
-        @php $delays = ['', '0.2s', '0.4s', '0.6s']; $pi = 0; @endphp
+        @php $delays = ['', '0.2s', '0.4s', '0.6s']; @endphp
         <div class="row">
-          @forelse($projects->filter(fn($p) => !empty($p->thumbnail)) as $i => $project)
-          @php $delay = $delays[$pi] ?? ''; $pi++; @endphp
+          @forelse($projects as $i => $project)
           <div class="col-xl-3 col-md-6">
-            <div class="project-item wow fadeInUp" {{ $delay ? 'data-wow-delay="'.$delay.'"' : '' }}>
+            <div class="project-item wow fadeInUp" {{ ($delays[$i] ?? '') ? 'data-wow-delay="'.($delays[$i] ?? '').'"' : '' }}>
               <div class="project-item-image">
                 <a href="#" data-cursor-text="View">
                   <figure><img src="{{ $project->thumbnail_url }}" alt="{{ $project->title }}" /></figure>
