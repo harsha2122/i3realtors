@@ -62,11 +62,6 @@
                             <img src="{{ $aboutWhoMain ? asset('uploads/'.$aboutWhoMain) : asset('images/our-approach-image-1.jpg') }}" alt="i3 Realtors Team" />
                         </figure>
                     </div>
-                    <div class="about-us-circle">
-                        <a href="{{ route('website.projects.index') }}">
-                            <img src="{{ asset('images/circle-project.png') }}" alt="" />
-                        </a>
-                    </div>
                 </div>
             </div>
 

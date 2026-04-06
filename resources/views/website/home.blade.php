@@ -246,11 +246,6 @@
                   <img src="{{ $aboutMainImg ? asset('uploads/' . $aboutMainImg) : asset('images/who-we-are-image-1.jpeg') }}" alt="About i3Realtors" />
                 </figure>
               </div>
-              <div class="about-us-circle">
-                <a href="{{ route('website.projects.index') }}">
-                  <img src="{{ asset('images/circle-project.png') }}" alt="" />
-                </a>
-              </div>
             </div>
           </div>
 
@@ -507,13 +502,6 @@
                   Building Strategic Real Estate <span>Opportunities</span>
                 </h2>
               </div>
-            </div>
-          </div>
-          <div class="col-xl-5 col-md-3">
-            <div class="watch-video-circle">
-              <a href="{{ route('website.projects.index') }}" data-cursor-text="View Projects">
-                <img src="{{ asset('images/watch-video-circle.png') }}" alt="" />
-              </a>
             </div>
           </div>
         </div>
