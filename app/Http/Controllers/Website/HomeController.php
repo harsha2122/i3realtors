@@ -16,7 +16,7 @@ class HomeController extends Controller
         $projects = Project::active()->where('is_featured', true)
             ->orderBy('sort_order')
             ->orderByDesc('created_at')
-            ->limit(6)
+            ->limit(4)
             ->get();
 
         // Fallback: if no featured projects, show latest active ones
@@ -24,7 +24,7 @@ class HomeController extends Controller
             $projects = Project::active()
                 ->orderBy('sort_order')
                 ->orderByDesc('created_at')
-                ->limit(6)
+                ->limit(4)
                 ->get();
         }
 

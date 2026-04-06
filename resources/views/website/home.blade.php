@@ -630,7 +630,7 @@
         <div class="row">
           @forelse($projects as $i => $project)
           <div class="col-xl-3 col-md-6">
-            <div class="project-item wow fadeInUp" {{ $delays[$i] ? 'data-wow-delay="'.$delays[$i].'"' : '' }}>
+            <div class="project-item wow fadeInUp" {{ ($delays[$i] ?? '') ? 'data-wow-delay="'.($delays[$i] ?? '').'"' : '' }}>
               <div class="project-item-image">
                 <a href="#" data-cursor-text="View">
                   <figure><img src="{{ $project->thumbnail_url }}" alt="{{ $project->title }}" /></figure>
