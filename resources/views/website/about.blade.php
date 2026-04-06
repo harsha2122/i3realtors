@@ -176,7 +176,7 @@
             @endphp
             @foreach($leaders as $i => $leader)
             <div class="col-xl-4 col-md-6">
-                <div class="wow fadeInUp" data-wow-delay="{{ ['','0.2s','0.4s'][$i] }}"
+                <div class="wow fadeInUp" data-wow-delay="{{ ['','0.2s','0.4s'][$i] ?? '' }}"
                      style="background:#ffffff; border-radius:12px; overflow:hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.07); height:100%;">
                     <div style="height:180px; background: linear-gradient(135deg, #111111, #2a2a2a); display:flex; align-items:center; justify-content:center;">
                         <span style="font-size:64px; font-weight:700; color: var(--accent-secondary-color);">{{ strtoupper(substr($leader['name'], 0, 1)) }}</span>
