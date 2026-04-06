@@ -15,13 +15,13 @@ class HomeController extends Controller
     {
         $projects = Project::active()
             ->where('is_featured', true)
-            ->where('status', 'completed')
+            ->where('status', 'ongoing')
             ->orderBy('sort_order')
             ->orderByDesc('created_at')
             ->limit(4)
             ->get();
 
-        // Fallback: if no featured+completed projects, show any featured
+        // Fallback: if no featured+ongoing projects, show any featured
         if ($projects->isEmpty()) {
             $projects = Project::active()
                 ->where('is_featured', true)

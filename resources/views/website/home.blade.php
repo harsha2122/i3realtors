@@ -601,13 +601,13 @@
     <!-- Our Commitment Section End -->
 
     <!-- Our Project Section Start -->
-    <div class="our-project bg-section dark-section" style="margin: 12px auto;">
+    <div class="our-project" style="margin: 12px auto; padding: 100px 0; background: #f8f7f4;">
       <div class="container">
         <div class="row section-row">
           <div class="col-lg-12">
             <div class="section-title section-title-center">
               <span class="section-sub-title wow fadeInUp">Our Projects</span>
-              <h2 class="text-anime-style-2" data-cursor="-opaque">
+              <h2 class="text-anime-style-2" data-cursor="-opaque" style="color:#111;">
                 Our Featured Real Estate <span>Opportunities</span>
               </h2>
             </div>
@@ -615,24 +615,36 @@
         </div>
 
         @php $delays = ['', '0.2s', '0.4s', '0.6s']; @endphp
-        <div class="row">
+        <div class="row g-4">
           @forelse($projects as $i => $project)
           <div class="col-xl-3 col-md-6">
-            <div class="project-item wow fadeInUp" {{ ($delays[$i] ?? '') ? 'data-wow-delay="'.($delays[$i] ?? '').'"' : '' }}>
-              <div class="project-item-image">
-                <a href="#" data-cursor-text="View">
-                  <figure><img src="{{ $project->thumbnail_url }}" alt="{{ $project->title }}" /></figure>
-                </a>
+            <div class="wow fadeInUp" {{ ($delays[$i] ?? '') ? 'data-wow-delay="'.($delays[$i] ?? '').'"' : '' }}
+                 style="border-radius:14px; overflow:hidden; background:#fff; box-shadow:0 4px 20px rgba(0,0,0,0.07); transition:transform 0.3s ease, box-shadow 0.3s ease;"
+                 onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 12px 36px rgba(0,0,0,0.12)'"
+                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.07)'">
+              <div style="overflow:hidden; aspect-ratio:4/3;">
+                <img src="{{ $project->thumbnail_url }}" alt="{{ $project->title }}"
+                     style="width:100%; height:100%; object-fit:cover; transition:transform 0.45s ease;"
+                     onmouseover="this.style.transform='scale(1.06)'"
+                     onmouseout="this.style.transform='scale(1)'">
               </div>
-              <div class="project-item-content">
-                <ul><li><a href="#">{{ $project->type_label }}</a></li></ul>
-                <h2><a href="#">{{ $project->title }}</a></h2>
+              <div style="padding:20px 22px 22px;">
+                <div style="margin-bottom:8px;">
+                  <span style="font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--accent-secondary-color);">{{ $project->type_label }}</span>
+                  @if($project->status === 'ongoing')
+                  <span style="float:right; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; background:rgba(34,197,94,0.1); color:#16a34a; padding:2px 9px; border-radius:20px;">Ongoing</span>
+                  @endif
+                </div>
+                <h3 style="font-size:16px; font-weight:800; color:#111; margin:0; line-height:1.4;">{{ $project->title }}</h3>
+                @if($project->location)
+                <p style="margin:8px 0 0; font-size:13px; color:#888;"><i class="fas fa-map-marker-alt" style="color:var(--accent-secondary-color); margin-right:5px; font-size:11px;"></i>{{ $project->location }}</p>
+                @endif
               </div>
             </div>
           </div>
           @empty
           <div class="col-12 text-center py-5">
-            <p style="color: rgba(255,255,255,0.5);">No projects available yet.</p>
+            <p style="color:#aaa;">No ongoing featured projects available yet.</p>
           </div>
           @endforelse
 
@@ -647,7 +659,7 @@
                 </div>
               </div>
               @php $phone = $site['phone_primary'] ?? '+123456789'; @endphp
-              <p>Explore premium real estate opportunities through our developer mandate partnerships. <a href="{{ route('website.projects.index') }}">View All Projects</a></p>
+              <p style="color:#555;">Explore premium real estate opportunities through our developer mandate partnerships. <a href="{{ route('website.projects.index') }}" style="color:var(--accent-secondary-color); font-weight:700;">View All Projects</a></p>
             </div>
           </div>
         </div>
