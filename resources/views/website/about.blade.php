@@ -387,64 +387,105 @@
 @endpush
 
 @if(isset($galleryImages) && $galleryImages->isNotEmpty())
-<!-- Team Gallery Carousel Section Start -->
-<div style="padding: 100px 0; background: #ffffff;">
-    <div class="container">
-        <div class="row section-row">
-            <div class="col-lg-12">
-                <div class="section-title section-title-center">
-                    <span class="section-sub-title wow fadeInUp">Our Team</span>
-                    <h2 class="text-anime-style-2" data-cursor="-opaque">Life at i3 Realtors</h2>
-                </div>
-            </div>
+<!-- Gallery Slider Section Start -->
+<div style="padding: 80px 0 100px; background: #fff;">
+    <div class="container-fluid px-4 px-lg-5">
+
+        <div class="section-title section-title-center wow fadeInUp" style="margin-bottom:48px;">
+            <span class="section-sub-title">Our Team</span>
+            <h2 class="text-anime-style-2" data-cursor="-opaque">Life at <span>i3 Realtors</span></h2>
         </div>
 
-        <div class="wow fadeInUp" data-wow-delay="0.2s">
-            <div id="teamGalleryCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-                <div class="carousel-inner">
-                    @foreach($galleryImages->chunk(3) as $chunkIndex => $chunk)
-                    <div class="carousel-item {{ $chunkIndex === 0 ? 'active' : '' }}">
-                        <div class="row g-3">
-                            @foreach($chunk as $image)
-                            <div class="{{ $chunk->count() === 1 ? 'col-12' : ($chunk->count() === 2 ? 'col-md-6' : 'col-md-4') }}">
-                                <div style="border-radius:12px; overflow:hidden; height:320px;">
-                                    <img src="{{ asset('uploads/' . $image->image_path) }}"
-                                         alt="{{ $image->caption ?? 'Team' }}"
-                                         style="width:100%; height:100%; object-fit:cover;">
-                                </div>
-                            </div>
-                            @endforeach
+        <div style="position:relative;" class="wow fadeInUp" data-wow-delay="0.15s">
+            {{-- Prev / Next --}}
+            <button id="galPrev" onclick="galScroll(-1)"
+                style="position:absolute; left:0; top:50%; transform:translateY(-50%); z-index:10; width:48px; height:48px; border-radius:50%; background:var(--accent-secondary-color); border:none; color:#fff; font-size:15px; cursor:pointer; box-shadow:0 4px 20px rgba(224,90,0,0.4);">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="galNext" onclick="galScroll(1)"
+                style="position:absolute; right:0; top:50%; transform:translateY(-50%); z-index:10; width:48px; height:48px; border-radius:50%; background:var(--accent-secondary-color); border:none; color:#fff; font-size:15px; cursor:pointer; box-shadow:0 4px 20px rgba(224,90,0,0.4);">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            {{-- Track --}}
+            <div id="galTrack" style="display:flex; gap:16px; overflow:hidden; scroll-behavior:smooth; padding:4px 60px;">
+                @foreach($galleryImages as $image)
+                <div class="gal-slide" style="flex:0 0 calc(33.333% - 11px); min-width:260px;">
+                    <div style="border-radius:14px; overflow:hidden; height:280px; position:relative; cursor:pointer;"
+                         onmouseover="this.querySelector('img').style.transform='scale(1.06)'"
+                         onmouseout="this.querySelector('img').style.transform='scale(1)'">
+                        <img src="{{ asset('uploads/' . $image->image_path) }}"
+                             alt="{{ $image->caption ?? 'i3 Realtors' }}"
+                             style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease;">
+                        @if($image->caption)
+                        <div style="position:absolute; bottom:0; left:0; right:0; padding:16px 18px; background:linear-gradient(transparent,rgba(0,0,0,0.65));">
+                            <p style="margin:0; color:#fff; font-size:13px; font-weight:600;">{{ $image->caption }}</p>
                         </div>
+                        @endif
                     </div>
-                    @endforeach
                 </div>
-
-                @if($galleryImages->count() > 3)
-                <button class="carousel-control-prev" type="button" data-bs-target="#teamGalleryCarousel" data-bs-slide="prev"
-                        style="width:48px; height:48px; background: var(--accent-secondary-color); border-radius:50%; top:50%; transform:translateY(-50%); left:-24px; opacity:1;">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#teamGalleryCarousel" data-bs-slide="next"
-                        style="width:48px; height:48px; background: var(--accent-secondary-color); border-radius:50%; top:50%; transform:translateY(-50%); right:-24px; opacity:1;">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
-                @endif
-
-                @if($galleryImages->count() > 3)
-                <div class="carousel-indicators" style="bottom:-40px;">
-                    @foreach($galleryImages->chunk(3) as $chunkIndex => $chunk)
-                    <button type="button" data-bs-target="#teamGalleryCarousel" data-bs-slide-to="{{ $chunkIndex }}"
-                            class="{{ $chunkIndex === 0 ? 'active' : '' }}"
-                            style="width:8px; height:8px; border-radius:50%; background: {{ $chunkIndex === 0 ? 'var(--accent-secondary-color)' : '#ccc' }}; border:none; margin:0 4px;">
-                    </button>
-                    @endforeach
-                </div>
-                @endif
+                @endforeach
             </div>
+
+            {{-- Dots --}}
+            <div id="galDots" style="display:flex; justify-content:center; gap:8px; margin-top:28px;"></div>
         </div>
     </div>
 </div>
-<!-- Team Gallery Carousel Section End -->
+<!-- Gallery Slider Section End -->
+
+@push('scripts')
+<script>
+(function(){
+    var track = document.getElementById('galTrack');
+    if (!track) return;
+    var slides = track.querySelectorAll('.gal-slide');
+    var dotsEl = document.getElementById('galDots');
+    var total  = slides.length;
+    var perView = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+    var current = 0;
+    var autoTimer;
+
+    function cardW() { return slides[0] ? slides[0].offsetWidth + 16 : 276; }
+
+    function pages() { return Math.max(1, Math.ceil(total / perView)); }
+
+    function buildDots() {
+        if (!dotsEl) return;
+        dotsEl.innerHTML = '';
+        var p = pages();
+        if (p <= 1) return;
+        for (var i = 0; i < p; i++) {
+            var d = document.createElement('button');
+            d.style.cssText = 'width:'+(i===current?'28px':'8px')+';height:8px;border-radius:4px;border:none;cursor:pointer;transition:all 0.3s;background:'+(i===current?'var(--accent-secondary-color)':'#ddd')+';padding:0;';
+            (function(idx){ d.addEventListener('click', function(){ goTo(idx); resetAuto(); }); })(i);
+            dotsEl.appendChild(d);
+        }
+    }
+
+    function goTo(page) {
+        current = Math.max(0, Math.min(page, pages() - 1));
+        track.scrollLeft = current * cardW() * perView;
+        buildDots();
+    }
+
+    function resetAuto() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(function(){ goTo((current + 1) % pages()); }, 3500);
+    }
+
+    window.galScroll = function(dir) { goTo(current + dir); resetAuto(); };
+
+    buildDots();
+    resetAuto();
+
+    window.addEventListener('resize', function(){
+        perView = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+        goTo(0);
+    });
+})();
+</script>
+@endpush
 @endif
 
 <!-- Our Approach Section Start -->
