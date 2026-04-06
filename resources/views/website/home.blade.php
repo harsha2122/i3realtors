@@ -497,7 +497,6 @@
           <div class="col-xl-7 col-md-9">
             <div class="intro-video-content">
               <div class="section-title">
-                <span class="section-sub-title wow fadeInUp">Video</span>
                 <h2 class="text-anime-style-2" data-cursor="-opaque">
                   Building Strategic Real Estate <span>Opportunities</span>
                 </h2>
