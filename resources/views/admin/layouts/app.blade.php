@@ -166,7 +166,7 @@
                 <i class="fas fa-images"></i> Gallery
             </a>
             <a href="{{ route('admin.about-gallery.index') }}" class="nav-link {{ request()->routeIs('admin.about-gallery.*') ? 'active' : '' }}">
-                <i class="fas fa-photo-film"></i> About Page Gallery
+                <i class="fas fa-photo-film"></i> Achievements Gallery
             </a>
 
             <div class="nav-section-label">Leads & Forms</div>

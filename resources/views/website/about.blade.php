@@ -192,20 +192,20 @@
 <!-- Leadership Team Section End -->
 
 <!-- Achievements Section Start -->
-<div style="padding: 90px 0 100px; background: linear-gradient(160deg, #111111 0%, #1c1c1c 60%, #0e0e0e 100%); position:relative; overflow:hidden;">
-    {{-- Ambient glow blobs --}}
-    <div style="position:absolute; top:-80px; right:-80px; width:420px; height:420px; border-radius:50%; background:radial-gradient(circle, rgba(224,90,0,0.10) 0%, transparent 70%); pointer-events:none;"></div>
-    <div style="position:absolute; bottom:-60px; left:-60px; width:300px; height:300px; border-radius:50%; background:radial-gradient(circle, rgba(224,90,0,0.07) 0%, transparent 70%); pointer-events:none;"></div>
+<div style="padding: 90px 0 100px; background: #f8f7f4; position:relative; overflow:hidden;">
 
     <div class="container-fluid px-4 px-lg-5">
         <div class="row section-row">
             <div class="col-lg-12">
                 <div class="section-title section-title-center">
                     <span class="section-sub-title wow fadeInUp">Our Track Record</span>
-                    <h2 class="text-anime-style-2" data-cursor="-opaque" style="color:#fff;">Achievements</h2>
-                    <p class="wow fadeInUp" data-wow-delay="0.2s" style="color:rgba(255,255,255,0.55); max-width:580px; margin:0 auto; font-size:15px; line-height:1.8;">
+                    <h2 class="text-anime-style-2" data-cursor="-opaque">Achievements</h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.2s" style="color:#666; max-width:580px; margin:0 auto; font-size:15px; line-height:1.8;">
                         A testament to our execution — projects sold, trust earned, and numbers that speak for themselves.
                     </p>
+                </div>
+            </div>
+        </div>
                 </div>
             </div>
         </div>
@@ -312,10 +312,48 @@
         @else
         <div class="row justify-content-center wow fadeInUp" data-wow-delay="0.2s">
             <div class="col-lg-6 text-center">
-                <p style="color:rgba(255,255,255,0.4); font-size:15px;">Achievements coming soon.</p>
+                <p style="color:#aaa; font-size:15px;">Achievements coming soon.</p>
             </div>
         </div>
         @endif
+
+        {{-- Gallery Slider inside Achievements --}}
+        @if(isset($achievementGallery) && $achievementGallery->isNotEmpty())
+        <div style="margin-top:60px; position:relative;" class="wow fadeInUp" data-wow-delay="0.2s">
+            <div style="text-align:center; margin-bottom:32px;">
+                <span style="font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent-secondary-color);">Gallery</span>
+                <h3 style="font-size:24px; font-weight:800; color:#111; margin:8px 0 0;">Our Projects in Action</h3>
+            </div>
+            <button id="agPrev" onclick="agScroll(-1)"
+                style="position:absolute; left:0; top:50%; transform:translateY(-50%); z-index:10; width:44px; height:44px; border-radius:50%; background:var(--accent-secondary-color); border:none; color:#fff; font-size:14px; cursor:pointer; box-shadow:0 4px 16px rgba(224,90,0,0.35);">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="agNext" onclick="agScroll(1)"
+                style="position:absolute; right:0; top:50%; transform:translateY(-50%); z-index:10; width:44px; height:44px; border-radius:50%; background:var(--accent-secondary-color); border:none; color:#fff; font-size:14px; cursor:pointer; box-shadow:0 4px 16px rgba(224,90,0,0.35);">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div id="agTrack" style="display:flex; gap:16px; overflow:hidden; scroll-behavior:smooth; padding:4px 56px 8px;">
+                @foreach($achievementGallery as $img)
+                <div class="ag-slide" style="flex:0 0 calc(25% - 12px); min-width:200px;">
+                    <div style="border-radius:12px; overflow:hidden; aspect-ratio:1/1; position:relative;"
+                         onmouseover="this.querySelector('img').style.transform='scale(1.06)'"
+                         onmouseout="this.querySelector('img').style.transform='scale(1)'">
+                        <img src="{{ asset('uploads/' . $img->image_path) }}"
+                             alt="{{ $img->caption ?? '' }}"
+                             style="width:100%; height:100%; object-fit:cover; transition:transform 0.45s ease;">
+                        @if($img->caption)
+                        <div style="position:absolute; bottom:0; left:0; right:0; padding:12px 14px; background:linear-gradient(transparent,rgba(0,0,0,0.6));">
+                            <p style="margin:0; color:#fff; font-size:12px; font-weight:600;">{{ $img->caption }}</p>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            <div id="agDots" style="display:flex; justify-content:center; gap:8px; margin-top:24px;"></div>
+        </div>
+        @endif
+
     </div>
 </div>
 <!-- Achievements Section End -->
@@ -378,71 +416,19 @@
 
     updateDots();
 })();
-</script>
-@endpush
 
-@if(isset($galleryImages) && $galleryImages->isNotEmpty())
-<!-- Gallery Slider Section Start -->
-<div style="padding: 80px 0 100px; background: #fff;">
-    <div class="container-fluid px-4 px-lg-5">
-
-        <div class="section-title section-title-center wow fadeInUp" style="margin-bottom:48px;">
-            <span class="section-sub-title">Our Team</span>
-            <h2 class="text-anime-style-2" data-cursor="-opaque">Life at <span>i3 Realtors</span></h2>
-        </div>
-
-        <div style="position:relative;" class="wow fadeInUp" data-wow-delay="0.15s">
-            {{-- Prev / Next --}}
-            <button id="galPrev" onclick="galScroll(-1)"
-                style="position:absolute; left:0; top:50%; transform:translateY(-50%); z-index:10; width:48px; height:48px; border-radius:50%; background:var(--accent-secondary-color); border:none; color:#fff; font-size:15px; cursor:pointer; box-shadow:0 4px 20px rgba(224,90,0,0.4);">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button id="galNext" onclick="galScroll(1)"
-                style="position:absolute; right:0; top:50%; transform:translateY(-50%); z-index:10; width:48px; height:48px; border-radius:50%; background:var(--accent-secondary-color); border:none; color:#fff; font-size:15px; cursor:pointer; box-shadow:0 4px 20px rgba(224,90,0,0.4);">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-
-            {{-- Track --}}
-            <div id="galTrack" style="display:flex; gap:16px; overflow:hidden; scroll-behavior:smooth; padding:4px 60px;">
-                @foreach($galleryImages as $image)
-                <div class="gal-slide" style="flex:0 0 calc(33.333% - 11px); min-width:260px;">
-                    <div style="border-radius:14px; overflow:hidden; aspect-ratio:1/1; position:relative; cursor:pointer;"
-                         onmouseover="this.querySelector('img').style.transform='scale(1.06)'"
-                         onmouseout="this.querySelector('img').style.transform='scale(1)'">
-                        <img src="{{ asset('uploads/' . $image->image_path) }}"
-                             alt="{{ $image->caption ?? 'i3 Realtors' }}"
-                             style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease;">
-                        @if($image->caption)
-                        <div style="position:absolute; bottom:0; left:0; right:0; padding:16px 18px; background:linear-gradient(transparent,rgba(0,0,0,0.65));">
-                            <p style="margin:0; color:#fff; font-size:13px; font-weight:600;">{{ $image->caption }}</p>
-                        </div>
-                        @endif
-                    </div>
-                </div>
-                @endforeach
-            </div>
-
-            {{-- Dots --}}
-            <div id="galDots" style="display:flex; justify-content:center; gap:8px; margin-top:28px;"></div>
-        </div>
-    </div>
-</div>
-<!-- Gallery Slider Section End -->
-
-@push('scripts')
-<script>
+// Achievement gallery slider
 (function(){
-    var track = document.getElementById('galTrack');
+    var track = document.getElementById('agTrack');
     if (!track) return;
-    var slides = track.querySelectorAll('.gal-slide');
-    var dotsEl = document.getElementById('galDots');
+    var slides = track.querySelectorAll('.ag-slide');
+    var dotsEl = document.getElementById('agDots');
     var total  = slides.length;
-    var perView = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+    var perView = window.innerWidth < 576 ? 1 : window.innerWidth < 992 ? 2 : window.innerWidth < 1400 ? 3 : 4;
     var current = 0;
     var autoTimer;
 
-    function cardW() { return slides[0] ? slides[0].offsetWidth + 16 : 276; }
-
+    function cardW() { return slides[0] ? slides[0].offsetWidth + 16 : 216; }
     function pages() { return Math.max(1, Math.ceil(total / perView)); }
 
     function buildDots() {
@@ -452,8 +438,8 @@
         if (p <= 1) return;
         for (var i = 0; i < p; i++) {
             var d = document.createElement('button');
-            d.style.cssText = 'width:'+(i===current?'28px':'8px')+';height:8px;border-radius:4px;border:none;cursor:pointer;transition:all 0.3s;background:'+(i===current?'var(--accent-secondary-color)':'#ddd')+';padding:0;';
-            (function(idx){ d.addEventListener('click', function(){ goTo(idx); resetAuto(); }); })(i);
+            d.style.cssText = 'width:'+(i===current?'24px':'8px')+';height:8px;border-radius:4px;border:none;cursor:pointer;transition:all 0.3s;background:'+(i===current?'var(--accent-secondary-color)':'#ccc')+';padding:0;';
+            (function(idx){ d.addEventListener('click', function(){ goTo(idx); reset(); }); })(i);
             dotsEl.appendChild(d);
         }
     }
@@ -464,24 +450,22 @@
         buildDots();
     }
 
-    function resetAuto() {
+    function reset() {
         clearInterval(autoTimer);
         autoTimer = setInterval(function(){ goTo((current + 1) % pages()); }, 3500);
     }
 
-    window.galScroll = function(dir) { goTo(current + dir); resetAuto(); };
-
+    window.agScroll = function(dir) { goTo(current + dir); reset(); };
     buildDots();
-    resetAuto();
+    reset();
 
     window.addEventListener('resize', function(){
-        perView = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+        perView = window.innerWidth < 576 ? 1 : window.innerWidth < 992 ? 2 : window.innerWidth < 1400 ? 3 : 4;
         goTo(0);
     });
 })();
 </script>
 @endpush
-@endif
 
 <!-- Our Approach Section Start -->
 <div class="our-approach bg-section">
