@@ -99,11 +99,13 @@
                             @endif
                         </td>
                         <td>
-                            @if($project->is_featured)
-                                <i class="fas fa-star text-warning"></i>
-                            @else
-                                <i class="far fa-star text-muted"></i>
-                            @endif
+                            <button class="btn btn-link p-0 featured-toggle" title="Toggle Featured"
+                                    data-id="{{ $project->id }}"
+                                    data-url="{{ route('admin.projects.toggleFeatured', $project->id) }}"
+                                    data-featured="{{ $project->is_featured ? '1' : '0' }}"
+                                    style="font-size:18px; line-height:1;">
+                                <i class="{{ $project->is_featured ? 'fas fa-star text-warning' : 'far fa-star text-muted' }}"></i>
+                            </button>
                         </td>
                         <td>
                             <div class="d-flex gap-1">
@@ -134,3 +136,33 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+document.querySelectorAll('.featured-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var url  = this.dataset.url;
+        var icon = this.querySelector('i');
+        var self = this;
+        fetch(url, {
+            method: 'PATCH',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                'Accept': 'application/json'
+            }
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            if (data.is_featured) {
+                icon.className = 'fas fa-star text-warning';
+                self.dataset.featured = '1';
+            } else {
+                icon.className = 'far fa-star text-muted';
+                self.dataset.featured = '0';
+            }
+        })
+        .catch(function() { alert('Failed to update. Please try again.'); });
+    });
+});
+</script>
+@endpush

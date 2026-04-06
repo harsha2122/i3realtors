@@ -101,6 +101,13 @@ class ProjectController extends Controller
             ->with('success', 'Project updated successfully.');
     }
 
+    public function toggleFeatured(int $id)
+    {
+        $project = $this->service->find($id);
+        $project->update(['is_featured' => !$project->is_featured]);
+        return response()->json(['is_featured' => $project->fresh()->is_featured]);
+    }
+
     public function destroy(int $id)
     {
         $this->service->delete($id);

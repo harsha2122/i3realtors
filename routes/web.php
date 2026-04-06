@@ -70,6 +70,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // Projects
         Route::delete('/projects/images/{imageId}', [Admin\ProjectController::class, 'destroyImage'])->name('projects.image.destroy');
+        Route::patch('/projects/{id}/toggle-featured', [Admin\ProjectController::class, 'toggleFeatured'])->name('projects.toggleFeatured');
         Route::resource('projects', Admin\ProjectController::class);
 
         // Settings
