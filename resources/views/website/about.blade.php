@@ -467,6 +467,101 @@
 </script>
 @endpush
 
+@if(isset($galleryImages) && $galleryImages->isNotEmpty())
+<!-- Life at i3 Realtors Section Start -->
+<div style="padding: 90px 0 100px; background: #fff;">
+    <div class="container-fluid px-4 px-lg-5">
+
+        <div class="section-title section-title-center wow fadeInUp" style="margin-bottom:48px;">
+            <span class="section-sub-title">Our Team</span>
+            <h2 class="text-anime-style-2" data-cursor="-opaque">Life at <span>i3 Realtors</span></h2>
+        </div>
+
+        <div style="position:relative;" class="wow fadeInUp" data-wow-delay="0.15s">
+            <button onclick="lifeScroll(-1)"
+                style="position:absolute; left:0; top:40%; transform:translateY(-50%); z-index:10; width:48px; height:48px; border-radius:50%; background:var(--accent-secondary-color); border:none; color:#fff; font-size:15px; cursor:pointer; box-shadow:0 4px 20px rgba(224,90,0,0.4);">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button onclick="lifeScroll(1)"
+                style="position:absolute; right:0; top:40%; transform:translateY(-50%); z-index:10; width:48px; height:48px; border-radius:50%; background:var(--accent-secondary-color); border:none; color:#fff; font-size:15px; cursor:pointer; box-shadow:0 4px 20px rgba(224,90,0,0.4);">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <div id="lifeTrack" style="display:flex; gap:16px; overflow:hidden; scroll-behavior:smooth; padding:4px 60px 8px;">
+                @foreach($galleryImages as $image)
+                <div class="life-slide" style="flex:0 0 calc(33.333% - 11px); min-width:240px;">
+                    <div style="border-radius:14px; overflow:hidden; aspect-ratio:1/1; position:relative;"
+                         onmouseover="this.querySelector('img').style.transform='scale(1.06)'"
+                         onmouseout="this.querySelector('img').style.transform='scale(1)'">
+                        <img src="{{ asset('uploads/' . $image->image_path) }}"
+                             alt="{{ $image->caption ?? 'i3 Realtors' }}"
+                             style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease;">
+                        @if($image->caption)
+                        <div style="position:absolute; bottom:0; left:0; right:0; padding:14px 16px; background:linear-gradient(transparent,rgba(0,0,0,0.65));">
+                            <p style="margin:0; color:#fff; font-size:13px; font-weight:600;">{{ $image->caption }}</p>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+            <div id="lifeDots" style="display:flex; justify-content:center; gap:8px; margin-top:28px;"></div>
+        </div>
+    </div>
+</div>
+<!-- Life at i3 Realtors Section End -->
+
+@push('scripts')
+<script>
+(function(){
+    var track = document.getElementById('lifeTrack');
+    if (!track) return;
+    var slides = track.querySelectorAll('.life-slide');
+    var dotsEl = document.getElementById('lifeDots');
+    var total  = slides.length;
+    var perView = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+    var current = 0;
+    var timer;
+
+    function cw() { return slides[0] ? slides[0].offsetWidth + 16 : 256; }
+    function pages() { return Math.max(1, Math.ceil(total / perView)); }
+
+    function buildDots() {
+        if (!dotsEl) return;
+        dotsEl.innerHTML = '';
+        var p = pages(); if (p <= 1) return;
+        for (var i = 0; i < p; i++) {
+            var d = document.createElement('button');
+            d.style.cssText = 'width:'+(i===current?'28px':'8px')+';height:8px;border-radius:4px;border:none;cursor:pointer;transition:all 0.3s;background:'+(i===current?'var(--accent-secondary-color)':'#ddd')+';padding:0;';
+            (function(idx){ d.addEventListener('click', function(){ go(idx); reset(); }); })(i);
+            dotsEl.appendChild(d);
+        }
+    }
+
+    function go(page) {
+        current = Math.max(0, Math.min(page, pages()-1));
+        track.scrollLeft = current * cw() * perView;
+        buildDots();
+    }
+
+    function reset() {
+        clearInterval(timer);
+        timer = setInterval(function(){ go((current+1) % pages()); }, 3500);
+    }
+
+    window.lifeScroll = function(dir) { go(current + dir); reset(); };
+    buildDots();
+    reset();
+    window.addEventListener('resize', function(){
+        perView = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+        go(0);
+    });
+})();
+</script>
+@endpush
+@endif
+
 <!-- Our Approach Section Start -->
 <div class="our-approach bg-section">
     <div class="container">
