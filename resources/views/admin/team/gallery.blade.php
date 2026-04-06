@@ -58,8 +58,10 @@
             @foreach($images as $image)
             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                 <div class="border rounded-3 overflow-hidden position-relative {{ $image->is_active ? '' : 'opacity-50' }}">
-                    <img src="{{ asset('uploads/' . $image->image_path) }}" alt=""
-                         style="width:100%; height:150px; object-fit:cover;">
+                    <div style="aspect-ratio:1/1; overflow:hidden;">
+                        <img src="{{ asset('uploads/' . $image->image_path) }}" alt=""
+                             style="width:100%; height:100%; object-fit:cover;">
+                    </div>
                     <div class="p-2 d-flex gap-1 justify-content-between align-items-center bg-white border-top">
                         <!-- Toggle visibility -->
                         <form method="POST" action="{{ route('admin.team-gallery.toggle', $image) }}">

@@ -411,7 +411,7 @@
             <div id="galTrack" style="display:flex; gap:16px; overflow:hidden; scroll-behavior:smooth; padding:4px 60px;">
                 @foreach($galleryImages as $image)
                 <div class="gal-slide" style="flex:0 0 calc(33.333% - 11px); min-width:260px;">
-                    <div style="border-radius:14px; overflow:hidden; height:280px; position:relative; cursor:pointer;"
+                    <div style="border-radius:14px; overflow:hidden; aspect-ratio:1/1; position:relative; cursor:pointer;"
                          onmouseover="this.querySelector('img').style.transform='scale(1.06)'"
                          onmouseout="this.querySelector('img').style.transform='scale(1)'">
                         <img src="{{ asset('uploads/' . $image->image_path) }}"

@@ -165,6 +165,9 @@
             <a href="{{ route('admin.gallery.index') }}" class="nav-link {{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
                 <i class="fas fa-images"></i> Gallery
             </a>
+            <a href="{{ route('admin.team-gallery.index') }}" class="nav-link {{ request()->routeIs('admin.team-gallery.*') ? 'active' : '' }}">
+                <i class="fas fa-photo-film"></i> About Page Gallery
+            </a>
 
             <div class="nav-section-label">Leads & Forms</div>
             <a href="{{ route('admin.leads.index') }}" class="nav-link {{ request()->routeIs('admin.leads.*') ? 'active' : '' }}">
