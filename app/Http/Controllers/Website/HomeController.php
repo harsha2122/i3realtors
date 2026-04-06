@@ -16,24 +16,30 @@ class HomeController extends Controller
         $projects = Project::active()
             ->where('is_featured', true)
             ->where('status', 'ongoing')
+            ->whereNotNull('thumbnail')
+            ->where('thumbnail', '!=', '')
             ->orderBy('sort_order')
             ->orderByDesc('created_at')
             ->limit(4)
             ->get();
 
-        // Fallback: if no featured+ongoing projects, show any featured
+        // Fallback: if no featured+ongoing projects, show any featured with image
         if ($projects->isEmpty()) {
             $projects = Project::active()
                 ->where('is_featured', true)
+                ->whereNotNull('thumbnail')
+                ->where('thumbnail', '!=', '')
                 ->orderBy('sort_order')
                 ->orderByDesc('created_at')
                 ->limit(4)
                 ->get();
         }
 
-        // Final fallback: latest active projects
+        // Final fallback: latest active projects with images
         if ($projects->isEmpty()) {
             $projects = Project::active()
+                ->whereNotNull('thumbnail')
+                ->where('thumbnail', '!=', '')
                 ->orderBy('sort_order')
                 ->orderByDesc('created_at')
                 ->limit(4)
