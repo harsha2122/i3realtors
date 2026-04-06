@@ -698,10 +698,11 @@
                         <!-- History Item Header End -->
 
                         <!-- History Item Image Start -->
-                        <div class="history-item-image">
-                            <figure>
+                        <div class="history-item-image" style="align-content:unset; margin: 0 -40px -40px;">
+                            <figure style="width:100%; max-width:100%; margin:0; border-radius:0 0 20px 20px; overflow:hidden; height:220px;">
                                 @php $j1 = \App\Models\Setting::get('about_journey_image_1'); @endphp
-                                <img src="{{ $j1 ? asset('uploads/'.$j1) : asset('images/our-history-image-1.png') }}" alt="">
+                                <img src="{{ $j1 ? asset('uploads/'.$j1) : asset('images/our-history-image-1.png') }}" alt=""
+                                     style="width:100%; height:100%; object-fit:cover; object-position:center; border-radius:0;">
                             </figure>
                         </div>
                         <!-- History Item Image End -->
@@ -721,10 +722,11 @@
                         <!-- History Item Header End -->
 
                         <!-- History Item Image Start -->
-                        <div class="history-item-image">
-                            <figure>
+                        <div class="history-item-image" style="align-content:unset; margin: 0 -40px -40px;">
+                            <figure style="width:100%; max-width:100%; margin:0; border-radius:0 0 20px 20px; overflow:hidden; height:220px;">
                                 @php $j2 = \App\Models\Setting::get('about_journey_image_2'); @endphp
-                                <img src="{{ $j2 ? asset('uploads/'.$j2) : asset('images/our-history-image-2.png') }}" alt="">
+                                <img src="{{ $j2 ? asset('uploads/'.$j2) : asset('images/our-history-image-2.png') }}" alt=""
+                                     style="width:100%; height:100%; object-fit:cover; object-position:center; border-radius:0;">
                             </figure>
                         </div>
                         <!-- History Item Image End -->
@@ -744,10 +746,11 @@
                         <!-- History Item Header End -->
 
                         <!-- History Item Image Start -->
-                        <div class="history-item-image">
-                            <figure>
+                        <div class="history-item-image" style="align-content:unset; margin: 0 -40px -40px;">
+                            <figure style="width:100%; max-width:100%; margin:0; border-radius:0 0 20px 20px; overflow:hidden; height:220px;">
                                 @php $j3 = \App\Models\Setting::get('about_journey_image_3'); @endphp
-                                <img src="{{ $j3 ? asset('uploads/'.$j3) : asset('images/our-history-image-3.png') }}" alt="">
+                                <img src="{{ $j3 ? asset('uploads/'.$j3) : asset('images/our-history-image-3.png') }}" alt=""
+                                     style="width:100%; height:100%; object-fit:cover; object-position:center; border-radius:0;">
                             </figure>
                         </div>
                         <!-- History Item Image End -->
@@ -767,10 +770,11 @@
                         <!-- History Item Header End -->
 
                         <!-- History Item Image Start -->
-                        <div class="history-item-image">
-                            <figure>
+                        <div class="history-item-image" style="align-content:unset; margin: 0 -40px -40px;">
+                            <figure style="width:100%; max-width:100%; margin:0; border-radius:0 0 20px 20px; overflow:hidden; height:220px;">
                                 @php $j4 = \App\Models\Setting::get('about_journey_image_4'); @endphp
-                                <img src="{{ $j4 ? asset('uploads/'.$j4) : asset('images/our-history-image-1.png') }}" alt="">
+                                <img src="{{ $j4 ? asset('uploads/'.$j4) : asset('images/our-history-image-1.png') }}" alt=""
+                                     style="width:100%; height:100%; object-fit:cover; object-position:center; border-radius:0;">
                             </figure>
                         </div>
                         <!-- History Item Image End -->
