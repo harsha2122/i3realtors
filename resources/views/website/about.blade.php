@@ -206,12 +206,9 @@
                 </div>
             </div>
         </div>
-                </div>
-            </div>
-        </div>
 
         @if(isset($achievements) && $achievements->isNotEmpty())
-        <div class="wow fadeInUp" data-wow-delay="0.2s" style="position:relative; margin-top:52px;">
+        <div class="wow fadeInUp" data-wow-delay="0.2s" style="position:relative; margin-top:28px;">
 
             {{-- Nav buttons --}}
             <button id="achPrev" onclick="scrollAch(-1)"
@@ -226,7 +223,7 @@
             <div id="achTrack" style="display:flex; gap:22px; overflow:hidden; scroll-behavior:smooth; padding:8px 6px 28px;">
                 @foreach($achievements as $achievement)
                 <div class="ach-slide" style="flex:0 0 calc(25% - 17px); min-width:240px;">
-                    <div class="ach-card" style="background:#ffffff; border-radius:18px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.35); transition:transform 0.3s ease, box-shadow 0.3s ease; height:100%; display:flex; flex-direction:column;">
+                    <div class="ach-card" style="background:#ffffff; border-radius:18px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.07); transition:transform 0.3s ease, box-shadow 0.3s ease; height:100%; display:flex; flex-direction:column;">
 
                         {{-- Orange accent strip --}}
                         <div style="height:4px; background:linear-gradient(90deg, var(--accent-secondary-color) 0%, #ff8c42 100%); flex-shrink:0;"></div>
@@ -406,11 +403,11 @@
     track.querySelectorAll('.ach-card').forEach(function(card) {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-6px)';
-            this.style.boxShadow = '0 16px 50px rgba(0,0,0,0.45)';
+            this.style.boxShadow = '0 8px 28px rgba(0,0,0,0.13)';
         });
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
-            this.style.boxShadow = '0 8px 40px rgba(0,0,0,0.35)';
+            this.style.boxShadow = '0 4px 16px rgba(0,0,0,0.07)';
         });
     });
 
