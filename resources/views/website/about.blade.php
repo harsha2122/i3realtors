@@ -700,7 +700,8 @@
                         <!-- History Item Image Start -->
                         <div class="history-item-image">
                             <figure>
-                                <img src="{{ asset('images/our-history-image-1.png') }}" alt="">
+                                @php $j1 = \App\Models\Setting::get('about_journey_image_1'); @endphp
+                                <img src="{{ $j1 ? asset('uploads/'.$j1) : asset('images/our-history-image-1.png') }}" alt="">
                             </figure>
                         </div>
                         <!-- History Item Image End -->
@@ -722,7 +723,8 @@
                         <!-- History Item Image Start -->
                         <div class="history-item-image">
                             <figure>
-                                <img src="{{ asset('images/our-history-image-2.png') }}" alt="">
+                                @php $j2 = \App\Models\Setting::get('about_journey_image_2'); @endphp
+                                <img src="{{ $j2 ? asset('uploads/'.$j2) : asset('images/our-history-image-2.png') }}" alt="">
                             </figure>
                         </div>
                         <!-- History Item Image End -->
@@ -744,7 +746,8 @@
                         <!-- History Item Image Start -->
                         <div class="history-item-image">
                             <figure>
-                                <img src="{{ asset('images/our-history-image-3.png') }}" alt="">
+                                @php $j3 = \App\Models\Setting::get('about_journey_image_3'); @endphp
+                                <img src="{{ $j3 ? asset('uploads/'.$j3) : asset('images/our-history-image-3.png') }}" alt="">
                             </figure>
                         </div>
                         <!-- History Item Image End -->
@@ -766,7 +769,8 @@
                         <!-- History Item Image Start -->
                         <div class="history-item-image">
                             <figure>
-                                <img src="{{ asset('images/our-history-image-1.png') }}" alt="">
+                                @php $j4 = \App\Models\Setting::get('about_journey_image_4'); @endphp
+                                <img src="{{ $j4 ? asset('uploads/'.$j4) : asset('images/our-history-image-1.png') }}" alt="">
                             </figure>
                         </div>
                         <!-- History Item Image End -->
