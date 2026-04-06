@@ -129,7 +129,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="p-3">{{ $projects->withQueryString()->links() }}</div>
+        <div class="p-3 d-flex justify-content-end">{{ $projects->withQueryString()->links() }}</div>
         @endif
     </div>
 </div>
