@@ -117,5 +117,14 @@
     <script src="{{ asset('js/function.js') }}"></script>
 
     @stack('scripts')
+
+    {{-- Preloader failsafe: force-hide after 4s in case window.load is delayed --}}
+    <script>
+    (function(){
+        function hidePreloader(){ var p = document.querySelector('.preloader'); if(p){ p.style.transition='opacity 0.6s'; p.style.opacity='0'; setTimeout(function(){ p.style.display='none'; }, 650); } }
+        window.addEventListener('load', hidePreloader);
+        setTimeout(hidePreloader, 4000);
+    })();
+    </script>
 </body>
 </html>

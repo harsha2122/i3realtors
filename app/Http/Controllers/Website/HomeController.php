@@ -13,13 +13,25 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $projects = Project::active()->where('is_featured', true)
+        $projects = Project::active()
+            ->where('is_featured', true)
+            ->where('status', 'completed')
             ->orderBy('sort_order')
             ->orderByDesc('created_at')
             ->limit(4)
             ->get();
 
-        // Fallback: if no featured projects, show latest active ones
+        // Fallback: if no featured+completed projects, show any featured
+        if ($projects->isEmpty()) {
+            $projects = Project::active()
+                ->where('is_featured', true)
+                ->orderBy('sort_order')
+                ->orderByDesc('created_at')
+                ->limit(4)
+                ->get();
+        }
+
+        // Final fallback: latest active projects
         if ($projects->isEmpty()) {
             $projects = Project::active()
                 ->orderBy('sort_order')
