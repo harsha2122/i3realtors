@@ -49,12 +49,17 @@
             </div>
         </div>
 
+        @php
+            $aboutWhoMain  = \App\Models\Setting::get('about_who_main_image');
+            $aboutWhoBox1  = \App\Models\Setting::get('about_who_box1_image');
+            $aboutWhoBox2  = \App\Models\Setting::get('about_who_box2_image');
+        @endphp
         <div class="row">
             <div class="col-xl-6">
                 <div class="about-us-image-box wow fadeInUp">
                     <div class="about-us-image">
                         <figure class="image-anime">
-                            <img src="{{ asset('images/our-approach-image-1.jpg') }}" alt="i3 Realtors Team" />
+                            <img src="{{ $aboutWhoMain ? asset('uploads/'.$aboutWhoMain) : asset('images/our-approach-image-1.jpg') }}" alt="i3 Realtors Team" />
                         </figure>
                     </div>
                     <div class="about-us-circle">
@@ -75,7 +80,7 @@
                             </div>
                             <div class="about-us-item-image">
                                 <figure>
-                                    <img src="{{ asset('images/our-history-image-1.png') }}" alt="" />
+                                    <img src="{{ $aboutWhoBox1 ? asset('uploads/'.$aboutWhoBox1) : asset('images/our-history-image-1.png') }}" alt="" />
                                 </figure>
                             </div>
                         </div>
@@ -87,7 +92,7 @@
                             </div>
                             <div class="about-us-item-image">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('images/our-approach-image-2.jpg') }}" alt="" />
+                                    <img src="{{ $aboutWhoBox2 ? asset('uploads/'.$aboutWhoBox2) : asset('images/our-approach-image-2.jpg') }}" alt="" />
                                 </figure>
                             </div>
                         </div>
@@ -447,6 +452,10 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-xl-6">
+                @php
+                    $aboutApproach1 = \App\Models\Setting::get('about_approach_image_1');
+                    $aboutApproach2 = \App\Models\Setting::get('about_approach_image_2');
+                @endphp
                 <!-- Our Approach Images Start -->
                 <div class="our-approach-images">
                     <!-- Our Approach Image Box-1 Start -->
@@ -454,7 +463,7 @@
                         <!-- Our Approach Image Start -->
                         <div class="our-approach-image">
                             <figure class="image-anime reveal">
-                                <img src="{{ asset('images/our-approach-image-1.jpg') }}" alt="">
+                                <img src="{{ $aboutApproach1 ? asset('uploads/'.$aboutApproach1) : asset('images/our-approach-image-1.jpg') }}" alt="">
                             </figure>
                         </div>
                         <!-- Our Approach Image End -->
@@ -466,7 +475,7 @@
                         <!-- Our Approach Image Start -->
                         <div class="our-approach-image">
                             <figure class="image-anime reveal">
-                                <img src="{{ asset('images/our-approach-image-2.jpg') }}" alt="">
+                                <img src="{{ $aboutApproach2 ? asset('uploads/'.$aboutApproach2) : asset('images/our-approach-image-2.jpg') }}" alt="">
                             </figure>
                         </div>
                         <!-- Our Approach Image End -->

@@ -52,7 +52,7 @@
                         @php
                             $label         = $setting->label ?? ucwords(str_replace('_', ' ', $setting->key));
                             $isColorField  = str_contains($setting->key, 'color');
-                            $imageKeys     = ['logo', 'logo_white', 'favicon', 'about_main_image', 'about_item_image_1', 'about_item_image_2', 'breadcrumb_bg'];
+                            $imageKeys     = ['logo', 'logo_white', 'favicon', 'about_main_image', 'about_item_image_1', 'about_item_image_2', 'breadcrumb_bg', 'about_who_main_image', 'about_who_box1_image', 'about_who_box2_image', 'about_approach_image_1', 'about_approach_image_2'];
                             $isMediaField  = in_array($setting->key, $imageKeys);
                             $isVideoFile   = $setting->key === 'hero_video_file';
                             $isVideoType   = $setting->key === 'hero_video_type';
