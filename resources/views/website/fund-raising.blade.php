@@ -177,7 +177,7 @@
 <!-- Our Clientele Section End -->
 
 <!-- CTA Section Start -->
-<div class="cta-box bg-section dark-section parallaxie">
+<div class="cta-box bg-section dark-section parallaxie" @if(!empty($site['cta_bg_image'])) style="background-image:url('{{ asset('uploads/'.$site['cta_bg_image']) }}');" @endif>
     <div class="container">
         <div class="row">
             <div class="col-xl-12 text-center">

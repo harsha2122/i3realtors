@@ -868,7 +868,7 @@
     Our Fact Section End --}}
 
     <!-- Cta Box Section Start -->
-    <div class="cta-box bg-section dark-section parallaxie" style="margin: 12px auto;">
+    <div class="cta-box bg-section dark-section parallaxie" style="margin: 12px auto; @if(!empty($site['cta_bg_image'])) background-image:url('{{ asset('uploads/'.$site['cta_bg_image']) }}'); @endif">
       <div class="container">
         <div class="row">
           <div class="col-xl-12 text-center">
