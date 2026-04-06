@@ -380,138 +380,114 @@
     <!-- Our Service Section End -->
 
     <!-- Who We Are Section Start -->
-    <div class="who-we-are bg-section" style="margin: 12px auto;">
-      <div class="container">
-        <div class="row section-row">
-          <div class="col-lg-12">
-            <div class="section-title section-title-center">
-              <h2 class="wow fadeInUp" data-wow-delay="0.2s" style="font-style:normal;">
-                Why i3 Realtors ?
-              </h2>
+    <div class="who-we-are bg-section" style="padding: 90px 0; background: #f8f8f6;">
+      @php
+      $whyTabs = [
+        ['id'=>'wt1','num'=>'01','icon'=>'fa-map',          'label'=>'Strategic Roadmap',      'title'=>'Strategic Roadmap',           'desc'=>'We create a clear strategic roadmap aligned with market conditions to accelerate project sales and developer success.', 'points'=>['Way Forward Strategies','Sales Velocity Actions','Pricing Strategies','Branding & Market Communication']],
+        ['id'=>'wt2','num'=>'02','icon'=>'fa-bolt',          'label'=>'High Velocity Sales',    'title'=>'High Velocity of Sales',      'desc'=>'We deploy high-velocity sales mechanisms to drive consistent deal closures across developer projects.',                 'points'=>['360 Degree Marketing','CP Network Extend','NRI Outreach','Direct Investor Connect']],
+        ['id'=>'wt3','num'=>'03','icon'=>'fa-handshake',     'label'=>'Sales Expertise',        'title'=>'Sales Expertise',             'desc'=>'Our experienced sales team provides on-ground support to convert leads into successful property transactions.',           'points'=>['Trained Sales Specialists','Dedicated Support Center','Site Visit Coordination','Closure Management']],
+        ['id'=>'wt4','num'=>'04','icon'=>'fa-chart-bar',     'label'=>'Performance Base',       'title'=>'Performance Base – CP Network','desc'=>'Our channel partner network is built on performance, ensuring active and motivated partners drive consistent sales.',       'points'=>['Channel Partner Onboarding','CP Training & Enablement','Incentive Structures','Network Expansion']],
+        ['id'=>'wt5','num'=>'05','icon'=>'fa-people-group',  'label'=>'Our Sales Force',        'title'=>'Our Sales Force',             'desc'=>'Our dedicated sales force combines domain expertise and performance marketing to drive qualified leads and successful closures.','points'=>['Trained Sales Professionals','Developer Relationship Managers','Investor Advisory Team','Field Sales Execution','Lead Generation Funnels','Analytics & Reporting']],
+        ['id'=>'wt6','num'=>'06','icon'=>'fa-gears',         'label'=>'Process Excellence',     'title'=>'Process Excellence',          'desc'=>'We follow structured processes and systems that ensure consistency, transparency, and efficiency across all mandate engagements.','points'=>['Structured Sales Process','CRM & Reporting Systems','Quality Assurance','Post-Sale Support']],
+      ];
+      @endphp
+
+      <style>
+        .why-section-wrap { max-width:1200px; margin:0 auto; padding:0 20px; }
+        .why-section-head { text-align:center; margin-bottom:56px; }
+        .why-section-head h2 { font-size:clamp(28px,4vw,44px); font-weight:800; color:#111; margin:0; }
+        .why-section-head span { color: var(--accent-secondary-color); }
+        .why-layout { display:grid; grid-template-columns:300px 1fr; gap:0; background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 12px 60px rgba(0,0,0,0.09); min-height:460px; }
+        /* Left sidebar */
+        .why-sidebar { background:#111; padding:0; }
+        .why-tab-btn { display:flex; align-items:center; gap:16px; width:100%; padding:20px 24px; border:none; background:transparent; cursor:pointer; border-left:4px solid transparent; transition:all 0.25s; text-align:left; border-bottom:1px solid rgba(255,255,255,0.06); }
+        .why-tab-btn:hover { background:rgba(255,255,255,0.05); border-left-color: rgba(224,90,0,0.5); }
+        .why-tab-btn.active { background:rgba(224,90,0,0.12); border-left-color: var(--accent-secondary-color); }
+        .why-tab-num { font-size:11px; font-weight:800; color: var(--accent-secondary-color); letter-spacing:1px; min-width:24px; }
+        .why-tab-label { font-size:13px; font-weight:600; color:rgba(255,255,255,0.65); line-height:1.3; transition:color 0.2s; }
+        .why-tab-btn.active .why-tab-label,
+        .why-tab-btn:hover .why-tab-label { color:#fff; }
+        .why-tab-arrow { margin-left:auto; color: var(--accent-secondary-color); font-size:11px; opacity:0; transition:opacity 0.2s; }
+        .why-tab-btn.active .why-tab-arrow { opacity:1; }
+        /* Right content */
+        .why-content-wrap { padding:0; position:relative; overflow:hidden; }
+        .why-progress { height:4px; background:#f0f0f0; position:relative; }
+        .why-progress-bar { height:100%; background: linear-gradient(90deg, var(--accent-secondary-color), #ff8c42); width:0%; transition:none; }
+        .why-pane { display:none; padding:44px 48px 40px; animation: whyFadeIn 0.4s ease; }
+        .why-pane.active { display:block; }
+        @keyframes whyFadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+        .why-pane-icon { width:60px; height:60px; background:rgba(224,90,0,0.10); border-radius:16px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
+        .why-pane-icon i { font-size:24px; color: var(--accent-secondary-color); }
+        .why-pane-title { font-size:26px; font-weight:800; color:#111; margin:0 0 10px; }
+        .why-pane-desc { font-size:15px; color:#666; line-height:1.75; margin:0 0 32px; max-width:560px; }
+        .why-points-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+        .why-point { display:flex; align-items:center; gap:12px; background:#f9f9f7; border-radius:10px; padding:13px 16px; border:1px solid #efefed; }
+        .why-point-icon { width:28px; height:28px; background: var(--accent-secondary-color); border-radius:7px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+        .why-point-icon i { font-size:11px; color:#fff; }
+        .why-point span { font-size:13px; font-weight:600; color:#222; }
+        /* Footer row */
+        .why-footer-row { display:flex; align-items:center; gap:32px; margin-top:52px; flex-wrap:wrap; }
+        @media(max-width:991px) {
+          .why-layout { grid-template-columns:1fr; }
+          .why-sidebar { display:flex; overflow-x:auto; }
+          .why-tab-btn { border-left:none; border-bottom:4px solid transparent; padding:14px 18px; flex-shrink:0; }
+          .why-tab-btn.active { border-bottom-color: var(--accent-secondary-color); background:rgba(224,90,0,0.1); }
+          .why-tab-arrow { display:none; }
+          .why-pane { padding:28px 24px; }
+          .why-points-grid { grid-template-columns:1fr; }
+        }
+      </style>
+
+      <div class="why-section-wrap">
+        <div class="why-section-head wow fadeInUp">
+          <span style="display:inline-block; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent-secondary-color); margin-bottom:12px;">What Sets Us Apart</span>
+          <h2>Why Choose <span>i3 Realtors</span> ?</h2>
+        </div>
+
+        <div class="why-layout wow fadeInUp" data-wow-delay="0.15s">
+          {{-- Sidebar --}}
+          <div class="why-sidebar">
+            @foreach($whyTabs as $i => $t)
+            <button class="why-tab-btn {{ $i===0 ? 'active' : '' }}" data-target="wt-{{ $t['id'] }}" onclick="whySwitch('{{ $t['id'] }}')">
+              <span class="why-tab-num">{{ $t['num'] }}</span>
+              <span class="why-tab-label">{{ $t['label'] }}</span>
+              <i class="fas fa-chevron-right why-tab-arrow"></i>
+            </button>
+            @endforeach
+          </div>
+
+          {{-- Content --}}
+          <div class="why-content-wrap">
+            <div class="why-progress"><div class="why-progress-bar" id="whyBar"></div></div>
+            @foreach($whyTabs as $i => $t)
+            <div class="why-pane {{ $i===0 ? 'active' : '' }}" id="wt-{{ $t['id'] }}">
+              <div class="why-pane-icon"><i class="fa-solid {{ $t['icon'] }}"></i></div>
+              <h3 class="why-pane-title">{{ $t['title'] }}</h3>
+              <p class="why-pane-desc">{{ $t['desc'] }}</p>
+              <div class="why-points-grid">
+                @foreach($t['points'] as $pt)
+                <div class="why-point">
+                  <div class="why-point-icon"><i class="fas fa-check"></i></div>
+                  <span>{{ $pt }}</span>
+                </div>
+                @endforeach
+              </div>
             </div>
+            @endforeach
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-12">
-            <div class="who-we-content wow fadeInUp">
-              <style>
-                .who-we-box { border-right: none !important; }
-                #mvTab { border-bottom: 2px solid #e5e5e5 !important; }
-                #mvTab .nav-link { border: none !important; border-bottom: 3px solid transparent !important; margin-bottom: -2px; background: transparent !important; color: #666; font-size: 13px; font-weight: 600; padding: 12px 8px; border-radius: 0; transition: color 0.2s, border-color 0.2s; }
-                #mvTab .nav-link:hover { color: #111; }
-                #mvTab .nav-link.active { color: #111 !important; border-bottom: 3px solid var(--accent-secondary-color) !important; font-weight: 700; }
-              </style>
-              <div class="who-we-box tab-content" id="mvTabContent">
-
-                {{-- 8 Tab Navigation --}}
-                <div class="who-we-nav">
-                  <ul class="nav nav-tabs" id="mvTab" role="tablist" style="display:flex; flex-wrap:nowrap; margin-bottom: 40px; overflow-x: auto;">
-                    @php
-                    $tabNav = [
-                      ['id' => 'tab1', 'label' => 'Strategic Roadmap'],
-                      ['id' => 'tab2', 'label' => 'High Velocity of Sales'],
-                      ['id' => 'tab4', 'label' => 'Sales Expertise'],
-                      ['id' => 'tab6', 'label' => 'Performance Base'],
-                      ['id' => 'tab7', 'label' => 'Our Sales Force'],
-                      ['id' => 'tab8', 'label' => 'Process Excellence'],
-                    ];
-                    $tabContent = [
-                      'tab1' => [
-                        'title'  => 'Strategic Roadmap',
-                        'desc'   => 'We create a clear strategic roadmap aligned with market conditions to accelerate project sales and developer success.',
-                        'points' => ['Way Forward Strategies', 'Sales Velocity Actions', 'Pricing Strategies', 'Branding & Market Communication'],
-                      ],
-                      'tab2' => [
-                        'title'  => 'High Velocity of Sales',
-                        'desc'   => 'We deploy high-velocity sales mechanisms to drive consistent deal closures across developer projects.',
-                        'points' => ['360 Degree Marketing', 'CP Network Extend', 'NRI Outreach'],
-                      ],
-                      'tab3' => [
-                        'title'  => 'Marketing Expertise',
-                        'desc'   => 'Our marketing expertise covers every digital and offline channel to ensure maximum project visibility and lead generation.',
-                        'points' => ['Creative Agencies', 'Web Development', 'Social Media Agencies', 'Corporate Reach'],
-                      ],
-                      'tab4' => [
-                        'title'  => 'Sales Expertise',
-                        'desc'   => 'Our experienced sales team provides on-ground support to convert leads into successful property transactions.',
-                        'points' => ['Sales Specialist', 'Support Center'],
-                      ],
-                      'tab6' => [
-                        'title'  => 'Performance Base - CP Network',
-                        'desc'   => 'Our channel partner network is built on performance, ensuring active and motivated partners drive consistent sales across geographies.',
-                        'points' => ['Channel Partner Onboarding', 'CP Training & Enablement', 'Incentive Structures', 'Network Expansion'],
-                      ],
-                      'tab7' => [
-                        'title'  => 'Our Sales Force',
-                        'desc'   => 'Our dedicated sales force combines domain expertise with full-funnel performance marketing to drive qualified leads and successful closures on every mandate.',
-                        'points' => ['Trained Sales Professionals', 'Developer Relationship Managers', 'Investor Advisory Team', 'Field Sales Execution', 'Search & Social Campaigns', 'Lead Generation Funnels', 'Retargeting & Remarketing', 'Analytics & Reporting'],
-                      ],
-                      'tab8' => [
-                        'title'  => 'Process Excellence',
-                        'desc'   => 'We follow structured processes and systems that ensure consistency, transparency, and efficiency across all mandate engagements.',
-                        'points' => ['Structured Sales Process', 'CRM & Reporting Systems', 'Quality Assurance', 'Post-Sale Support'],
-                      ],
-                    ];
-                    @endphp
-                    @foreach($tabNav as $i => $t)
-                    <li class="nav-item" role="presentation" style="flex: 1;">
-                      <button class="nav-link {{ $i === 0 ? 'active' : '' }}"
-                              id="{{ $t['id'] }}-tab"
-                              data-bs-toggle="tab"
-                              data-bs-target="#{{ $t['id'] }}"
-                              type="button" role="tab"
-                              aria-selected="{{ $i === 0 ? 'true' : 'false' }}"
-                              style="width:100%; text-align:center; white-space:nowrap;">
-                        {{ $t['label'] }}
-                      </button>
-                    </li>
-                    @endforeach
-                  </ul>
-                </div>
-
-                {{-- Tab Panes --}}
-                @foreach($tabNav as $i => $t)
-                @php $c = $tabContent[$t['id']]; @endphp
-                <div class="who-we-tab-item tab-pane fade {{ $i === 0 ? 'show active' : '' }}" id="{{ $t['id'] }}" role="tabpanel">
-                  <div class="who-we-tab-content">
-                    <div class="who-we-tab-header-content">
-                      <h3>{{ $c['title'] }}</h3>
-                      <p>{{ $c['desc'] }}</p>
-                    </div>
-                    <div class="who-we-item-list">
-                      @foreach($c['points'] as $point)
-                      <div class="who-we-item">
-                        <div class="icon-box">
-                          <img src="{{ asset('images/icon-who-we-item-1.svg') }}" alt="" />
-                        </div>
-                        <div class="who-we-item-content">
-                          <h3>{{ $point }}</h3>
-                        </div>
-                      </div>
-                      @endforeach
-                    </div>
-                  </div>
-                </div>
-                @endforeach
-
-              </div>
-
-              <div class="who-we-footer">
-                <div class="who-we-btn">
-                  <a href="{{ route('contact') }}" class="btn-default">Contact Us</a>
-                </div>
-                @php $phoneMain = $site['phone_primary'] ?? '+91 (123) 456-789'; @endphp
-                <div class="about-us-contact-box">
-                  <div class="icon-box">
-                    <img src="{{ asset('images/icon-headphone-primary.svg') }}" alt="" />
-                  </div>
-                  <div class="about-us-conatct-content">
-                    <p>Call Us Now!</p>
-                    <h3><a href="tel:{{ $phoneMain }}">{{ $phoneMain }}</a></h3>
-                  </div>
-                </div>
-              </div>
+        {{-- Footer CTA --}}
+        @php $phoneMain = $site['phone_primary'] ?? '+91 (123) 456-789'; @endphp
+        <div class="why-footer-row wow fadeInUp" data-wow-delay="0.3s">
+          <a href="{{ route('contact') }}" class="btn-default">Partner With Us</a>
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="width:48px; height:48px; background: var(--accent-secondary-color); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+              <i class="fas fa-phone" style="color:#fff; font-size:16px;"></i>
+            </div>
+            <div>
+              <p style="margin:0; font-size:12px; color:#999; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Call Us Now</p>
+              <a href="tel:{{ $phoneMain }}" style="font-size:17px; font-weight:800; color:#111; text-decoration:none;">{{ $phoneMain }}</a>
             </div>
           </div>
         </div>
@@ -944,24 +920,54 @@
 @endif
 <script>
 (function () {
-    var tabs = document.querySelectorAll('#mvTab .nav-link');
-    if (!tabs.length) return;
+    var btns    = document.querySelectorAll('.why-tab-btn');
+    var panes   = document.querySelectorAll('.why-pane');
+    var bar     = document.getElementById('whyBar');
     var current = 0;
-    var timer = setInterval(function () {
-        current = (current + 1) % tabs.length;
-        bootstrap.Tab.getOrCreateInstance(tabs[current]).show();
-    }, 5000);
-    // Reset timer when user clicks a tab manually
-    tabs.forEach(function (tab, idx) {
-        tab.addEventListener('click', function () {
-            current = idx;
-            clearInterval(timer);
-            timer = setInterval(function () {
-                current = (current + 1) % tabs.length;
-                bootstrap.Tab.getOrCreateInstance(tabs[current]).show();
-            }, 5000);
-        });
-    });
+    var DURATION = 5000;
+    var timer, barAnim;
+
+    function showTab(idx) {
+        btns.forEach(function(b){ b.classList.remove('active'); });
+        panes.forEach(function(p){ p.classList.remove('active'); });
+        btns[idx].classList.add('active');
+        panes[idx].classList.add('active');
+        current = idx;
+        startBar();
+    }
+
+    function startBar() {
+        if (bar) {
+            bar.style.transition = 'none';
+            bar.style.width = '0%';
+            requestAnimationFrame(function(){
+                requestAnimationFrame(function(){
+                    bar.style.transition = 'width ' + DURATION + 'ms linear';
+                    bar.style.width = '100%';
+                });
+            });
+        }
+    }
+
+    function startTimer() {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            showTab((current + 1) % btns.length);
+        }, DURATION);
+    }
+
+    window.whySwitch = function(id) {
+        var idx = Array.from(btns).findIndex(function(b){ return b.dataset.target === 'wt-' + id; });
+        if (idx !== -1) {
+            showTab(idx);
+            startTimer();
+        }
+    };
+
+    if (btns.length) {
+        startBar();
+        startTimer();
+    }
 })();
 </script>
 @endpush
