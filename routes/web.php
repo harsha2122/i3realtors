@@ -141,6 +141,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('/team-gallery/{teamGallery}', [Admin\TeamGalleryController::class, 'destroy'])->name('team-gallery.destroy');
         Route::patch('/team-gallery/{teamGallery}/toggle', [Admin\TeamGalleryController::class, 'toggle'])->name('team-gallery.toggle');
 
+        // About Page Gallery
+        Route::get('/about-gallery', [Admin\AboutGalleryController::class, 'index'])->name('about-gallery.index');
+        Route::post('/about-gallery', [Admin\AboutGalleryController::class, 'store'])->name('about-gallery.store');
+        Route::delete('/about-gallery/{aboutGallery}', [Admin\AboutGalleryController::class, 'destroy'])->name('about-gallery.destroy');
+        Route::patch('/about-gallery/{aboutGallery}/toggle', [Admin\AboutGalleryController::class, 'toggle'])->name('about-gallery.toggle');
+
         // Developer Logos
         Route::resource('developer-logos', Admin\DeveloperLogoController::class);
 
