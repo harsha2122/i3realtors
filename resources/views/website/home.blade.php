@@ -473,18 +473,8 @@
         </div>
 
         {{-- Footer CTA --}}
-        @php $phoneMain = $site['phone_primary'] ?? '+91 (123) 456-789'; @endphp
-        <div class="why-footer-row wow fadeInUp" data-wow-delay="0.3s">
+        <div class="why-footer-row wow fadeInUp" data-wow-delay="0.3s" style="justify-content:center;">
           <a href="{{ route('contact') }}" class="btn-default">Partner With Us</a>
-          <div style="display:flex; align-items:center; gap:14px;">
-            <div style="width:48px; height:48px; background: var(--accent-secondary-color); border-radius:50%; display:flex; align-items:center; justify-content:center;">
-              <i class="fas fa-phone" style="color:#fff; font-size:16px;"></i>
-            </div>
-            <div>
-              <p style="margin:0; font-size:12px; color:#999; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Call Us Now</p>
-              <a href="tel:{{ $phoneMain }}" style="font-size:17px; font-weight:800; color:#111; text-decoration:none;">{{ $phoneMain }}</a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
