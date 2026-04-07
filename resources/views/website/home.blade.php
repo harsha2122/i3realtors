@@ -481,7 +481,7 @@
     <!-- Who We Are Section End -->
 
     <!-- Intro Video Start -->
-    <div class="intro-video bg-section dark-section parallaxie">
+    <div class="intro-video bg-section dark-section parallaxie" @if(!empty($site['intro_bg_image'])) style="background-image:url('{{ asset('uploads/'.$site['intro_bg_image']) }}');" @endif>
       <div class="container">
         <div class="row align-items-center">
           <div class="col-xl-7 col-md-9">
