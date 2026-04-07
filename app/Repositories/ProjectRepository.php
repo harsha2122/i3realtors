@@ -54,6 +54,11 @@ class ProjectRepository extends BaseRepository
             $query->inCity($filters['city']);
         }
 
+        // When no status filter: completed → ongoing → upcoming, then sort_order, then newest
+        if (empty($filters['status'])) {
+            $query->orderByRaw("CASE status WHEN 'completed' THEN 1 WHEN 'ongoing' THEN 2 WHEN 'upcoming' THEN 3 ELSE 4 END");
+        }
+
         return $query->orderBy('sort_order')->orderByDesc('created_at')->paginate($perPage);
     }
 
