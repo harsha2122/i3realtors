@@ -24,7 +24,7 @@
 
 
 <!-- Open Positions Section Start -->
-<div class="open-positions bg-section">
+<div class="open-positions bg-section" style="padding-top: 80px;">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
