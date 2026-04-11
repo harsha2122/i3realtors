@@ -418,7 +418,25 @@
         renderDots();
       }
 
-      window.svcScroll = function(dir){ go(cur+dir); };
+      window.svcScroll = function(dir){ go(cur+dir); resetAuto(); };
+
+      // Auto-slide every 3 seconds
+      var autoTimer = setInterval(function(){
+        var next = (cur + 1) >= pages() ? 0 : cur + 1;
+        go(next);
+      }, 3000);
+
+      function resetAuto(){
+        clearInterval(autoTimer);
+        autoTimer = setInterval(function(){
+          var next = (cur + 1) >= pages() ? 0 : cur + 1;
+          go(next);
+        }, 3000);
+      }
+
+      // Pause on hover
+      track.addEventListener('mouseenter', function(){ clearInterval(autoTimer); });
+      track.addEventListener('mouseleave', function(){ resetAuto(); });
 
       renderDots();
 
