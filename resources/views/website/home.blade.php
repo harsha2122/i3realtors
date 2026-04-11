@@ -447,7 +447,6 @@
 
       <div class="why-section-wrap">
         <div class="why-section-head wow fadeInUp">
-          <span style="display:inline-block; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent-secondary-color); margin-bottom:12px;">What Sets Us Apart</span>
           <h2>Why Choose <span>i3 Realtors</span> ?</h2>
         </div>
 
