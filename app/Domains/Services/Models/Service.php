@@ -13,6 +13,7 @@ class Service extends Model
         'description',
         'icon',
         'featured_image',
+        'bg_image',
         'category',
         'status',
         'order',

@@ -1,5 +1,4 @@
 @extends('admin.layouts.app')
-
 @section('title', 'Create Service')
 @section('page-title', 'Create Service')
 @section('breadcrumb')
@@ -17,35 +16,54 @@
             <div class="card-body">
                 <form action="{{ route('admin.services.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+
                     <div class="mb-3">
-                        <label for="title" class="form-label">Title <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}" required>
+                        <label class="form-label fw-semibold">Title <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="svc-title" value="{{ old('title') }}" required>
                         @error('title')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
+
                     <div class="mb-3">
-                        <label for="slug" class="form-label">Slug</label>
-                        <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{ old('slug') }}">
+                        <label class="form-label fw-semibold">Slug</label>
+                        <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" id="svc-slug" value="{{ old('slug') }}">
                         @error('slug')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
+
                     <div class="mb-3">
-                        <label for="description" class="form-label">Description <span class="text-danger">*</span></label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="5" required>{{ old('description') }}</textarea>
+                        <label class="form-label fw-semibold">Description <span class="text-danger">*</span></label>
+                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="4" required>{{ old('description') }}</textarea>
                         @error('description')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
+
+                    {{-- Icon Picker --}}
+                    @include('admin.services._icon_picker', ['currentIcon' => old('icon')])
+
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="icon" class="form-label">Icon Class</label>
-                            <input type="text" class="form-control" id="icon" name="icon" value="{{ old('icon') }}" placeholder="e.g. fas fa-home">
+                            <label class="form-label fw-semibold">Card Hover Background Image</label>
+                            <input type="file" class="form-control" name="bg_image" accept="image/*">
+                            <small class="text-muted">Shown as background on card hover</small>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="category" class="form-label">Category</label>
-                            <input type="text" class="form-control" id="category" name="category" value="{{ old('category') }}">
+                            <label class="form-label fw-semibold">Featured Image</label>
+                            <input type="file" class="form-control" name="featured_image" accept="image/*">
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="featured_image" class="form-label">Featured Image</label>
-                        <input type="file" class="form-control" id="featured_image" name="featured_image" accept="image/*">
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">Status</label>
+                            <select class="form-select" name="status">
+                                <option value="active" {{ old('status','active') === 'active' ? 'selected' : '' }}>Active</option>
+                                <option value="inactive" {{ old('status') === 'inactive' ? 'selected' : '' }}>Inactive</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">Sort Order</label>
+                            <input type="number" class="form-control" name="order" value="{{ old('order', 0) }}" min="0">
+                        </div>
                     </div>
+
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-admin-primary"><i class="fas fa-save me-1"></i>Create</button>
                         <a href="{{ route('admin.services.index') }}" class="btn btn-outline-secondary">Cancel</a>
@@ -57,8 +75,8 @@
 </div>
 
 <script>
-document.getElementById('title').addEventListener('input', function() {
-    document.getElementById('slug').value = this.value.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+document.getElementById('svc-title').addEventListener('input', function() {
+    document.getElementById('svc-slug').value = this.value.toLowerCase().replace(/[^\w\s-]/g,'').replace(/\s+/g,'-');
 });
 </script>
 @endsection

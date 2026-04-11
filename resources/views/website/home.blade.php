@@ -303,7 +303,6 @@
         <div class="row section-row">
           <div class="col-lg-12">
             <div class="section-title section-title-center">
-              <span class="section-sub-title wow fadeInUp">Our Services</span>
               <h2 class="text-anime-style-2" data-cursor="-opaque">
                 I3 Realtors <span>Services</span>
               </h2>
@@ -311,80 +310,137 @@
           </div>
         </div>
 
-        <div class="row service-item-list g-4 justify-content-center">
-          @php
-          $services = [
-            ['img' => 'service-1.jpg', 'icon' => 'fa-house-chimney',     'title' => 'Residential',         'desc' => 'End-to-end mandate management for residential projects — from launch positioning to sales execution and investor connect.', 'delay' => ''],
-            ['img' => 'service-2.jpg', 'icon' => 'fa-building',          'title' => 'Commercial',          'desc' => 'Commercial property sales advisory and mandate representation to maximise developer returns and buyer engagement.', 'delay' => '0.1s'],
-            ['img' => 'service-3.jpg', 'icon' => 'fa-store',             'title' => 'Retail',              'desc' => 'Retail space leasing, tenant mix strategy, and mandate services tailored to high-footfall commercial developments.', 'delay' => '0.2s'],
-            ['img' => 'service-4.jpg', 'icon' => 'fa-chart-line',        'title' => 'Investment Banking',  'desc' => 'Structured real estate investment solutions, deal syndication, and financial advisory for large-scale developments.', 'delay' => '0.1s'],
-            ['img' => 'service-1.jpg', 'icon' => 'fa-file-signature',    'title' => 'Commercial Leasing',  'desc' => 'Strategic leasing mandates for office spaces, warehouses, and retail units — negotiated for optimal occupancy and yield.', 'delay' => '0.2s'],
-            ['img' => 'service-2.jpg', 'icon' => 'fa-concierge-bell',    'title' => 'Hospitality',         'desc' => 'Hospitality real estate consulting, hotel project mandates, and investment advisory for premium leisure developments.', 'delay' => '0.3s'],
-            ['img' => 'service-3.jpg', 'icon' => 'fa-diagram-project',   'title' => 'Project Management',  'desc' => 'Complete project oversight from planning to delivery — coordinating timelines, resources, and stakeholder communication.', 'delay' => '0.2s'],
-            ['img' => 'service-4.jpg', 'icon' => 'fa-compass-drafting',  'title' => 'Designing',           'desc' => 'Architectural design consultation and interior planning to elevate project appeal and buyer experience.', 'delay' => '0.4s'],
-            ['img' => 'service-2.jpg', 'icon' => 'fa-bullhorn',          'title' => 'Branding',            'desc' => 'Developer and project branding, identity creation, and marketing collateral to build lasting market presence.', 'delay' => '0.3s'],
-            ['img' => 'service-3.jpg', 'icon' => 'fa-hand-holding-dollar', 'title' => 'Fund Raising',      'desc' => 'Real estate fund structuring, investor outreach, and capital raising services for developers and project promoters.', 'delay' => '0.4s', 'link' => route('services.fund-raising')],
-          ];
-          @endphp
+        {{-- Services Slider --}}
+        <div style="position:relative;">
+          {{-- Prev / Next --}}
+          <button id="svcPrev" onclick="svcScroll(-1)" style="position:absolute;left:-20px;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;background:var(--accent-secondary-color);border:none;color:#fff;font-size:14px;cursor:pointer;box-shadow:0 4px 16px rgba(224,90,0,0.4);transition:all 0.25s;">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button id="svcNext" onclick="svcScroll(1)" style="position:absolute;right:-20px;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;background:var(--accent-secondary-color);border:none;color:#fff;font-size:14px;cursor:pointer;box-shadow:0 4px 16px rgba(224,90,0,0.4);transition:all 0.25s;">
+            <i class="fas fa-chevron-right"></i>
+          </button>
 
-          @foreach($services as $i => $svc)
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="service-item {{ $i === 0 ? 'active' : '' }} wow fadeInUp" {{ $svc['delay'] ? 'data-wow-delay="'.$svc['delay'].'"' : '' }}>
-              <div class="service-item-image">
-                <figure>
-                  <img src="{{ asset('images/'.$svc['img']) }}" alt="{{ $svc['title'] }}" />
-                </figure>
-              </div>
-              <div class="service-item-body">
-                <div class="icon-box" style="display:flex; align-items:center; justify-content:center;">
-                  <i class="fa-solid {{ $svc['icon'] }}" style="font-size:28px; color: var(--accent-secondary-color);"></i>
-                </div>
-                <div class="service-item-body-content">
-                  <div class="service-item-content">
-                    <h2>{{ $svc['title'] }}</h2>
-                    <p>{{ $svc['desc'] }}</p>
+          <div id="svcTrack" style="display:flex;gap:20px;overflow:hidden;scroll-behavior:smooth;padding:8px 4px 28px;">
+            @forelse($services as $i => $svc)
+            <div class="svc-slide" style="flex:0 0 calc(25% - 15px);min-width:240px;">
+              <div class="svc-card" style="
+                border-radius:16px;overflow:hidden;height:100%;display:flex;flex-direction:column;
+                background:#fff;border:1px solid #f0f0f0;
+                box-shadow:0 4px 20px rgba(0,0,0,0.06);
+                transition:transform 0.35s ease, box-shadow 0.35s ease;
+                position:relative;
+                @if($svc->bg_image) background-image:url('{{ asset('uploads/'.$svc->bg_image) }}');background-size:cover;background-position:center; @endif
+              ">
+                {{-- Overlay (always, stronger on hover) --}}
+                <div class="svc-overlay" style="position:absolute;inset:0;background:rgba(255,255,255,0.92);transition:background 0.35s ease;border-radius:16px;"></div>
+
+                {{-- Content --}}
+                <div style="position:relative;z-index:1;padding:28px 24px;display:flex;flex-direction:column;height:100%;">
+                  {{-- Icon --}}
+                  <div style="width:56px;height:56px;background:rgba(224,90,0,0.08);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;flex-shrink:0;">
+                    <i class="{{ $svc->icon ?? 'fas fa-cog' }}" style="font-size:22px;color:var(--accent-secondary-color);"></i>
                   </div>
-                  <div class="service-item-btn">
-                    @if(!empty($svc['link']))
-                      <a href="{{ $svc['link'] }}" class="readmore-btn">View Details</a>
+
+                  {{-- Title --}}
+                  <h3 style="font-size:17px;font-weight:800;color:#111;margin:0 0 10px;line-height:1.3;">{{ $svc->title }}</h3>
+
+                  {{-- Description (4 lines max) --}}
+                  <p style="font-size:13px;color:#666;line-height:1.7;margin:0 0 20px;flex:1;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;">{{ $svc->description }}</p>
+
+                  {{-- View Detail --}}
+                  <div style="margin-top:auto;">
+                    @if($svc->slug === 'fund-raising')
+                      <a href="{{ route('services.fund-raising') }}" class="readmore-btn" style="font-size:13px;font-weight:700;color:var(--accent-secondary-color);text-decoration:none;display:inline-flex;align-items:center;gap:6px;">View Details <i class="fas fa-arrow-right" style="font-size:11px;"></i></a>
                     @else
-                      <span class="readmore-btn">View Details</span>
+                      <span class="readmore-btn" style="font-size:13px;font-weight:700;color:var(--accent-secondary-color);display:inline-flex;align-items:center;gap:6px;cursor:default;">View Details <i class="fas fa-arrow-right" style="font-size:11px;"></i></span>
                     @endif
                   </div>
                 </div>
               </div>
             </div>
+            @empty
+            <div style="width:100%;text-align:center;padding:40px;color:#aaa;">No services added yet.</div>
+            @endforelse
           </div>
-          @endforeach
 
-          <div class="col-lg-12">
-            <div class="section-footer-text section-satisfy-img wow fadeInUp" data-wow-delay="0.4s">
-              <div class="satisfy-client-images">
-                <div class="satisfy-client-image">
-                  <figure class="image-anime">
-                    <img src="{{ asset('images/author-1.jpg') }}" alt="" />
-                  </figure>
-                </div>
-                <div class="satisfy-client-image add-more">
-                  <img src="{{ asset('images/icon-phone-primary.svg') }}" alt="" />
-                </div>
-              </div>
-              <p>Strategic Real Estate Consulting & Developer Partnerships</p>
-              <p>Trusted by Developers & Investors Across Pune</p>
-              <ul>
-                <li>
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </li>
-                <li>4.9 / 5 Client Satisfaction Rating</li>
-              </ul>
-            </div>
-          </div>
+          {{-- Dots --}}
+          <div id="svcDots" style="display:flex;justify-content:center;gap:8px;margin-top:4px;"></div>
         </div>
       </div>
     </div>
     <!-- Our Service Section End -->
+
+    @push('scripts')
+    <script>
+    (function(){
+      var track = document.getElementById('svcTrack');
+      if (!track) return;
+      var slides  = track.querySelectorAll('.svc-slide');
+      var dotsEl  = document.getElementById('svcDots');
+      var visible = 4;
+      var total   = slides.length;
+      var cur     = 0;
+
+      // Hover overlay effect
+      track.querySelectorAll('.svc-card').forEach(function(card) {
+        var overlay = card.querySelector('.svc-overlay');
+        if (!overlay) return;
+        card.addEventListener('mouseenter', function(){
+          card.style.transform = 'translateY(-6px)';
+          card.style.boxShadow = '0 16px 40px rgba(0,0,0,0.15)';
+          if (overlay) overlay.style.background = 'rgba(10,10,10,0.55)';
+          card.querySelectorAll('h3,p').forEach(function(el){ el.style.color = '#fff'; });
+          card.querySelectorAll('.readmore-btn').forEach(function(el){ el.style.color = '#ffa560'; });
+          card.querySelectorAll('[style*="color:var(--accent-secondary-color)"]').forEach(function(el){ el.style.color = '#fff'; });
+        });
+        card.addEventListener('mouseleave', function(){
+          card.style.transform = 'translateY(0)';
+          card.style.boxShadow = '0 4px 20px rgba(0,0,0,0.06)';
+          if (overlay) overlay.style.background = 'rgba(255,255,255,0.92)';
+          card.querySelectorAll('h3').forEach(function(el){ el.style.color = '#111'; });
+          card.querySelectorAll('p').forEach(function(el){ el.style.color = '#666'; });
+          card.querySelectorAll('.readmore-btn').forEach(function(el){ el.style.color = 'var(--accent-secondary-color)'; });
+        });
+      });
+
+      function pages(){ return Math.ceil(total / visible); }
+
+      function cardW(){
+        var s = track.firstElementChild;
+        return s ? s.offsetWidth + 20 : 260;
+      }
+
+      function renderDots(){
+        var p = pages();
+        if (p <= 1){ dotsEl.style.display='none'; return; }
+        dotsEl.innerHTML = '';
+        for (var i=0;i<p;i++){
+          var d = document.createElement('button');
+          d.style.cssText = 'width:'+(i===cur?'28px':'8px')+';height:8px;border-radius:4px;border:none;cursor:pointer;transition:all 0.3s;background:'+(i===cur?'var(--accent-secondary-color)':'#ddd')+';';
+          (function(pg){ d.addEventListener('click',function(){ go(pg); }); })(i);
+          dotsEl.appendChild(d);
+        }
+      }
+
+      function go(pg){
+        cur = Math.max(0, Math.min(pg, pages()-1));
+        track.scrollLeft = cur * cardW() * visible;
+        renderDots();
+      }
+
+      window.svcScroll = function(dir){ go(cur+dir); };
+
+      renderDots();
+
+      window.addEventListener('resize', function(){
+        visible = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 4;
+        renderDots();
+      });
+      visible = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 4;
+      renderDots();
+    })();
+    </script>
+    @endpush
 
     <!-- Who We Are Section Start -->
     <div class="who-we-are bg-section" style="padding: 90px 0; background: #f8f8f6;">
