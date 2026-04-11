@@ -34,153 +34,154 @@
                     <p class="wow fadeInUp" data-wow-delay="0.2s">We are hiring across multiple departments. Explore the roles we are currently recruiting for.</p>
                 </div>
 
+                @if($jobs->isNotEmpty())
+                @php $categories = $jobs->pluck('category')->unique()->filter()->values(); @endphp
                 <div class="filter-controls text-center mb-5 wow fadeInUp" data-wow-delay="0.3s">
                     <button class="filter-btn active" data-filter="all">All Roles</button>
-                    <button class="filter-btn" data-filter="sales">Sales</button>
-                    <button class="filter-btn" data-filter="marketing">Marketing</button>
-                    <button class="filter-btn" data-filter="operations">Operations</button>
+                    @foreach($categories as $cat)
+                        <button class="filter-btn" data-filter="{{ $cat }}">{{ ucfirst($cat) }}</button>
+                    @endforeach
                 </div>
+                @endif
             </div>
         </div>
 
         <div class="row" id="positions-container">
-
-            <div class="col-lg-6 position-card-wrapper mb-4" data-category="sales full-time">
-                <div class="position-card wow fadeInUp">
+            @forelse($jobs as $i => $job)
+            <div class="col-lg-6 position-card-wrapper mb-4" data-category="{{ $job->category }} {{ strtolower(str_replace(' ','-',$job->employment_type)) }}">
+                <div class="position-card wow fadeInUp" data-wow-delay="{{ number_format($i * 0.1, 1) }}s">
                     <div class="position-header">
-                        <div class="position-badge">Full-Time</div>
-                        <div class="position-location"><i class="fas fa-map-marker-alt"></i> Pune</div>
+                        <div class="position-badge">{{ $job->employment_type }}</div>
+                        <div class="position-location"><i class="fas fa-map-marker-alt"></i> {{ $job->location }}</div>
                     </div>
-                    <h3 class="position-title">Sales Executive</h3>
+                    <h3 class="position-title">{{ $job->title }}</h3>
                     <div class="position-meta">
-                        <span class="meta-item"><i class="fas fa-briefcase"></i> 1–3 Years</span>
-                        <span class="meta-item"><i class="fas fa-money-bill"></i> Competitive</span>
+                        @if($job->experience)
+                        <span class="meta-item"><i class="fas fa-briefcase"></i> {{ $job->experience }}</span>
+                        @endif
                     </div>
-                    <p class="position-description">Drive project sales through direct client engagement, investor outreach, and developer mandate presentations.</p>
+                    @if($job->description)
+                    <p class="position-description">{{ $job->description }}</p>
+                    @endif
                     <div class="position-details">
+                        @if(!empty($job->responsibilities))
                         <div class="detail-item">
                             <strong>Key Responsibilities:</strong>
                             <ul>
-                                <li>Client acquisition and relationship management</li>
-                                <li>Investor presentations and site visits</li>
-                                <li>Pipeline management and deal closures</li>
+                                @foreach($job->responsibilities as $item)
+                                    <li>{{ $item }}</li>
+                                @endforeach
                             </ul>
                         </div>
+                        @endif
+                        @if(!empty($job->requirements))
                         <div class="detail-item">
                             <strong>Requirements:</strong>
                             <ul>
-                                <li>1–3 years in real estate sales</li>
-                                <li>Strong communication and negotiation skills</li>
-                                <li>Knowledge of Pune real estate market</li>
+                                @foreach($job->requirements as $item)
+                                    <li>{{ $item }}</li>
+                                @endforeach
                             </ul>
                         </div>
+                        @endif
                     </div>
+                    <a href="#apply-form" class="btn-default btn-sm apply-now-btn"
+                       data-job-id="{{ $job->id }}"
+                       data-job-title="{{ $job->title }}">Apply Now</a>
                 </div>
             </div>
-
-            <div class="col-lg-6 position-card-wrapper mb-4" data-category="marketing full-time">
-                <div class="position-card wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="position-header">
-                        <div class="position-badge">Full-Time</div>
-                        <div class="position-location"><i class="fas fa-map-marker-alt"></i> Pune</div>
-                    </div>
-                    <h3 class="position-title">Marketing Executive</h3>
-                    <div class="position-meta">
-                        <span class="meta-item"><i class="fas fa-briefcase"></i> 1–3 Years</span>
-                        <span class="meta-item"><i class="fas fa-money-bill"></i> Competitive</span>
-                    </div>
-                    <p class="position-description">Plan and execute digital and offline marketing campaigns for real estate projects under developer mandate partnerships.</p>
-                    <div class="position-details">
-                        <div class="detail-item">
-                            <strong>Key Responsibilities:</strong>
-                            <ul>
-                                <li>Project marketing strategy and execution</li>
-                                <li>Digital campaigns, social media, and lead generation</li>
-                                <li>Brand positioning and content creation</li>
-                            </ul>
-                        </div>
-                        <div class="detail-item">
-                            <strong>Requirements:</strong>
-                            <ul>
-                                <li>1–3 years in real estate or digital marketing</li>
-                                <li>Proficiency in social media and Google Ads</li>
-                                <li>Creative thinking and analytical mindset</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            @empty
+            <div class="col-12 text-center text-muted py-5">
+                <p>No open positions at the moment. Check back soon!</p>
             </div>
-
-            <div class="col-lg-6 position-card-wrapper mb-4" data-category="sales full-time">
-                <div class="position-card wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="position-header">
-                        <div class="position-badge">Full-Time</div>
-                        <div class="position-location"><i class="fas fa-map-marker-alt"></i> Pune</div>
-                    </div>
-                    <h3 class="position-title">Pre-Sales Executive</h3>
-                    <div class="position-meta">
-                        <span class="meta-item"><i class="fas fa-briefcase"></i> 0–2 Years</span>
-                        <span class="meta-item"><i class="fas fa-money-bill"></i> Competitive</span>
-                    </div>
-                    <p class="position-description">Qualify leads, handle initial client inquiries, and support the sales team with project information and client coordination.</p>
-                    <div class="position-details">
-                        <div class="detail-item">
-                            <strong>Key Responsibilities:</strong>
-                            <ul>
-                                <li>Lead qualification and follow-up</li>
-                                <li>Client communication and CRM management</li>
-                                <li>Supporting sales team with project briefs</li>
-                            </ul>
-                        </div>
-                        <div class="detail-item">
-                            <strong>Requirements:</strong>
-                            <ul>
-                                <li>Good communication skills in English and Hindi</li>
-                                <li>Comfortable with CRM tools and Excel</li>
-                                <li>Freshers with real estate interest welcome</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6 position-card-wrapper mb-4" data-category="operations full-time">
-                <div class="position-card wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="position-header">
-                        <div class="position-badge">Full-Time</div>
-                        <div class="position-location"><i class="fas fa-map-marker-alt"></i> Pune</div>
-                    </div>
-                    <h3 class="position-title">Admin & Operations</h3>
-                    <div class="position-meta">
-                        <span class="meta-item"><i class="fas fa-briefcase"></i> 1–3 Years</span>
-                        <span class="meta-item"><i class="fas fa-money-bill"></i> Competitive</span>
-                    </div>
-                    <p class="position-description">Support day-to-day office operations, HR coordination, accounts, MIS reporting, and CRM management for the team.</p>
-                    <div class="position-details">
-                        <div class="detail-item">
-                            <strong>Key Responsibilities:</strong>
-                            <ul>
-                                <li>Office administration and HR support</li>
-                                <li>Accounts, MIS, and reporting</li>
-                                <li>CRM data management and coordination</li>
-                            </ul>
-                        </div>
-                        <div class="detail-item">
-                            <strong>Requirements:</strong>
-                            <ul>
-                                <li>1–3 years in admin / back-office role</li>
-                                <li>Proficiency in Excel and CRM tools</li>
-                                <li>Organised, detail-oriented, and proactive</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            @endforelse
         </div>
     </div>
 </div>
 <!-- Open Positions Section End -->
+
+<!-- Application Form Start -->
+<div class="our-history" id="apply-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 mb-5">
+                <div class="section-title text-center">
+                    <h2 class="text-anime-style-2" data-cursor="-opaque">Apply for This Position</h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.2s">Fill in the details below and upload your resume. We will get back to you if your profile matches our requirements.</p>
+                </div>
+            </div>
+        </div>
+
+        @if(session('success'))
+            <div class="row">
+                <div class="col-xl-8 mx-auto">
+                    <div class="alert alert-success text-center py-4" role="alert">
+                        <i class="fas fa-check-circle fa-2x mb-2 d-block"></i>
+                        {{ session('success') }}
+                    </div>
+                </div>
+            </div>
+        @endif
+
+        <div class="row">
+            <div class="col-xl-8 mx-auto">
+                <form action="{{ route('careers.submit') }}" method="POST" enctype="multipart/form-data" class="career-form wow fadeInUp" data-wow-delay="0.2s">
+                    @csrf
+                    <input type="hidden" name="career_job_id" id="form-job-id" value="">
+                    <input type="hidden" name="job_title" id="form-job-title" value="General Application">
+
+                    <div class="applying-for-label mb-4 p-3 rounded" style="background:#f8f5f0;border-left:4px solid var(--primary-color,#e05a00);">
+                        <small class="text-muted">Applying for:</small>
+                        <div class="fw-semibold" id="applying-for-display">General Application</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6 mb-4">
+                            <label class="form-label fw-semibold">Full Name *</label>
+                            <input type="text" name="full_name" class="form-control form-control-lg" placeholder="Your Full Name" value="{{ old('full_name') }}" required>
+                            @error('full_name')<div class="text-danger small mt-2">{{ $message }}</div>@enderror
+                        </div>
+
+                        <div class="form-group col-md-6 mb-4">
+                            <label class="form-label fw-semibold">Email Address *</label>
+                            <input type="email" name="email" class="form-control form-control-lg" placeholder="your@email.com" value="{{ old('email') }}" required>
+                            @error('email')<div class="text-danger small mt-2">{{ $message }}</div>@enderror
+                        </div>
+
+                        <div class="form-group col-md-6 mb-4">
+                            <label class="form-label fw-semibold">Phone Number *</label>
+                            <input type="text" name="phone" class="form-control form-control-lg" placeholder="Your Phone Number" value="{{ old('phone') }}" required>
+                            @error('phone')<div class="text-danger small mt-2">{{ $message }}</div>@enderror
+                        </div>
+
+                        <div class="form-group col-md-6 mb-4">
+                            <label class="form-label fw-semibold">Years of Experience *</label>
+                            <input type="number" name="experience_years" class="form-control form-control-lg" placeholder="e.g. 2" min="0" max="50" value="{{ old('experience_years') }}" required>
+                            @error('experience_years')<div class="text-danger small mt-2">{{ $message }}</div>@enderror
+                        </div>
+
+                        <div class="form-group col-md-12 mb-4">
+                            <label class="form-label fw-semibold">Cover Letter (optional)</label>
+                            <textarea name="cover_letter" class="form-control form-control-lg" rows="4" placeholder="Briefly tell us about yourself and why you want to join i3 Realtors.">{{ old('cover_letter') }}</textarea>
+                        </div>
+
+                        <div class="form-group col-md-12 mb-4">
+                            <label class="form-label fw-semibold">Upload Resume / CV (PDF) *</label>
+                            <input type="file" name="resume" class="form-control form-control-lg" accept=".pdf" required>
+                            <small class="text-muted d-block mt-2">PDF only · Max 5MB</small>
+                            @error('resume')<div class="text-danger small mt-2">{{ $message }}</div>@enderror
+                        </div>
+
+                        <div class="col-md-12">
+                            <button type="submit" class="btn-default w-100">Submit Application</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Application Form End -->
 
 
 <style>
@@ -323,6 +324,7 @@ textarea.form-control-lg { height: auto; }
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+    // Filter buttons
     const filterBtns = document.querySelectorAll('.filter-btn');
     const positionCards = document.querySelectorAll('.position-card-wrapper');
 
@@ -339,6 +341,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     card.classList.add('hidden');
                 }
             });
+        });
+    });
+
+    // Apply Now buttons — populate form with job details
+    document.querySelectorAll('.apply-now-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            const jobId    = this.getAttribute('data-job-id');
+            const jobTitle = this.getAttribute('data-job-title');
+            document.getElementById('form-job-id').value        = jobId;
+            document.getElementById('form-job-title').value     = jobTitle;
+            document.getElementById('applying-for-display').textContent = jobTitle;
         });
     });
 });

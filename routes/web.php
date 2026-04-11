@@ -131,6 +131,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/career-submissions', [Admin\FormController::class, 'careerSubmissions'])->name('career-submissions.index');
         Route::get('/career-submissions/export', [Admin\FormController::class, 'exportCareerSubmissions'])->name('career-submissions.export');
 
+        // Career Jobs & Applications
+        Route::resource('career-jobs', Admin\CareerJobController::class);
+        Route::get('/career-applications', [Admin\CareerApplicationController::class, 'index'])->name('career-applications.index');
+        Route::get('/career-applications/{careerApplication}', [Admin\CareerApplicationController::class, 'show'])->name('career-applications.show');
+        Route::delete('/career-applications/{careerApplication}', [Admin\CareerApplicationController::class, 'destroy'])->name('career-applications.destroy');
+
         // Service Management
         Route::resource('services', Admin\ServiceController::class);
 

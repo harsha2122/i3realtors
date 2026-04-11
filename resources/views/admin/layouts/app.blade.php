@@ -183,6 +183,14 @@
                 <i class="fas fa-briefcase"></i> Career Submissions
             </a>
 
+            <div class="nav-section-label">Careers</div>
+            <a href="{{ route('admin.career-jobs.index') }}" class="nav-link {{ request()->routeIs('admin.career-jobs.*') ? 'active' : '' }}">
+                <i class="fas fa-th-list"></i> Job Openings
+            </a>
+            <a href="{{ route('admin.career-applications.index') }}" class="nav-link {{ request()->routeIs('admin.career-applications.*') ? 'active' : '' }}">
+                <i class="fas fa-file-alt"></i> Applications
+            </a>
+
             <div class="nav-section-label">Analytics</div>
             <a href="{{ route('admin.analytics.dashboard') }}" class="nav-link {{ request()->routeIs('admin.analytics.*') ? 'active' : '' }}">
                 <i class="fas fa-chart-bar"></i> Analytics
