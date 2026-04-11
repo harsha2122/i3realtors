@@ -217,70 +217,82 @@
     <div class="about-us" style="margin: 12px 0;">
       <div class="container">
         <div class="row section-row align-items-center">
-          <div class="col-xl-7">
-            <div class="section-title">
-              <span class="section-sub-title wow fadeInUp">About i3 Realtors</span>
+          @php
+            $aboutMainImg = \App\Models\Setting::get('about_main_image');
+            $aboutItem1   = \App\Models\Setting::get('about_item_image_1');
+            $aboutItem2   = \App\Models\Setting::get('about_item_image_2');
+          @endphp
+
+          {{-- LEFT: Stacked images --}}
+          <div class="col-xl-6 wow fadeInUp">
+            <div style="display:flex; gap:16px; height:520px;">
+
+              {{-- Main tall image --}}
+              <div style="flex:1.2; border-radius:20px; overflow:hidden;">
+                <img src="{{ $aboutMainImg ? asset('uploads/'.$aboutMainImg) : asset('images/who-we-are-image-1.jpeg') }}"
+                     alt="About i3 Realtors"
+                     style="width:100%; height:100%; object-fit:cover; object-position:center;">
+              </div>
+
+              {{-- Two stacked images on the right --}}
+              <div style="flex:0.8; display:flex; flex-direction:column; gap:16px;">
+                <div style="flex:1; border-radius:20px; overflow:hidden;">
+                  <img src="{{ $aboutItem1 ? asset('uploads/'.$aboutItem1) : asset('images/about-us-item-image-1.png') }}"
+                       alt=""
+                       style="width:100%; height:100%; object-fit:cover; object-position:center;">
+                </div>
+                <div style="flex:1; border-radius:20px; overflow:hidden;">
+                  <img src="{{ $aboutItem2 ? asset('uploads/'.$aboutItem2) : asset('images/who-we-are-image-2.jpg') }}"
+                       alt=""
+                       style="width:100%; height:100%; object-fit:cover; object-position:center;">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {{-- RIGHT: Content --}}
+          <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.2s" style="display:flex; flex-direction:column; justify-content:center; padding-left:40px;">
+
+            <div class="section-title" style="margin-bottom:28px;">
               <h2 class="text-anime-style-2" data-cursor="-opaque">
                 Trusted Real Estate Mandate <span>Partners for Developers</span>
               </h2>
+              <p style="color:#666; font-size:15px; line-height:1.8; margin-top:16px;">
+                i3 Realtors is a mandate-focused real estate consulting firm specializing in developer partnerships, project marketing, and structured real estate investments.
+              </p>
             </div>
-          </div>
-          <div class="col-xl-5">
-            <div class="section-content-btn">
-              <div class="section-title-content wow fadeInUp" data-wow-delay="0.2s">
-                <p>i3 Realtors is a mandate-focused real estate consulting firm specializing in developer partnerships, project marketing, and structured real estate investments.</p>
-              </div>
-              <div class="section-btn wow fadeInUp" data-wow-delay="0.4s">
-                <a href="{{ route('about') }}" class="btn-default">Learn More About</a>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-xl-6">
-            <div class="about-us-image-box wow fadeInUp">
-              <div class="about-us-image">
-                <figure class="image-anime">
-                  @php $aboutMainImg = \App\Models\Setting::get('about_main_image'); @endphp
-                  <img src="{{ $aboutMainImg ? asset('uploads/' . $aboutMainImg) : asset('images/who-we-are-image-1.jpeg') }}" alt="About i3Realtors" />
-                </figure>
-              </div>
-            </div>
-          </div>
+            {{-- Feature rows --}}
+            <div style="display:flex; flex-direction:column; gap:20px; margin-bottom:36px;">
 
-          <div class="col-xl-6">
-            <div class="about-us-content-box wow fadeInUp" data-wow-delay="0.2s">
-              <div class="about-us-item-list">
-                <div class="about-us-item box-1">
-                  <div class="about-us-item-content">
-                    <h3>Strategic Market Understanding</h3>
-                    <p>We analyze market trends and buyer behavior to position projects for optimal visibility</p>
-                  </div>
-                  <div class="about-us-item-image">
-                    <figure>
-                      @php $aboutItem1 = \App\Models\Setting::get('about_item_image_1'); @endphp
-                      <img src="{{ $aboutItem1 ? asset('uploads/' . $aboutItem1) : asset('images/about-us-item-image-1.png') }}" alt="" />
-                    </figure>
-                  </div>
+              <div style="display:flex; align-items:flex-start; gap:18px;">
+                <div style="width:52px; height:52px; flex-shrink:0; background:rgba(224,90,0,0.08); border-radius:14px; display:flex; align-items:center; justify-content:center;">
+                  <i class="fas fa-chart-line" style="font-size:20px; color:var(--accent-secondary-color);"></i>
                 </div>
-
-                <div class="about-us-item box-2">
-                  <div class="about-us-item-content">
-                    <h3>Investor Network</h3>
-                    <p>Through a growing network of investors and partners, we connect the right opportunities with stakeholders</p>
-                  </div>
-                  <div class="about-us-item-image">
-                    <figure class="image-anime">
-                      @php $aboutItem2 = \App\Models\Setting::get('about_item_image_2'); @endphp
-                      <img src="{{ $aboutItem2 ? asset('uploads/' . $aboutItem2) : asset('images/who-we-are-image-2.jpg') }}" alt="" />
-                    </figure>
-                  </div>
+                <div>
+                  <h4 style="font-size:16px; font-weight:800; color:#111; margin:0 0 6px;">Strategic Market Understanding</h4>
+                  <p style="font-size:14px; color:#666; margin:0; line-height:1.7;">We analyze market trends and buyer behavior to position projects for optimal visibility.</p>
                 </div>
               </div>
+
+              <div style="display:flex; align-items:flex-start; gap:18px;">
+                <div style="width:52px; height:52px; flex-shrink:0; background:rgba(224,90,0,0.08); border-radius:14px; display:flex; align-items:center; justify-content:center;">
+                  <i class="fas fa-handshake" style="font-size:20px; color:var(--accent-secondary-color);"></i>
+                </div>
+                <div>
+                  <h4 style="font-size:16px; font-weight:800; color:#111; margin:0 0 6px;">Investor Network</h4>
+                  <p style="font-size:14px; color:#666; margin:0; line-height:1.7;">Through a growing network of investors and partners, we connect the right opportunities with the right stakeholders.</p>
+                </div>
+              </div>
+
             </div>
+
+            <div>
+              <a href="{{ route('about') }}" class="btn-default">Learn More About Us</a>
+            </div>
+
           </div>
-        </div>
       </div>
     </div>
     <!-- About US Section End -->
