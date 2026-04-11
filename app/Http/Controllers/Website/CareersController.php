@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class CareersController extends Controller
 {
-    const HR_EMAIL = 'tsingh2214@gmail.com';
+    const HR_EMAIL = 'hr@i3realtors.com';
 
     public function index()
     {
