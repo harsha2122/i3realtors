@@ -312,48 +312,39 @@
 
         {{-- Services Slider --}}
         <div style="position:relative;">
-          {{-- Prev / Next --}}
-          <button id="svcPrev" onclick="svcScroll(-1)" style="position:absolute;left:-20px;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;background:var(--accent-secondary-color);border:none;color:#fff;font-size:14px;cursor:pointer;box-shadow:0 4px 16px rgba(224,90,0,0.4);transition:all 0.25s;">
+          <button id="svcPrev" onclick="svcScroll(-1)" style="position:absolute;left:-20px;top:45%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;background:var(--accent-secondary-color);border:none;color:#fff;font-size:14px;cursor:pointer;box-shadow:0 4px 16px rgba(224,90,0,0.4);transition:all 0.25s;">
             <i class="fas fa-chevron-left"></i>
           </button>
-          <button id="svcNext" onclick="svcScroll(1)" style="position:absolute;right:-20px;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;background:var(--accent-secondary-color);border:none;color:#fff;font-size:14px;cursor:pointer;box-shadow:0 4px 16px rgba(224,90,0,0.4);transition:all 0.25s;">
+          <button id="svcNext" onclick="svcScroll(1)" style="position:absolute;right:-20px;top:45%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;background:var(--accent-secondary-color);border:none;color:#fff;font-size:14px;cursor:pointer;box-shadow:0 4px 16px rgba(224,90,0,0.4);transition:all 0.25s;">
             <i class="fas fa-chevron-right"></i>
           </button>
 
-          <div id="svcTrack" style="display:flex;gap:20px;overflow:hidden;scroll-behavior:smooth;padding:8px 4px 28px;">
+          <div id="svcTrack" style="display:flex;gap:24px;overflow:hidden;scroll-behavior:smooth;padding:4px 2px 24px;">
             @forelse($services as $i => $svc)
-            <div class="svc-slide" style="flex:0 0 calc(25% - 15px);min-width:240px;">
-              <div class="svc-card" style="
-                border-radius:16px;overflow:hidden;height:100%;display:flex;flex-direction:column;
-                background:#fff;border:1px solid #f0f0f0;
-                box-shadow:0 4px 20px rgba(0,0,0,0.06);
-                transition:transform 0.35s ease, box-shadow 0.35s ease;
-                position:relative;
-                @if($svc->bg_image) background-image:url('{{ asset('uploads/'.$svc->bg_image) }}');background-size:cover;background-position:center; @endif
-              ">
-                {{-- Overlay (always, stronger on hover) --}}
-                <div class="svc-overlay" style="position:absolute;inset:0;background:rgba(255,255,255,0.92);transition:background 0.35s ease;border-radius:16px;"></div>
-
-                {{-- Content --}}
-                <div style="position:relative;z-index:1;padding:28px 24px;display:flex;flex-direction:column;height:100%;">
-                  {{-- Icon --}}
-                  <div style="width:56px;height:56px;background:rgba(224,90,0,0.08);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;flex-shrink:0;">
-                    <i class="{{ $svc->icon ?? 'fas fa-cog' }}" style="font-size:22px;color:var(--accent-secondary-color);"></i>
+            <div class="svc-slide" style="flex:0 0 calc(25% - 18px);min-width:240px;">
+              <div class="service-item {{ $i === 0 ? 'active' : '' }}"
+                   @if($svc->bg_image) data-bg="{{ asset('uploads/'.$svc->bg_image) }}" @endif>
+                <div class="service-item-image">
+                  <figure>
+                    <img src="{{ $svc->bg_image ? asset('uploads/'.$svc->bg_image) : asset('images/service-'.( ($i % 4) + 1 ).'.jpg') }}" alt="{{ $svc->title }}" />
+                  </figure>
+                </div>
+                <div class="service-item-body">
+                  <div class="icon-box" style="display:flex;align-items:center;justify-content:center;">
+                    <i class="{{ $svc->icon ?? 'fas fa-cog' }}" style="font-size:28px;color:var(--accent-secondary-color);"></i>
                   </div>
-
-                  {{-- Title --}}
-                  <h3 style="font-size:17px;font-weight:800;color:#111;margin:0 0 10px;line-height:1.3;">{{ $svc->title }}</h3>
-
-                  {{-- Description (4 lines max) --}}
-                  <p style="font-size:13px;color:#666;line-height:1.7;margin:0 0 20px;flex:1;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;">{{ $svc->description }}</p>
-
-                  {{-- View Detail --}}
-                  <div style="margin-top:auto;">
-                    @if($svc->slug === 'fund-raising')
-                      <a href="{{ route('services.fund-raising') }}" class="readmore-btn" style="font-size:13px;font-weight:700;color:var(--accent-secondary-color);text-decoration:none;display:inline-flex;align-items:center;gap:6px;">View Details <i class="fas fa-arrow-right" style="font-size:11px;"></i></a>
-                    @else
-                      <span class="readmore-btn" style="font-size:13px;font-weight:700;color:var(--accent-secondary-color);display:inline-flex;align-items:center;gap:6px;cursor:default;">View Details <i class="fas fa-arrow-right" style="font-size:11px;"></i></span>
-                    @endif
+                  <div class="service-item-body-content">
+                    <div class="service-item-content">
+                      <h2>{{ $svc->title }}</h2>
+                      <p style="-webkit-line-clamp:4;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden;">{{ $svc->description }}</p>
+                    </div>
+                    <div class="service-item-btn">
+                      @if($svc->slug === 'fund-raising')
+                        <a href="{{ route('services.fund-raising') }}" class="readmore-btn">View Details</a>
+                      @else
+                        <span class="readmore-btn">View Details</span>
+                      @endif
+                    </div>
                   </div>
                 </div>
               </div>
@@ -363,8 +354,7 @@
             @endforelse
           </div>
 
-          {{-- Dots --}}
-          <div id="svcDots" style="display:flex;justify-content:center;gap:8px;margin-top:4px;"></div>
+          <div id="svcDots" style="display:flex;justify-content:center;gap:8px;margin-top:8px;"></div>
         </div>
       </div>
     </div>
