@@ -22,78 +22,6 @@
 </div>
 <!-- Page Header End -->
 
-<!-- Career Intro Section Start -->
-<div class="about-us">
-    <div class="container">
-        <div class="row section-row align-items-center">
-            <div class="col-xl-7">
-                <div class="section-title">
-                    <span class="section-sub-title wow fadeInUp">Ready to Join i3 Realtors?</span>
-                    <h2 class="text-anime-style-2" data-cursor="-opaque">Apply to Join <span>Our Team</span></h2>
-                </div>
-            </div>
-            <div class="col-xl-5">
-                <div class="section-content-btn">
-                    <div class="section-title-content wow fadeInUp" data-wow-delay="0.2s">
-                        <p>We are always looking for talented professionals in sales, marketing, and real estate consulting. Submit your application and our team will get in touch if your profile matches our requirements.</p>
-                    </div>
-                    <div class="section-btn wow fadeInUp" data-wow-delay="0.4s">
-                        <a href="#apply-form" class="btn-default">Apply Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-xl-6">
-                <div class="about-us-image-box wow fadeInUp">
-                    <div class="about-us-image">
-                        <figure class="image-anime">
-                            <img src="{{ asset('images/about-us-image.jpg') }}" alt="Careers at i3 Realtors">
-                        </figure>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-6">
-                <div class="about-us-content-box wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="about-us-item-list">
-                        <div class="about-us-item box-1">
-                            <div class="about-us-item-image">
-                                <figure><img src="{{ asset('images/about-us-item-image-1.png') }}" alt=""></figure>
-                            </div>
-                            <div class="about-us-item-content">
-                                <h3>Grow With Industry Experts</h3>
-                                <p>Work alongside experienced real estate professionals and gain exposure to developer mandates, project marketing, and strategic investment advisory.</p>
-                            </div>
-                        </div>
-                        <div class="about-us-item box-2">
-                            <div class="about-us-item-image">
-                                <figure><img src="{{ asset('images/about-us-item-image-2.jpg') }}" alt=""></figure>
-                            </div>
-                            <div class="about-us-item-content">
-                                <h3>Real Opportunities, Real Impact</h3>
-                                <p>At i3 Realtors, every team member plays a role in delivering value for developers and investors — with clear growth paths and performance-driven recognition.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="about-counter-item-list">
-                        <div class="about-counter-item">
-                            <h2><span class="counter">25</span>+</h2>
-                            <p>Developer Partners</p>
-                        </div>
-                        <div class="about-counter-item">
-                            <h2><span class="counter">50</span>+</h2>
-                            <p>Projects Handled</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Career Intro Section End -->
 
 <!-- Open Positions Section Start -->
 <div class="open-positions bg-section">
@@ -147,7 +75,6 @@
                             </ul>
                         </div>
                     </div>
-                    <a href="#apply-form" class="btn-default btn-sm">Apply Now</a>
                 </div>
             </div>
 
@@ -181,7 +108,6 @@
                             </ul>
                         </div>
                     </div>
-                    <a href="#apply-form" class="btn-default btn-sm">Apply Now</a>
                 </div>
             </div>
 
@@ -215,7 +141,6 @@
                             </ul>
                         </div>
                     </div>
-                    <a href="#apply-form" class="btn-default btn-sm">Apply Now</a>
                 </div>
             </div>
 
@@ -249,7 +174,6 @@
                             </ul>
                         </div>
                     </div>
-                    <a href="#apply-form" class="btn-default btn-sm">Apply Now</a>
                 </div>
             </div>
 
