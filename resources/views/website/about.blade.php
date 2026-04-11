@@ -199,7 +199,7 @@
             <div class="col-lg-12">
                 <div class="section-title section-title-center">
                     <span class="section-sub-title wow fadeInUp">Our Track Record</span>
-                    <h2 class="text-anime-style-2" data-cursor="-opaque">Achievements</h2>
+                    <h2 class="text-anime-style-2" data-cursor="-opaque">Our Projects in Action</h2>
                     <p class="wow fadeInUp" data-wow-delay="0.2s" style="color:#666; max-width:580px; margin:0 auto; font-size:15px; line-height:1.8;">
                         A testament to our execution — projects sold, trust earned, and numbers that speak for themselves.
                     </p>
@@ -317,9 +317,8 @@
         {{-- Gallery Slider inside Achievements --}}
         @if(isset($achievementGallery) && $achievementGallery->isNotEmpty())
         <div style="margin-top:60px; position:relative;" class="wow fadeInUp" data-wow-delay="0.2s">
-            <div style="text-align:center; margin-bottom:32px;">
-                <span style="font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--accent-secondary-color);">Gallery</span>
-                <h3 style="font-size:24px; font-weight:800; color:#111; margin:8px 0 0;">Our Projects in Action</h3>
+            <div class="section-title section-title-center" style="margin-bottom:32px;">
+                <h2 class="text-anime-style-2" data-cursor="-opaque">Achievements</h2>
             </div>
             <button id="agPrev" onclick="agScroll(-1)"
                 style="position:absolute; left:0; top:50%; transform:translateY(-50%); z-index:10; width:44px; height:44px; border-radius:50%; background:var(--accent-secondary-color); border:none; color:#fff; font-size:14px; cursor:pointer; box-shadow:0 4px 16px rgba(224,90,0,0.35);">
