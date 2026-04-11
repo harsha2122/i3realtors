@@ -317,8 +317,8 @@
         {{-- Gallery Slider inside Achievements --}}
         @if(isset($achievementGallery) && $achievementGallery->isNotEmpty())
         <div style="margin-top:60px; position:relative;" class="wow fadeInUp" data-wow-delay="0.2s">
-            <div class="section-title section-title-center" style="margin-bottom:32px;">
-                <h2 class="text-anime-style-2" data-cursor="-opaque">Achievements</h2>
+            <div class="section-title section-title-center" style="margin-bottom:32px; text-align:center; width:100%;">
+                <h2 class="text-anime-style-2" data-cursor="-opaque" style="text-align:center;">Achievements</h2>
             </div>
             <button id="agPrev" onclick="agScroll(-1)"
                 style="position:absolute; left:0; top:50%; transform:translateY(-50%); z-index:10; width:44px; height:44px; border-radius:50%; background:var(--accent-secondary-color); border:none; color:#fff; font-size:14px; cursor:pointer; box-shadow:0 4px 16px rgba(224,90,0,0.35);">
