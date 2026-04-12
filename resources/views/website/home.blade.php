@@ -214,88 +214,268 @@
     <!-- Trusted Developers Section End -->
 
     <!-- About US Section Start -->
-    <div class="about-us" style="margin: 12px 0;">
+    @php
+      $aboutMainImg = \App\Models\Setting::get('about_main_image');
+      $aboutItem1   = \App\Models\Setting::get('about_item_image_1');
+      $aboutItem2   = \App\Models\Setting::get('about_item_image_2');
+    @endphp
+    <div class="hs-about-section">
+
+      {{-- 1. Centred heading --}}
       <div class="container">
-        <div class="row section-row align-items-center">
-          @php
-            $aboutMainImg = \App\Models\Setting::get('about_main_image');
-            $aboutItem1   = \App\Models\Setting::get('about_item_image_1');
-            $aboutItem2   = \App\Models\Setting::get('about_item_image_2');
-          @endphp
-
-          {{-- LEFT: Stacked images --}}
-          <div class="col-xl-6 wow fadeInUp">
-            <div style="display:flex; gap:16px; height:520px;">
-
-              {{-- Main tall image --}}
-              <div style="flex:1.2; border-radius:20px; overflow:hidden;">
-                <img src="{{ $aboutMainImg ? asset('uploads/'.$aboutMainImg) : asset('images/who-we-are-image-1.jpeg') }}"
-                     alt="About i3 Realtors"
-                     style="width:100%; height:100%; object-fit:cover; object-position:center;">
-              </div>
-
-              {{-- Two stacked images on the right --}}
-              <div style="flex:0.8; display:flex; flex-direction:column; gap:16px;">
-                <div style="flex:1; border-radius:20px; overflow:hidden;">
-                  <img src="{{ $aboutItem1 ? asset('uploads/'.$aboutItem1) : asset('images/about-us-item-image-1.png') }}"
-                       alt=""
-                       style="width:100%; height:100%; object-fit:cover; object-position:center;">
-                </div>
-                <div style="flex:1; border-radius:20px; overflow:hidden;">
-                  <img src="{{ $aboutItem2 ? asset('uploads/'.$aboutItem2) : asset('images/who-we-are-image-2.jpg') }}"
-                       alt=""
-                       style="width:100%; height:100%; object-fit:cover; object-position:center;">
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          {{-- RIGHT: Content --}}
-          <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.2s" style="display:flex; flex-direction:column; justify-content:center; padding-left:40px;">
-
-            <div class="section-title" style="margin-bottom:28px;">
-              <h2 class="text-anime-style-2" data-cursor="-opaque">
-                Trusted Real Estate Mandate <span>Partners for Developers</span>
-              </h2>
-              <p style="color:#666; font-size:15px; line-height:1.8; margin-top:16px;">
-                i3 Realtors is a mandate-focused real estate consulting firm specializing in developer partnerships, project marketing, and structured real estate investments.
-              </p>
-            </div>
-
-            {{-- Feature rows --}}
-            <div style="display:flex; flex-direction:column; gap:20px; margin-bottom:36px;">
-
-              <div style="display:flex; align-items:flex-start; gap:18px;">
-                <div style="width:52px; height:52px; flex-shrink:0; background:rgba(224,90,0,0.08); border-radius:14px; display:flex; align-items:center; justify-content:center;">
-                  <i class="fas fa-chart-line" style="font-size:20px; color:var(--accent-secondary-color);"></i>
-                </div>
-                <div>
-                  <h4 style="font-size:16px; font-weight:800; color:#111; margin:0 0 6px;">Strategic Market Understanding</h4>
-                  <p style="font-size:14px; color:#666; margin:0; line-height:1.7;">We analyze market trends and buyer behavior to position projects for optimal visibility.</p>
-                </div>
-              </div>
-
-              <div style="display:flex; align-items:flex-start; gap:18px;">
-                <div style="width:52px; height:52px; flex-shrink:0; background:rgba(224,90,0,0.08); border-radius:14px; display:flex; align-items:center; justify-content:center;">
-                  <i class="fas fa-handshake" style="font-size:20px; color:var(--accent-secondary-color);"></i>
-                </div>
-                <div>
-                  <h4 style="font-size:16px; font-weight:800; color:#111; margin:0 0 6px;">Investor Network</h4>
-                  <p style="font-size:14px; color:#666; margin:0; line-height:1.7;">Through a growing network of investors and partners, we connect the right opportunities with the right stakeholders.</p>
-                </div>
-              </div>
-
-            </div>
-
-            <div>
-              <a href="{{ route('about') }}" class="btn-default">Learn More About Us</a>
-            </div>
-
-          </div>
+        <div class="hs-about-head wow fadeInUp">
+          <span class="hs-about-label">Who We Are</span>
+          <h2 class="text-anime-style-2" data-cursor="-opaque">
+            Trusted Real Estate Mandate <span>Partners for Developers</span>
+          </h2>
+        </div>
       </div>
+
+      {{-- 2. Cinematic image strip --}}
+      <div class="hs-strip-wrap wow fadeInUp" data-wow-delay="0.15s">
+        <div class="hs-strip">
+
+          <div class="hs-strip-item hs-strip-item--side">
+            <img src="{{ $aboutItem1 ? asset('uploads/'.$aboutItem1) : asset('images/about-us-item-image-1.png') }}"
+                 alt="i3 Realtors">
+            <div class="hs-strip-caption">Developer Partnerships</div>
+          </div>
+
+          <div class="hs-strip-item hs-strip-item--center">
+            <img src="{{ $aboutMainImg ? asset('uploads/'.$aboutMainImg) : asset('images/who-we-are-image-1.jpeg') }}"
+                 alt="i3 Realtors">
+            <div class="hs-strip-caption">Project Marketing</div>
+          </div>
+
+          <div class="hs-strip-item hs-strip-item--side">
+            <img src="{{ $aboutItem2 ? asset('uploads/'.$aboutItem2) : asset('images/who-we-are-image-2.jpg') }}"
+                 alt="i3 Realtors">
+            <div class="hs-strip-caption">Strategic Investments</div>
+          </div>
+
+        </div>
+      </div>
+
+      {{-- 3. Two-column editorial content --}}
+      <div class="container">
+        <div class="hs-about-content wow fadeInUp" data-wow-delay="0.25s">
+
+          {{-- Left: Pull quote --}}
+          <div class="hs-pullquote">
+            <div class="hs-quote-mark">"</div>
+            <blockquote class="hs-quote-text">
+              Strategic partnerships and deep market insight drive every decision we make — connecting the right projects with the right investors.
+            </blockquote>
+            <div class="hs-quote-line"></div>
+            <p class="hs-quote-attr">— i3 Realtors, Pune</p>
+          </div>
+
+          {{-- Right: Description + features + CTA --}}
+          <div class="hs-about-body">
+            <p class="hs-about-desc">
+              i3 Realtors is a mandate-focused real estate consulting firm specialising in developer partnerships, project marketing, and structured real estate investments across Pune and beyond.
+            </p>
+            <ul class="hs-feature-list">
+              <li>
+                <i class="fas fa-circle-check"></i>
+                <span><strong>Strategic Market Understanding</strong> — We analyse market trends and buyer behaviour to position projects for optimal visibility.</span>
+              </li>
+              <li>
+                <i class="fas fa-circle-check"></i>
+                <span><strong>Investor Network</strong> — A growing network of investors and partners connecting the right opportunities with the right stakeholders.</span>
+              </li>
+              <li>
+                <i class="fas fa-circle-check"></i>
+                <span><strong>End-to-End Support</strong> — From mandate signing to final closures, we manage the full sales lifecycle for every project.</span>
+              </li>
+            </ul>
+            <a href="{{ route('about') }}" class="btn-default">Learn More About Us</a>
+          </div>
+
+        </div>
+      </div>
+
     </div>
     <!-- About US Section End -->
+
+    <style>
+    /* ── Horizontal Storytelling About Section ── */
+    .hs-about-section {
+      padding: 80px 0 90px;
+      background: #faf8f5;
+    }
+    .hs-about-head {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 52px;
+    }
+    .hs-about-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent-secondary-color, #c8a96a);
+      margin-bottom: 14px;
+      position: relative;
+      padding: 0 28px;
+    }
+    .hs-about-label::before,
+    .hs-about-label::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 20px;
+      height: 1.5px;
+      background: var(--accent-secondary-color, #c8a96a);
+    }
+    .hs-about-label::before { right: 100%; margin-right: -24px; }
+    .hs-about-label::after  { left: 100%;  margin-left: -24px; }
+    .hs-about-head h2 {
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 800;
+      color: #111;
+      line-height: 1.25;
+    }
+
+    /* Image strip */
+    .hs-strip-wrap {
+      width: 100%;
+      padding: 0 24px;
+      margin-bottom: 64px;
+      box-sizing: border-box;
+    }
+    .hs-strip {
+      display: flex;
+      gap: 16px;
+      align-items: flex-end;
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .hs-strip-item {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .hs-strip-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .hs-strip-item:hover img { transform: scale(1.04); }
+    .hs-strip-item--side {
+      flex: 1;
+      height: 320px;
+    }
+    .hs-strip-item--center {
+      flex: 1.5;
+      height: 420px;
+    }
+    .hs-strip-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 20px 18px;
+      background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Two-column content */
+    .hs-about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      padding-top: 8px;
+    }
+
+    /* Pull quote */
+    .hs-pullquote { position: relative; padding-top: 12px; }
+    .hs-quote-mark {
+      font-size: 120px;
+      line-height: 0.7;
+      color: var(--accent-secondary-color, #c8a96a);
+      font-family: Georgia, serif;
+      opacity: 0.35;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .hs-quote-text {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.55;
+      font-style: italic;
+      border: none;
+      padding: 0;
+      margin: 0 0 24px;
+    }
+    .hs-quote-line {
+      width: 48px;
+      height: 3px;
+      background: var(--accent-secondary-color, #c8a96a);
+      border-radius: 2px;
+      margin-bottom: 14px;
+    }
+    .hs-quote-attr {
+      font-size: 13px;
+      color: #999;
+      font-style: italic;
+      margin: 0;
+    }
+
+    /* Right body */
+    .hs-about-desc {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+    .hs-feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .hs-feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: #444;
+      line-height: 1.7;
+    }
+    .hs-feature-list li i {
+      color: var(--accent-secondary-color, #c8a96a);
+      font-size: 17px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Responsive */
+    @media (max-width: 991px) {
+      .hs-strip-item--side  { height: 220px; }
+      .hs-strip-item--center { height: 300px; }
+      .hs-about-content { grid-template-columns: 1fr; gap: 36px; }
+      .hs-quote-text { font-size: 18px; }
+    }
+    @media (max-width: 575px) {
+      .hs-strip { gap: 10px; }
+      .hs-strip-item--side  { height: 160px; flex: 1; }
+      .hs-strip-item--center { height: 220px; flex: 1.4; }
+      .hs-strip-caption { font-size: 11px; }
+      .hs-about-section { padding: 56px 0 64px; }
+    }
+    </style>
 
     <!-- Our Service Section Start -->
     <div class="our-service bg-section" style="margin: 12px auto;">
