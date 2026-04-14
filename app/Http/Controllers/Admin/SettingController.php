@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Services\SettingsService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class SettingController extends Controller
 {
@@ -44,9 +45,21 @@ class SettingController extends Controller
 
         abort_unless(array_key_exists($group, $this->groups), 404);
 
+        // Handle sitemap.xml upload
+        if ($request->hasFile('sitemap_file')) {
+            $request->validate(['sitemap_file' => 'file|mimes:xml,txt|max:2048']);
+            $request->file('sitemap_file')->move(public_path(), 'sitemap.xml');
+        }
+
+        // Handle robots.txt upload
+        if ($request->hasFile('robots_file')) {
+            $request->validate(['robots_file' => 'file|mimes:txt|max:512']);
+            $request->file('robots_file')->move(public_path(), 'robots.txt');
+        }
+
         $this->settingsService->updateGroup(
             $group,
-            $request->except(['_token', '_method', 'group']),
+            $request->except(['_token', '_method', 'group', 'sitemap_file', 'robots_file']),
             $request->allFiles()
         );
 

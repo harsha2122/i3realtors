@@ -215,6 +215,41 @@
                         </div>
                         @endforeach
 
+                        {{-- SEO-only extras: sitemap, robots, head scripts --}}
+                        @if($group === 'seo')
+                        <hr class="my-4">
+                        <h6 class="fw-bold mb-3"><i class="fas fa-file-code me-2" style="color:var(--primary)"></i>File Uploads & Scripts</h6>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label class="form-label fw-semibold">Upload sitemap.xml</label>
+                                @if(file_exists(public_path('sitemap.xml')))
+                                    <div class="mb-2 small text-success"><i class="fas fa-check-circle me-1"></i>sitemap.xml exists &nbsp;<a href="{{ asset('sitemap.xml') }}" target="_blank" class="text-primary">View</a></div>
+                                @else
+                                    <div class="mb-2 small text-muted">No sitemap.xml found.</div>
+                                @endif
+                                <input type="file" name="sitemap_file" class="form-control" accept=".xml">
+                                <small class="text-muted">Upload a new file to replace the existing one.</small>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label class="form-label fw-semibold">Upload robots.txt</label>
+                                @if(file_exists(public_path('robots.txt')))
+                                    <div class="mb-2 small text-success"><i class="fas fa-check-circle me-1"></i>robots.txt exists &nbsp;<a href="{{ asset('robots.txt') }}" target="_blank" class="text-primary">View</a></div>
+                                @else
+                                    <div class="mb-2 small text-muted">No robots.txt found.</div>
+                                @endif
+                                <input type="file" name="robots_file" class="form-control" accept=".txt">
+                                <small class="text-muted">Upload a new file to replace the existing one.</small>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">Custom Head Scripts</label>
+                            <p class="text-muted small mb-1">Paste scripts here (Microsoft Clarity, Google Tag Manager, etc). Injected inside <code>&lt;head&gt;</code> on every page.</p>
+                            <textarea name="head_scripts" rows="6" class="form-control font-monospace" style="font-size:13px;" placeholder="<!-- paste your script tags here -->">{{ old('head_scripts', \App\Models\Setting::get('head_scripts', '')) }}</textarea>
+                        </div>
+                        @endif
+
                         <hr class="my-4" />
                         <div class="d-flex gap-2">
                             <button type="submit" class="btn btn-admin-primary">

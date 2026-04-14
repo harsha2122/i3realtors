@@ -71,6 +71,11 @@
     @endif
 
     @stack('styles')
+
+    {{-- Custom Head Scripts (Clarity, GTM, etc) --}}
+    @if(!empty($site['head_scripts']))
+        {!! $site['head_scripts'] !!}
+    @endif
 </head>
 <body>
 
