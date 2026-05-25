@@ -612,8 +612,6 @@
                     <div class="service-item-btn">
                       @if($svc->slug === 'fund-raising')
                         <a href="{{ route('services.fund-raising') }}" class="readmore-btn">View Details</a>
-                      @else
-                        <span class="readmore-btn">View Details</span>
                       @endif
                     </div>
                   </div>
@@ -708,6 +706,15 @@
       // Pause on hover
       track.addEventListener('mouseenter', function(){ clearInterval(autoTimer); });
       track.addEventListener('mouseleave', function(){ resetAuto(); });
+
+      // Touch swipe support
+      var touchStartX = 0;
+      track.addEventListener('touchstart', function(e){ touchStartX = e.touches[0].clientX; clearInterval(autoTimer); }, { passive: true });
+      track.addEventListener('touchend', function(e){
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) { go(diff > 0 ? cur + 1 : cur - 1); }
+        resetAuto();
+      }, { passive: true });
 
       renderDots();
 

@@ -486,9 +486,11 @@
             <div id="lifeTrack" style="display:flex; gap:16px; overflow:hidden; scroll-behavior:smooth; padding:4px 60px 8px;">
                 @foreach($galleryImages as $image)
                 <div class="life-slide" style="flex:0 0 calc(33.333% - 11px); min-width:240px;">
-                    <div style="border-radius:14px; overflow:hidden; aspect-ratio:1/1; position:relative;"
-                         onmouseover="this.querySelector('img').style.transform='scale(1.06)'"
-                         onmouseout="this.querySelector('img').style.transform='scale(1)'">
+                    <a href="{{ asset('uploads/' . $image->image_path) }}" class="life-lightbox"
+                       title="{{ $image->caption ?? 'i3 Realtors' }}"
+                       style="display:block; border-radius:14px; overflow:hidden; aspect-ratio:1/1; position:relative; cursor:zoom-in;"
+                       onmouseover="this.querySelector('img').style.transform='scale(1.06)'"
+                       onmouseout="this.querySelector('img').style.transform='scale(1)'">
                         <img src="{{ asset('uploads/' . $image->image_path) }}"
                              alt="{{ $image->caption ?? 'i3 Realtors' }}"
                              style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease;">
@@ -497,7 +499,7 @@
                             <p style="margin:0; color:#fff; font-size:13px; font-weight:600;">{{ $image->caption }}</p>
                         </div>
                         @endif
-                    </div>
+                    </a>
                 </div>
                 @endforeach
             </div>
@@ -554,6 +556,16 @@
         go(0);
     });
 })();
+// Lightbox
+if (typeof $.fn.magnificPopup !== 'undefined') {
+    $('.life-lightbox').magnificPopup({
+        type: 'image',
+        gallery: { enabled: true },
+        image: { titleSrc: 'title' },
+        removalDelay: 300,
+        mainClass: 'mfp-fade'
+    });
+}
 </script>
 @endpush
 @endif
