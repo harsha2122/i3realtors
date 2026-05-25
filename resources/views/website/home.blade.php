@@ -149,6 +149,97 @@
     </div>
     <!-- Hero Section End -->
 
+    <!-- Our Commitment Section Start -->
+    <div class="our-commitment bg-section" style="margin: 12px auto;">
+      <div class="container">
+        <div class="row align-items-start">
+
+          {{-- LEFT: Mission / Vision / CTA --}}
+          <div class="col-xl-5">
+            <div class="our-commitment-content">
+              <div class="our-commitment-header-content">
+                <div class="section-title">
+                  <span class="section-sub-title wow fadeInUp">Vision & Values</span>
+                  <h2 class="text-anime-style-2" data-cursor="-opaque">
+                    Our Vision, Mission & Values
+                  </h2>
+                </div>
+
+                {{-- Mission --}}
+                <div class="wow fadeInUp" data-wow-delay="0.1s"
+                     style="border-left: 3px solid var(--accent-color); padding: 16px 20px; background: var(--bg-color); border-radius: 0 12px 12px 0; margin-bottom: 20px;">
+                  <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-color); display: block; margin-bottom: 6px;">Our Mission</span>
+                  <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--text-color);">
+                    To create a hassle-free Sales &amp; Marketing service to Developers in today's competitive market — connecting the right projects with the right buyers through strategic mandate execution.
+                  </p>
+                </div>
+
+                {{-- Vision --}}
+                <div class="wow fadeInUp" data-wow-delay="0.2s"
+                     style="border-left: 3px solid var(--accent-secondary-color); padding: 16px 20px; background: var(--bg-color); border-radius: 0 12px 12px 0; margin-bottom: 28px;">
+                  <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-secondary-color); display: block; margin-bottom: 6px;">Our Vision</span>
+                  <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--text-color);">
+                    To be the most trusted real estate mandate firm in India — empowering developers, unlocking investor potential, and setting the benchmark for ethical, results-driven real estate consulting.
+                  </p>
+                </div>
+
+                <div class="our-commitment-btn wow fadeInUp" data-wow-delay="0.3s">
+                  <a href="{{ route('contact') }}" class="btn-default">Partner With Us</a>
+                </div>
+              </div>
+
+              <div class="commitment-client-box wow fadeInUp" data-wow-delay="0.5s">
+                <div class="satisfy-client-images">
+                  @foreach(['author-1.jpg', 'author-2.jpg', 'author-3.jpg', 'author-4.jpg'] as $a)
+                  <div class="satisfy-client-image">
+                    <figure class="image-anime"><img src="{{ asset('images/'.$a) }}" alt="" /></figure>
+                  </div>
+                  @endforeach
+                  <div class="satisfy-client-image add-more"><i class="fa fa-solid fa-plus"></i></div>
+                </div>
+                <div class="commitment-client-box-content">
+                  <p>"Building long-term partnerships between developers and investors through strategic project marketing and real estate mandate execution."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {{-- RIGHT: 6 Values in 2-column grid --}}
+          <div class="col-xl-7">
+            <div class="row g-3">
+              @php
+              $commitments = [
+                ['icon' => 'fa-handshake',    'title' => 'Trust',            'desc' => 'We believe in the Power of Trust. Every developer and investor relationship we build is grounded in honesty, reliability, and long-term commitment.',       'delay' => ''],
+                ['icon' => 'fa-eye',          'title' => 'Transparency',     'desc' => 'We believe in transparency in all transactions. Clear communication and open processes ensure every client knows exactly where they stand.',                   'delay' => '0.1s'],
+                ['icon' => 'fa-seedling',     'title' => 'Growing Together', 'desc' => 'We believe in working together in a win-win situation. When our developer partners succeed, we succeed — shared growth drives everything we do.',              'delay' => '0.2s'],
+                ['icon' => 'fa-lightbulb',    'title' => 'Innovation',       'desc' => 'We embrace modern tools, data-driven strategies, and market intelligence to keep our developer partners ahead of the competition.',                           'delay' => '0.1s'],
+                ['icon' => 'fa-user-check',   'title' => 'Client-Centric',   'desc' => 'Every decision we make puts our clients first. We tailor our mandate approach to each developer\'s unique project, timeline, and market goals.',              'delay' => '0.2s'],
+                ['icon' => 'fa-medal',        'title' => 'Excellence',       'desc' => 'We hold ourselves to the highest standard in every mandate we take — from project launch to final sale, excellence is non-negotiable.',                       'delay' => '0.3s'],
+              ];
+              @endphp
+              @foreach($commitments as $c)
+              <div class="col-sm-6 col-12">
+                <div class="commitment-item wow fadeInUp" style="margin-bottom: 0; height: 100%;" {{ $c['delay'] ? 'data-wow-delay="'.$c['delay'].'"' : '' }}>
+                  <div class="commitment-item-header">
+                    <div class="icon-box" style="display:flex; align-items:center; justify-content:center;">
+                      <i class="fa-solid {{ $c['icon'] }}" style="font-size:28px; color: var(--accent-secondary-color);"></i>
+                    </div>
+                    <div class="commitment-item-title"><h3>{{ $c['title'] }}</h3></div>
+                  </div>
+                  <div class="commitment-item-content">
+                    <p>{{ $c['desc'] }}</p>
+                  </div>
+                </div>
+              </div>
+              @endforeach
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Our Commitment Section End -->
+
     <!-- Trusted Developers Section Start -->
     <div class="bg-section" style="background: #faf7f0; padding: 100px 0; border-top: 1px solid rgba(200,169,106,0.2); border-bottom: 1px solid rgba(200,169,106,0.2); position:relative; overflow:hidden; margin: 12px auto;">
       <div class="container" style="position:relative; z-index:1;">
@@ -752,97 +843,6 @@
       </div>
     </div>
     <!-- Intro Video End -->
-
-    <!-- Our Commitment Section Start -->
-    <div class="our-commitment bg-section" style="margin: 12px auto;">
-      <div class="container">
-        <div class="row align-items-start">
-
-          {{-- LEFT: Mission / Vision / CTA --}}
-          <div class="col-xl-5">
-            <div class="our-commitment-content">
-              <div class="our-commitment-header-content">
-                <div class="section-title">
-                  <span class="section-sub-title wow fadeInUp">Vision & Values</span>
-                  <h2 class="text-anime-style-2" data-cursor="-opaque">
-                    Our Mission, Vision & Values
-                  </h2>
-                </div>
-
-                {{-- Mission --}}
-                <div class="wow fadeInUp" data-wow-delay="0.1s"
-                     style="border-left: 3px solid var(--accent-color); padding: 16px 20px; background: var(--bg-color); border-radius: 0 12px 12px 0; margin-bottom: 20px;">
-                  <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-color); display: block; margin-bottom: 6px;">Our Mission</span>
-                  <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--text-color);">
-                    To create a hassle-free Sales &amp; Marketing service to Developers in today's competitive market — connecting the right projects with the right buyers through strategic mandate execution.
-                  </p>
-                </div>
-
-                {{-- Vision --}}
-                <div class="wow fadeInUp" data-wow-delay="0.2s"
-                     style="border-left: 3px solid var(--accent-secondary-color); padding: 16px 20px; background: var(--bg-color); border-radius: 0 12px 12px 0; margin-bottom: 28px;">
-                  <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-secondary-color); display: block; margin-bottom: 6px;">Our Vision</span>
-                  <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--text-color);">
-                    To be the most trusted real estate mandate firm in India — empowering developers, unlocking investor potential, and setting the benchmark for ethical, results-driven real estate consulting.
-                  </p>
-                </div>
-
-                <div class="our-commitment-btn wow fadeInUp" data-wow-delay="0.3s">
-                  <a href="{{ route('contact') }}" class="btn-default">Partner With Us</a>
-                </div>
-              </div>
-
-              <div class="commitment-client-box wow fadeInUp" data-wow-delay="0.5s">
-                <div class="satisfy-client-images">
-                  @foreach(['author-1.jpg', 'author-2.jpg', 'author-3.jpg', 'author-4.jpg'] as $a)
-                  <div class="satisfy-client-image">
-                    <figure class="image-anime"><img src="{{ asset('images/'.$a) }}" alt="" /></figure>
-                  </div>
-                  @endforeach
-                  <div class="satisfy-client-image add-more"><i class="fa fa-solid fa-plus"></i></div>
-                </div>
-                <div class="commitment-client-box-content">
-                  <p>"Building long-term partnerships between developers and investors through strategic project marketing and real estate mandate execution."</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {{-- RIGHT: 6 Values in 2-column grid --}}
-          <div class="col-xl-7">
-            <div class="row g-3">
-              @php
-              $commitments = [
-                ['icon' => 'fa-handshake',    'title' => 'Trust',            'desc' => 'We believe in the Power of Trust. Every developer and investor relationship we build is grounded in honesty, reliability, and long-term commitment.',       'delay' => ''],
-                ['icon' => 'fa-eye',          'title' => 'Transparency',     'desc' => 'We believe in transparency in all transactions. Clear communication and open processes ensure every client knows exactly where they stand.',                   'delay' => '0.1s'],
-                ['icon' => 'fa-seedling',     'title' => 'Growing Together', 'desc' => 'We believe in working together in a win-win situation. When our developer partners succeed, we succeed — shared growth drives everything we do.',              'delay' => '0.2s'],
-                ['icon' => 'fa-lightbulb',    'title' => 'Innovation',       'desc' => 'We embrace modern tools, data-driven strategies, and market intelligence to keep our developer partners ahead of the competition.',                           'delay' => '0.1s'],
-                ['icon' => 'fa-user-check',   'title' => 'Client-Centric',   'desc' => 'Every decision we make puts our clients first. We tailor our mandate approach to each developer\'s unique project, timeline, and market goals.',              'delay' => '0.2s'],
-                ['icon' => 'fa-medal',        'title' => 'Excellence',       'desc' => 'We hold ourselves to the highest standard in every mandate we take — from project launch to final sale, excellence is non-negotiable.',                       'delay' => '0.3s'],
-              ];
-              @endphp
-              @foreach($commitments as $c)
-              <div class="col-sm-6 col-12">
-                <div class="commitment-item wow fadeInUp" style="margin-bottom: 0; height: 100%;" {{ $c['delay'] ? 'data-wow-delay="'.$c['delay'].'"' : '' }}>
-                  <div class="commitment-item-header">
-                    <div class="icon-box" style="display:flex; align-items:center; justify-content:center;">
-                      <i class="fa-solid {{ $c['icon'] }}" style="font-size:28px; color: var(--accent-secondary-color);"></i>
-                    </div>
-                    <div class="commitment-item-title"><h3>{{ $c['title'] }}</h3></div>
-                  </div>
-                  <div class="commitment-item-content">
-                    <p>{{ $c['desc'] }}</p>
-                  </div>
-                </div>
-              </div>
-              @endforeach
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!-- Our Commitment Section End -->
 
     <!-- Our Project Section Start -->
     <div class="our-project bg-section" style="margin: 12px auto; background: #f8f7f4;">
