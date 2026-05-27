@@ -29,6 +29,8 @@ Route::get('/contact', [Website\ContactController::class, 'index'])->name('conta
 Route::post('/contact', [Website\ContactController::class, 'submit'])->name('contact.submit');
 Route::get('/careers', [Website\CareersController::class, 'index'])->name('careers');
 Route::post('/careers', [Website\CareersController::class, 'submit'])->name('careers.submit');
+Route::get('/events', [Website\EventController::class, 'index'])->name('events.index');
+Route::get('/events/{event:slug}', [Website\EventController::class, 'show'])->name('events.show');
 // Projects (Ongoing & Completed) - main public section
 Route::get('/projects', [Website\ProjectController::class, 'index'])->name('website.projects.index');
 Route::get('/projects/{slug}', [Website\ProjectController::class, 'show'])->name('website.projects.show');
@@ -130,6 +132,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/contact-submissions/export', [Admin\FormController::class, 'exportContactSubmissions'])->name('contact-submissions.export');
         Route::get('/career-submissions', [Admin\FormController::class, 'careerSubmissions'])->name('career-submissions.index');
         Route::get('/career-submissions/export', [Admin\FormController::class, 'exportCareerSubmissions'])->name('career-submissions.export');
+
+        // Events
+        Route::resource('events', Admin\EventController::class);
 
         // Career Jobs & Applications
         Route::resource('career-jobs', Admin\CareerJobController::class);

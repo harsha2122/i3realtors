@@ -126,6 +126,9 @@
             </a>
 
             <div class="nav-section-label">Content</div>
+            <a href="{{ route('admin.events.index') }}" class="nav-link {{ request()->routeIs('admin.events.*') ? 'active' : '' }}">
+                <i class="fas fa-calendar-star"></i> Events
+            </a>
             <a href="{{ route('admin.projects.index') }}" class="nav-link {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">
                 <i class="fas fa-city"></i> Projects
             </a>
