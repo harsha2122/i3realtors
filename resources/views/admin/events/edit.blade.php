@@ -78,7 +78,7 @@
                             @foreach($event->images as $img)
                             <div class="col-6 col-md-3" id="img-wrap-{{ $loop->index }}">
                                 <div class="position-relative border rounded overflow-hidden" style="height:100px;">
-                                    <img src="{{ Storage::url($img) }}" class="w-100 h-100 object-fit-cover" alt="Event image">
+                                    <img src="{{ asset('uploads/' . $img) }}" class="w-100 h-100 object-fit-cover" alt="Event image">
                                     <label class="position-absolute top-0 end-0 m-1 bg-white rounded px-1 py-0 small"
                                            style="cursor:pointer;font-size:11px;z-index:2;">
                                         <input type="checkbox" name="keep_images[]" value="{{ $img }}" checked

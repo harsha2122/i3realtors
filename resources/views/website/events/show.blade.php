@@ -37,9 +37,9 @@
                 @if($event->images && count($event->images) > 0)
                 <div class="evd-gallery mb-5">
                     <!-- Cover -->
-                    <a href="{{ Storage::url($event->images[0]) }}" class="evd-lightbox evd-cover"
+                    <a href="{{ asset('uploads/' . $event->images[0]) }}" class="evd-lightbox evd-cover"
                        data-gallery="event-gallery" title="{{ $event->title }}">
-                        <img src="{{ Storage::url($event->images[0]) }}" alt="{{ $event->title }}" class="evd-cover-img" />
+                        <img src="{{ asset('uploads/' . $event->images[0]) }}" alt="{{ $event->title }}" class="evd-cover-img" />
                         <div class="evd-cover-overlay"><i class="fas fa-expand-alt"></i></div>
                     </a>
 
@@ -47,9 +47,9 @@
                     @if(count($event->images) > 1)
                     <div class="evd-thumbs">
                         @foreach(array_slice($event->images, 1) as $img)
-                        <a href="{{ Storage::url($img) }}" class="evd-lightbox evd-thumb"
+                        <a href="{{ asset('uploads/' . $img) }}" class="evd-lightbox evd-thumb"
                            data-gallery="event-gallery" title="{{ $event->title }}">
-                            <img src="{{ Storage::url($img) }}" alt="" />
+                            <img src="{{ asset('uploads/' . $img) }}" alt="" />
                             @if($loop->last && count($event->images) > 4)
                                 <div class="evd-thumb-more">+{{ count($event->images) - 4 }}</div>
                             @endif
