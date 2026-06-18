@@ -183,20 +183,16 @@
                   </p>
                 </div>
 
-                <div class="our-commitment-btn wow fadeInUp" data-wow-delay="0.3s">
-                  <a href="{{ route('contact') }}" class="btn-default">Partner With Us</a>
+                <div class="wow fadeInUp" data-wow-delay="0.1s"
+                     style="border-left: 3px solid var(--accent-color); padding: 16px 20px; background: var(--bg-color); border-radius: 0 12px 12px 0; margin-bottom: 20px;">
+                  <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-color); display: block; margin-bottom: 6px;">Our Values</span>
+                  <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--text-color);">
+                    Trust, transparency, and accountability guide every mandate we take on. We focus on long-term relationships, ethical execution, and measurable outcomes that create value for developers, investors, and channel partners alike.
+                  </p>
                 </div>
               </div>
 
               <div class="commitment-client-box wow fadeInUp" data-wow-delay="0.5s">
-                <div class="satisfy-client-images">
-                  @foreach(['author-1.jpg', 'author-2.jpg', 'author-3.jpg', 'author-4.jpg'] as $a)
-                  <div class="satisfy-client-image">
-                    <figure class="image-anime"><img src="{{ asset('images/'.$a) }}" alt="" /></figure>
-                  </div>
-                  @endforeach
-                  <div class="satisfy-client-image add-more"><i class="fa fa-solid fa-plus"></i></div>
-                </div>
                 <div class="commitment-client-box-content">
                   <p>"Building long-term partnerships between developers and investors through strategic project marketing and real estate mandate execution."</p>
                 </div>
@@ -209,12 +205,12 @@
             <div class="row g-3">
               @php
               $commitments = [
-                ['icon' => 'fa-handshake',    'title' => 'Trust',            'desc' => 'We believe in the Power of Trust. Every developer and investor relationship we build is grounded in honesty, reliability, and long-term commitment.',       'delay' => ''],
-                ['icon' => 'fa-eye',          'title' => 'Transparency',     'desc' => 'We believe in transparency in all transactions. Clear communication and open processes ensure every client knows exactly where they stand.',                   'delay' => '0.1s'],
-                ['icon' => 'fa-seedling',     'title' => 'Growing Together', 'desc' => 'We believe in working together in a win-win situation. When our developer partners succeed, we succeed — shared growth drives everything we do.',              'delay' => '0.2s'],
-                ['icon' => 'fa-lightbulb',    'title' => 'Innovation',       'desc' => 'We embrace modern tools, data-driven strategies, and market intelligence to keep our developer partners ahead of the competition.',                           'delay' => '0.1s'],
-                ['icon' => 'fa-user-check',   'title' => 'Client-Centric',   'desc' => 'Every decision we make puts our clients first. We tailor our mandate approach to each developer\'s unique project, timeline, and market goals.',              'delay' => '0.2s'],
-                ['icon' => 'fa-medal',        'title' => 'Excellence',       'desc' => 'We hold ourselves to the highest standard in every mandate we take — from project launch to final sale, excellence is non-negotiable.',                       'delay' => '0.3s'],
+                ['icon' => 'fa-handshake',    'title' => 'Trust',            'desc' => 'We build every relationship on honesty, reliability, and a genuine commitment to doing what we say we will do.',       'delay' => ''],
+                ['icon' => 'fa-eye',          'title' => 'Transparency',     'desc' => 'Clear communication, open processes, and fair dealings ensure our clients always know where things stand.',                   'delay' => '0.1s'],
+                ['icon' => 'fa-seedling',     'title' => 'Growing Together', 'desc' => 'We measure success by the growth of our partners. When developers, investors, and channel partners win, we all move forward.',              'delay' => '0.2s'],
+                ['icon' => 'fa-lightbulb',    'title' => 'Innovation',       'desc' => 'We use market insight, data-led planning, and modern sales strategies to create better outcomes for every project.',                           'delay' => '0.1s'],
+                ['icon' => 'fa-user-check',   'title' => 'Client-Centric',   'desc' => 'Each mandate is tailored to the project, timeline, and goals of our client, because no two opportunities are the same.',              'delay' => '0.2s'],
+                ['icon' => 'fa-medal',        'title' => 'Excellence',       'desc' => 'From launch strategy to final closure, we hold ourselves to high standards and focus on consistent, measurable results.',                       'delay' => '0.3s'],
               ];
               @endphp
               @foreach($commitments as $c)
@@ -248,10 +244,10 @@
             <div class="section-title section-title-center">
               <span class="section-sub-title wow fadeInUp">Our Developer Partners</span>
               <h2 class="text-anime-style-2" data-cursor="-opaque">
-                Trusted by Leading <span>Developers</span>
+                Trusted by Leading Developers
               </h2>
               <p class="wow fadeInUp" data-wow-delay="0.2s" style="color:#666; max-width:680px; margin: 0 auto 16px;">
-                We have partnered with leading real estate developers across Pune and Mumbai to deliver structured mandate sales, marketing strategies, and investor-driven growth.
+                We have partnered with leading real estate developers across Pune to deliver structured mandate sales, marketing strategies, and investor-driven growth.
               </p>
             </div>
           </div>
@@ -317,7 +313,7 @@
         <div class="hs-about-head wow fadeInUp">
           <span class="hs-about-label">Who We Are</span>
           <h2 class="text-anime-style-2" data-cursor="-opaque">
-            Trusted Real Estate Mandate <span>Partners for Developers</span>
+            Trusted Real Estate Mandate Partners for Developers
           </h2>
         </div>
       </div>
@@ -329,7 +325,7 @@
           <div class="hs-strip-item hs-strip-item--side">
             <img src="{{ $aboutItem1 ? asset('uploads/'.$aboutItem1) : asset('images/about-us-item-image-1.png') }}"
                  alt="i3 Realtors">
-            <div class="hs-strip-caption">Developer Partnerships</div>
+            <div class="hs-strip-caption">Strategic Partnerships</div>
           </div>
 
           <div class="hs-strip-item hs-strip-item--center">
@@ -341,7 +337,7 @@
           <div class="hs-strip-item hs-strip-item--side">
             <img src="{{ $aboutItem2 ? asset('uploads/'.$aboutItem2) : asset('images/who-we-are-image-2.jpg') }}"
                  alt="i3 Realtors">
-            <div class="hs-strip-caption">Strategic Investments</div>
+            <div class="hs-strip-caption">Investors Association</div>
           </div>
 
         </div>
@@ -575,7 +571,7 @@
           <div class="col-lg-12">
             <div class="section-title section-title-center">
               <h2 class="text-anime-style-2" data-cursor="-opaque">
-                I3 Realtors <span>Services</span>
+                I3 Realtors Services
               </h2>
             </div>
           </div>
@@ -824,11 +820,6 @@
             @endforeach
           </div>
         </div>
-
-        {{-- Footer CTA --}}
-        <div class="why-footer-row wow fadeInUp" data-wow-delay="0.3s" style="justify-content:center;">
-          <a href="{{ route('contact') }}" class="btn-default">Partner With Us</a>
-        </div>
       </div>
     </div>
     <!-- Who We Are Section End -->
@@ -859,7 +850,7 @@
             <div class="section-title section-title-center">
               <span class="section-sub-title wow fadeInUp">Our Projects</span>
               <h2 class="text-anime-style-2" data-cursor="-opaque">
-                Our Featured Real Estate <span>Opportunities</span>
+                Curated Real Estate Excellence
               </h2>
             </div>
           </div>

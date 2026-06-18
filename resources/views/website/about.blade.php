@@ -25,6 +25,103 @@
 </div>
 <!-- Page Header End -->
 
+<!-- Our Approach Section Start -->
+<div class="our-approach bg-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xl-6">
+                @php
+                    $aboutApproach1 = \App\Models\Setting::get('about_approach_image_1');
+                    $aboutApproach2 = \App\Models\Setting::get('about_approach_image_2');
+                @endphp
+                <!-- Our Approach Images Start -->
+                <div class="our-approach-images">
+                    <!-- Our Approach Image Box-1 Start -->
+                    <div class="our-approach-image-box-1">
+                        <!-- Our Approach Image Start -->
+                        <div class="our-approach-image">
+                            <figure class="image-anime reveal">
+                                <img src="{{ $aboutApproach1 ? asset('uploads/'.$aboutApproach1) : asset('images/our-approach-image-1.jpg') }}" alt="">
+                            </figure>
+                        </div>
+                        <!-- Our Approach Image End -->
+                    </div>
+                    <!-- Our Approach Image Box-1 End -->
+
+                    <!-- Our Approach Image Box-2 Start -->
+                    <div class="our-approach-image-box-2">
+                        <!-- Our Approach Image Start -->
+                        <div class="our-approach-image">
+                            <figure class="image-anime reveal">
+                                <img src="{{ $aboutApproach2 ? asset('uploads/'.$aboutApproach2) : asset('images/our-approach-image-2.jpg') }}" alt="">
+                            </figure>
+                        </div>
+                        <!-- Our Approach Image End -->
+                    </div>
+                    <!-- Our Approach Image Box-2 End -->
+                </div>
+                <!-- Our Approach Images End -->
+            </div>
+
+            <div class="col-xl-6">
+                <!-- Our Approach Content Start -->
+                <div class="our-approach-content">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <span class="section-sub-title wow fadeInUp">Our Approach</span>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque">A Strategic Approach to Real Estate Partnerships</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.2s">At i3 Realtors, we follow a structured approach that combines market intelligence, strategic marketing, and strong developer relationships to ensure every project receives the right visibility and positioning it deserves.</p>
+                        <p class="wow fadeInUp" data-wow-delay="0.3s">Our goal is to build long-term partnerships with developers and investors by delivering consistent results and transparent collaboration.</p>
+                    </div>
+                    <!-- Section Title End -->
+
+                    <!-- Our Approach Item Box Start -->
+                    <div class="approach-item-box">
+                        <!-- Our Approach Item Start -->
+                        <div class="approach-item wow fadeInUp">
+                            <div class="icon-box">
+                                <img src="{{ asset('images/icon-approach-item-1.svg') }}" alt="">
+                            </div>
+                            <div class="approach-item-content">
+                                <h3>Our Mission</h3>
+                                <p>To empower developers and investors by creating structured real estate opportunities that deliver long-term growth, transparency, and strategic value.</p>
+                            </div>
+                        </div>
+                        <!-- Our Approach Item End -->
+
+                        <!-- Our Approach Item Start -->
+                        <div class="approach-item wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="icon-box">
+                                <img src="{{ asset('images/icon-approach-item-2.svg') }}" alt="">
+                            </div>
+                            <div class="approach-item-content">
+                                <h3>Our Vision</h3>
+                                <p>To become a trusted mandate partner for developers across India, providing strategic real estate consulting that drives successful project outcomes.</p>
+                            </div>
+                        </div>
+                        <!-- Our Approach Item End -->
+
+                        <!-- Our Approach Item Start -->
+                        <div class="approach-item wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="icon-box">
+                                <img src="{{ asset('images/icon-approach-item-3.svg') }}" alt="">
+                            </div>
+                            <div class="approach-item-content">
+                                <h3>Our Values</h3>
+                                <p>Integrity, professionalism, and accountability guide everything we do. We believe in building long-term relationships based on trust, transparency, and consistent performance.</p>
+                            </div>
+                        </div>
+                        <!-- Our Approach Item End -->
+                    </div>
+                    <!-- Our Approach Item Box End -->
+                </div>
+                <!-- Our Approach Content End -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Our Approach Section End -->
+
 <!-- About Us Section Start -->
 <div class="about-us" style="margin: 12px 0;">
     <div class="container">
@@ -33,7 +130,7 @@
                 <div class="section-title">
                     <span class="section-sub-title wow fadeInUp">Who We Are</span>
                     <h2 class="text-anime-style-2" data-cursor="-opaque">
-                        Building Real Estate Success, <span>One Partnership at a Time</span>
+                        Changing the Core of Real-estate Business.
                     </h2>
                 </div>
             </div>
@@ -41,9 +138,6 @@
                 <div class="section-content-btn">
                     <div class="section-title-content wow fadeInUp" data-wow-delay="0.2s">
                         <p>Founded with a clear purpose — to bridge the gap between developers and the market — i3 Realtors has grown into a trusted name in mandate-based real estate consulting across Pune and beyond.</p>
-                    </div>
-                    <div class="section-btn wow fadeInUp" data-wow-delay="0.4s">
-                        <a href="{{ route('contact') }}" class="btn-default">Get in Touch</a>
                     </div>
                 </div>
             </div>
@@ -570,102 +664,6 @@ if (typeof $.fn.magnificPopup !== 'undefined') {
 @endpush
 @endif
 
-<!-- Our Approach Section Start -->
-<div class="our-approach bg-section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-xl-6">
-                @php
-                    $aboutApproach1 = \App\Models\Setting::get('about_approach_image_1');
-                    $aboutApproach2 = \App\Models\Setting::get('about_approach_image_2');
-                @endphp
-                <!-- Our Approach Images Start -->
-                <div class="our-approach-images">
-                    <!-- Our Approach Image Box-1 Start -->
-                    <div class="our-approach-image-box-1">
-                        <!-- Our Approach Image Start -->
-                        <div class="our-approach-image">
-                            <figure class="image-anime reveal">
-                                <img src="{{ $aboutApproach1 ? asset('uploads/'.$aboutApproach1) : asset('images/our-approach-image-1.jpg') }}" alt="">
-                            </figure>
-                        </div>
-                        <!-- Our Approach Image End -->
-                    </div>
-                    <!-- Our Approach Image Box-1 End -->
-
-                    <!-- Our Approach Image Box-2 Start -->
-                    <div class="our-approach-image-box-2">
-                        <!-- Our Approach Image Start -->
-                        <div class="our-approach-image">
-                            <figure class="image-anime reveal">
-                                <img src="{{ $aboutApproach2 ? asset('uploads/'.$aboutApproach2) : asset('images/our-approach-image-2.jpg') }}" alt="">
-                            </figure>
-                        </div>
-                        <!-- Our Approach Image End -->
-                    </div>
-                    <!-- Our Approach Image Box-2 End -->
-                </div>
-                <!-- Our Approach Images End -->
-            </div>
-
-            <div class="col-xl-6">
-                <!-- Our Approach Content Start -->
-                <div class="our-approach-content">
-                    <!-- Section Title Start -->
-                    <div class="section-title">
-                        <span class="section-sub-title wow fadeInUp">Our Approach</span>
-                        <h2 class="text-anime-style-2" data-cursor="-opaque">A Strategic Approach to Real Estate Partnerships</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.2s">At i3 Realtors, we follow a structured approach that combines market intelligence, strategic marketing, and strong developer relationships to ensure every project receives the right visibility and positioning it deserves.</p>
-                        <p class="wow fadeInUp" data-wow-delay="0.3s">Our goal is to build long-term partnerships with developers and investors by delivering consistent results and transparent collaboration.</p>
-                    </div>
-                    <!-- Section Title End -->
-
-                    <!-- Our Approach Item Box Start -->
-                    <div class="approach-item-box">
-                        <!-- Our Approach Item Start -->
-                        <div class="approach-item wow fadeInUp">
-                            <div class="icon-box">
-                                <img src="{{ asset('images/icon-approach-item-1.svg') }}" alt="">
-                            </div>
-                            <div class="approach-item-content">
-                                <h3>Our Mission</h3>
-                                <p>To empower developers and investors by creating structured real estate opportunities that deliver long-term growth, transparency, and strategic value.</p>
-                            </div>
-                        </div>
-                        <!-- Our Approach Item End -->
-
-                        <!-- Our Approach Item Start -->
-                        <div class="approach-item wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="icon-box">
-                                <img src="{{ asset('images/icon-approach-item-2.svg') }}" alt="">
-                            </div>
-                            <div class="approach-item-content">
-                                <h3>Our Vision</h3>
-                                <p>To become a trusted mandate partner for developers across India, providing strategic real estate consulting that drives successful project outcomes.</p>
-                            </div>
-                        </div>
-                        <!-- Our Approach Item End -->
-
-                        <!-- Our Approach Item Start -->
-                        <div class="approach-item wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="icon-box">
-                                <img src="{{ asset('images/icon-approach-item-3.svg') }}" alt="">
-                            </div>
-                            <div class="approach-item-content">
-                                <h3>Our Values</h3>
-                                <p>Integrity, professionalism, and accountability guide everything we do. We believe in building long-term relationships based on trust, transparency, and consistent performance.</p>
-                            </div>
-                        </div>
-                        <!-- Our Approach Item End -->
-                    </div>
-                    <!-- Our Approach Item Box End -->
-                </div>
-                <!-- Our Approach Content End -->
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Our Approach Section End -->
 
 <!-- Our History Section Start -->
 <div class="our-history">
